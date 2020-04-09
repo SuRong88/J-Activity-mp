@@ -1,0 +1,147 @@
+.tabbar {
+    width: 100%;
+    /* height: 110rpx; */
+    height: 120rpx;
+    padding-bottom: 18rpx;
+    border-top: 1rpx solid #EEEEEE;
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+}
+
+.tabbar-item {
+    height: 100%;
+}
+
+.tabbar-item-inner {
+    text-align: center;
+}
+
+.tabbar-item-icon {
+    width: 54rpx;
+    height: 54rpx;
+    margin-bottom: 10rpx;
+    position: relative;
+}
+
+.tabbar-item-icon  .icon-publish{
+    width: 114rpx;
+    height: 114rpx;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tabbar-item-txt {
+    font-weight: 700;
+    font-size: 22rpx;
+    color: #999;
+}
+
+.tabbar-item.active .tabbar-item-icon {}
+
+.tabbar-item.active .tabbar-item-txt {
+    color: #333;
+}
+
+/* 通用 */
+
+.flex {
+    display: -webkit-flex;
+    display: flex;
+}
+
+/* 宽度随屏幕改变变化 */
+.flex-1 {
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+/* 垂直水平居中 */
+.flex-center {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+    -webkit-align-items: center;
+}
+
+.flex-start {
+    align-items: flex-start;
+    -webkit-align-items: flex-start;
+}
+
+/* 水平居中 */
+.flex-align-center {
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+/* 垂直居中 */
+.flex-ver {
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.flex-end {
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+}
+
+/* flex 换行 */
+.flex-wrap {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+/* flex 容器（设置为flex）内子元素向两边顶齐平分 */
+.flex-jcsb {
+    justify-content: space-between;
+}
+
+
+/* 容器（设置为flex）内子元素靠最后对齐（水平时比较像右浮动） */
+.flex-jcfe {
+    justify-content: flex-end;
+}
+
+/* 容器（设置为flex）内子元素靠最前对齐（水平时比较像左浮动） */
+.flex-jcfs {
+    justify-content: flex-start;
+}
+
+/* 容器（设置为flex）内子元素等高 */
+.flex-ais {
+    align-items: stretch;
+}
+
+/* 容器（设置为flex）内子元素置底 */
+.flex-aife {
+    align-items: flex-end;
+}
+
+
+/* flex 纵向 */
+.flex-col {
+    -webkit-flex-flow: column;
+    flex-flow: column;
+}
+
+.flex-row {
+    -webkit-flex-flow: row;
+    flex-flow: row;
+}
+
+.flex-sb {
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+.flex-sa {
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+}

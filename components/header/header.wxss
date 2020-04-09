@@ -1,0 +1,191 @@
+/* 所有需要 */
+.header.header-test {
+    background-color: #ff5777;
+}
+
+/* 某些页面header可能需要隐藏"占位空间" */
+.header-padding-space {}
+
+/* 头部 */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 34rpx;
+    text-align: center;
+    z-index: 999;
+    background: rgba(252, 127, 3, 1);
+    color: #333;
+}
+
+.header-main {
+    position: relative;
+}
+
+.header .title {
+    margin: 0 auto;
+    font-size: 32rpx;
+    color: #fff;
+    font-weight: 400;
+}
+
+/* 导航返回按钮 */
+.back-icon-box {
+    padding-left: 40rpx;
+    /* width: 108rpx; */
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.back-icon {
+    width: 24rpx;
+    height: 24rpx;
+    border: solid #fff;
+    border-width: 4rpx 4rpx 0 0;
+    transform: rotate(-135deg);
+    margin-right: 12rpx;
+}
+
+.back-txt {
+    font-size:32rpx;
+    color:rgba(255,255,255,1);
+}
+
+.home-icon-box {
+    position: absolute;
+    top: 50%;
+    left: 20rpx;
+    transform: translateY(-50%);
+}
+
+.icon-home {
+    width: 55rpx;
+    height: 48rpx;
+
+}
+
+.me-icon-box {
+    position: absolute;
+    top: 50%;
+    left: 20rpx;
+    width: 48rpx;
+    height: 48rpx;
+    transform: translateY(-50%);
+}
+
+.icon-me {
+    width: 32rpx;
+    height: 48rpx;
+    display: block;
+}
+
+.logo-box{
+    position: absolute;left: 60rpx;bottom: 14rpx;
+    z-index: 99;
+}
+
+.logo{
+   width: 132rpx;
+   height: 68rpx;
+}
+/* 通用 */
+
+.flex {
+    display: -webkit-flex;
+    display: flex;
+}
+
+/* 宽度随屏幕改变变化 */
+.flex-1 {
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+/* 垂直水平居中 */
+.flex-center {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+    -webkit-align-items: center;
+}
+
+.flex-start {
+    align-items: flex-start;
+    -webkit-align-items: flex-start;
+}
+
+/* 水平居中 */
+.flex-align-center {
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+/* 垂直居中 */
+.flex-ver {
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.flex-end {
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+}
+
+/* flex 换行 */
+.flex-wrap {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+/* flex 容器（设置为flex）内子元素向两边顶齐平分 */
+.flex-jcsb {
+    justify-content: space-between;
+}
+
+
+/* 容器（设置为flex）内子元素靠最后对齐（水平时比较像右浮动） */
+.flex-jcfe {
+    justify-content: flex-end;
+}
+
+/* 容器（设置为flex）内子元素靠最前对齐（水平时比较像左浮动） */
+.flex-jcfs {
+    justify-content: flex-start;
+}
+
+/* 容器（设置为flex）内子元素等高 */
+.flex-ais {
+    align-items: stretch;
+}
+
+/* 容器（设置为flex）内子元素置底 */
+.flex-aife {
+    align-items: flex-end;
+}
+
+
+/* flex 纵向 */
+.flex-col {
+    -webkit-flex-flow: column;
+    flex-flow: column;
+}
+
+.flex-row {
+    -webkit-flex-flow: row;
+    flex-flow: row;
+}
+
+.flex-sb {
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+.flex-sa {
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+}

@@ -1,0 +1,6 @@
+<view class="container">
+    <mp-header cln="'header'" title="资源库"></mp-header>
+    <view class="content">
+    </view>
+    <mp-tabbar tabbarIndex="2"></mp-tabbar>
+</view>

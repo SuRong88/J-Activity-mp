@@ -1,0 +1,341 @@
+/**app.wxss**/
+page {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    line-height: 1;
+    word-break: break-all;
+    font-size: 24rpx;
+    color: #333;
+    background-color: #fff;
+    min-height: 100%;
+    box-sizing: border-box;
+    font-family: PingFangSC-Medium, Microsoft YaHei, arial, tahoma, '\5fae\8f6f\96c5\9ed1', 'Hiragino Sans GB', sans-serif !important;
+
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.container {
+    height: 100%;
+}
+
+.wrapper {
+    width: 94%;
+    margin: 0 auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.text-l {
+    text-align: left;
+}
+
+.text-r {
+    text-align: right;
+}
+
+.text-c {
+    text-align: center;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+button::after {
+    border: none;
+}
+
+image {
+    vertical-align: middle;
+}
+
+/*****************************/
+
+
+/* */
+view,
+text,
+button,
+input {
+    font-family: -apple-system-font, Helvetica Neue, Helvetica, STHeiTi, sans-serif;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    background: none;
+    font-size: 24rpx;
+    line-height: 1;
+    border-radius: 0;
+    overflow: visible;
+    -webkit-tap-highlight:transparent;
+}
+
+button::after {
+    border: none;
+}
+
+/*fixed*/
+.fixed-bottom {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 300;
+    background: #fff;
+}
+
+.fixed-top {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    background: #fff;
+}
+
+
+.hide {
+    display: none !important;
+}
+
+.green {
+    color: #1fb922;
+}
+
+.gray {
+    color: #666;
+}
+
+.g9 {
+    color: #999;
+}
+
+.red {
+    color: #eb3b3b;
+}
+
+.bold,
+.fw {
+    font-weight: bold;
+}
+
+/* 通用 */
+
+.flex {
+    display: -webkit-flex;
+    display: flex;
+}
+
+/* 宽度随屏幕改变变化 */
+.flex-1 {
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+/* 垂直水平居中 */
+.flex-center {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+    -webkit-align-items: center;
+}
+
+.flex-start {
+    align-items: flex-start;
+    -webkit-align-items: flex-start;
+}
+
+/* 水平居中 */
+.flex-align-center {
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+/* 垂直居中 */
+.flex-ver {
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.flex-end {
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+}
+
+/* flex 换行 */
+.flex-wrap {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+/* flex 容器（设置为flex）内子元素向两边顶齐平分 */
+.flex-jcsb {
+    justify-content: space-between;
+}
+
+
+/* 容器（设置为flex）内子元素靠最后对齐（水平时比较像右浮动） */
+.flex-jcfe {
+    justify-content: flex-end;
+}
+
+/* 容器（设置为flex）内子元素靠最前对齐（水平时比较像左浮动） */
+.flex-jcfs {
+    justify-content: flex-start;
+}
+
+/* 容器（设置为flex）内子元素等高 */
+.flex-ais {
+    align-items: stretch;
+}
+
+/* 容器（设置为flex）内子元素置底 */
+.flex-aife {
+    align-items: flex-end;
+}
+
+
+/* flex 纵向 */
+.flex-col {
+    -webkit-flex-flow: column;
+    flex-flow: column;
+}
+
+.flex-row {
+    -webkit-flex-flow: row;
+    flex-flow: row;
+}
+
+.flex-sb {
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+.flex-sa {
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+}
+
+
+/* 省略 */
+.ell {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* 多行省略 */
+/* 需要设定相应行数的高度 */
+.line-clamp-1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+/* 显示2行 */
+.line-2 {
+    -webkit-line-clamp: 2;
+}
+
+/* 显示3行 */
+.line-3 {
+    -webkit-line-clamp: 3;
+}
+
+/* 显示4行 */
+.line-4 {
+    -webkit-line-clamp: 4;
+}
+
+/* 显示5行 */
+.line-5 {
+    -webkit-line-clamp: 5;
+}
+
+
+/* 自定义头部 */
+.header {
+    top: 0;
+    left: 0;
+    height: 88rpx;
+    position: fixed;
+    width: 100%;
+    /* overflow: hidden; */
+    background:rgba(252,127,3,1);
+    display: flex;
+    align-items: center;
+    z-index: 99;
+}
+
+.header-content {
+    position: relative;
+}
+
+.header-back {
+    position: absolute;
+    left: 46rpx;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header-icon-back {
+    width: 42rpx;
+    height: 42rpx;
+}
+
+.header-title {
+    font-size: 34rpx;
+    color: #030303;
+    font-weight: 700;
+    position: relative;
+    z-index: 999;
+}
+.no-result{
+    line-height: 400rpx;
+    text-align: center;
+    /* font-size: 24rpx; */
+    font-size: 30rpx; 
+    color: #030303;
+    padding-bottom: 20rpx;
+}
+.last-page{
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #030303;
+    padding-bottom: 20rpx;
+}
+/* popBox自定义弹窗样式 */
+/* @import "components/popBox/popBox.wxss"; */

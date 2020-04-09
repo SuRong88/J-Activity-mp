@@ -1,0 +1,188 @@
+@import "../../app.wxss";
+/**************自定义弹窗****************/
+.popBox {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgba(0, 0, 0, .6);
+    font-family: PingFangSC-Regular;
+}
+
+.popBox form {
+    width: 76%;
+}
+
+.popBox .pop {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.pop_close {
+    position: absolute;
+    z-index: 200;
+    right: 36rpx;
+    top: 36rpx;
+    width: 32rpx;
+    height: 32rpx;
+}
+
+.pop_tit {
+    box-sizing: border-box;
+    width: 100%;
+    color: #333;
+    font-size: 36rpx;
+    letter-spacing: 2rpx;
+    padding: 60rpx 40rpx;
+    text-align: center;
+}
+
+.pop_con {
+    min-height: 170rpx;
+    box-sizing: border-box;
+    max-height: 50vh;
+    overflow-y: scroll;
+    padding: 0rpx 34rpx 20rpx;
+    width: 100%;
+    font-size: 30rpx;
+    color: #555555;
+    line-height: 48rpx;
+}
+
+.pop_con .tip {
+    color: #333;
+    font-size: 36rpx;
+    line-height: 50rpx;
+    padding: 40rpx 0;
+    text-align: center;
+}
+
+.pop_btnBox {
+    align-items: center;
+    border-top: 2rpx solid #f5f5f5;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+.pop_btn {
+    border-radius: 0 !important;
+    box-sizing: border-box;
+    font-size: 36rpx;
+    height: 0;
+    line-height: 0;
+    flex: 1;
+    padding: 45rpx 0rpx !important;
+    position: relative;
+    text-align: center;
+}
+
+.pop_btn.cancel {
+    border: none;
+    color: #666;
+}
+
+.pop_btn.cancel:before {
+    background-color: #f5f5f5;
+    content: '';
+    margin: auto;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 2rpx;
+    height: 90rpx;
+}
+
+.pop_btn.submit {
+    border: none;
+    color: #FC7F03;
+}
+
+.pop_btn:active {
+    /* background-color: #D2D3D5; */
+}
+
+.captcha-popBox .pop_tit {
+    padding: 50rpx 34rpx 40rpx;
+    font-size: 32rpx;
+    letter-spacing: 0rpx;
+}
+
+/* 用户协议 */
+.agreement-popBox.popBox form {
+    width: 89%;
+}
+
+.agreement-popBox.popBox .pop_con {
+    padding: 4rpx 46rpx 0rpx;
+    margin-bottom: 20rpx;
+}
+
+.agreement-popBox.popBox .pop_btnBox {
+    border: 0;
+}
+
+.agreement-popBox.popBox .pop_btnBox::before {
+    content: "";
+    width: 522rpx;
+    height: 2rpx;
+    background-color: #f5f5f5;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.agreement-popBox.popBox .pop_btn {
+    padding: 50rpx 0rpx !important;
+}
+
+/* 用户协议end */
+
+/* 确认派单 */
+.order-popBox.popBox form {
+    width: 89%;
+}
+
+.order-popBox.popBox .pop_con {
+    padding: 0rpx 40rpx 0rpx;
+    margin-top: 38rpx;
+    margin-bottom: 60rpx;
+}
+
+.order-popBox.popBox .pop_btnBox {
+    border: 0;
+}
+
+.order-popBox.popBox .pop_btnBox::before {
+    content: "";
+    width: 522rpx;
+    height: 2rpx;
+    background-color: #f5f5f5;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.order-popBox.popBox .pop_btn {
+    padding: 50rpx 0rpx !important;
+}
+
+/* 确认派单end */

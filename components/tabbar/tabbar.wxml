@@ -1,0 +1,42 @@
+<!--使用tabbar的页面,wxss设置.container的padding-bottom -->
+<view class="tabbar flex flex-ver {{cln}}">
+    <!-- 服务商 -->
+    <block wx:if="{{tabbarType==1}}">
+        <view wx:for="{{tabbarList}}" wx:key="index" class="tabbar-item flex flex-center flex-1 {{tabbarIndex == index?'active':''}}"
+            bindtap="base_jump" data-url="{{item.pagePath}}" data-type="redirect">
+            <view class="tabbar-item-inner">
+                <image class="tabbar-item-icon" mode="aspectFit" src="{{tabbarIndex==index?item.selectedIconPath:item.iconPath}}"></image>
+                <view class="tabbar-item-txt">{{item.text}}</view>
+            </view>
+        </view>
+    </block>
+    <!-- 商家 -->
+    <block wx:else>
+        <block wx:for="{{tabbarList}}" wx:key="index">
+            <view wx:if="{{index<=1}}" class="tabbar-item flex flex-center flex-1 {{tabbarIndex == index?'active':''}}"
+                bindtap="base_jump" data-url="{{item.pagePath}}" data-type="redirect">
+                <view class="tabbar-item-inner">
+                    <image class="tabbar-item-icon" mode="aspectFit" src="{{tabbarIndex==index?item.selectedIconPath:item.iconPath}}"></image>
+                    <view class="tabbar-item-txt">{{item.text}}</view>
+                </view>
+            </view>
+        </block>
+        <view class="tabbar-item flex flex-center flex-1" bindtap="base_jump" data-url="/pages/index/index" data-type="redirect">
+            <view class="tabbar-item-inner">
+                <view class="tabbar-item-icon">
+                    <image class="icon-publish" mode="aspectFit" src="../../images/tabbar/icon-publish.png"></image>
+                </view>
+                <view class="tabbar-item-txt">发布</view>
+            </view>
+        </view>
+        <block wx:for="{{tabbarList}}" wx:key="index">
+            <view wx:if="{{index>1}}" class="tabbar-item flex flex-center flex-1 {{tabbarIndex == index?'active':''}}"
+                bindtap="base_jump" data-url="{{item.pagePath}}" data-type="redirect">
+                <view class="tabbar-item-inner">
+                    <image class="tabbar-item-icon" mode="aspectFit" src="{{tabbarIndex==index?item.selectedIconPath:item.iconPath}}"></image>
+                    <view class="tabbar-item-txt">{{item.text}}</view>
+                </view>
+            </view>
+        </block>
+    </block>
+</view>

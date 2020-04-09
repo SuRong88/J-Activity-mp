@@ -1,0 +1,92 @@
+<view class="container">
+    <mp-header cln="'header'" title=""></mp-header>
+    <view class="content">
+        首页
+        <!-- 确认订单 -->
+        <mp-popBox cln="'order-popBox'" showTitle="{{false}}" showContent bind:confirm='confirmHandle' bind:cancel='cancelHandle'
+            showCancel='{{false}}' confirmText="确认派单">
+            <view class="order-list">
+                <view wx:for="{{5}}" class="order-item flex">
+                    <view class="item-l flex flex-ver">
+                        <image class="item-icon" src="/images/activity/test.png" mode="aspectFit"></image>
+                    </view>
+                    <view class="item-r flex-1">
+                        <view class="item-tit">
+                            胡诗琪
+                        </view>
+                        <view class="item-info item-name">
+                            <text class="label">姓名：</text>
+                            <text class="value">胡诗琪</text>
+                        </view>
+                        <view class="item-info item-id">
+                            <text class="label">身份证号：</text>
+                            <text class="value">441881199604133949</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </mp-popBox>
+        <!-- 确认订单 end-->
+        <!-- 确认验收 -->
+        <mp-popBox cln="'order-popBox'" showTitle="{{false}}" showContent bind:confirm='confirmHandle' bind:cancel='cancelHandle'
+            showCancel='{{false}}' confirmText="确认验收">
+            <view class="order-list">
+                <view wx:for="{{5}}" class="order-item flex">
+                    <view class="item-r flex-1">
+                        <view class="item-tit">
+                            胡诗琪
+                            <text class="price">¥800.00</text>
+                        </view>
+                        <view class="item-info item-name">
+                            <text class="label">姓名：</text>
+                            <text class="value">胡诗琪</text>
+                        </view>
+                        <view class="item-info item-id">
+                            <text class="label">身份证号：</text>
+                            <text class="value">441881199604133949</text>
+                        </view>
+                        <view class="item-info item-phone">
+                            <text class="label">手机号：</text>
+                            <text class="value">15014759855</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </mp-popBox>
+        <!-- 确认验收 end-->
+        <!-- 用户协议 -->
+        <mp-popBox wx:if="{{false}}" cln="'agreement-popBox'" title="《用户服务协议》" showContent bind:confirm='confirmHandle'
+            bind:cancel='cancelHandle' showCancel='{{false}}' confirmText="知道了">
+            <view class="text-j">
+                <text>一、特别提示\n在此特别提醒您（用户）在注册成为J活动用户之前，请认真阅读本《J活动用户服务协议》
+                    （以下简称“协议”），确保您充分理解本协议中各条款。请您审慎阅读并选择接受或不接受本协议。除非您接受本协议所有条款，否则您无权注册、登录或使用本协议所涉服务。您的登录、使用等行为将视为对本协议的接受，并同意接受本协议各项条款的约束。\n
+                    二、账号注册\n1、鉴于J活动账号的绑定注册方式，您同意临J活动在注册时将允许您的手机号码及手机 设备识别码等信息用于注册。")</text>
+            </view>
+        </mp-popBox>
+        <!-- 用户协议 end -->
+        <!-- 移除服务商 -->
+        <mp-popBox wx:if="{{false}}" title="您确定移除该服务商吗？" bind:confirm='confirmHandle' bind:cancel='cancelHandle'
+            confirmText="移除">
+            <view class="text-j">
+                <text>一、特别提示\n在此特别提醒您（用户）在注册成为J活动用户之前，请认真阅读本《J活动用户服务协议》
+                    （以下简称“协议”），确保您充分理解本协议中各条款。请您审慎阅读并选择接受或不接受本协议。除非您接受本协议所有条款，否则您无权注册、登录或使用本协议所涉服务。您的登录、使用等行为将视为对本协议的接受，并同意接受本协议各项条款的约束。\n
+                    二、账号注册\n1、鉴于J活动账号的绑定注册方式，您同意临J活动在注册时将允许您的手机号码及手机 设备识别码等信息用于注册。")</text>
+            </view>
+        </mp-popBox>
+        <!-- 移除服务商 end-->
+        <!-- 图形验证码 -->
+        <mp-popBox wx:if="{{false}}" cln="'captcha-popBox'" title="图形验证码" showContent bind:confirm='confirmHandle'
+            bind:cancel='cancelHandle' confirmText="确认">
+            <view class="captcha-box">
+                <view class="box-main flex flex-ver">
+                    <input class="captcha-enter flex-1" placeholder="请输入右侧验证码" placeholder-class="captcha-enter-placeholder"
+                        type="text" maxlength="4" />
+                    <image class="captcha-img" src="/images/login/img13.png" mode="aspectFit"></image>
+                </view>
+                <text class="tip">图形验证码不正确</text>
+            </view>
+        </mp-popBox>
+        <!-- 图形验证码 end -->
+    </view>
+    <mp-tabbar tabbarIndex="0"></mp-tabbar>
+</view>

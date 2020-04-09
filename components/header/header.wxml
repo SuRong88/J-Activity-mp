@@ -1,0 +1,55 @@
+<view class="header {{cln}}" id="head" style="padding-top:{{headBarHeight}}rpx;">
+    <view class="header-main flex flex-ver" style="height: {{padHeight-headBarHeight}}rpx;">
+        <!-- open-type=""是否“switchTab”取决于url是否是自带tabbar的某一项 -->
+        <!-- 显示个人中心按钮 -->
+        <block wx:if="{{isMe}}">
+            <navigator url="/pages/me/index/index" open-type="redirect" hover-class="none" class="me-icon-box flex flex-center">
+                <image src="/images/icons/me-icon.png" mode="aspectFit" class="icon-me"></image>
+            </navigator>
+        </block>
+        <!-- 显示首页按钮 -->
+        <!-- showHome && isHome -->
+        <block wx:elif="{{showHome}}">
+            <navigator url="/pages/index/index" open-type="reLaunch" hover-class="none" class="home-icon-box flex flex-center">
+                <image src="/images/icons/home-icon.png" mode="aspectFit" class="icon-home"></image>
+            </navigator>
+        </block>
+        <!--自定义返回事件-->
+        <block wx:elif="{{!isHome && custom}}">
+            <view class="back-icon-box flex flex-center" bindtap="customTrigger">
+                <text class="back-icon"></text>
+                <text class="back-txt">返回</text>
+            </view>
+        </block>
+        <!-- 显示返回按钮 -->
+        <block wx:elif="{{!isHome && showBack}}">
+            <navigator open-type="navigateBack" delta="1" hover-class="none" class="back-icon-box flex flex-align-center flex-ver">
+                <text class="back-icon"></text>
+                <text class="back-txt">返回</text>
+            </navigator>
+        </block>
+        <!-- 显示logo -->
+        <block wx:else>
+            <navigator url="/pages/index/index" hover-class="none" class="logo-box">
+               <image src="/images/header/logo.png" mode="aspectFit" class="logo"></image>
+            </navigator>
+        </block>
+        <view class="title">{{title}}</view>
+    </view>
+</view>
+<!-- 空白占位 与头部的高度一样 -->
+<view class="header-padding-space" style="padding-top:{{padHeight}}rpx;"></view>
+
+
+<!-- 1.使用 app.json引入组件 -->
+<!-- 2.页面内书写 -->
+<!-- 普通 不带返回按钮 -->
+<!-- <mp-header cln="'class-name'" title="自定义头部标题"></mp-header> -->
+<!-- 普通 带返回按钮 -->
+<!-- <mp-header cln="'class-name'" title="自定义头部标题" showBack isHome="{{isHome}}"></mp-header> -->
+<!-- 自定义返回事件 -->
+<!-- <mp-header cln="'class-name'" title="自定义头部标题" bind:back="backHandle" custom showBack isHome="{{isHome}}"></mp-header> -->
+<!-- 显示“首页按钮” -->
+<!-- <mp-header cln="'class-name'" title="自定义头部标题" showHome></mp-header> -->
+<!-- 显示“个人中心”按钮 -->
+<!-- <mp-header title="自定义头部标题" cln="'header-test'" isMe></mp-header> -->

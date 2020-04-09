@@ -1,0 +1,6 @@
+<view class="container">
+    <mp-header isHome="{{isHome}}" showBack cln="'header'" title="接活动"></mp-header>
+    <view class="content">
+    </view>
+    <mp-tabbar tabbarIndex="1"></mp-tabbar>
+</view>

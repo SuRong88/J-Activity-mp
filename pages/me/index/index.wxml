@@ -1,0 +1,6 @@
+<view class="container">
+    <mp-header cln="'header'" title="我的"></mp-header>
+    <view class="content">
+    </view>
+    <mp-tabbar tabbarIndex="3"></mp-tabbar>
+</view>

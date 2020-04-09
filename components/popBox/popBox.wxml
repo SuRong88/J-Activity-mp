@@ -1,0 +1,17 @@
+<!--自定义弹窗-->
+<view class='popBox {{cln}}'>
+    <form bindsubmit='confirmHandle' bindreset='cancelHandle'>
+        <view class='pop'>
+            <view wx:if="{{showTitle}}" class="pop_tit">
+                {{title}}
+            </view>
+            <view wx:if="{{showContent}}" class='pop_con'>
+                <slot></slot>
+            </view>
+            <view class='pop_btnBox'>
+                <button wx:if='{{showCancel}}' formType="reset" plain='true' class='pop_btn cancel'>{{cancelText}}</button>
+                <button formType="submit" plain='true' class='pop_btn submit'>{{confirmText}}</button>
+            </view>
+        </view>
+    </form>
+</view>
