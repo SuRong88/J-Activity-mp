@@ -77,6 +77,7 @@ text,
 button,
 input {
     font-family: -apple-system-font, Helvetica Neue, Helvetica, STHeiTi, sans-serif;
+    box-sizing: border-box;
 }
 
 button {
@@ -87,7 +88,7 @@ button {
     line-height: 1;
     border-radius: 0;
     overflow: visible;
-    -webkit-tap-highlight:transparent;
+    -webkit-tap-highlight: transparent;
 }
 
 button::after {
@@ -248,6 +249,13 @@ button::after {
 
 /* 多行省略 */
 /* 需要设定相应行数的高度 */
+.line-hide {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
 .line-clamp-1 {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -262,6 +270,11 @@ button::after {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+}
+
+/* 显示1行 */
+.line-1 {
+    -webkit-line-clamp: 1;
 }
 
 /* 显示2行 */
@@ -293,7 +306,7 @@ button::after {
     position: fixed;
     width: 100%;
     /* overflow: hidden; */
-    background:rgba(252,127,3,1);
+    background: rgba(252, 127, 3, 1);
     display: flex;
     align-items: center;
     z-index: 99;
@@ -322,20 +335,50 @@ button::after {
     position: relative;
     z-index: 999;
 }
-.no-result{
+
+.no-result {
     line-height: 400rpx;
     text-align: center;
     /* font-size: 24rpx; */
-    font-size: 30rpx; 
+    font-size: 30rpx;
     color: #030303;
     padding-bottom: 20rpx;
 }
-.last-page{
+
+.last-page {
     line-height: 80rpx;
     text-align: center;
     font-size: 24rpx;
     color: #030303;
     padding-bottom: 20rpx;
 }
+
 /* popBox自定义弹窗样式 */
 /* @import "components/popBox/popBox.wxss"; */
+
+/* 本项目公用按钮 */
+.common-btn {
+    width: 606rpx;
+    line-height: 90rpx;
+    background: rgba(252, 127, 3, 1);
+    border-radius: 45rpx;
+    font-size: 32rpx;
+    color: rgba(255, 255, 255, 1);
+    position: fixed;
+    bottom: 64rpx;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+.common-btn2 {
+    width: 100vw;
+    line-height: 100rpx;
+    background: rgba(252, 127, 3, 1);
+    font-size: 32rpx;
+    color: rgba(255, 255, 255, 1);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}

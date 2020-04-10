@@ -7,6 +7,12 @@ function check_null(value) {
     return reg.test(value);
 }
 
+//检测图形验证码
+function check_code(value) {
+    let reg = new RegExp(/^([0-9]{4})$/);
+    return reg.test(value);
+}
+
 //检测手机
 function check_phone(value) {
     let reg = new RegExp(/^(1\d{10})$/);
@@ -109,6 +115,7 @@ function check_emoji(value) {
 }
 module.exports = {
     check_null,
+    check_code,
     check_phone,
     check_tel,
     check_telphone,

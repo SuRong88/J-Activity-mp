@@ -1,0 +1,73 @@
+<view class="container">
+    <mp-header showTitle="{{false}}"></mp-header>
+    <view class="content">
+        <!-- 启动 -->
+        <view wx:if="{{loading}}" class="loading-part">
+            启动页
+        </view>
+        <!-- 登录 -->
+        <view wx:else class="login-part">
+            <view class="login-hd">
+                <image class="hd-img" src="/images/login/bg01.png"></image>
+            </view>
+            <view class="login-bd">
+                <view class="login-box">
+                    <view class="login-item flex flex-ver">
+                        <view class="icon-box">
+
+                            <image class="item-icon" src="/images/login/icon18.png"></image>
+                        </view>
+                        <input bindinput="inputPhone" placeholder="请输入手机号码" placeholder-class="enter-placeholder" class="item-enter flex-1"
+                            type="text" />
+                    </view>
+                    <view class="login-item flex flex-ver">
+                        <view class="icon-box">
+
+                            <image class="item-icon" src="/images/login/icon19.png"></image>
+                        </view>
+                        <input bindinput="inputCode" placeholder="请输入验证码" placeholder-class="enter-placeholder" class="item-enter flex-1"
+                            type="text" />
+                        <view bindtap="sendCode" class="send-btn">
+                            发送验证码
+                        </view>
+                    </view>
+                    <view class="agreement flex flex-ver">
+                        <view class="icon-box" bindtap="agreementToggle">
+
+                            <image class="agreement-icon" src="{{isAgree?'/images/login/icon20_sel.png':'/images/login/icon20.png'}}"></image>
+                        </view>
+                        <view class="read-box">
+                            我已阅读并同意<text bindtap="showAgreement" data-index="0" class="agreement-txt">《用户服务协议》</text>好的
+                            <text bindtap="showAgreement" data-index="1" class="agreement-txt">《隐私协议》</text>
+                        </view>
+                    </view>
+                </view>
+                <view bindtap="confirmLogin" class="common-btn login-btn">
+                    立即登录
+                </view>
+            </view>
+        </view>
+
+        <!-- 图形验证码 -->
+        <mp-popBox wx:if="{{show1}}" cln="'captcha-popBox'" title="图形验证码" showContent bind:confirm='confirmCaptcha'
+            bind:cancel='cancelCaptcha' confirmText="确认">
+            <view class="captcha-box">
+                <view class="box-main flex flex-ver">
+                    <input bindinput="inputCaptcha" class="captcha-enter flex-1" placeholder="请输入右侧验证码" placeholder-class="captcha-enter-placeholder"
+                        type="text" maxlength="4" />
+                    <image class="captcha-img" src="/images/login/img13.png" mode="aspectFit"></image>
+                </view>
+                <text class="tip">{{tips[tipIndex]}}</text>
+            </view>
+        </mp-popBox>
+        <!-- 图形验证码 end-->
+        <!-- 用户协议 -->
+        <mp-popBox wx:if="{{show2}}" cln="'agreement-popBox'" title="{{agreementList[agreementIndex].title}}"
+            showContent bind:confirm='closeAgreement' showCancel='{{false}}' confirmText="知道了">
+            <view class="text-j">
+                <text>{{agreementList[agreementIndex].txt}}</text>
+            </view>
+        </mp-popBox>
+        <!-- 用户协议 end -->
+    </view>
+</view>

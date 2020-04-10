@@ -1,7 +1,11 @@
 {
     "pages": [
+        "pages/login/index",
         "pages/index/index",
+        "pages/test/test",
         "pages/activity/index/index",
+        "pages/enterprise/index/index",
+        "pages/enterprise/detail/detail",
         "pages/resource/index/index",
         "pages/me/index/index"
     ],

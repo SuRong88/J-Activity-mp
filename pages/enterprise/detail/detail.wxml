@@ -1,0 +1,6 @@
+<view class="container">
+    <mp-header isHome="{{isHome}}" showback cln="'header'" title="企业详情"></mp-header>
+    <view class="content">
+        <view class=""></view>
+    </view>
+</view>

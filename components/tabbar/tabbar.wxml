@@ -24,7 +24,7 @@
         <view class="tabbar-item flex flex-center flex-1" bindtap="base_jump" data-url="/pages/index/index" data-type="redirect">
             <view class="tabbar-item-inner">
                 <view class="tabbar-item-icon">
-                    <image class="icon-publish" mode="aspectFit" src="../../images/tabbar/icon-publish.png"></image>
+                    <image class="icon-publish" mode="aspectFit" src="/images/tabbar/icon-publish.png"></image>
                 </view>
                 <view class="tabbar-item-txt">发布</view>
             </view>

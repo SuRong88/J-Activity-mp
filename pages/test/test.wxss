@@ -1,0 +1,98 @@
+/* 图形验证码 */
+.captcha-box {}
+
+.captcha-box .box-main {
+    margin-bottom: 20rpx;
+}
+
+.captcha-box .box-main .captcha-enter {
+    height: 84rpx;
+    margin-right: 110rxp;
+    background: rgba(243, 243, 243, 1);
+    border-radius: 8rpx;
+    font-size: 30rpx;
+    color: #333;
+    padding-left: 28rpx;
+}
+
+.captcha-box .box-main .captcha-enter .captcha-enter-placeholder {
+    color: rgba(153, 153, 153, 1);
+}
+
+.captcha-box .box-main .captcha-img {
+    width: 170rpx;
+    height: 72rpx;
+    flex-shrink: 0;
+}
+
+.captcha-box .tip {
+    padding-left: 12rpx;
+    font-size: 24rpx;
+    color: rgba(224, 32, 32, 1);
+}
+
+/* 图形验证码 end*/
+
+/* 确认订单 */
+.order-list {}
+
+.order-item {
+    padding: 30rpx 0 26rpx;
+    border-bottom: 2rpx solid #F9F9F9;
+}
+
+.order-item:last-child {
+    border: 0;
+}
+
+.order-item .item-l {
+    height: 44rpx;
+    margin-right: 26rpx;
+    flex-shrink: 0;
+}
+
+.order-item .item-l .item-icon {
+    width: 32rpx;
+    height: 32rpx;
+}
+
+.order-item .item-r {}
+
+.order-item .item-tit {
+    font-size: 32rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    line-height: 44rpx;
+    margin-bottom: 16rpx;
+    position: relative;
+}
+
+.order-item .item-tit .price {
+    font-size: 32rpx;
+    color: rgba(252, 127, 3, 1);
+    position: absolute;
+    top: 50%;
+    right: -10rpx;
+    transform: translateY(-50%);
+}
+
+.order-item .item-info {
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 34rpx;
+    margin-bottom: 10rpx;
+}
+
+.order-item .item-info:last-child {
+    margin-bottom: 0;
+}
+
+.order-item .item-name {}
+
+.order-item .item-info .label {}
+
+.order-item .item-info.value {}
+
+.order-item .item-id {}
+
+/* 确认订单 end*/
