@@ -36,7 +36,9 @@
 
 
 /* 启动 */
-.loading-part{}
+.loading-part{
+    height: 100%;
+}
 /* 登录 */
 .login-part{}
 .login-hd{}

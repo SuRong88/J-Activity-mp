@@ -1,6 +1,6 @@
 /* pages/test/test.wxss */
 .content {
-    padding-bottom: 130rpx;
+    padding-bottom: 30rpx;
     background-color: #fff;
 }
 

@@ -1,5 +1,5 @@
 <view class="container">
-    <mp-header isHome="{{isHome}}" showBack cln="'header'" title=""></mp-header>
+    <mp-header isHome="{{isHome}}" showBack cln="'header'" title="搜索"></mp-header>
     <view class="content">
         <view catchtouchmove="emptyHandle" class="con-hd">
             <view class="search-box flex flex-ver">
@@ -176,5 +176,4 @@
             </view>
         </view>
     </view>
-    <mp-tabbar tabbarIndex="1"></mp-tabbar>
 </view>

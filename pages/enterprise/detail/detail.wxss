@@ -1,1 +1,134 @@
-/* pages/me/index/index.wxss */
+.content {}
+
+/* 头部 */
+.con-hd {
+    padding: 66rpx 40rpx;
+}
+
+.hd-top {
+    font-size: 36rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    line-height: 2;
+    margin-bottom: 40rpx;
+}
+
+.hd-bottom {}
+
+.l-part {}
+
+.l-part .item {
+    margin-bottom: 28rpx;
+}
+
+.l-part .item:last-child {
+    margin-bottom: 0rpx;
+}
+
+.l-part .item-icon {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 28rpx;
+}
+
+.l-part .item-txt {
+    font-size: 26rpx;
+    color: rgba(102, 102, 102, 1);
+    line-height: 36rpx;
+}
+
+.l-part .arrow-icon {
+    width: 20rpx;
+    height: 20rpx;
+    margin-left: 20rpx;
+}
+
+.r-part {}
+
+.part-img {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 10rpx;
+}
+
+/* body */
+.con-bd {}
+
+.box-tit {
+    width: 100vw;
+    font-size: 34rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    line-height: 48rpx;
+    position: relative;
+    padding: 0 0 30rpx 40rpx;
+}
+
+.box-tit .line {
+    margin-left: 30rpx;
+    flex-grow: 1;
+    height: 2rpx;
+    background-color: #F5F5F5;
+}
+
+.box-tit::before {
+    content: "";
+    display: block;
+    width: 12rpx;
+    height: 48rpx;
+    background: rgba(252, 127, 3, 1);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.info-box {
+    font-size: 28rpx;
+    color: rgba(102, 102, 102, 1);
+    line-height: 56rpx;
+    padding-bottom: 68rpx;
+}
+
+.info-box .box-con {
+    padding: 0 40rpx;
+}
+
+.list-box {}
+
+.list-box .box-con {
+    padding: 20rpx 34rpx 50rpx;
+}
+
+.list-item {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 24rpx 0px rgba(238, 237, 237, 1);
+    border-radius: 6rpx;
+    padding: 34rpx 28rpx 32rpx 36rpx;
+    margin-bottom: 20rpx;
+}
+
+.list-item:last-child {
+    margin-bottom: 0;
+}
+
+.item-tit {
+    font-size: 30rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    line-height: 50rpx;
+}
+
+.item-date {
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 40rpx;
+}
+
+.item-r {
+    padding-left: 36rpx;
+}
+
+.item-img {
+    width: 176rpx;
+    height: 176rpx;
+}

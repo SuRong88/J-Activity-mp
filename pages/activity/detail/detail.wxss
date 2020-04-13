@@ -1,0 +1,194 @@
+.content {
+    padding: 48rpx 0rpx 80rpx;
+}
+
+.con-hd {
+    padding: 0 40rpx;
+    border-bottom: 2rpx solid #F5F5F5;
+}
+
+.hd-tit {
+    font-size: 36rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    line-height: 2;
+    margin-bottom: 12rpx;
+}
+
+.hd-status {
+    width: 114rpx;
+    background: rgba(252, 127, 3, 0.2);
+    border-radius: 8rpx;
+    font-size: 24rpx;
+    color: rgba(252, 127, 3, 1);
+    line-height: 42rpx;
+    text-align: center;
+    margin-bottom: 78rpx;
+}
+
+.hd-tab {}
+
+.tab-item {
+    font-size: 32rpx;
+    font-weight: 400;
+    color: rgba(102, 102, 102, 1);
+    line-height: 44rpx;
+    padding-bottom: 20rpx;
+    position: relative;
+    margin-right: 80rpx;
+}
+
+.tab-item:last-child {
+    margin-right: 0;
+}
+
+.tab-item.active {
+    font-weight: 700;
+    color: #333333;
+}
+
+.tab-item.active::after {
+    content: "";
+    display: block;
+    width: 60rpx;
+    height: 8rpx;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(252, 127, 3, 1);
+}
+
+.con-bd {}
+
+.activity-detail {
+    padding: 0 40rpx;
+}
+
+.detail-brief {
+    padding: 64rpx 0 48rpx;
+}
+
+.brief-item {
+    margin-bottom: 30rpx;
+}
+
+.brief-item:last-child {
+    margin-bottom: 0rpx;
+}
+
+.item-icon {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 20rpx;
+}
+
+.item-txt {
+    font-size: 26rpx;
+}
+
+.arrow-icon {
+    width: 20rpx;
+    height: 20rpx;
+    margin-left: 16rpx;
+}
+
+
+/* 活动职位 */
+.activity-job {}
+
+.job-list {
+    padding: 24rpx 0 32rpx;
+}
+
+.job-item {
+    padding: 40rpx 40rpx 28rpx;
+    border-bottom: 2rpx solid #F9F9F9;
+}
+
+.job-item:last-child {
+    border-bottom: 0;
+}
+
+.item-top {
+    margin-bottom: 28rpx;
+}
+
+.item-job-type {
+    font-size: 34rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    line-height: 48rpx;
+}
+
+.item-job-price {
+    font-size: 34rpx;
+    color: rgba(252, 127, 3, 1);
+    line-height: 48rpx;
+}
+
+.item-middle.job-info {}
+
+.info-item {
+    font-size: 28rpx;
+    font-weight: 400;
+    color: rgba(102, 102, 102, 1);
+    line-height: 40rpx;
+    margin-bottom: 20rpx;
+}
+
+.info-item:nth-child(4) {
+    margin-bottom: 6rpx;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.job-content {
+    line-height: 52rpx;
+    height: 52rpx;
+    overflow: hidden;
+    position: relative;
+    padding-right: 60rpx;
+}
+
+.job-content.spread {
+    height: auto;
+}
+
+.job-content.spread .flod-icon {
+    transform: rotate(180deg);
+}
+
+.flod-icon {
+    width: 28rpx;
+    height: 28rpx;
+    position: absolute;
+    right: 0;
+    bottom: 12rpx;
+}
+
+.item-bottom.item-btn-box {
+    padding-top: 20rpx;
+}
+
+.btn {
+    width: 140rpx;
+    line-height: 42rpx;
+    text-align: center;
+    border-radius: 8rpx;
+    font-size: 24rpx;
+}
+
+.btn-cancel {
+    margin-right: 20rpx;
+    border: 2rpx solid rgba(252, 127, 3, 1);
+    color: rgba(252, 127, 3, 1);
+}
+
+.btn-sign-up {
+    color: rgba(255, 255, 255, 1);
+    border: 2rpx solid rgba(255, 255, 255, 1);
+    background-color: rgba(252, 127, 3, 1);
+}
