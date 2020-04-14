@@ -1,5 +1,5 @@
 <view class="container">
-    <mp-header cln="'header'" title="活动详情"></mp-header>
+    <mp-header showBack cln="'header'" title="活动详情"></mp-header>
     <view class="content">
         <view class="con-hd">
             <view class="hd-tit">
@@ -9,69 +9,69 @@
                 招募中
             </view>
             <view class="hd-tab flex">
-                <view class="tab-item active">
-                   活动详情 
+                <view bindtap="switchTab" data-index="0" class="tab-item {{tabIndex==0?'active':''}}">
+                    活动详情
                 </view>
-                <view class="tab-item">
+                <view bindtap="switchTab" data-index="1" class="tab-item {{tabIndex==1?'active':''}}">
                     活动职位
                 </view>
             </view>
         </view>
         <view class="con-bd">
             <!-- 活动详情 -->
-            <view class="activity-detail">
-                
+            <view wx:if="{{tabIndex==0}}" class="activity-detail">
+
                 <view class="detail-brief">
-                   <view class="brief-item flex flex-ver">
-                       <image class="item-icon" src="/images/activity/search.png"></image>
-                       <text class="item-txt">活动编号：2347196198</text>
-                   </view> 
-                   <view class="brief-item flex flex-ver">
-                       <image class="item-icon" src="/images/activity/search.png"></image>
-                       <text class="item-txt">活动时间：2020.05.04-2020.05.04</text>
-                   </view> 
-                   <view class="brief-item flex flex-ver">
-                       <image class="item-icon" src="/images/activity/search.png"></image>
-                       <text class="item-txt">活动地区：广东省广州市海珠区</text>
-                   </view> 
-                   <view class="brief-item flex flex-ver">
-                       <image class="item-icon" src="/images/activity/search.png"></image>
-                       <text class="item-txt">联系方式：联系客服获取联系方式</text>
-                       <image class="arrow-icon" src="/images/index/icon14.png"></image>
-                   </view> 
+                    <view class="brief-item flex flex-ver">
+                        <image class="item-icon" src="/images/activity/event_icon01.png"></image>
+                        <text class="item-txt">活动编号：2347196198</text>
+                    </view>
+                    <view class="brief-item flex flex-ver">
+                        <image class="item-icon" src="/images/activity/event_icon02.png"></image>
+                        <text class="item-txt">活动时间：2020.05.04-2020.05.04</text>
+                    </view>
+                    <view class="brief-item flex flex-ver">
+                        <image class="item-icon" src="/images/activity/event_icon03.png"></image>
+                        <text class="item-txt">活动地区：广东省广州市海珠区</text>
+                    </view>
+                    <view class="brief-item flex flex-ver">
+                        <image class="item-icon" src="/images/activity/event_icon04.png"></image>
+                        <text class="item-txt">联系方式：联系客服获取联系方式</text>
+                        <image class="arrow-icon" src="/images/index/icon14.png"></image>
+                    </view>
                 </view>
                 <view class="detail-con">
                     活动详情富文本
                 </view>
             </view>
             <!-- 活动职位 -->
-            <view class="activity-job job-list">
-               <view wx:for="{{4}}" wx:key="index" class="job-item">
-                  <view class="item-top flex flex-ver flex-jcsb">
-                      <text class="item-job-type">化妆师</text>
-                      <text class="item-job-price">¥1000.00</text>
-                  </view> 
-                  <view class="item-middle job-info">
-                      <view class="info-item">所需人数：5/3</view>
-                      <view class="info-item">工作时间：2020.05.04-2020.05.04</view>
-                      <view class="info-item">工作地点：广州市海珠区新港东路234号某某大厦</view>
-                      <view class="info-item">工作内容：</view>
-                      <view class="info-item job-content">
-                          1、负责节目主持工作；
-                          2、负责与节目相关信息的采集、撰写、审查；
-                          3、维持现场秩序，活跃现场气氛；
-                          <image class="flod-icon" src="/images/activity/arrow.png"></image>
-                      </view>
-                  </view> 
-                  <view class="item-bottom item-btn-box flex flex-jcfe">
-                      <view class="btn btn-cancel">
-                          取消报名
-                      </view>
-                      <view class="btn btn-sign-up">
-                          立即报名
-                      </view>
-                  </view>
-               </view> 
+            <view wx:else class="activity-job job-list">
+                <view wx:for="{{4}}" wx:key="index" class="job-item">
+                    <view class="item-top flex flex-ver flex-jcsb">
+                        <text class="item-job-type">化妆师</text>
+                        <text class="item-job-price">¥1000.00</text>
+                    </view>
+                    <view class="item-middle job-info">
+                        <view class="info-item">所需人数：5/3</view>
+                        <view class="info-item">工作时间：2020.05.04-2020.05.04</view>
+                        <view class="info-item">工作地点：广州市海珠区新港东路234号某某大厦</view>
+                        <view class="info-item">工作内容：</view>
+                        <view class="info-item job-content">
+                            1、负责节目主持工作；
+                            2、负责与节目相关信息的采集、撰写、审查；
+                            3、维持现场秩序，活跃现场气氛；
+                            <image class="flod-icon" src="/images/activity/arrow.png"></image>
+                        </view>
+                    </view>
+                    <view class="item-bottom item-btn-box flex flex-jcfe">
+                        <view class="btn btn-cancel">
+                            取消报名
+                        </view>
+                        <view class="btn btn-sign-up">
+                            立即报名
+                        </view>
+                    </view>
+                </view>
             </view>
         </view>
     </view>

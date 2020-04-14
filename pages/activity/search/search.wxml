@@ -1,12 +1,12 @@
 <view class="container">
-    <mp-header isHome="{{isHome}}" showBack cln="'header'" title="搜索"></mp-header>
+    <mp-header isHome="{{isHome}}" showBack cln="'header'" title=""></mp-header>
     <view class="content">
         <view catchtouchmove="emptyHandle" class="con-hd">
             <view class="search-box flex flex-ver">
                 <view class="search-enter flex flex-ver flex-1">
-                    <image class="search-icon" src="/images/activity/search.png"></image>
+                    <image class="search-icon" src="/images/search/event_icon01.png"></image>
                     <input placeholder="搜索关键字" placeholder-class="placeholder" class="search-input flex-1" type="text" />
-                    <image class="close-icon" src="/images/activity/close2.png"></image>
+                    <image class="close-icon" src="/images/search/event_icon02.png"></image>
                 </view>
                 <view class="search-btn">
                     搜索
@@ -124,21 +124,21 @@
             <view class="filter-select-box flex flex-wrap">
                 <view class="filter-select-item">
                     主持司仪
-                    <image class="delete-icon" src="/images/activity/close2.png"></image>
+                    <image class="delete-icon" src="/images/search/event_icon09.png"></image>
                 </view>
                 <view class="filter-select-item">
                     广东省广州市海珠区
-                    <image class="delete-icon" src="/images/activity/close2.png"></image>
+                    <image class="delete-icon" src="/images/search/event_icon09.png"></image>
                 </view>
                 <view class="filter-select-item">
                     招募
-                    <image class="delete-icon" src="/images/activity/close2.png"></image>
+                    <image class="delete-icon" src="/images/search/event_icon09.png"></image>
                 </view>
             </view>
         </view>
         <view hidden="{{!showFilter}}" catchtouchmove="emptyHandle" class="filter-box-mask"></view>
-        <view class="con-bd activity-list">
-            <view wx:for="{{6}}" class="activity-item flex">
+        <view wx:if="{{false}}" class="con-bd activity-list">
+            <view bindtap="base_jump" data-url="/pages/activity/detail/detail?id={{index}}" wx:for="{{6}}" class="activity-item flex">
                 <image wx:if="{{index%2==0}}" class="item-icon" src="/images/activity/hire.png"></image>
                 <image wx:else class="item-icon" src="/images/activity/over.png"></image>
                 <view class="item-l flex flex-col flex-jcsb">
@@ -174,6 +174,10 @@
                     </view>
                 </view>
             </view>
+        </view>
+        <view wx:else class="no-result-box">
+            <image class="no-result-img" src="/images/search/event_icon10.png"></image>
+            <view class="no-result-txt">无对应活动</view>
         </view>
     </view>
 </view>

@@ -1,6 +1,177 @@
 <view class="container">
-    <mp-header cln="'header'" title="资源库"></mp-header>
+    <mp-header isHome="{{isHome}}" showBack cln="'header'" title=""></mp-header>
     <view class="content">
+        <view catchtouchmove="emptyHandle" class="con-hd">
+            <view class="search-box flex flex-ver">
+                <view class="search-enter flex flex-ver flex-1">
+                    <image class="search-icon" src="/images/search/event_icon01.png"></image>
+                    <input placeholder="搜索关键字" placeholder-class="placeholder" class="search-input flex-1" type="text" />
+                    <image class="close-icon" src="/images/search/event_icon02.png"></image>
+                </view>
+                <view class="search-btn">
+                    搜索
+                </view>
+            </view>
+            <view class="filter-box">
+                <!-- 筛选tab -->
+                <view class="filter-hd filter-tab flex flex-jcsb">
+                    <view bindtap="filterHandle" data-type="0" class="filter-tab-item {{filterType==0?'active':''}}">
+                        <text class="item-txt">岗位类型</text>
+                    </view>
+                    <view bindtap="filterHandle" data-type="1" class="filter-tab-item {{filterType==1?'active':''}}">
+                        <text class="item-txt">地区</text>
+                    </view>
+                    <view bindtap="sortHandle" class="filter-tab-item flex flex-ver flex-align-center">
+                        <text class="item-txt">接单数</text>
+                        <view class="sort-icon-box">
+                            <view class="sort-icon"></view>
+                            <view class="sort-icon"></view>
+                        </view>
+                    </view>
+                    <view bindtap="sortHandle" class="filter-tab-item flex flex-ver">
+                        <text class="item-txt">入驻时长</text>
+                        <view class="sort-icon-box">
+                            <view class="sort-icon"></view>
+                            <view class="sort-icon"></view>
+                        </view>
+                    </view>
+                </view>
+                <!-- 筛选menu -->
+                <view wx:if="{{showFilter}}" class="filter-bd">
+                    <!--1. 岗位 -->
+                    <view wx:if="{{filterType==0}}" class="filter-con flex {{'filter-type'+(filterType)}}">
+                        <!-- 一级条件 -->
+                        <scroll-view scroll-y class="select-list-l">
+                            <view wx:for="{{20}}" wx:key="index" class="select-item {{index%2==0?'active':''}}">全部{{index}}</view>
+                        </scroll-view>
+                        <!-- 次级条件 -->
+                        <view class="select-list-r flex-1 flex">
+                            <scroll-view scroll-y class="select-list-r-scroll flex-1">
+                                <view class="select-item active">全部</view>
+                                <view class="select-item">歌手</view>
+                                <view class="select-item">乐队</view>
+                                <view class="select-item">乐器演奏</view>
+                                <view class="select-item">主持司仪</view>
+                                <view class="select-item">模仿秀表演</view>
+                                <view class="select-item">魔术师</view>
+                                <view class="select-item">小丑表演</view>
+                                <view class="select-item">乐队</view>
+                                <view class="select-item">乐器演奏</view>
+                                <view class="select-item">主持司仪</view>
+                                <view class="select-item">模仿秀表演</view>
+                                <view class="select-item">魔术师</view>
+                                <view class="select-item">小丑表演</view>
+                            </scroll-view>
+                        </view>
+                    </view>
+                    <!--2. 地区 -->
+                    <view wx:if="{{filterType==1}}" class="filter-con flex {{'filter-type'+filterType}}">
+                        <!-- 一级条件 -->
+                        <scroll-view scroll-y class="select-list-l">
+                            <view class="select-item active">不限</view>
+                            <view class="select-item"></view>
+                            <view class="select-item">上海市</view>
+                            <view class="select-item">广东省</view>
+                            <view class="select-item">广西省</view>
+                            <view class="select-item">云南省</view>
+                            <view class="select-item">江西省</view>
+                            <view class="select-item">湖南省</view>
+                            <view class="select-item">湖北省</view>
+                            <view class="select-item">内蒙古自治区</view>
+                            <view class="select-item">新疆自治区</view>
+                            <view class="select-item">广西省</view>
+                            <view class="select-item">浙江省</view>
+                            <view class="select-item">海南省</view>
+                        </scroll-view>
+                        <!-- 次级条件 -->
+                        <view class="select-list-r flex-1 flex">
+                            <scroll-view scroll-y class="select-list-r-scroll flex-1">
+                                <view class="select-item active">不限</view>
+                                <view class="select-item">深圳市</view>
+                                <view class="select-item">中山市</view>
+                                <view class="select-item">茂名市</view>
+                                <view class="select-item">清远市</view>
+                                <view class="select-item">韶关市</view>
+                                <view class="select-item">城市a</view>
+                                <view class="select-item">城市b</view>
+                                <view class="select-item">城市c</view>
+                                <view class="select-item">城市d</view>
+                                <view class="select-item">城市e</view>
+                                <view class="select-item">城市f</view>
+                                <view class="select-item">城市g</view>
+                                <view class="select-item">城市h</view>
+                            </scroll-view>
+                            <scroll-view scroll-y class="select-list-r-scroll flex-1">
+                                <view class="select-item select-item-min active">不限</view>
+                                <view wx:for="{{20}}" wx:key="index" class="select-item-min select-item">某某区{{index}}</view>
+                            </scroll-view>
+                        </view>
+                    </view>
+                    <view class="filter-btn-box flex flex-jcsb">
+                        <view class="btn-clean">清除</view>
+                        <view class="btn-confirm">确定</view>
+                    </view>
+                </view>
+            </view>
+            <!-- 已选择的筛选条件 -->
+            <view wx:if="{{false}}" class="filter-select-box flex flex-wrap">
+                <view class="filter-select-item">
+                    主持司仪
+                    <image class="delete-icon" src="/images/search/event_icon09.png"></image>
+                </view>
+                <view class="filter-select-item">
+                    广东省广州市海珠区
+                    <image class="delete-icon" src="/images/search/event_icon09.png"></image>
+                </view>
+                <view class="filter-select-item">
+                    招募
+                    <image class="delete-icon" src="/images/search/event_icon09.png"></image>
+                </view>
+            </view>
+        </view>
+        <view hidden="{{!showFilter}}" catchtouchmove="emptyHandle" class="filter-box-mask"></view>
+        <view class="con-bd resource-list">
+            <view bindtap="base_jump" data-url="/pages/resource/detail/detail?id={{index}}" wx:for="{{5}}" wx:index="index"
+                class="resource-item">
+                <view class="item-top flex">
+                    <view class="item-top-l">
+                        <image class="item-avatar" src="/images/resource/ISP_img04.png"></image>
+                    </view>
+                    <view class="item-top-r flex-1">
+                        <view class="item-tit line-hide line-1">
+                            胡诗琪是个可爱无敌美少女
+                        </view>
+                        <view class="item-tags flex flex-wrap">
+                            <view class="item-tag">
+                                舞蹈表演
+                            </view>
+                            <view class="item-spe flex flex-ver">
+                                |
+                            </view>
+                            <view class="item-tag">
+                                舞蹈表演
+                            </view>
+                        </view>
+                        <view class="item-about flex flex-ver flex-jcsb">
+                            <view class="item-time">已入驻：14个月</view>
+                            <view class="item-num">
+                                接单数量：<text class="num">78</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="item-bottom flex flex-ver flex-jcsb">
+                    <view class="item-status flex flex-ver">
+                        <image class="lock-icon" src="/images/resource/lock.png"></image>
+                        <text>已私有</text>
+                    </view>
+                    <view class="item-btn-box flex">
+                        <view class="item-btn btn-ope">添加为私有服务商</view>
+                        <view class="item-btn">服务商详情</view>
+                    </view>
+                </view>
+            </view>
+        </view>
     </view>
     <mp-tabbar tabbarIndex="2"></mp-tabbar>
 </view>

@@ -1,15 +1,17 @@
 {
     "pages": [
-        "pages/activity/detail/detail",
+        "pages/me/information/information",
+        "pages/me/index/index",
+        "pages/resource/detail/detail",
+        "pages/resource/index/index",
         "pages/activity/search/search",
         "pages/activity/index/index",
+        "pages/activity/detail/detail",
         "pages/enterprise/detail/detail",
         "pages/login/index",
         "pages/index/index",
         "pages/test/test",
-        "pages/enterprise/index/index",
-        "pages/resource/index/index",
-        "pages/me/index/index"
+        "pages/enterprise/index/index"
     ],
     "permission": {
         "scope.userLocation": {

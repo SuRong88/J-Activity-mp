@@ -46,6 +46,7 @@
     border: solid #fff;
     border-width: 4rpx 4rpx 0 0;
     transform: rotate(-135deg);
+    margin-top: -2rpx;
     margin-right: 12rpx;
 }
 

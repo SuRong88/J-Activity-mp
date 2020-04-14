@@ -8,11 +8,11 @@
             <view class="hd-bottom flex flex-ver flex-jcsb">
                 <view class="l-part">
                     <view class="item flex flex-ver">
-                        <image class="item-icon" src="/images/index/img03.jpg"></image>
+                        <image class="item-icon" src="/images/activity/event_icon02.png"></image>
                         <text class="item-txt">入驻时长：23个月</text>
                     </view>
                     <view class="item flex flex-ver">
-                        <image class="item-icon" src="/images/index/img03.jpg"></image>
+                        <image class="item-icon" src="/images/activity/event_icon04.png"></image>
                         <text class="item-txt">联系方式：联系客服获取联系方式</text>
                         <image class="arrow-icon" src="/images/index/icon14.png"></image>
                     </view>

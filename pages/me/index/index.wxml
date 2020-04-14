@@ -1,6 +1,110 @@
 <view class="container">
-    <mp-header cln="'header'" title="我的"></mp-header>
+    <mp-header cln="'header'" title=""></mp-header>
     <view class="content">
+        <view class="con-hd">
+            <image class="banner-img" src="/images/me/mine_bg01.jpg"></image>
+            <view class="user-info-box ">
+                <view class="user-box flex flex-ver">
+                    <image class="avatar" src="/images/me/mine_img01.png"></image>
+                    <view class="name-status">
+                        <view class="user-name">Dling.</view>
+                        <view class="user-status">
+                            <image class="status-icon" src="/images/me/mine_icon11.png"></image>
+                            <text class="status-txt">已认证</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="user-tags flex flex-ver">
+                    <view class="tag">
+                        平面设计
+                    </view>
+                    <view class="tag-spe">
+
+                    </view>
+                    <view class="tag">
+                        平面设计
+                    </view>
+                    <view class="tag-spe">
+
+                    </view>
+                    <view class="tag">
+                        平面设计
+                    </view>
+                </view>
+                <view class="complete-info flex flex-ver flex-align-center">
+                    <text class="complete-txt">完善信息</text>
+                    <image class="arrow-icon" src="/images/me/mine_icon12.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="con-bd">
+            <view class="tool-bar">
+                <view class="tool-top flex flex-jcsb flex-ver">
+                    <view class="tool-tit">
+                        我的任务
+                    </view>
+                    <view class="tool-view-all flex flex-ver">
+                        <text class="view-all">查看全部</text>
+                        <image class="item-arrow" src="/images/me/mine_icon13.png"></image>
+                    </view>
+                </view>
+                <view class="tool-tab flex flex-sa">
+                    <view class="tab-item">
+                        <image class="tab-icon" src="/images/me/mine_icon01.png"></image>
+                        <view class="tab-txt">
+                            待工作
+                        </view>
+                    </view>
+                    <view class="tab-item">
+                        <image class="tab-icon" src="/images/me/mine_icon02.png"></image>
+                        <view class="tab-txt">
+                            待验收
+                        </view>
+                    </view>
+                    <view class="tab-item">
+                        <image class="tab-icon" src="/images/me/mine_icon03.png"></image>
+                        <view class="tab-txt">
+                            已完结
+                        </view>
+                    </view>
+                    <view class="tab-item">
+                        <image class="tab-icon" src="/images/me/mine_icon04.png"></image>
+                        <view class="tab-txt">
+                            未选中
+                        </view>
+                    </view>
+                    <view class="tab-item">
+                        <image class="tab-icon" src="/images/me/mine_icon05.png"></image>
+                        <view class="tab-txt">
+                            已关闭
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="menu-list">
+
+                <view class="menu-item flex flex-ver">
+                    <image class="item-icon" src="/images/me/mine_icon06.png"></image>
+                    <text class="item-txt">实名认证</text>
+                    <image class="item-arrow" src="/images/me/mine_icon13.png"></image>
+                </view>
+                <view class="menu-item flex flex-ver">
+                    <image class="item-icon" src="/images/me/mine_icon07.png"></image>
+                    <text class="item-txt">联系客服</text>
+                    <image class="item-arrow" src="/images/me/mine_icon13.png"></image>
+                </view>
+                <view class="menu-item flex flex-ver">
+                    <image class="item-icon" src="/images/me/mine_icon08.png"></image>
+                    <text class="item-txt">帮助与反馈</text>
+                    <image class="item-arrow" src="/images/me/mine_icon13.png"></image>
+                </view>
+                <view class="menu-item flex flex-ver">
+                    <image class="item-icon" src="/images/me/mine_icon09.png"></image>
+                    <text class="item-txt">退出登录</text>
+                    <image class="item-arrow" src="/images/me/mine_icon13.png"></image>
+                </view>
+            </view>
+        </view>
     </view>
     <mp-tabbar tabbarIndex="3"></mp-tabbar>
 </view>

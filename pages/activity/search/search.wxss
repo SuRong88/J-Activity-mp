@@ -391,3 +391,17 @@
     border-radius: 8rpx;
     color: #fff;
 }
+.no-result-box{
+    padding-top: 144rpx;
+    text-align: center;
+}
+.no-result-img{
+    width: 440rpx;
+    height: 252rpx;
+    margin-bottom: 70rpx;
+}
+.no-result-txt{
+    font-size:32rpx;
+    color:rgba(51,51,51,1);
+    line-height:44rpx;
+}
