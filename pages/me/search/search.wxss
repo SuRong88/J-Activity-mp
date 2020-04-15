@@ -1,0 +1,183 @@
+/* pages/test/test.wxss */
+.content {
+    /* padding-bottom: 30rpx; */
+    background-color: #fff;
+}
+
+/* 头部 */
+.con-hd {
+    position: relative;
+    z-index: 3;
+    height: 200rpx;
+    /* padding: 32rpx 40rpx 24rpx; */
+    padding: 30rpx 0rpx 0rpx;
+    background-color: #fff;
+}
+
+.filter-box {
+
+    /* padding: 0 40rpx; */
+}
+
+.filter-hd {
+    padding-bottom: 24rpx;
+    border-bottom: 2rpx solid rgba(217, 215, 215, 0.3);
+}
+
+.filter-select-box {
+    height: 120rpx;
+    box-shadow: 0px 4px 18px 0px rgba(248, 245, 245, 1);
+    background-color: #fff;
+    padding: 34rpx 40rpx 0rpx;
+}
+
+.filter-select-item {
+    height: 56rpx;
+    line-height: 52rpx;
+    text-align: center;
+    padding: 0 30rpx;
+    font-size: 28rpx;
+    color: rgba(252, 127, 3, 1);
+    border: 2rpx solid rgba(252, 127, 3, 1);
+    margin-right: 30rpx;
+    position: relative;
+}
+
+.filter-select-item:last-child {
+    margin-right: 0;
+}
+
+.filter-select-item .item-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 32rpx;
+    height: 26rpx;
+}
+
+.filter-bd {}
+
+
+.filter-con {
+    /* height: calc(100vh - 240rpx); */
+    /* height: calc(100vh - 368rpx); */
+}
+
+/* 左边筛选条件 */
+.select-list-l {
+    width: 280rpx;
+    background: rgba(249, 249, 249, 1);
+}
+
+.select-list-l .select-item {
+    line-height: 120rpx;
+    font-size: 30rpx;
+    text-align: center;
+    color: rgba(102, 102, 102, 1);
+    position: relative;
+}
+
+.select-list-l .select-item.active {
+    color: rgba(252, 127, 3, 1);
+}
+
+.select-list-l .select-item.active::before {
+    content: '';
+    display: block;
+    width: 12rpx;
+    height: 48rpx;
+    background: rgba(252, 127, 3, 1);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+/* 右边筛选条件 */
+.select-list-r {}
+
+.select-list-r-scroll {
+    border-right: 2rpx solid #f5f5f5;
+}
+
+.select-list-r-scroll:last-child {
+    border: 0;
+}
+
+.select-list-r .select-item {
+    line-height: 120rpx;
+    font-size: 28rpx;
+    color: rgba(102, 102, 102, 1);
+    text-align: center;
+    position: relative;
+}
+
+.select-list-r .select-item.select-item-min {
+    font-size: 26rpx;
+}
+
+.select-list-r .select-item.active {
+    color: rgba(252, 127, 3, 1);
+}
+
+.select-list-r .select-item::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: 2rpx;
+    background-color: #f5f5f5;
+    transform: translateX(-50%);
+}
+
+.select-list-r .select-item:last-child::after {
+    display: none;
+}
+
+/* 岗位 */
+.filter-type0 .select-list-r .select-item::after {
+    width: 232rpx;
+}
+
+/* 地区 */
+.filter-type1 .select-list-l {
+    width: 218rpx;
+}
+
+.filter-type1 .select-list-r .select-item::after {
+    width: 188rpx;
+}
+
+/* 状态 */
+.filter-type2 .select-list-r .select-item::after {
+    width: 282rpx;
+}
+
+.filter-btn-box {
+    height: 120rpx;
+    padding: 26rpx 40rpx 0;
+    border-top: 2rpx solid #F5F5F5;
+}
+
+.btn-clean {
+    width: 208rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
+    background: rgba(199, 195, 195, 1);
+    border-radius: 10rpx;
+    font-size: 28rpx;
+    color: rgba(255, 255, 255, 1);
+}
+
+.btn-confirm {
+    width: 420rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
+    background: rgba(252, 127, 3, 1);
+    border-radius: 10rpx;
+    font-size: 28rpx;
+    color: rgba(255, 255, 255, 1);
+}

@@ -3,7 +3,8 @@
     <view class="content">
         <!-- 启动 -->
         <view wx:if="{{loading}}" class="loading-part">
-            启动页
+            <image class="loading-part-img01" src="/images/login/Si_bg02.png"></image>
+            <image class="loading-part-img02" src="/images/login/Si_bg01.png"></image>
         </view>
         <!-- 登录 -->
         <view wx:else class="login-part">

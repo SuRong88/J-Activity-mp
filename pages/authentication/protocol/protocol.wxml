@@ -1,0 +1,26 @@
+<view class="container">
+    <mp-header showBack title="我的协议"></mp-header>
+    <view class="content">
+        <view class="con-item">
+            <view class="item-label">我签署的协议</view>
+            <view class="protocol-list">
+                <view class="protocol-item">
+                    《平台注册使用协议》
+                </view>
+            </view>
+        </view>
+        <view class="con-item">
+            <view class="item-label">
+                平台规则协议
+            </view>
+            <view class="protocol-list">
+                <view class="protocol-item">
+                    《平台注册使用协议》
+                </view>
+                <view class="protocol-item">
+                    《平台注册使用协议》
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

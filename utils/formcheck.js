@@ -7,7 +7,7 @@ function check_null(value) {
     return reg.test(value);
 }
 
-//检测图形验证码
+//检测手机验证码
 function check_code(value) {
     let reg = new RegExp(/^([0-9]{4})$/);
     return reg.test(value);

@@ -1,0 +1,5 @@
+<view class="container">
+    <mp-header showBack title="实名认证"></mp-header>
+    <view class="content">
+    </view>
+</view>

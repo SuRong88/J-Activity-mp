@@ -1,0 +1,35 @@
+/* pages/me/index/index.wxss */
+.content {
+    padding: 50rpx;
+}
+
+.enter-box {
+    width: 100%;
+    height: 294rpx;
+    background: rgba(245, 245, 245, 1);
+    border-radius: 8rpx;
+    position: relative;
+}
+
+.txt-enter {
+    padding: 26rpx 28rpx;
+    font-size: 28rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 40rpx;
+}
+
+.enter-num {
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 34rpx;
+    position: absolute;
+    right: 32rpx;
+    bottom: 26rpx;
+}
+
+.holder-class {
+    padding-top: 6rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: rgba(153, 153, 153, 1);
+}

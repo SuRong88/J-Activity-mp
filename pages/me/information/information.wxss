@@ -122,7 +122,8 @@
     color: rgba(153, 153, 153, 1);
     line-height: 34rpx;
 }
-.type-scroll-box{
+
+.type-scroll-box {
     height: 88rpx;
 }
 
@@ -160,10 +161,12 @@
 .upload-box {
     width: 200rpx;
     height: 200rpx;
-    border: 2rpx solid rgba(228, 228, 228, 1);
+    /* border: 2rpx solid rgba(228, 228, 228, 1); */
 }
 
 .upload-icon {
-    width: 80rpx;
-    height: 80rpx;
+    /* width: 80rpx;
+    height: 80rpx; */
+    width: 100%;
+    height: 100%;
 }

@@ -1,0 +1,38 @@
+<view class="container">
+    <mp-header showBack title=""></mp-header>
+    <view class="content">
+        <view class="banner">
+            <image class="banner-bg" src="/images/task/banner.jpg"></image>
+            <view class="status-box flex flex-ver flex-align-center">
+
+                <image class="status-icon" src="/images/task/mine_icon21.png"></image>
+                <text class="status-txt">待验收</text>
+            </view>
+
+        </view>
+
+        <view class="data-menu">
+            <view class="data-item">
+                <view class="item-label">
+                    上传验收图片
+                </view>
+                <image class="upload-icon" src="/images/task/upload.jpg"></image>
+            </view>
+            <view class="data-item">
+                <view class="item-label">
+                    验收说明
+                </view>
+                <input class="item-enter" placeholder="请输入验收说明" placeholder-class="item-placeholder" type="text" />
+            </view>
+            
+        </view>
+        <view class="btn-box flex flex-jcsb">
+            <view class="btn btn-cancel">
+                取消
+            </view>
+            <view class="btn btn-confirm">
+                确认
+            </view>
+        </view>
+    </view>
+</view>

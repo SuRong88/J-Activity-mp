@@ -1,0 +1,124 @@
+<view class="container">
+    <mp-header cln="'header'" showBack title="我的任务"></mp-header>
+    <view class="content">
+        <scroll-view scroll-x class="nav-menu-box">
+            <view class="nav-menu flex">
+                <view class="nav-item active">
+                    全部
+                </view>
+                <view class="nav-item">
+                    待工作
+                </view>
+                <view class="nav-item">
+                    待验收
+                </view>
+                <view class="nav-item active">
+                    已完结
+                </view>
+                <view class="nav-item">
+                    未选中
+                </view>
+            </view>
+        </scroll-view>
+        <view class="task-list">
+            <view class="task-item">
+                <view class="item-t flex flex-ver flex-jcsb">
+                    <view class="item-num">
+                        活动编号：2875829657
+                    </view>
+                    <view class="item-status wait">
+                        待验收
+                    </view>
+                </view>
+                <view class="item-m info flex">
+                    <view class="info-l">
+                        <image class="info-img" src="/images/task/test.png"></image>
+                    </view>
+                    <view class="info-r flex-1">
+                        <view class="info-tit flex flex-ver flex-jcsb">
+                            <view class="info-job">
+                                摄影师
+                            </view>
+                            <view class="info-price">
+                                ¥1000.00
+                            </view>
+                        </view>
+                        <view class="info-intro">
+                            2020年五·四青年节晚会
+                        </view>
+                        <view class="info-item flex flex-ver">
+                            <image class="info-icon" src="/images/task/mine_icon17.png"></image>
+                            <text class="info-txt">名锐讯动信息科技有限公司</text>
+                        </view>
+                        <view class="info-item flex flex-ver">
+                            <image class="info-icon" src="/images/task/mine_icon18.png"></image>
+                            <text class="info-txt">广州市海珠区新港东路36号</text>
+                        </view>
+                        <view class="info-item flex flex-ver">
+                            <image class="info-icon" src="/images/task/mine_icon19.png"></image>
+                            <text class="info-txt">2020.05.04</text>
+                        </view>
+
+                    </view>
+                </view>
+                <view class="item-b flex flex-jcfe">
+                    <view class="item-btn plain">
+                        详情
+                    </view>
+                    <view class="item-btn">
+                        确认
+                    </view>
+                </view>
+            </view>
+            <view class="task-item">
+                <view class="item-t flex flex-ver flex-jcsb">
+                    <view class="item-num">
+                        活动编号：2875829657
+                    </view>
+                    <view class="item-status finish">
+                        待验收
+                    </view>
+                </view>
+                <view class="item-m info flex">
+                    <view class="info-l">
+                        <image class="info-img" src="/images/task/mine_img03.png"></image>
+                    </view>
+                    <view class="info-r flex-1">
+                        <view class="info-tit flex flex-ver flex-jcsb">
+                            <view class="info-job">
+                                摄影师
+                            </view>
+                            <view class="info-price">
+                                ¥1000.00
+                            </view>
+                        </view>
+                        <view class="info-intro">
+                            2020年五·四青年节晚会
+                        </view>
+                        <view class="info-item flex flex-ver">
+                            <image class="info-icon" src="/images/task/mine_icon17.png"></image>
+                            <text class="info-txt">名锐讯动信息科技有限公司</text>
+                        </view>
+                        <view class="info-item flex flex-ver">
+                            <image class="info-icon" src="/images/task/mine_icon18.png"></image>
+                            <text class="info-txt">广州市海珠区新港东路36号</text>
+                        </view>
+                        <view class="info-item flex flex-ver">
+                            <image class="info-icon" src="/images/task/mine_icon19.png"></image>
+                            <text class="info-txt">2020.05.04</text>
+                        </view>
+
+                    </view>
+                </view>
+                <view class="item-b flex flex-jcfe">
+                    <view class="item-btn plain">
+                        详情
+                    </view>
+                    <view class="item-btn">
+                        验收结算
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

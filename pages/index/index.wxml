@@ -35,14 +35,14 @@
                     <text class="tit-txt">活动精选</text>
                     <image class="tit-icon" src="/images/index/icon11.png"></image>
                 </view>
-                <view class="view-more flex flex-ver">
+                <view bindtap="base_jump" data-url="/pages/activity/index/index" class="view-more flex flex-ver">
                     查看更多
                     <image class="arrow-icon" src="/images/index/icon12.png"></image>
                 </view>
             </view>
             <view class="sec-bd">
                 <view class="activity-list">
-                    <view class="activity-item flex">
+                    <view bindtap="base_jump" data-url="/pages/activity/detail/detail?id={{1}}" class="activity-item flex">
                         <image class="item-icon" src="/images/index/icon13.png"></image>
                         <view class="item-l flex flex-col flex-jcsb">
                             <view class="item-l-top">
@@ -95,7 +95,8 @@
                 <view class="company-swiper-box">
                     <swiper bindchange="changeSwiper02" class="company-swiper" autoplay interval="5000" duration="500"
                         circular>
-                        <swiper-item class="swiper-item" wx:for="{{4}}" wx:key="index">
+                        <swiper-item bindtap="base_jump" data-url="/pages/enterprise/detail/detail?id={{1}}" class="swiper-item"
+                            wx:for="{{4}}" wx:key="index">
                             <view class="item-top">
                                 <image class="item-img" src="/images/index/img05.jpg"></image>
                                 <view class="item-brief">
@@ -133,16 +134,16 @@
                     <text class="tit-txt">服务商精选</text>
                     <image class="tit-icon" src="/images/index/icon11.png"></image>
                 </view>
-                <view class="view-more flex flex-ver">
+                <view bindtap="base_jump" data-url="/pages/resource/index/index" class="view-more flex flex-ver">
                     <text>查看更多</text>
                     <image class="arrow-icon" src="/images/index/icon12.png"></image>
                 </view>
             </view>
             <view class="sec-bd">
                 <view class="service-swiper-box">
-                    <swiper class="service-swiper" autoplay="{{false}}" interval="5000" duration="500" next-margin="190rpx"
-                        >
-                        <swiper-item class="swiper-item" wx:for="{{4}}" wx:key="index">
+                    <swiper class="service-swiper" autoplay="{{false}}" interval="5000" duration="500" next-margin="190rpx">
+                        <swiper-item bindtap="base_jump" data-url="/pages/resource/detail/detail?id={{1}}" class="swiper-item"
+                            wx:for="{{4}}" wx:key="index">
                             <view class="swiper-item-inner">
                                 <view class="item-top flex">
                                     <image class="top-l item-avatar" src="/images/index/img05.jpg"></image>
@@ -170,7 +171,7 @@
                                             <text class="item-count">78</text>
                                         </view>
                                     </view>
-                                
+
                                 </view>
                                 <image class="swiper-item-icon" src="/images/index/img12.png"></image>
                             </view>

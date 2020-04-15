@@ -1,0 +1,42 @@
+<view class="container">
+    <mp-header showBack title="实名认证"></mp-header>
+    <view class="content">
+        <view class="info-list">
+            <view class="info-item flex flex-ver flex-jcsb">
+                <view class="item-label">
+                    姓名
+                </view>
+                <view class="item-value">
+                    郑钉玲
+                </view>
+            </view>
+            <view class="info-item flex flex-ver flex-jcsb">
+                <view class="item-label">
+                    手机号
+                </view>
+                <view class="item-value">
+                    15626129192
+                </view>
+            </view>
+            <view class="info-item flex flex-ver flex-jcsb">
+                <view class="item-label">
+                    身份证号
+                </view>
+                <view class="item-value">
+                    441881199604139277
+                </view>
+            </view>
+            <view class="info-item flex flex-ver flex-jcsb">
+                <view class="item-label">
+                    银行卡号
+                </view>
+                <view class="item-value">
+                    622372648495737483
+                </view>
+            </view>
+        </view>
+        <view bindtap="base_jump" data-url="/pages/authentication/bankCard/bankCard" class="common-btn">
+            修改银行卡
+        </view>
+    </view>
+</view>

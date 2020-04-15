@@ -1,0 +1,70 @@
+<view class="container">
+    <mp-header showBack title=""></mp-header>
+    <view class="content">
+        <view class="banner">
+            <image class="banner-bg" src="/images/task/banner.jpg"></image>
+            <view class="status-box flex flex-ver flex-align-center">
+
+                <image class="status-icon" src="/images/task/mine_icon20.png"></image>
+                <text class="status-txt">待工作</text>
+            </view>
+
+        </view>
+
+        <view class="info-box">
+            <view class="box box01 flex">
+                <view class="box01-l">
+                    <image class="box01-img" src="/images/task/mine_img03.png"></image>
+                </view>
+                <view class="box01-r">
+                    <view class="box01-job">摄影师</view>
+                    <view class="box01-intro">2020年五·四青年节晚会</view>
+                    <view class="box01-price">¥1000.00</view>
+                </view>
+
+            </view>
+            <view class="box box02">
+                <view class="box02-info-item flex flex-ver">
+                    <image class="info-item-icon" src="/images/task/mine_icon17.png"></image>
+                    <text class="info-item-txt">名锐讯动信息科技有限公司</text>
+                </view>
+                <view class="box02-info-item flex flex-ver">
+                    <image class="info-item-icon" src="/images/task/mine_icon18.png"></image>
+                    <text class="info-item-txt">广州市海珠区新港东路36号</text>
+                </view>
+                <view class="box02-info-item flex flex-ver">
+                    <image class="info-item-icon" src="/images/task/mine_icon19.png"></image>
+                    <text class="info-item-txt">2020.05.04-2020.05.04</text>
+                </view>
+            </view>
+            <view class="box box03">
+                <view class="box03-info-item">
+                    <view class="info-item-label">
+                        活动详情：
+                    </view>
+                    <view class="info-item-txt">
+                        为庆祝五四青年节，给公司员工一个真正展示自我风采和勇气的舞台，2020年名锐讯动青年节晚会将以宏大的气魄、不凡的手笔、新颖的题材、经典的节目，集多种舞台表演形式，溶大家同事之情于一体，对各同事以最诚挚的问候，祝愿青春永驻。
+                    </view>
+                </view>
+                <view class="box03-info-item">
+                    <view class="info-item-label">
+                        岗位内容：
+                    </view>
+                    <view class="info-item-txt">
+                        1.负责公司抖音，快手短视频的的日常拍摄；
+                        2.参与拍摄的活动策划工作，确定拍摄方案，创意，手法等；
+                    </view>
+                </view>
+
+            </view>
+            <view class="box box04">
+                <view class="box04-info-item">活动编号：2875829657</view>
+                <view class="box04-info-item">发布时间：2020.03.23 18:41:34</view>
+                <view class="box04-info-item">审核时间：2020.03.25 18:41:34</view>
+            </view>
+            <view class="common-btn normal">
+                确认
+            </view>
+        </view>
+    </view>
+</view>

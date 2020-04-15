@@ -1,0 +1,35 @@
+/* pages/me/index/index.wxss */
+
+.content {
+    padding: 10rpx 42rpx;
+}
+
+.con-item {
+    padding-bottom: 52rpx;
+}
+
+.con-item:first-child {
+    border-bottom: 2rpx dashed #EDEBEB;
+}
+
+.item-label {
+    font-size: 34rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    line-height: 48rpx;
+    padding: 50rpx 0 30rpx;
+
+}
+
+.protocol-list {}
+
+.protocol-item {
+    font-size: 30rpx;
+    color: rgba(252, 127, 3, 1);
+    line-height: 42rpx;
+    margin-bottom: 30rpx;
+}
+
+.protocol-item:last-child {
+    margin-bottom: 0;
+}

@@ -1,5 +1,5 @@
 <view class="container">
-    <mp-header isHome="{{isHome}}" showback cln="'header'" title="服务商详情"></mp-header>
+    <mp-header isHome="{{isHome}}" showBack cln="'header'" title="服务商详情"></mp-header>
     <view class="content {{roleType==2?'enterprise-role':''}}">
         <view class="con-hd flex">
             <view class="hd-left flex-1">

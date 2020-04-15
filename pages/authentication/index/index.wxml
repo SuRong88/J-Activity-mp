@@ -1,0 +1,13 @@
+<view class="container">
+    <mp-header showBack title="实名认证"></mp-header>
+    <view class="content">
+        <view bindtap="base_jump" data-url="/pages/authentication/info/info" class="link-item flex flex-ver">
+            <image class="item-img" src="../../../images/authentication/bg001.png"></image>
+            <view class="item-tit">我的实名认证</view>
+        </view>
+        <view bindtap="base_jump" data-url="/pages/authentication/protocol/protocol" class="link-item flex flex-ver">
+            <image class="item-img" src="../../../images/authentication/bg002.png"></image>
+            <view class="item-tit">我的协议</view>
+        </view>
+    </view>
+</view>

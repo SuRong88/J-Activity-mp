@@ -44,7 +44,7 @@
     width: 100%;
     color: #333;
     font-size: 36rpx;
-    letter-spacing: 2rpx;
+    /* letter-spacing: 2rpx; */
     padding: 60rpx 40rpx;
     text-align: center;
 }
@@ -186,3 +186,10 @@
 }
 
 /* 确认派单end */
+
+
+/* 联系客服 */
+.qrcode-popBox.popBox .pop_tit {
+    padding: 40rpx 0 30rpx;
+}
+/* 联系客服end */

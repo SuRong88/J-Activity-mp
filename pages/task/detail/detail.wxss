@@ -1,0 +1,150 @@
+/* pages/task/detail/detail.wxss */
+page {
+    background: rgba(249, 249, 249, 1) !important;
+}
+
+.banner {
+    position: relative;
+    height: 296rpx;
+}
+
+.banner-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 296rpx;
+}
+
+.status-box {
+    position: relative;
+    z-index: 2;
+    padding-top: 30rpx;
+}
+
+.status-icon {
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 14rpx;
+}
+
+.status-txt {
+    font-size: 36rpx;
+    color: rgba(255, 255, 255, 1);
+}
+
+.info-box {
+    margin: -174rpx auto 0;
+    width: 680rpx;
+    position: relative;
+    z-index: 2;
+}
+
+.box {
+    background: rgba(255, 255, 255, 1);
+    border-radius: 10rpx;
+    padding: 36rpx;
+    margin-bottom: 20rpx;
+}
+
+
+.box01 {}
+
+.box01-l {}
+
+
+.box01-img {
+    width: 116rpx;
+    height: 116rpx;
+    border-radius: 10rpx;
+}
+
+.box01-r {
+    padding-left: 36rpx;
+}
+
+.box01-job {
+    font-size: 36rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    line-height: 50rpx;
+    margin-bottom: 14rpx;
+}
+
+.box01-intro {
+    font-size: 30rpx;
+    color: rgba(51, 51, 51, 1);
+    line-height: 42rpx;
+    margin-bottom: 14rpx;
+}
+
+.box01-price {
+    font-size: 30rpx;
+    color: rgba(252, 84, 3, 1);
+    line-height: 42rpx;
+}
+
+.box02 {}
+
+.box02-info-item {
+    margin-bottom: 20rpx;
+    height: 36rpx;
+}
+
+.box02-info-item:last-child {
+    margin-bottom: 0;
+}
+
+.box02 .info-item-icon {
+    width: 28rpx;
+    height: 28rpx;
+    margin-right: 16rpx;
+}
+
+.box02 .info-item-txt {
+    font-size: 26rpx;
+    color: rgba(102, 102, 102, 1);
+}
+
+.box03 {}
+
+.box03-info-item {
+    margin-bottom: 22rpx;
+}
+
+.box03-info-item:last-child {
+    margin-bottom: 0;
+}
+
+.box03 .info-item-label {
+    font-size: 26rpx;
+    color: rgba(102, 102, 102, 1);
+    line-height: 46rpx;
+    margin-bottom: 4rpx;
+}
+
+.box03 .info-item-txt {
+    font-size: 26rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 46rpx;
+}
+
+.box04 {
+    margin-bottom: 50rpx;
+}
+
+.box04-info-item {
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 34rpx;
+    margin-bottom: 20rpx;
+}
+
+.box04-info-item:last-child {
+    margin-bottom: 0;
+}
+
+.common-btn {
+    overflow: hidden;
+    margin: 70rpx auto 62rpx;
+}

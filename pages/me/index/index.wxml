@@ -31,7 +31,7 @@
                         平面设计
                     </view>
                 </view>
-                <view class="complete-info flex flex-ver flex-align-center">
+                <view bindtap="base_jump" data-url="/pages/me/information/information" class="complete-info flex flex-ver flex-align-center">
                     <text class="complete-txt">完善信息</text>
                     <image class="arrow-icon" src="/images/me/mine_icon12.png"></image>
                 </view>
@@ -43,37 +43,37 @@
                     <view class="tool-tit">
                         我的任务
                     </view>
-                    <view class="tool-view-all flex flex-ver">
+                    <view bindtap="base_jump" data-url="/pages/task/index/index" class="tool-view-all flex flex-ver">
                         <text class="view-all">查看全部</text>
                         <image class="item-arrow" src="/images/me/mine_icon13.png"></image>
                     </view>
                 </view>
                 <view class="tool-tab flex flex-sa">
-                    <view class="tab-item">
+                    <view bindtap="base_jump" data-url="/pages/task/index/index" class="tab-item">
                         <image class="tab-icon" src="/images/me/mine_icon01.png"></image>
                         <view class="tab-txt">
                             待工作
                         </view>
                     </view>
-                    <view class="tab-item">
+                    <view bindtap="base_jump" data-url="/pages/task/index/index" class="tab-item">
                         <image class="tab-icon" src="/images/me/mine_icon02.png"></image>
                         <view class="tab-txt">
                             待验收
                         </view>
                     </view>
-                    <view class="tab-item">
+                    <view bindtap="base_jump" data-url="/pages/task/index/index" class="tab-item">
                         <image class="tab-icon" src="/images/me/mine_icon03.png"></image>
                         <view class="tab-txt">
                             已完结
                         </view>
                     </view>
-                    <view class="tab-item">
+                    <view bindtap="base_jump" data-url="/pages/task/index/index" class="tab-item">
                         <image class="tab-icon" src="/images/me/mine_icon04.png"></image>
                         <view class="tab-txt">
                             未选中
                         </view>
                     </view>
-                    <view class="tab-item">
+                    <view bindtap="base_jump" data-url="/pages/task/index/index" class="tab-item">
                         <image class="tab-icon" src="/images/me/mine_icon05.png"></image>
                         <view class="tab-txt">
                             已关闭
@@ -82,23 +82,22 @@
                 </view>
             </view>
             <view class="menu-list">
-
-                <view class="menu-item flex flex-ver">
+                <view bindtap="base_jump" data-url="/pages/authentication/index/index" class="menu-item flex flex-ver">
                     <image class="item-icon" src="/images/me/mine_icon06.png"></image>
                     <text class="item-txt">实名认证</text>
                     <image class="item-arrow" src="/images/me/mine_icon13.png"></image>
                 </view>
-                <view class="menu-item flex flex-ver">
+                <view bindtap="showMask" data-key="qrcode" class="menu-item flex flex-ver">
                     <image class="item-icon" src="/images/me/mine_icon07.png"></image>
                     <text class="item-txt">联系客服</text>
                     <image class="item-arrow" src="/images/me/mine_icon13.png"></image>
                 </view>
-                <view class="menu-item flex flex-ver">
+                <view bindtap="base_jump" data-url="/pages/me/feedback/feedback" class="menu-item flex flex-ver">
                     <image class="item-icon" src="/images/me/mine_icon08.png"></image>
                     <text class="item-txt">帮助与反馈</text>
                     <image class="item-arrow" src="/images/me/mine_icon13.png"></image>
                 </view>
-                <view class="menu-item flex flex-ver">
+                <view bindtap="showMask" data-key="logout" class="menu-item flex flex-ver">
                     <image class="item-icon" src="/images/me/mine_icon09.png"></image>
                     <text class="item-txt">退出登录</text>
                     <image class="item-arrow" src="/images/me/mine_icon13.png"></image>
@@ -106,5 +105,14 @@
             </view>
         </view>
     </view>
+    <!-- 联系客服 -->
+    <mp-popBox wx:if="{{showQrcode}}" cln="'qrcode-popBox'" title="长按二维码识别" showContent bind:confirm='closeQrcode'
+        showCancel='{{false}}' confirmText="确定">
+        <image bindtap="previewImage" class="qrcode" src="/images/me/qrcode.png"></image>
+    </mp-popBox>
+    <!-- 登出 -->
+    <mp-popBox wx:if="{{showLogout}}" cln="''" title="您确定退出登录吗？" bind:confirm='confirmLogout' bind:cancel='cancelLogout'
+        confirmText="确定">
+    </mp-popBox>
     <mp-tabbar tabbarIndex="3"></mp-tabbar>
 </view>

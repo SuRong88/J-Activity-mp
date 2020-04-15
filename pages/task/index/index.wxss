@@ -1,0 +1,159 @@
+/* pages/me/index/index.wxss */
+page {
+    background-color: #F9F9F9 !important;
+}
+
+.nav-menu-box {
+    margin-bottom: 20rpx;
+    background-color: #fff;
+}
+
+.nav-menu {
+    padding: 0 10rpx;
+}
+
+.nav-item {
+    padding: 28rpx 40rpx;
+    font-size: 28rpx;
+    color: rgba(102, 102, 102, 1);
+    line-height: 40rpx;
+    flex-shrink: 0;
+    white-space: nowrap;
+    position: relative;
+}
+
+.nav-item.active {
+    color: rgba(252, 127, 3, 1);
+}
+
+.nav-item.active::after {
+    content: '';
+    width: 50rpx;
+    height: 6rpx;
+    background: rgba(252, 127, 3, 1);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.task-item {
+    background-color: #fff;
+    margin-bottom: 20rpx;
+    padding-left: 30rpx;
+    padding-right: 40rpx;
+}
+
+/* 头 */
+.item-t {
+    padding: 30rpx 0 20rpx;
+    font-size: 24rpx;
+    color: rgba(51, 51, 51, 1);
+    line-height: 34rpx;
+}
+
+
+.item-num {
+}
+
+.item-status {}
+
+.item-status.wait {
+    color: #FC7F03;
+}
+
+.item-status.finish {
+    color: #333;
+}
+
+.item-status.unselect {
+    color: #666;
+}
+
+.item-status.close {
+    color: #999999;
+}
+
+/* 中 */
+.item-m {
+    padding: 24rpx 0 22rpx;
+    border-top: 2rpx solid #F5F5F5;
+    border-bottom: 2rpx solid #F5F5F5;
+}
+
+.info-l {}
+
+.info-img {
+    width: 116rpx;
+    height: 116rpx;
+    border-radius: 10rpx;
+}
+
+.info-r {
+    padding-left: 34rpx;
+}
+
+.info-tit {
+    margin-bottom: 20rpx;
+}
+
+.info-job {
+    font-size: 34rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+}
+
+.info-price {
+    font-size: 32rpx;
+    font-weight: 700;
+    color: rgba(252, 84, 3, 1);
+    line-height: 44rpx;
+}
+
+.info-intro {
+    font-size: 30rpx;
+    color: rgba(51, 51, 51, 1);
+    line-height: 42rpx;
+    margin-bottom: 20rpx;
+}
+
+.info-item {
+    margin-bottom: 12rpx;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-icon {
+    width: 28rpx;
+    height: 28rpx;
+    margin-right: 16rpx;
+}
+
+.info-txt {
+    font-size: 26rpx;
+    color: rgba(102, 102, 102, 1);
+    line-height: 36rpx;
+}
+
+/* 底 */
+.item-b {
+    padding: 30rpx 0 32rpx;
+}
+
+.item-btn {
+    color: #fff;
+    width: 140rpx;
+    text-align: center;
+    line-height: 44rpx;
+    background: rgba(252, 127, 3, 1);
+    border: 2rpx solid rgba(252, 127, 3, 1);
+    border-radius: 10rpx;
+}
+
+.item-btn.plain {
+    margin-right: 20rpx;
+    background: #fff;
+    color: rgba(252, 127, 3, 1);
+}
