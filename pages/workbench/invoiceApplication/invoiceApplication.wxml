@@ -1,0 +1,76 @@
+<view class="container">
+    <mp-header showBack title="申请开票"></mp-header>
+    <view class="content">
+        <view class="box01">
+            <view class="box01-item box01-item flex flex-ver flex-jcsb">
+                <view class="item-label">发票抬头</view>
+                <view class="item-txt">广州名锐讯动信息科技有限公司</view>
+            </view>
+            <view class="box01-item box01-item flex flex-ver flex-jcsb">
+                <view class="item-label">税号</view>
+                <view class="item-txt">9144 1881 MA4W Q9U6 8C</view>
+            </view>
+            <view class="box01-item box01-item flex flex-ver flex-jcsb">
+                <view class="item-label">开户行</view>
+                <view class="item-txt">中国工商银行</view>
+            </view>
+            <view class="box01-item box01-item flex flex-ver flex-jcsb">
+                <view class="item-label">开户账号</view>
+                <view class="item-txt">723795626468876732</view>
+            </view>
+            <view class="box01-item box01-item flex flex-ver flex-jcsb">
+                <view class="item-label">注册地址</view>
+                <view class="item-txt">广州市海珠区新港东路中国工商银行支行</view>
+            </view>
+            <view class="box01-item box01-item flex flex-ver flex-jcsb">
+                <view class="item-label">电话</view>
+                <view class="item-txt">15626120108</view>
+            </view>
+        </view>
+        <view class="box02">
+            <view class="box02-item box02-item-type">
+                <view class="item-label">发票类型</view>
+                <view class="type-list flex flex-ver flex-jcsb">
+                    <view class="type-item flex flex-ver">
+                        <image class="type-item-icon" src="/images/workbench/BS_icon15.png"></image>
+                        <text class="type-item-txt">增值税专用发票</text>
+                    </view>
+                    <view class="type-item flex flex-ver">
+                        <image class="type-item-icon" src="/images/workbench/BS_icon16.png"></image>
+                        <text class="type-item-txt">增值税普通发票</text>
+                    </view>
+                </view>
+            </view>
+            <view class="box02-item flex flex-ver flex-jcsb">
+                <view class="item-label">开票类目</view>
+                <view class="classification-txt">软件开发</view>
+                <image class="item-icon-arrow" src="/images/index/icon12.png"></image>
+            </view>
+            <view class="box02-item box02-item-address">
+                <view class="item-label">
+                    <text>收件地址</text>
+                    <image class="item-icon-arrow" src="/images/index/icon12.png"></image>
+                </view>
+                <view wx:if="{{test}}" class="address-info-box">
+                    <view class="address-info-item">
+                        收件人：胡诗琪
+                    </view>
+                    <view class="address-info-item">
+                        联系电话：15626129191
+                    </view>
+                    <view class="address-info-item">
+                        收获地址：广州市海珠区新港东路234号某某大厦
+                    </view>
+                </view>
+            </view>
+            <view class="box02-item box02-item-price">
+                <view class="item-label">开票类目</view>
+                <input placeholder="请输入金额" placeholder-class="holder-class" class="price-enter" type="text" />
+                <view class="tip">可开票金额3000元</view>
+            </view>
+        </view>
+        <view class="common-btn">
+            申请
+        </view>
+    </view>
+</view>

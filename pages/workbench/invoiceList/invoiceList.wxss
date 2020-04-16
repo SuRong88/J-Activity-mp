@@ -1,0 +1,81 @@
+page {
+    background: rgba(249, 249, 249, 1) !important;
+}
+
+.invoice-list {
+    overflow: hidden;
+    padding-bottom: 100rpx;
+}
+
+.invoice-item {
+    margin-top: 20rpx;
+    background-color: #fff;
+}
+
+.invoice-item-hd {
+    padding: 32rpx 50rpx 22rpx;
+    position: relative;
+    border-bottom: 2rpx solid #F5F5F5;
+}
+
+.item-num {
+    font-size: 28rpx;
+    color: rgba(102, 102, 102, 1);
+    line-height: 40rpx;
+    padding: 30rpx 0;
+}
+
+.item-status {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 128rpx;
+    line-height: 64rpx;
+    border-radius: 0px 0px 0px 24rpx;
+    color: #fff;
+    text-align: center;
+}
+
+.item-status.green {
+    background: rgba(83, 185, 128, 1);
+}
+
+.item-status.orange {
+    background: rgba(252, 127, 3, 1);
+}
+
+.invoice-item-bd {
+    padding: 0 50rpx;
+}
+
+.bd-t {
+    padding: 30rpx 0;
+    border-bottom: 2rpx solid #F5F5F5;
+}
+
+.item {
+    margin-bottom: 22rpx;
+    height: 36rpx;
+}
+
+.item:last-child {
+    margin-bottom: 0rpx;
+}
+
+.item-label {
+    font-size: 26rpx;
+    color: rgba(153, 153, 153, 1);
+}
+
+.item-txt {
+    font-size: 26rpx;
+    color: rgba(102, 102, 102, 1);
+}
+
+.bd-b {
+    padding: 30rpx 0 34rpx;
+}
+
+.item-txt.price {
+    color: rgba(252, 127, 3, 1);
+}

@@ -1,0 +1,140 @@
+/* pages/me/index/index.wxss */
+
+.content {
+    padding: 52rpx 50rpx 230rpx;
+}
+
+.box01 {
+    padding-bottom: 40rpx;
+    border-bottom: 2rpx solid #F5F5F5;
+}
+
+.box01-item {
+    height: 40rpx;
+    margin-bottom: 30rpx;
+}
+
+.box01-item:last-child {
+    margin-bottom: 0;
+}
+
+.item-label {
+    font-size: 30rpx;
+    color: rgba(51, 51, 51, 1);
+}
+
+.item-txt {
+    font-size: 26rpx;
+    color: rgba(102, 102, 102, 1);
+}
+
+.box02 {
+    padding-top: 40rpx;
+}
+
+.box02-item {
+    position: relative;
+    margin-bottom: 40rpx;
+    line-height: 42rpx;
+}
+
+.box02-item:last-child {
+    margin-bottom: 0;
+}
+
+.item-icon-arrow {
+    width: 15rpx;
+    height: 24rpx;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.box02-item-type {}
+
+.box02-item-type .item-label {
+    margin-bottom: 26rpx;
+}
+
+.type-list {
+    padding-right: 40rpx;
+}
+
+.type-item {
+    height: 40rpx;
+}
+
+.type-item-icon {
+    width: 32rpx;
+    height: 32rpx;
+}
+
+.type-item-txt {
+    font-size: 28rpx;
+    color: rgba(153, 153, 153, 1);
+    padding-left: 18rpx;
+}
+
+.box02-item-price {}
+
+.box02-item-price .item-label {
+    margin-bottom: 14rpx;
+}
+
+.holder-class {
+    color: rgba(153, 153, 153, 1);
+}
+
+.price-enter {
+    padding-left: 30rpx;
+    height: 80rpx;
+    background: rgba(245, 245, 245, 1);
+    border-radius: 8rpx;
+    font-size: 28rpx;
+    color: rgba(153, 153, 153, 1);
+}
+
+.tip {
+    padding-top: 16rpx;
+    font-size: 22rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 32rpx;
+}
+
+
+
+.classification-txt {
+    line-height: 1;
+    padding-right: 40rpx;
+    font-size: 28rpx;
+    color: rgba(102, 102, 102, 1);
+}
+
+.box02-item.box02-item-address {
+    height: auto;
+}
+
+.box02-item.box02-item-address .item-label {
+    position: relative;
+}
+
+.box02-item.box02-item-address .item-icon-arrow {
+    /* position: static;
+    transform: translate(0); */
+}
+
+.address-info-box {
+    padding-top: 24rpx;
+}
+
+.address-info-item {
+    font-size: 30rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 42rpx;
+    margin-bottom: 18rpx;
+}
+
+.address-info-item:last-child {
+    margin-bottom: 0;
+}

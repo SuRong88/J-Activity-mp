@@ -1,6 +1,6 @@
 <!--自定义弹窗-->
-<view class='popBox {{cln}}'>
-    <form bindsubmit='confirmHandle' bindreset='cancelHandle'>
+<view bindtap="cancelHandle" class='popBox {{cln}}'>
+    <form catchtap="emptyHandle" bindsubmit='confirmHandle' bindreset='cancelHandle'>
         <view class='pop'>
             <view wx:if="{{showTitle}}" class="pop_tit">
                 {{title}}

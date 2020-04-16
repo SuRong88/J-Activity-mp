@@ -1,5 +1,16 @@
 {
     "pages": [
+        "pages/workbench/privateSelect/privateSelect",
+        "pages/workbench/privateList/privateList",
+        "pages/workbench/addressAdd/addressAdd",
+        "pages/workbench/addressList/addressList",
+        "pages/workbench/invoiceList/invoiceList",
+        "pages/workbench/invoiceApplication/invoiceApplication",
+        "pages/workbench/invoiceManage/invoiceManage",
+        "pages/workbench/activityCreate/activityCreate",
+        "pages/workbench/jobAdd/jobAdd",
+        "pages/workbench/publishSuccess/publishSuccess",
+        "pages/workbench/index/index",
         "pages/index/index",
         "pages/authentication/info/info",
         "pages/authentication/bankCard/bankCard",

@@ -1,0 +1,22 @@
+<view class="container">
+    <mp-header showBack title="开票管理"></mp-header>
+    <view class="content">
+        <view class="manage-list">
+            <view bindtap="base_jump" data-url="/pages/workbench/invoiceApplication/invoiceApplication" class="manage-item flex flex-ver">
+                <image class="item-icon" src="/images/workbench/icon01.png"></image>
+                <text class="item-txt">申请开票</text>
+                <image class="item-icon-arrow" src="/images/index/icon12.png"></image>
+            </view>
+            <view bindtap="base_jump" data-url="/pages/workbench/invoiceList/invoiceList" class="manage-item flex flex-ver">
+                <image class="item-icon" src="/images/workbench/icon02.png"></image>
+                <text class="item-txt">开票记录</text>
+                <image class="item-icon-arrow" src="/images/index/icon12.png"></image>
+            </view>
+            <view bindtap="base_jump" data-url="/pages/workbench/invoiceApplication/invoiceApplication" class="manage-item flex flex-ver">
+                <image class="item-icon" src="/images/workbench/icon03.png"></image>
+                <text class="item-txt">收件地址</text>
+                <image class="item-icon-arrow" src="/images/index/icon12.png"></image>
+            </view>
+        </view>
+    </view>
+</view>

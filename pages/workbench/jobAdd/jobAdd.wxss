@@ -1,0 +1,198 @@
+.content {
+    padding: 50rpx 20rpx 250rpx;
+}
+
+.job-list {}
+
+.job-item {
+    padding: 70rpx 30rpx;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 24rpx 0px rgba(238, 237, 237, 1);
+    border-radius: 10rpx;
+    margin-bottom: 80rpx;
+}
+
+.job-item.mb0 {
+    margin-bottom: 0;
+}
+
+.job-item:last-child {
+    margin-bottom: 0rpx;
+}
+
+.info-item {
+    margin-bottom: 40rpx;
+}
+
+.info-item:last-child {
+    margin-bottom: 0rpx;
+}
+
+.item-label {
+    margin-bottom: 14rpx;
+    line-height: 42rpx;
+    position: relative;
+}
+
+.item-value-txt {
+    line-height: 1;
+    padding-right: 40rpx;
+    font-size: 28rpx;
+    color: rgba(153, 153, 153, 1);
+}
+
+.arrow-icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 15rpx;
+    height: 24rpx;
+}
+
+.label {
+    font-size: 30rpx;
+    color: rgba(51, 51, 51, 1);
+}
+
+.label-desc {
+    font-size: 26rpx;
+    color: #999;
+}
+
+.item-enter {
+    height: 80rpx;
+    background: rgba(245, 245, 245, 1);
+    border-radius: 8rpx;
+    padding: 0 30rpx;
+    font-size: 28rpx;
+    color: rgba(153, 153, 153, 1);
+}
+
+.holder-class {
+    color: rgba(153, 153, 153, 1);
+}
+
+.item-enter-textarea {
+    font-size: 28rpx;
+    color: rgba(153, 153, 153, 1);
+    padding: 22rpx 30rpx;
+    height: 178rpx;
+    background: rgba(245, 245, 245, 1);
+    border-radius: 8rpx;
+}
+
+.holder-class-textarea {
+    color: rgba(153, 153, 153, 1);
+}
+
+.item-content-desc {
+    position: relative;
+}
+
+.item-enter-textarea.enter-desc {
+    padding-bottom: 60rpx;
+}
+
+.enter-desc-num {
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 34rpx;
+    position: absolute;
+    right: 34rpx;
+    bottom: 20rpx;
+}
+
+/* 活动时间 */
+.item-date-box {}
+
+.date-item {
+    font-size: 28rpx;
+    color: rgba(153, 153, 153, 1);
+
+}
+
+.date-item::after {
+    content: "";
+    margin-left: 8rpx;
+    display: inline-block;
+    width: 0;
+    border-top: 12rpx solid #999999;
+    border-left: 8rpx solid transparent;
+    border-right: 8rpx solid transparent;
+}
+
+.spe-line {
+    margin: 0 20rpx;
+    font-size: 34rpx;
+    color: rgba(153, 153, 153, 1);
+}
+
+.item-content .address-txt {
+    font-size: 28rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 40rpx;
+}
+
+.job-type-menu {
+    padding-top: 10rpx;
+}
+
+.job-type-item {}
+
+.job-type-select-icon {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 20rpx;
+}
+
+.job-type-select-txt {
+    font-size: 28rpx;
+    color: rgba(153, 153, 153, 1);
+}
+
+
+
+.add-btn {
+    padding-left: 20rpx;
+    margin-top: -40rpx;
+    /* padding-top: 44rpx; */
+}
+
+.add-icon {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 14rpx;
+}
+
+.add-txt {
+    font-size: 30rpx;
+    color: rgba(51, 51, 51, 1);
+}
+
+.item-label {
+    position: relative;
+}
+
+.hire-num-box {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.hire-num {
+    font-size: 28rpx;
+    color: rgba(153, 153, 153, 1);
+}
+
+.hire-num::after {
+    content: "";
+    margin-left: 20rpx;
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    border-top: 12rpx solid #999999;
+    border-left: 8rpx solid transparent;
+    border-right: 8rpx solid transparent;
+}

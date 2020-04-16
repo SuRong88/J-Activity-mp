@@ -1,0 +1,93 @@
+page{
+    background:rgba(249,249,249,1)!important;
+}
+.content{
+    padding-bottom: 200rpx;
+}
+.resource-list {}
+
+.resource-item {
+    padding: 36rpx 40rpx 30rpx;
+    margin-bottom: 20rpx;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+.resource-item:last-child {
+    margin-bottom: 0;
+}
+
+.resource-item:last-child {
+    margin-bottom: 0;
+}
+
+.item-top {}
+
+.item-top-l {
+    padding-right: 34rpx;
+}
+
+.item-avatar {
+    width: 132rpx;
+    height: 132rpx;
+    border-radius: 50%;
+}
+
+.item-top-r {
+    padding-bottom: 28rpx;
+    border-bottom: 2rpx solid #F5F5F5;
+}
+
+.item-tit {
+    font-size: 32rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    line-height: 44rpx;
+    margin-bottom: 16rpx;
+}
+
+.item-tags {
+    margin-bottom: 20rpx;
+}
+
+.item-tag {
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 34rpx;
+}
+
+.item-spe {
+    font-size: 18rpx;
+    margin: 0 26rpx;
+    color: #DDD9D9;
+}
+
+.item-info {
+    font-size: 24rpx;
+    color: rgba(102, 102, 102, 1);
+    line-height: 34rpx;
+    margin-bottom: 16rpx;
+}
+.item-info:last-child {
+    margin-bottom: 0;
+}
+
+.item-time {}
+
+.item-num .num {
+    color: #FC5403;
+}
+
+.item-bottom {
+    padding-top: 30rpx;
+}
+
+.btn-remove {
+    font-size: 24rpx;
+    color: rgba(252, 127, 3, 1);
+}
+
+.remove-icon {
+    width: 34rpx;
+    height: 34rpx;
+    margin-right: 10rpx;
+}

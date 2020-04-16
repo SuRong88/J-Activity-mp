@@ -1,0 +1,117 @@
+/* test */
+page {
+    background-color: #f5f5f5 !important;
+}
+
+.container {}
+
+.content {
+    height: 100%;
+}
+
+.empty-box {
+    padding-top: 17vh;
+}
+
+.empty-img {
+    display: block;
+    width: 440rpx;
+    height: 254rpx;
+    margin: 0 auto 70rpx;
+}
+
+.empty-tip {
+    font-size: 32rpx;
+    color: rgba(51, 51, 51, 1);
+    line-height: 44rpx;
+}
+
+.address-box {
+    height: 100%;
+}
+
+.address-item {
+    margin-top: 20rpx;
+    background-color: #fff;
+    padding: 0 40rpx;
+}
+
+.detail-box {
+    position: relative;
+    padding: 24rpx 28rpx 16rpx 76rpx;
+}
+
+.address-icon {
+    position: absolute;
+    left: 0;
+    top: 74rpx;
+    width: 48rpx;
+    height: 48rpx;
+}
+
+.item {
+    font-size: 28rpx;
+    color: rgba(51, 51, 51, 1);
+    line-height: 40rpx;
+    margin-bottom: 12rpx;
+}
+
+.item:last-child {
+    margin-bottom: 0;
+}
+
+.item-label {
+    white-space: nowrap;
+}
+
+.item-txt {}
+
+.select-btn {
+    height: 34rpx;
+    position: absolute;
+    top: 28rpx;
+    right: 0;
+}
+
+.select-txt {
+    font-size: 24rpx;
+    color: #999999;
+}
+.address-item.is-selected .select-txt{
+    color: rgba(252, 127, 3, 1);
+}
+.select-icon {
+    width: 32rpx;
+    height: 32rpx;
+    margin-left: 14rpx;
+}
+
+.btn-box {
+    padding-right: 10rpx;
+    border-top: 2rpx solid #F9F9F9;
+    height: 82rpx;
+}
+
+.btn-item {
+    height: 36rpx;
+}
+
+.btn-item:first-child {
+    margin-right: 66rpx;
+}
+
+/* .btn-item:first-child .btn-icon {
+    width: 24rpx;
+    height: 32rpx;
+}
+ */
+.btn-icon {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 10rpx;
+}
+
+.btn-txt {
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+}

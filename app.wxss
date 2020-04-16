@@ -76,7 +76,7 @@ view,
 text,
 button,
 input,
-textarea{
+textarea {
     font-family: -apple-system-font, Helvetica Neue, Helvetica, STHeiTi, sans-serif;
     box-sizing: border-box;
 }
@@ -370,7 +370,9 @@ button::after {
     left: 50%;
     text-align: center;
     transform: translateX(-50%);
+    z-index: 2;
 }
+
 .common-btn.normal {
     position: static;
     transform: translate(0%);
@@ -386,7 +388,14 @@ button::after {
     bottom: 0;
     left: 0;
     text-align: center;
+    z-index: 2;
 }
+
 .common-placeholder {
-    color:rgba(153,153,153,1);
+    color: rgba(153, 153, 153, 1);
+}
+
+input,
+textarea {
+    width: 100%;
 }

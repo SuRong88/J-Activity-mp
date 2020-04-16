@@ -51,238 +51,49 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 24,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
-					"name": "test",
-					"pathName": "pages/test/test",
-					"query": "name=sjr&age=22",
-					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "introduce",
-					"pathName": "pages/introduce/introduce",
-					"query": "",
-					"scene": 1008
-				},
-				{
-					"id": -1,
-					"name": "plan-index",
-					"pathName": "pages/plan/index/index",
+					"name": "pages/workbench/invoiceApplication/invoiceApplication",
+					"pathName": "pages/workbench/invoiceApplication/invoiceApplication",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "plan-setting",
-					"pathName": "pages/plan/setting/setting",
+					"name": "pages/workbench/activityCreate/activityCreate",
+					"pathName": "pages/workbench/activityCreate/activityCreate",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "plan-edit",
-					"pathName": "pages/plan/edit/edit",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 5,
-					"name": "plan-address",
-					"pathName": "pages/plan/address/address",
-					"query": "type=setting",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "charge",
-					"pathName": "pages/charge/charge",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 7,
-					"name": "提交成功",
-					"pathName": "pages/complete/complete",
-					"query": "type=submit",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "cancel",
-					"pathName": "pages/cancel/cancel",
+					"name": "pages/workbench/publishSuccess/publishSuccess",
+					"pathName": "pages/workbench/publishSuccess/publishSuccess",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "order",
-					"pathName": "pages/order/order",
+					"name": "pages/resource/index/index",
+					"pathName": "pages/resource/index/index",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": 10,
-					"name": "评论",
-					"pathName": "pages/comment/comment",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "me-index",
-					"pathName": "pages/me/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 12,
-					"name": "me-bill",
-					"pathName": "pages/me/bill/bill",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 13,
-					"name": "me-address",
-					"pathName": "pages/me/address/address",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 14,
-					"name": "me-refund",
-					"pathName": "pages/me/refund/refund",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 15,
-					"name": "me-balance",
-					"pathName": "pages/me/balance/balance",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 16,
-					"name": "me-voucher",
-					"pathName": "pages/me/voucher/voucher",
+					"id": 4,
+					"name": "pages/workbench/privateSelect/privateSelect",
+					"pathName": "pages/workbench/privateSelect/privateSelect",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "test",
-					"pathName": "pages/test/test",
+					"name": "pages/workbench/jobAdd/jobAdd",
+					"pathName": "pages/workbench/jobAdd/jobAdd",
 					"query": "",
 					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "index",
-					"pathName": "pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "提现成功",
-					"pathName": "pages/complete/complete",
-					"query": "type=withdraw",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "定制成功",
-					"pathName": "pages/complete/complete",
-					"query": "custom",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "操作端",
-					"pathName": "pages/operate/operate",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "打包员",
-					"pathName": "pages/packer/packer",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "配送员",
-					"pathName": "pages/deliver/deliver",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 24,
-					"name": "终端申请打包员",
-					"pathName": "pages/toggle/toggle",
-					"query": "type=packer",
-					"scene": 1047
-				},
-				{
-					"id": -1,
-					"name": "headerTest",
-					"pathName": "pages/headerTest/headerTest",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 26,
-					"name": "操作端未授权",
-					"pathName": "pages/operate2/operate2",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "申请终端状态",
-					"pathName": "pages/state/state",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 28,
-					"name": "1047扫码申请终端",
-					"pathName": "pages/introduce/introduce",
-					"query": "apply=1",
-					"scene": 1047
-				},
-				{
-					"id": 29,
-					"name": "进入终端",
-					"pathName": "pages/introduce/introduce",
-					"query": "role=1",
-					"scene": 1047
-				},
-				{
-					"id": -1,
-					"name": "state",
-					"pathName": "pages/state/state",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "终端申请配送员",
-					"pathName": "pages/toggle/toggle",
-					"query": "type=deliver",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/introduce/introduce",
-					"pathName": "pages/introduce/introduce",
-					"query": "apply=1",
-					"scene": 1047
 				}
 			]
 		}

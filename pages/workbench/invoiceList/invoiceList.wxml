@@ -1,0 +1,121 @@
+<view class="container">
+    <mp-header showBack title="开票记录"></mp-header>
+    <view class="content invoice-list">
+        <view class="invoice-item">
+            <view class="invoice-item-hd">
+                <view class="item-num">申请单号：9264762994</view>
+                <view class="item-status green">
+                    已寄出
+                </view>
+            </view>
+            <view class="invoice-item-bd">
+                <view class="bd-t">
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">发票抬头</view>
+                        <view class="item-txt">广州名锐讯动信息科技有限公司</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">税号</view>
+                        <view class="item-txt">9144 1881 MA4W Q9U6 8C</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">开户行</view>
+                        <view class="item-txt">中国工商银行</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">开户账号</view>
+                        <view class="item-txt">723795626468876732</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">注册地址</view>
+                        <view class="item-txt">广州市海珠区新港东路中国工商银行支行</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">电话</view>
+                        <view class="item-txt">15626120108</view>
+                    </view>
+                </view>
+                <view class="bd-b">
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">金额</view>
+                        <view class="item-txt price">¥3800.00</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">申请时间</view>
+                        <view class="item-txt">2020.04.02</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">发票类型</view>
+                        <view class="item-txt">增值税专用发票</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">开票类目</view>
+                        <view class="item-txt">软件服务</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">收件地址</view>
+                        <view class="item-txt">广州市海珠区新港东路234号某某大厦</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="invoice-item">
+            <view class="invoice-item-hd">
+                <view class="item-num">申请单号：9264762994</view>
+                <view class="item-status orange">
+                    待处理
+                </view>
+            </view>
+            <view class="invoice-item-bd">
+                <view class="bd-t">
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">发票抬头</view>
+                        <view class="item-txt">广州名锐讯动信息科技有限公司</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">税号</view>
+                        <view class="item-txt">9144 1881 MA4W Q9U6 8C</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">开户行</view>
+                        <view class="item-txt">中国工商银行</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">开户账号</view>
+                        <view class="item-txt">723795626468876732</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">注册地址</view>
+                        <view class="item-txt">广州市海珠区新港东路中国工商银行支行</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">电话</view>
+                        <view class="item-txt">15626120108</view>
+                    </view>
+                </view>
+                <view class="bd-b">
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">金额</view>
+                        <view class="item-txt price">¥3800.00</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">申请时间</view>
+                        <view class="item-txt">2020.04.02</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">发票类型</view>
+                        <view class="item-txt">增值税专用发票</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">开票类目</view>
+                        <view class="item-txt">软件服务</view>
+                    </view>
+                    <view class="item flex flex-ver flex-jcsb">
+                        <view class="item-label">收件地址</view>
+                        <view class="item-txt">广州市海珠区新港东路234号某某大厦</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,46 @@
+<view class="container">
+    <mp-header showBack title="发布成功"></mp-header>
+    <view class="content">
+        <view class="success-box text-c">
+            <image class="success-img" src="/images/workbench/BS_img06.png"></image>
+            <text class="success-txt">发布成功！</text>
+        </view>
+        <view class="btn-box">
+            <view class="common-btn normal btn-view">
+                查看活动
+            </view>
+            <view bindtap="showShareMask" class="common-btn normal btn-share">
+                分享活动
+            </view>
+        </view>
+    </view>
+    <view bindtap="closeMask" hidden="{{!showShare}}" class="share-mask">
+        <view catchtap="emptyHandle" class="share-box flex">
+            <button catchtap="showPosterMask" class="share-item text-c flex-1">
+                <image src="/images/workbench/BS_icon20.png" class="share-icon">
+
+                </image>
+                <view class="share-txt">
+                    生成分享海报
+                </view>
+            </button>
+            <button open-type="share" class="share-item text-c flex-1">
+                <image src="/images/workbench/BS_icon21.png" class="share-icon">
+
+                </image>
+                <view class="share-txt">
+                    分享给好友
+                </view>
+            </button>
+        </view>
+    </view> 
+    <view bindtap="closeMask" hidden="{{!showPoster}}" style="padding-top: {{padHeight+40}}rpx;" class="poster-mask">
+        <view class="poster-box">
+            <image catchtap="emptyHandle" src="/images/test/poster.png" class="poster-img">
+            </image>
+            <button catchtap="savePoster" class="btn-save">
+                保存图片至相册
+            </button>
+        </view>
+    </view>
+</view>
