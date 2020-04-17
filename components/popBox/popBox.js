@@ -47,6 +47,9 @@ Component({
         cancelHandle: function() {
             this.triggerEvent('cancel', 'data');
             console.log('组件内取消')
+        },
+        emptyHandle: function() {
+            return false;
         }
         // _onCollection: function() {
         //     let collected = this.properties.collected;

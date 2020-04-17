@@ -1,0 +1,67 @@
+<view class="container">
+    <mp-header isHome="{{isHome}}" showBack showBack title="活动管理"></mp-header>
+    <view class="content">
+        <view class="nav-menu flex flex-jcsb">
+            <view bindtap="switchNav" data-index="0" class="nav-item flex-1 {{navIndex==0?'active':''}}">
+                招募中
+            </view>
+            <view bindtap="switchNav" data-index="1" class="nav-item flex-1 {{navIndex==1?'active':''}}">
+                待验收
+            </view>
+            <view bindtap="switchNav" data-index="2" class="nav-item flex-1 {{navIndex==2?'active':''}}">
+                已完结
+            </view>
+            <view bindtap="switchNav" data-index="3" class="nav-item flex-1 {{navIndex==3?'active':''}}">
+                已关闭
+            </view>
+        </view>
+        <view class="activity-list">
+            <view bindtap="base_jump" data-url="/pages/workbench/activityDetail/activityDetail" class="activity-item">
+                <view class="item-t flex flex-ver">
+                    <view class="item-num">编号：2103920847</view>
+                    <view class="item-status">已完结</view>
+                </view>
+                <view class="item-m">
+                    <view class="item-tit line-hide line-1">名锐讯动信息科技有限公司五四青年节晚会</view>
+                    <view class="item-desc line-hide line-2">为庆祝五四青年节，给公司员工一个真正展示自我风采和勇气的舞台，2020年名锐讯动青年节晚会将以宏大的气魄、不凡…</view>
+                    <view class="item-date">活动时间：2020.05.04-2020.05.04</view>
+                    <view class="item-address">活动地点：广州市海珠区新港东路234号某某大厦</view>
+                </view>
+                <view class="item-b flex flex-ver flex-jcfe">
+                    <view class="item-btn plain">
+                        关闭活动
+                    </view>
+                    <view class="item-btn plain">
+                        修改活动
+                    </view>
+                    <view class="item-btn plain">
+                        一键派单
+                    </view>
+                    <view class="item-btn">
+                        添加职位
+                    </view>
+                </view>
+            </view>
+            <view class="activity-item">
+                <view class="item-t flex flex-ver">
+                    <view class="item-num">编号：2103920847</view>
+                    <view class="item-status orange">已完结</view>
+                </view>
+                <view class="item-m">
+                    <view class="item-tit line-hide line-1">名锐讯动信息科技有限公司五四青年节晚会</view>
+                    <view class="item-desc line-hide line-2">为庆祝五四青年节，给公司员工一个真正展示自我风采和勇气的舞台，2020年名锐讯动青年节晚会将以宏大的气魄、不凡…</view>
+                    <view class="item-date">活动时间：2020.05.04-2020.05.04</view>
+                    <view class="item-address">活动地点：广州市海珠区新港东路234号某某大厦</view>
+                </view>
+                <view class="item-b flex flex-ver flex-jcfe">
+                    <view class="item-btn">
+                        添加职位
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <mp-popBox wx:if="{{showMask}}" cln="''" title="您确定关闭该活动吗？" bind:confirm='confirmClose' bind:cancel='cancelClose'
+        confirmText="确定">
+    </mp-popBox>
+</view>

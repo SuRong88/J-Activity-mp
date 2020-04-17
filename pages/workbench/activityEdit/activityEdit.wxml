@@ -1,0 +1,56 @@
+<view class="container">
+    <mp-header isHome="{{isHome}}" showBack title="修改活动"></mp-header>
+    <view class="content ">
+        <view class="info-list">
+            <view class="info-item">
+                <view class="item-label">
+                    <text class="label">活动名称</text>
+                    <text class="label-desc"></text>
+                </view>
+                <view class="item-content">
+                    <input bindinput="changeInput" data-key="name" class="item-enter" placeholder="请输入活动名称"
+                        placeholder-class="holder-class" type="text" />
+                </view>
+            </view>
+            <view class="info-item">
+                <view class="item-label">
+                    <text class="label">活动描述</text>
+                    <text class="label-desc"></text>
+                </view>
+                <view class="item-content item-content-desc">
+                    <textarea bindinput="changeInput" data-key="desc" class="item-enter-textarea enter-desc"
+                        placeholder="请输入活动描述" placeholder-class="holder-class-textarea" type="text" />
+                    </view>
+            </view>
+            <view class="info-item">
+                <view class="item-label flex flex-ver flex-jcsb">
+                    <text class="label">活动时间</text>
+                    <view class="item-date-box flex flex-ver">
+                        <view class="date-item flex flex-ver">
+                            2020-04-02
+                        </view>
+                        <view class="spe-line">-</view>
+                        <view class="date-item flex flex-ver">
+                            2020-04-02
+                        </view>
+                    </view>
+                </view>
+                <view class="item-content">
+                </view>
+            </view>
+            <view class="info-item info-item-status">
+                <view class="item-label">
+                    <text class="label">活动状态</text>
+                    <text class="label-desc"></text>
+                </view>
+                <view class="item-content flex flex-ver">
+                    <image class="status-icon" src="/images/workbench/BS_icon15.png"></image>
+                   <text class="status-txt">招募中</text>
+                </view>
+            </view>
+        </view>
+        <view class="common-btn">
+            提交
+        </view>
+    </view>
+</view>

@@ -1,0 +1,109 @@
+<view class="container">
+    <mp-header isHome="{{isHome}}" showBack title="活动详情"></mp-header>
+    <view class="content">
+
+        <view class="activity-info-box">
+            <view class="info-hd">
+                <view class="item-num">编号：2103920847</view>
+                <view class="item-status">招募中</view>
+            </view>
+            <view class="info-bd">
+                <view class="info-tit">名锐讯动信息科技有限公司五四青年节晚会</view>
+                <view class="info-desc ">为庆祝五四青年节，给公司员工一个真正展示自我风采和勇气的舞台，2020年名锐讯动青年节晚会将以宏大的气魄、不凡…</view>
+                <view class="info-date">发布时间：2020.05.04</view>
+            </view>
+        </view>
+        <view class="activity-job-box">
+            <view class="job-item orange">
+                <view class="item-t flex flex-ver flex-jcsb">
+                    <view class="flex flex-ver">
+                        <view class="item-tit">
+                            摄影
+                        </view>
+                        <view class="item-status">
+                            招募中
+                        </view>
+                    </view>
+                    <view class="item-price">
+                        ¥5800.00
+                    </view>
+                </view>
+                <view class="item-m">
+                    <view class="job-info-item flex">
+                        所需人数：5/3
+                    </view>
+                    <view class="job-info-item flex">
+                        职位性质：普通
+                    </view>
+                    <view class="job-info-item flex">
+                        职位时间：2020.05.04-2020.05.04
+                    </view>
+                    <view class="job-info-item flex">
+                        职位地点：广州市海珠区新港东路234号某某大厦
+                    </view>
+                    <view class="job-info-item job-info-content">
+                        <view class="label">
+                            工作内容：
+                        </view>
+                        <view class="con-detail {{test?'spread':''}}">
+                            1、负责节目主持工作；
+                            2、负责与节目相关信息的采集、撰写、审查；
+                            3、维持现场秩序，活跃现场气氛；
+                            <image bindtap="showJobContent" class="fold-icon" src="/images/workbench/arrow-down.png"></image>
+                        </view>
+                    </view>
+
+                </view>
+                <view class="item-b flex flex-jcfe">
+                    <view class="item-btn plain">关闭职位</view>
+                    <view class="item-btn">补充验收材料</view>
+                </view>
+            </view>
+            <view class="job-item">
+                <view class="item-t flex flex-ver flex-jcsb">
+                    <view class="flex flex-ver">
+                        <view class="item-tit">
+                            摄影
+                        </view>
+                        <view class="item-status">
+                            招募中
+                        </view>
+                    </view>
+                    <view class="item-price">
+                        ¥5800.00
+                    </view>
+                </view>
+                <view class="item-m">
+                    <view class="job-info-item flex">
+                        所需人数：5/3
+                    </view>
+                    <view class="job-info-item flex">
+                        职位性质：普通
+                    </view>
+                    <view class="job-info-item flex">
+                        职位时间：2020.05.04-2020.05.04
+                    </view>
+                    <view class="job-info-item flex">
+                        职位地点：广州市海珠区新港东路234号某某大厦
+                    </view>
+                    <view class="job-info-item job-info-content">
+                        <view class="label">
+                            工作内容：
+                        </view>
+                        <view class="con-detail spread">
+                            1、负责节目主持工作；
+                            2、负责与节目相关信息的采集、撰写、审查；
+                            3、维持现场秩序，活跃现场气氛；
+                            <image class="fold-icon" src="/images/workbench/arrow-down.png"></image>
+                        </view>
+                    </view>
+
+                </view>
+                <view class="item-b flex flex-jcfe">
+                    <view class="item-btn plain">关闭职位</view>
+                    <view class="item-btn">补充验收材料</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,5 +1,5 @@
 <view class="container">
-    <mp-header showBack title="添加地址"></mp-header>
+    <mp-header isHome="{{isHome}}" showBack title="添加地址"></mp-header>
     <view class="content ">
         <view class="info-list">
             <view class="info-item">

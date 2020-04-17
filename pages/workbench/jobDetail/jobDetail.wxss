@@ -1,0 +1,294 @@
+page {
+    background-color: #F9F9F9 !important;
+}
+
+.job-info-box {
+    margin-bottom: 20rpx;
+    padding: 60rpx 40rpx 50rpx;
+    background-color: #fff;
+}
+
+/* 职位列表 */
+.job-info-box {
+    background-color: #fff;
+}
+
+.job-info-box .job-item {
+    padding: 0 40rpx;
+    border-bottom: 2rpx solid #f5f5f5;
+}
+
+.job-info-box .item-hd {
+    padding: 0rpx 0 28rpx;
+}
+
+.job-info-box .item-tit {
+    font-size: 34rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    line-height: 48rpx;
+}
+
+.job-info-box .item-status {
+    background: rgba(245, 245, 245, 1);
+    color: rgba(153, 153, 153, 1);
+    border-radius: 6rpx;
+    font-size: 24rpx;
+    line-height: 42rpx;
+    text-align: center;
+    margin-left: 26rpx;
+    width: 106rpx;
+}
+
+.job-info-box .item-price {
+    font-size: 34rpx;
+    color: rgba(153, 153, 153, 1);
+}
+
+.job-info-box.orange .item-status {
+    background: rgba(252, 127, 3, 0.15);
+    color: rgba(252, 127, 3, 1);
+}
+
+.job-info-box.orange .item-price {
+    color: rgba(252, 127, 3, 1);
+}
+
+
+.job-info-box .item-bd {}
+
+.job-info-box .job-info-item {
+    font-size: 28rpx;
+    color: rgba(102, 102, 102, 1);
+    line-height: 40rpx;
+    margin-bottom: 20rpx;
+}
+
+.job-info-box .job-info-item:last-child {
+    margin-bottom: 0;
+}
+
+.job-info-box .job-info-content {}
+
+.job-info-box .label {
+    margin-bottom: 10rpx;
+}
+
+.job-info-box .con-detail {
+    position: relative;
+    /* padding-right: 40rpx; */
+    line-height: 52rpx;
+}
+
+.resource-list {
+    padding-bottom: 120rpx;
+}
+
+.resource-item {
+    padding: 36rpx 40rpx 30rpx;
+    background-color: #fff;
+    border-bottom: 2rpx solid #F5F5F5;
+}
+
+.resource-item:last-child {
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+
+.resource-item:last-child {
+    margin-bottom: 0;
+}
+
+.resource-item .item-top {}
+
+.resource-item .item-top-l {
+    padding-top: 2px;
+    padding-right: 30rpx;
+}
+
+.resource-item .item-select-icon {
+    width: 36rpx;
+    height: 36rpx;
+}
+
+.resource-item .item-top-r {
+    /* padding-bottom: 28rpx; */
+}
+
+.resource-item .item-top-r .item-hd {
+    height: 44rpx;
+    margin-bottom: 16rpx;
+}
+
+.resource-item .item-tit {
+    font-size: 32rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    line-height: 1.3;
+
+}
+
+.resource-item .item-top-r .item-other {
+    white-space: nowrap;
+    font-size: 24rpx;
+    color: rgba(252, 127, 3, 1);
+    /* line-height: 44rpx; */
+}
+
+.resource-item .item-top-r .item-price {
+    white-space: nowrap;
+    font-size: 34rpx;
+    color: rgba(252, 127, 3, 1);
+    line-height: 44rpx;
+}
+
+.resource-item .item-tags {
+    margin-bottom: 20rpx;
+}
+
+.resource-item .item-tag {
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 34rpx;
+}
+
+.resource-item .item-spe {
+    font-size: 18rpx;
+    margin: 0 26rpx;
+    color: #DDD9D9;
+}
+
+.resource-item .item-info {
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 34rpx;
+    margin-bottom: 16rpx;
+}
+
+.resource-item .data-img {
+    width: 200rpx;
+    height: 200rpx;
+    margin-bottom: 16rpx;
+}
+
+.resource-item .item-info:last-child {
+    margin-bottom: 0;
+}
+
+.resource-item .item-time {}
+
+.resource-item .item-num .num {
+    color: #FC5403;
+}
+
+.resource-item .item-bottom {
+    padding: 24rpx 0 0rpx;
+}
+
+.resource-item .item-btn {
+    padding: 0 18rpx;
+    color: #fff;
+    text-align: center;
+    border: 2rpx solid rgba(252, 127, 3, 1);
+    min-width: 138rpx;
+    line-height: 42rpx;
+    background: rgba(252, 127, 3, 1);
+    border-radius: 8rpx;
+}
+
+.resource-item .item-btn.plain {
+    background-color: #fff;
+    color: rgba(252, 127, 3, 1);
+    margin-right: 20rpx;
+}
+
+/* 底部固定 */
+.bottom-box {
+    height: 124rpx;
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 0 40rpx;
+    border-top: 2rpx solid #F5F5F5;
+}
+
+.select-num {
+    font-size: 26rpx;
+    color: rgba(224, 32, 32, 1);
+}
+
+.btn-confirm {
+    width: 208rpx;
+    line-height: 70rpx;
+    font-size: 28rpx;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    background: rgba(252, 127, 3, 1);
+    border-radius: 10rpx;
+}
+
+/* 确认派单 */
+.order-list {}
+
+.order-item {
+    padding: 30rpx 0 26rpx;
+    border-bottom: 2rpx solid #F9F9F9;
+}
+
+.order-item:last-child {
+    border: 0;
+}
+
+.order-item .item-l {
+    height: 44rpx;
+    margin-right: 26rpx;
+    flex-shrink: 0;
+}
+
+.order-item .item-l .item-icon {
+    width: 32rpx;
+    height: 32rpx;
+}
+
+.order-item .item-r {}
+
+.order-item .item-tit {
+    font-size: 32rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    /* line-height: 44rpx; */
+    margin-bottom: 16rpx;
+    position: relative;
+}
+
+.order-item .item-tit .price {
+    font-size: 32rpx;
+    color: rgba(252, 127, 3, 1);
+    position: absolute;
+    top: 50%;
+    right: -10rpx;
+    transform: translateY(-50%);
+}
+
+.order-item .item-info {
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 34rpx;
+    margin-bottom: 10rpx;
+}
+
+.order-item .item-info:last-child {
+    margin-bottom: 0;
+}
+
+.order-item .item-name {}
+
+.order-item .item-info .label {}
+
+.order-item .item-info.value {}
+
+.order-item .item-id {}
+
+/* 确认派单 end*/

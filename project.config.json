@@ -94,6 +94,90 @@
 					"pathName": "pages/workbench/jobAdd/jobAdd",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/me/feedback/feedback",
+					"pathName": "pages/me/feedback/feedback",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/workbench/reject/reject",
+					"pathName": "pages/workbench/reject/reject",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/workbench/activityManage/activityManage",
+					"pathName": "pages/workbench/activityManage/activityManage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/workbench/activityDetail/activityDetail",
+					"pathName": "pages/workbench/activityDetail/activityDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/workbench/jobDetail/jobDetail",
+					"pathName": "pages/workbench/jobDetail/jobDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/workbench/privateList/privateList",
+					"pathName": "pages/workbench/privateList/privateList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/workbench/serviceDetail/serviceDetail",
+					"pathName": "pages/workbench/serviceDetail/serviceDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/task/upload/upload",
+					"pathName": "pages/task/upload/upload",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/workbench/passAcceptance/passAcceptance",
+					"pathName": "pages/workbench/passAcceptance/passAcceptance",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/workbench/confirmAcceptance/confirmAcceptance",
+					"pathName": "pages/workbench/confirmAcceptance/confirmAcceptance",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "pages/workbench/activityCreate/activityCreate",
+					"pathName": "pages/workbench/activityCreate/activityCreate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/workbench/dispatchAll/dispatchAll",
+					"pathName": "pages/workbench/dispatchAll/dispatchAll",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

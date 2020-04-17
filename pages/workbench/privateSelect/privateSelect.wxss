@@ -1,9 +1,11 @@
-page{
-    background:rgba(249,249,249,1)!important;
+page {
+    background: rgba(249, 249, 249, 1) !important;
 }
-.content{
+
+.content {
     padding-bottom: 200rpx;
 }
+
 .resource-list {}
 
 .resource-item {
@@ -13,6 +15,7 @@ page{
     margin-bottom: 20rpx;
     position: relative;
 }
+
 .resource-item:last-child {
     margin-bottom: 0;
 }
@@ -68,6 +71,7 @@ page{
     line-height: 34rpx;
     margin-bottom: 16rpx;
 }
+
 .item-info:last-child {
     margin-bottom: 0;
 }
@@ -78,39 +82,40 @@ page{
     color: #FC5403;
 }
 
-.item-select-btn{
+.item-select-btn {
     position: absolute;
     top: 40rpx;
     right: 40rpx;
 }
-.select-icon{
+
+.select-icon {
     width: 36rpx;
     height: 36rpx;
 }
 
 /* 底部固定 */
-.bottom-box{
+.bottom-box {
     height: 124rpx;
     background-color: #fff;
     position: fixed;
     width: 100%;
-    left: 0;bottom: 0;
+    left: 0;
+    bottom: 0;
     padding: 0 40rpx;
+    border-top: 2rpx solid #E3E1E1;
 }
-.select-num{
-    font-size:26rpx;
-    color:rgba(224,32,32,1);
+
+.select-num {
+    font-size: 26rpx;
+    color: rgba(224, 32, 32, 1);
 }
-.btn-confirm{
-    width:208rpx;
-    line-height:70rpx;
-    font-size:28rpx;
+
+.btn-confirm {
+    width: 208rpx;
+    line-height: 70rpx;
+    font-size: 28rpx;
     text-align: center;
-    color:rgba(255,255,255,1);
-    background:rgba(252,127,3,1);
-    border-radius:10rpx;
+    color: rgba(255, 255, 255, 1);
+    background: rgba(252, 127, 3, 1);
+    border-radius: 10rpx;
 }
-
-
-
-

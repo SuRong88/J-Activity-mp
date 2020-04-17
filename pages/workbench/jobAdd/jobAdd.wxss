@@ -10,6 +10,27 @@
     box-shadow: 0px 0px 24rpx 0px rgba(238, 237, 237, 1);
     border-radius: 10rpx;
     margin-bottom: 80rpx;
+    position: relative;
+    height: 186rpx;
+    overflow: hidden;
+}
+
+.job-item.spread {
+    height: auto;
+}
+
+.job-item.spread .flod-icon {
+    transform: translateX(-50%) rotate(180deg);
+}
+
+.flod-icon {
+    padding: 20rpx;
+    width: 28rpx;
+    height: 28rpx;
+    position: absolute;
+    bottom: 2rpx;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .job-item.mb0 {

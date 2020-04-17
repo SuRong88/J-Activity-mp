@@ -5,6 +5,9 @@ const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 const VM = {
     data: {
+        titleIndex: 0,
+        titleArr: ['验收成功', '派单成功', '发布成功'],
+        tipArr: ['验收成功！', '派单成功！', '发布成功！'],
         showShare: false, //分享
         showPoster: false //海报
     }

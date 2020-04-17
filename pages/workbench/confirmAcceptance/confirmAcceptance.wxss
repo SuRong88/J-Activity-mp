@@ -1,0 +1,115 @@
+.content {}
+
+.user-info {
+    padding: 50rpx 40rpx 26rpx;
+    border-bottom: 2rpx solid #F9F9F9;
+    margin-bottom: 56rpx;
+}
+
+.info-hd {
+    height: 44rpx;
+}
+
+.info-name {
+    font-size: 32rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    margin-bottom: 20rpx;
+}
+
+.info-price {
+    font-size: 32rpx;
+    font-weight: 500;
+    color: rgba(252, 127, 3, 1);
+}
+
+.info-bd {}
+
+.info-item {
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 34rpx;
+    margin-bottom: 16rpx;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.phone-box {
+    width: 680rpx;
+    margin: 0 auto;
+    box-shadow: 0px 0px 12rpx 0px rgba(153, 153, 153, 0.2);
+    border-radius: 10rpx;
+    padding: 0 50rpx;
+}
+
+.enter-item {
+    height: 122rpx;
+    padding: 0 16rpx;
+}
+
+.enter-item:first-child {
+    border-bottom: 2rpx solid #F9F9F9;
+}
+
+.item-icon {
+    width: 42rpx;
+    height: 42rpx;
+}
+
+.enter-placeholder {
+    font-size: 32rpx;
+    color: rgba(153, 153, 153, 1);
+}
+
+.item-enter {
+    padding-left: 26rpx;
+    font-size: 32rpx;
+    color: rgba(153, 153, 153, 1);
+}
+
+.send-btn {
+    width: 160rpx;
+    line-height: 54rpx;
+    text-align: center;
+    background: rgba(252, 127, 3, 1);
+    border-radius: 8rpx;
+    font-size: 24rpx;
+    color: rgba(255, 255, 255, 1);
+}
+
+/* 图形验证码 */
+.captcha-box {}
+
+.captcha-box .box-main {
+    margin-bottom: 14rpx;
+}
+
+.captcha-box .box-main .captcha-enter {
+    height: 84rpx;
+    margin-right: 110rxp;
+    background: rgba(243, 243, 243, 1);
+    border-radius: 8rpx;
+    font-size: 30rpx;
+    color: #333;
+    padding-left: 28rpx;
+}
+
+.captcha-box .box-main .captcha-enter .captcha-enter-placeholder {
+    color: rgba(153, 153, 153, 1);
+}
+
+.captcha-box .box-main .captcha-img {
+    width: 170rpx;
+    height: 72rpx;
+    flex-shrink: 0;
+}
+
+.captcha-box .tip {
+    padding-left: 12rpx;
+    font-size: 24rpx;
+    color: rgba(224, 32, 32, 1);
+}
+
+/* 图形验证码 end*/

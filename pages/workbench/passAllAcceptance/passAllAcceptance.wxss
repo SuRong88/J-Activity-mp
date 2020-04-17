@@ -1,0 +1,139 @@
+.job-list {
+    background: rgba(249, 249, 249, 1);
+    padding-bottom: 124rpx;
+}
+
+.job-item {
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+
+.job-item:last-child {
+    margin-bottom: 0;
+}
+
+.job-item-hd {
+    height: 130rpx;
+    padding: 0 40rpx;
+    border-bottom: 2rpx solid #F9F9F9;
+    position: relative;
+}
+
+.item-icon {
+    width: 32rpx;
+    height: 32rpx;
+    border-radius: 50%;
+    margin-top: -2rpx;
+    margin-right: 30rpx;
+}
+
+.job-name {
+    font-size: 34rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+}
+
+.job-num {
+    margin-left: 30rpx;
+    font-size: 26rpx;
+    color: rgba(252, 127, 3, 1);
+}
+
+
+.job-item.spread .item-icon-arrow {
+    transform: rotate(180deg);
+}
+
+.item-icon-arrow {
+    width: 28rpx;
+    height: 28rpx;
+    position: absolute;
+    top: 50%;
+    right: 40rpx;
+    transform: translateY(-50%);
+}
+
+.job-item-bd {}
+
+.service-list {}
+
+.service-item {
+    padding: 30rpx 40rpx;
+    border-bottom: 2rpx solid #F9F9F9;
+}
+
+.service-item:last-child {
+    margin-bottom: 0;
+}
+
+.service-item-l {}
+
+.service-item-r {}
+
+.service-item-index {
+    width: 60rpx;
+    font-size: 28rpx;
+    color: rgba(102, 102, 102, 1);
+}
+
+.service-item-name {
+    font-size: 32rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    margin-bottom: 20rpx;
+}
+
+.service-item-info {
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 34rpx;
+    margin-bottom: 16rpx;
+}
+
+.service-item-info:last-child {
+    margin-bottom: 0;
+}
+
+.service-item-enter-box {
+    padding-top: 4rpx;
+}
+
+.service-item-enter {
+    width: 138rpx;
+    height: 46rpx;
+    background: rgba(245, 245, 245, 1);
+    border-radius: 8rpx;
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+    text-align: center;
+}
+
+.holder-class {
+    color: rgba(153, 153, 153, 1);
+}
+
+/* 底部固定 */
+.bottom-box {
+    height: 124rpx;
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 0 40rpx;
+    border-top: 2rpx solid #E3E1E1;
+}
+
+.btn-confirm {
+    width: 208rpx;
+    line-height: 70rpx;
+    font-size: 28rpx;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    background: rgba(252, 127, 3, 1);
+    border-radius: 10rpx;
+}
+
+.btn-confirm:last-child {
+    margin-left: 20rpx;
+}

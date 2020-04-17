@@ -1,0 +1,72 @@
+<view class="container">
+    <mp-header isHome="{{isHome}}" showBack cln="'header'" title="服务商详情"></mp-header>
+    <view class="content">
+        <view class="con-hd flex">
+            <view class="hd-left flex-1">
+                <view class="intro-box">
+                    <view class="intro-hd flex flex-ver">
+                        <image class="wechat-avatar" src="/images/resource/ISP_img04.png"></image>
+                        <view class="nickname">
+                            胡诗琪是个可爱无敌美少女
+                        </view>
+                    </view>
+                    <view class="intro-bd tags flex flex-wrap">
+                        <view class="tag">
+                            舞蹈表演
+                        </view>
+                        <view class="tag">
+                            舞蹈表演
+                        </view>
+                        <view class="tag">
+                            舞蹈表演
+                        </view>
+                        <view class="tag">
+                            舞蹈表演
+                        </view>
+                    </view>
+                </view>
+                <view class="info-box">
+                    <view class="item flex flex-ver">
+                        <image class="item-icon" src="/images/workbench/BS_icon17.png"></image>
+                        <text class="item-txt">姓名：胡诗琪</text>
+                    </view>
+                    <view class="item flex flex-ver">
+                        <image class="item-icon" src="/images/activity/event_icon04.png"></image>
+                        <text class="item-txt">联系方式：15626129191</text>
+                    </view>
+                    <view class="item flex flex-ver">
+                        <image class="item-icon" src="/images/workbench/BS_icon18.png"></image>
+                        <text class="item-txt">身份证号：441881199604130394</text>
+                    </view>
+                    <view class="item flex flex-ver">
+                        <image class="item-icon" src="/images/workbench/BS_icon19.png"></image>
+                        <text class="item-txt">银行卡号：23752706287602748</text>
+                    </view>
+                    <view class="item flex flex-ver">
+                        <image class="item-icon" src="/images/activity/event_icon03.png"></image>
+                        <text class="item-txt">所属地区：广东省广州市海珠区</text>
+                    </view>
+                </view>
+            </view>
+            <view class="hd-right">
+                <image class="info-avatar" src="/images/index/img03.jpg"></image>
+            </view>
+        </view>
+        <view class="con-bd">
+            <view class="bd-intro-box">
+                <view class="box-tit flex flex-ver">
+                    <text class="tit-txt">服务商简介</text>
+                    <view class="line"></view>
+                </view>
+                <view class="box-con">
+                    广州名锐讯动信息科技有限公司是一家专注于企业互联网+服务的企业，服务内容主要包括PC网站建设、移动端网站（html5）开发、微信平台技术支持、企业形象设计、大型项目策划、新媒体运营等。
+                    我们致力于为企业带来互联网+的蜕变，为各色项目提供解决方案，为创业者实现创业梦想。合作单位包括上市公司、国企、500强企业、政府部门等。
+                </view>
+            </view>
+            <view class="bottom-box flex flex-ver flex-jcfe">
+                <view class="control-btn plain">拒绝</view>
+                <view class="control-btn">派单</view>
+            </view>
+        </view>
+    </view>
+</view>

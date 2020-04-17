@@ -1,0 +1,46 @@
+<view class="container">
+    <mp-header isHome="{{isHome}}" showBack title="一键验收"></mp-header>
+    <view class="content">
+
+        <view class="job-list">
+            <view wx:for="{{3}}" wx:key="index" class="job-item {{index%2==0?'spread':''}}">
+                <view class="job-item-hd flex flex-ver">
+                    <item class="job-name">
+                        主持司仪
+                    </item>
+                    <image class="item-icon-arrow" src="/images/workbench/arrow-down.png"></image>
+                </view>
+                <view class="job-item-bd">
+                    <view class="service-list">
+                        <view wx:for="{{3}}" wx:key="index" class="service-item flex">
+                            <view class="service-item-l">
+                                <view class="service-item-index">
+                                    0{{index}}
+                                </view>
+                            </view>
+                            <view class="service-item-r flex-1">
+                                <view class="service-item-name">
+                                    胡诗琪
+                                </view>
+                                <view class="service-item-info">
+                                    身份证号：441881199604133949
+                                </view>
+                                <view class="service-item-info">
+                                    银行卡号：92346219635263856
+                                </view>
+                                <view class="service-item-info">
+                                    手机号：15626129191
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="bottom-box flex flex-jcfe flex-ver">
+            <view class="btn-confirm">上传验收材料</view>
+            <view class="btn-confirm">一键验收</view>
+        </view>
+    </view>
+</view>

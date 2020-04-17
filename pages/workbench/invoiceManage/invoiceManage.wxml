@@ -1,5 +1,5 @@
 <view class="container">
-    <mp-header showBack title="开票管理"></mp-header>
+    <mp-header isHome="{{isHome}}" showBack title="开票管理"></mp-header>
     <view class="content">
         <view class="manage-list">
             <view bindtap="base_jump" data-url="/pages/workbench/invoiceApplication/invoiceApplication" class="manage-item flex flex-ver">

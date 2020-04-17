@@ -1,0 +1,72 @@
+<view class="container">
+    <mp-header isHome="{{isHome}}" showBack title="一键验收"></mp-header>
+    <view class="content">
+        <view class="job-list">
+            <view wx:for="{{3}}" wx:key="index" class="job-item {{index%2==0?'spread':''}}">
+                <view class="job-item-hd flex flex-ver">
+                    <item class="job-name">
+                        主持司仪
+                    </item>
+                    <image class="item-icon-arrow" src="/images/workbench/arrow-down.png"></image>
+                </view>
+                <view class="job-item-bd">
+                    <view class="service-list">
+                        <view wx:for="{{3}}" wx:key="index" class="service-item flex">
+                            <view class="service-item-l">
+                                <view class="service-item-index">
+                                    0{{index}}
+                                </view>
+                            </view>
+                            <view class="service-item-r flex-1">
+                                <view class="service-item-name-price flex flex-ver flex-jcsb">
+                                    <text class="service-item-name">蓦然默然</text>
+                                    <text class="service-item-price">¥800.00</text>
+                                </view>
+                                <view class="service-item-info">
+                                    身份证号：441881199604133949
+                                </view>
+                                <view class="service-item-info">
+                                    银行卡号：92346219635263856
+                                </view>
+                                <view class="service-item-info">
+                                    手机号：15626129191
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="phone-box">
+            <view class="enter-item flex flex-ver">
+                <image class="item-icon" src="/images/login/icon18.png"></image>
+                <input bindinput="" placeholder="请输入手机号码" placeholder-class="enter-placeholder" class="item-enter flex-1"
+                    type="text" />
+            </view>
+            <view class="enter-item  flex flex-ver">
+                <image class="item-icon" src="/images/login/icon19.png"></image>
+                <input bindinput="" placeholder="请输入验证码" placeholder-class="enter-placeholder" class="item-enter flex-1"
+                    type="text" />
+                <view bindtap="sendCode" class="send-btn">
+                    发送验证码
+                </view>
+            </view>
+        </view>
+        <view class="common-btn confirm-btn disabled">
+            确认验收
+        </view>
+    </view>
+    <!-- 图形验证码 -->
+    <mp-popBox wx:if="{{showMask}}" cln="'captcha-popBox'" title="图形验证码" showContent bind:confirm='confirmCaptcha'
+        bind:cancel='cancelCaptcha' confirmText="确认">
+        <view class="captcha-box">
+            <view class="box-main flex flex-ver">
+                <input bindinput="inputCaptcha" class="captcha-enter flex-1" placeholder="请输入右侧验证码" placeholder-class="captcha-enter-placeholder"
+                    type="text" maxlength="4" />
+                <image class="captcha-img" src="/images/login/img13.png" mode="aspectFit"></image>
+            </view>
+            <text class="tip">{{tips[tipIndex]}}</text>
+        </view>
+    </mp-popBox>
+    <!-- 图形验证码 end-->
+</view>

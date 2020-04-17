@@ -33,85 +33,103 @@
 
 /* 图形验证码 end*/
 
-
 /* 启动 */
-.loading-part{
+.loading-part {
     height: 100%;
     padding-top: 186rpx;
 }
-.loading-part-img01{
+
+.loading-part-img01 {
     display: block;
     margin: 0 auto;
     width: 300rpx;
     height: 164rpx;
     margin-bottom: 190rpx;
 }
-.loading-part-img02{
+
+.loading-part-img02 {
     display: block;
     margin: 0 auto;
     width: 634rpx;
     height: 534rpx;
 }
+
 /* 登录 */
-.login-part{}
-.login-hd{}
-.hd-img{
+.login-part {}
+
+.login-hd {}
+
+.hd-img {
     width: 100%;
     height: 488rpx;
 }
-.login-bd{}
-.login-box{
+
+.login-bd {}
+
+.login-box {
     padding: 78rpx 88rpx 130rpx;
 }
-.login-item{
+
+.login-item {
     padding: 22rpx 0;
     border-bottom: 2rpx solid #F5F5F5;
     margin-bottom: 16rpx;
 }
-.login-item:last-child{
+
+.login-item:last-child {
     margin-bottom: 0;
 }
-.icon-box{
+
+.icon-box {
     width: 86rpx;
     text-align: center;
 }
-.item-icon{
+
+.item-icon {
     width: 42rpx;
     height: 42rpx;
 }
-.item-enter{
-    font-size:32rpx;
-    color:#333;
+
+.item-enter {
+    font-size: 32rpx;
+    color: #333;
 }
-.enter-placeholder{
-    font-size:32rpx;
-    color:rgba(153,153,153,1);
+
+.enter-placeholder {
+    font-size: 32rpx;
+    color: rgba(153, 153, 153, 1);
 }
-.send-btn{
+
+.send-btn {
     text-align: center;
-    font-size:24rpx;
-    width:160rpx;
-    line-height:54rpx;
-    background:rgba(252,127,3,1);
-    border-radius:8rpx;
+    font-size: 24rpx;
+    width: 160rpx;
+    line-height: 54rpx;
+    background: rgba(252, 127, 3, 1);
+    border-radius: 8rpx;
     color: #fff;
 }
-.agreement{
+
+.agreement {
     padding-top: 34rpx;
 }
-.agreement-icon{
-    width:24rpx;
-    height:24rpx;
+
+.agreement-icon {
+    width: 24rpx;
+    height: 24rpx;
 }
-.read-box{
-    font-size:22rpx;
-    color:rgba(153,153,153,1);
-    line-height:32rpx;
+
+.read-box {
+    font-size: 22rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 32rpx;
 }
-.agreement-txt{
+
+.agreement-txt {
     color: #FE7F00;
 }
-.login-btn{
+
+.login-btn {
     margin: 0 auto;
     position: static;
     transform: translate(0);

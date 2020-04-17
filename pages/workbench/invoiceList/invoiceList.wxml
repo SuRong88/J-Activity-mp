@@ -1,5 +1,5 @@
 <view class="container">
-    <mp-header showBack title="开票记录"></mp-header>
+    <mp-header isHome="{{isHome}}" showBack title="开票记录"></mp-header>
     <view class="content invoice-list">
         <view class="invoice-item">
             <view class="invoice-item-hd">

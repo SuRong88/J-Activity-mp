@@ -1,19 +1,29 @@
 <view class="container">
-    <mp-header showBack title="发布成功"></mp-header>
+    <mp-header isHome="{{isHome}}" showBack title="{{titleArr[titleIndex]}}"></mp-header>
     <view class="content">
         <view class="success-box text-c">
             <image class="success-img" src="/images/workbench/BS_img06.png"></image>
-            <text class="success-txt">发布成功！</text>
+            <text class="success-txt">{{tipArr[titleIndex]}}</text>
         </view>
         <view class="btn-box">
-            <view class="common-btn normal btn-view">
-                查看活动
-            </view>
-            <view bindtap="showShareMask" class="common-btn normal btn-share">
-                分享活动
+           
+            <block wx:if="{{titleIndex==2}}">
+                <view class="common-btn normal btn-view">
+                    查看活动
+                </view>
+                <view bindtap="showShareMask" class="common-btn normal btn-share">
+                    分享活动
+                </view>
+            </block>
+            <view wx:else class="common-btn normal btn-back">
+               返回活动列表
             </view>
         </view>
     </view>
+    
+    
+    
+    <!--以下内容 验收成功、派单成功不使用 -->
     <view bindtap="closeMask" hidden="{{!showShare}}" class="share-mask">
         <view catchtap="emptyHandle" class="share-box flex">
             <button catchtap="showPosterMask" class="share-item text-c flex-1">

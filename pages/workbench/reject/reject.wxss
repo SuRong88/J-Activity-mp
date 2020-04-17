@@ -1,0 +1,33 @@
+.content {
+    padding: 50rpx;
+}
+
+.enter-box {
+    width: 100%;
+    height: 294rpx;
+    border-radius: 8rpx;
+    position: relative;
+}
+
+.txt-enter {
+    background: rgba(245, 245, 245, 1);
+    padding: 26rpx 28rpx;
+    font-size: 28rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 40rpx;
+}
+
+
+.holder-class {
+    padding-top: 6rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: rgba(153, 153, 153, 1);
+}
+
+.enter-tit {
+    font-size: 30rpx;
+    color: rgba(51, 51, 51, 1);
+    line-height: 42rpx;
+    margin-bottom: 14rpx;
+}

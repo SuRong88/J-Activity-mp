@@ -1,5 +1,5 @@
 <view class="container">
-    <mp-header showBack title="收件地址"></mp-header>
+    <mp-header isHome="{{isHome}}" showBack title="收件地址"></mp-header>
     <view class="content">
         <!-- 无地址 -->
         <view wx:if="{{false}}" class="empty-box text-c">

@@ -1,5 +1,5 @@
 <view class="container">
-    <mp-header showBack title="申请开票"></mp-header>
+    <mp-header isHome="{{isHome}}" showBack title="申请开票"></mp-header>
     <view class="content">
         <view class="box01">
             <view class="box01-item box01-item flex flex-ver flex-jcsb">

@@ -1,5 +1,5 @@
 <view class="container">
-    <mp-header showBack title="私有服务商"></mp-header>
+    <mp-header isHome="{{isHome}}" showBack title="私有服务商"></mp-header>
     <view class="content ">
         <view class="resource-list">
             <view wx:for="{{5}}" wx:index="index" class="resource-item">

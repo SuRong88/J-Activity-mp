@@ -1,5 +1,5 @@
 <view class="container">
-    <mp-header cln="'header'" title="工作台"></mp-header>
+    <mp-header showBack title="工作台"></mp-header>
     <view class="content">
     </view>
     <mp-tabbar tabbarIndex="3"></mp-tabbar>

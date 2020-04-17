@@ -1,0 +1,44 @@
+<view class="container">
+    <mp-header isHome="{{isHome}}" showBack title="一键派单"></mp-header>
+    <view class="content">
+
+        <view class="job-list">
+            <view wx:for="{{3}}" wx:key="index" class="job-item {{index%2==0?'spread':''}}">
+                <view class="job-item-hd flex flex-ver">
+                    <image class="item-icon" src="/images/workbench/BS_icon15.png"></image>
+                    <item class="job-name">
+                        主持司仪
+                    </item>
+                    <item class="job-num">
+                        2/2
+                    </item>
+                    <image class="item-icon-arrow" src="/images/workbench/arrow-down.png"></image>
+                </view>
+                <view class="job-item-bd">
+                    <view class="service-list">
+                        <view wx:for="{{3}}" wx:key="index" class="service-item flex">
+                            <view class="service-item-l">
+                                <image class="item-icon" src="/images/workbench/BS_icon15.png"></image>
+                            </view>
+                            <view class="service-item-r flex-1">
+                                <view class="service-item-name">
+                                    胡诗琪
+                                </view>
+                                <view class="service-item-info">
+                                    姓名：胡诗琪
+                                </view>
+                                <view class="service-item-info">
+                                    身份证号：441881199604133949
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="bottom-box flex flex-jcfe flex-ver">
+            <view class="btn-confirm">一键派单</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,126 @@
+page {
+    background-color: #F9F9F9 !important;
+}
+
+
+.nav-menu {
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+
+.nav-item {
+    text-align: center;
+    padding: 28rpx 0rpx;
+    font-size: 32rpx;
+    color: rgba(102, 102, 102, 1);
+    line-height: 42rpx;
+    flex-shrink: 0;
+    white-space: nowrap;
+    position: relative;
+}
+
+.nav-item.active {
+    font-weight: 700;
+    color: rgba(252, 127, 3, 1);
+}
+
+.nav-item.active::after {
+    content: '';
+    width: 94rpx;
+    height: 6rpx;
+    background: rgba(252, 127, 3, 1);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.activity-item {
+    background-color: #fff;
+    margin-bottom: 20rpx;
+    padding: 0 40rpx;
+}
+
+.activity-item:last-child {
+    margin-bottom: 0;
+}
+
+.activity-item .item-t {
+    height: 70rpx;
+    position: relative;
+}
+
+.item-num {
+    font-size: 24rpx;
+    color: rgba(102, 102, 102, 1);
+}
+
+.item-status {
+    width: 132rpx;
+    line-height: 52rpx;
+    text-align: center;
+    border-radius: 0px 0px 0px 24rpx;
+    font-size: 24rpx;
+    background: rgba(153, 153, 153, 1);
+    color: rgba(255, 255, 255, 1);
+    position: absolute;
+    top: 0;
+    right: -40rpx;
+}
+
+.item-status.orange {
+    background: rgba(252, 127, 3, 1);
+}
+
+.activity-item .item-m {
+    padding: 18rpx 0 26rpx;
+    border-top: 2rpx solid #F5F5F5;
+    border-bottom: 2rpx solid #F5F5F5;
+}
+
+.item-tit {
+    font-size: 30rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    line-height: 42rpx;
+    margin-bottom: 16rpx;
+}
+
+.item-desc {
+    font-size: 24rpx;
+    color: rgba(102, 102, 102, 1);
+    line-height: 40rpx;
+    margin-bottom: 12rpx;
+}
+
+.item-date {
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 44rpx;
+}
+
+.item-address {
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 44rpx;
+}
+
+.activity-item .item-b {
+    height: 100rpx;
+}
+
+.item-btn {
+    color: #fff;
+    text-align: center;
+    border: 2rpx solid rgba(252, 127, 3, 1);
+    width: 138rpx;
+    line-height: 42rpx;
+    background: rgba(252, 127, 3, 1);
+    border-radius: 8rpx;
+}
+
+.item-btn.plain {
+    background-color: #fff;
+    color: rgba(252, 127, 3, 1);
+    margin-right: 20rpx;
+}

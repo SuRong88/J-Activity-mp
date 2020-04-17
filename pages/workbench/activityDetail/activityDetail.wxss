@@ -1,0 +1,172 @@
+page {
+    background-color: #F9F9F9 !important;
+}
+
+.activity-info-box {
+    margin-bottom: 20rpx;
+    padding: 0 40rpx;
+    background-color: #fff;
+}
+
+.activity-info-box .info-hd {
+    height: 120rpx;
+    padding-top: 58rpx;
+    border-bottom: 2rpx solid #F5F5F5;
+    position: relative;
+}
+
+.activity-info-box .item-num {
+    font-size: 24rpx;
+    color: rgba(102, 102, 102, 1);
+    line-height: 34rpx;
+}
+
+.activity-info-box .item-status {
+    position: absolute;
+    top: 38rpx;
+    right: -40rpx;
+    font-size: 24rpx;
+    color: rgba(255, 255, 255, 1);
+    width: 132rpx;
+    line-height: 52rpx;
+    text-align: center;
+    background: rgba(252, 127, 3, 1);
+    border-radius: 26rpx 0px 0px 26rpx;
+}
+
+.activity-info-box .info-bd {
+    padding: 26rpx 0 40rpx;
+}
+
+.activity-info-box .info-tit {
+    font-size: 34rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    line-height: 48rpx;
+    margin-bottom: 28rpx;
+}
+
+.activity-info-box .info-desc {
+    font-size: 28rpx;
+    color: rgba(102, 102, 102, 1);
+    line-height: 48rpx;
+    margin-bottom: 16rpx;
+}
+
+.activity-info-box .info-date {
+    font-size: 26rpx;
+    color: rgba(102, 102, 102, 1);
+    line-height: 44rpx;
+}
+
+/* 职位列表 */
+.activity-job-box {
+    background-color: #fff;
+}
+
+.activity-job-box .job-item {
+    padding: 0 40rpx;
+    border-bottom: 2rpx solid #f5f5f5;
+}
+
+.activity-job-box .item-t {
+    padding: 40rpx 0 28rpx;
+}
+
+.activity-job-box .item-tit {
+    font-size: 34rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    line-height: 48rpx;
+}
+
+.activity-job-box .item-status {
+    background: rgba(245, 245, 245, 1);
+    color: rgba(153, 153, 153, 1);
+    border-radius: 6rpx;
+    font-size: 24rpx;
+    line-height: 42rpx;
+    text-align: center;
+    margin-left: 26rpx;
+    width: 106rpx;
+}
+
+.activity-job-box .item-price {
+    font-size: 34rpx;
+    color: rgba(153, 153, 153, 1);
+}
+
+.activity-job-box .job-item.orange .item-status {
+    background: rgba(252, 127, 3, 0.15);
+    color: rgba(252, 127, 3, 1);
+}
+
+.activity-job-box .job-item.orange .item-price {
+    color: rgba(252, 127, 3, 1);
+}
+
+
+.activity-job-box .item-m {}
+
+.activity-job-box .job-info-item {
+    font-size: 28rpx;
+    color: rgba(102, 102, 102, 1);
+    line-height: 40rpx;
+    margin-bottom: 20rpx;
+}
+
+.activity-job-box .job-info-item:last-child {
+    margin-bottom: 0;
+}
+
+.activity-job-box .job-info-content {}
+
+.activity-job-box .label {
+    margin-bottom: 10rpx;
+}
+
+.activity-job-box .con-detail {
+    position: relative;
+    padding-right: 40rpx;
+    height: 52rpx;
+    overflow: hidden;
+    line-height: 52rpx;
+}
+
+.activity-job-box .con-detail.spread {
+    height: auto;
+}
+
+
+.activity-job-box .fold-icon {
+    width: 28rpx;
+    height: 28rpx;
+    position: absolute;
+    bottom: 14rpx;
+    right: 0;
+}
+
+.activity-job-box .con-detail.spread .fold-icon {
+    transform: rotate(180deg);
+}
+
+.activity-job-box .item-b {
+    padding: 20rpx 0 30rpx;
+}
+
+.activity-job-box .item-btn {
+    padding: 0 18rpx;
+    color: #fff;
+    text-align: center;
+    border: 2rpx solid rgba(252, 127, 3, 1);
+    min-width: 138rpx;
+    line-height: 42rpx;
+    background: rgba(252, 127, 3, 1);
+    border-radius: 8rpx;
+}
+
+.activity-job-box .plain {
+    background-color: #fff;
+    color: rgba(252, 127, 3, 1);
+    margin-right: 20rpx;
+}

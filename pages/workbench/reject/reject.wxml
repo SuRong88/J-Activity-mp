@@ -1,0 +1,12 @@
+<view class="container">
+    <mp-header isHome="{{isHome}}" showBack title="驳回"></mp-header>
+    <view class="content">
+       <view class="enter-box">
+           <view class="enter-tit">驳回原因</view>
+            <textarea bindinput="changeTxt" class="txt-enter" placeholder="请输入驳回原因" placeholder-class="holder-class" maxlength="50"></textarea>
+       </view>
+       <view bindtap="submitReject" class="common-btn">
+          提交
+       </view>
+    </view>
+</view>
