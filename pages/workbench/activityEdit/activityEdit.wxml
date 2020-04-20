@@ -26,13 +26,17 @@
                 <view class="item-label flex flex-ver flex-jcsb">
                     <text class="label">活动时间</text>
                     <view class="item-date-box flex flex-ver">
-                        <view class="date-item flex flex-ver">
-                            2020-04-02
-                        </view>
+                        <picker mode="date" bindchange="startDateChange" value="{{}}">
+                            <view class="date-item flex flex-ver">
+                                {{startDate}}
+                            </view>
+                        </picker>
                         <view class="spe-line">-</view>
-                        <view class="date-item flex flex-ver">
-                            2020-04-02
-                        </view>
+                        <picker mode="date" bindchange="endDateChange" value="{{}}">
+                            <view class="date-item flex flex-ver">
+                                {{endDate}}
+                            </view>
+                        </picker>
                     </view>
                 </view>
                 <view class="item-content">

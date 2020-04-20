@@ -46,10 +46,10 @@ VM.cancelLogout = function() {
 // 预览联系客服二维码
 // 提示 ：经测试，当预览的是本地的图片时，图片不能加载，只有来自于网上或者是通过手机相册选择、拍照获取的图片才可以成功显示，并且只能扫描小程序码
 VM.previewImage = function(e) {
-    let current = e.target.dataset.src; //这里获取到的是一张本地的图片
+    let current = e.target.dataset.src; 
     wx.previewImage({
-        current: current, //需要预览的图片链接列表
-        urls: [current] //当前显示图片的链接
+        current: current,
+        urls: [current]
     })
 }
 Page(VM)

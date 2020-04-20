@@ -104,13 +104,14 @@
         </view>
     </view>
     <!-- 登录 -->
-    <mp-popBox cln="'login-popBox'" title="您还未登录\n请先登录再进行操作" bind:confirm='confirmLogin'
-        bind:cancel='cancelLogin' confirmText="登录">
+    <mp-popBox wx:if="{{false}}" cln="'login-popBox'" title="您还未登录\n请先登录再进行操作" bind:confirm='confirmLogin' bind:cancel='cancelLogin'
+        confirmText="登录">
     </mp-popBox>
     <!-- 联系客服 -->
     <mp-popBox wx:if="{{showQrcode}}" cln="'qrcode-popBox'" title="长按二维码识别" showContent bind:confirm='closeQrcode'
         bind:cancel='closeQrcode' showCancel='{{false}}' confirmText="确定">
-        <image bindtap="previewImage" class="qrcode" src="/images/me/qrcode.png"></image>
+        <image bindtap="previewImage" class="qrcode" data-src="http://qy30.mrxdtech.com/api/public//upload/image/20200403/5e86dc3d2ed8f.jpg"
+            src="http://qy30.mrxdtech.com/api/public//upload/image/20200403/5e86dc3d2ed8f.jpg"></image>
     </mp-popBox>
     <!-- 登出 -->
     <mp-popBox wx:if="{{showLogout}}" cln="''" title="您确定退出登录吗？" bind:confirm='confirmLogout' bind:cancel='cancelLogout'

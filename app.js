@@ -7,6 +7,7 @@ App({
         this.checkVersion()
     },
     globalData: {
+        isConnected: true,
         userInfo: null,
         roleType: 1 //用户角色 1-服务商、2-商家
     },
@@ -78,13 +79,15 @@ App({
             },
         })
     },
-    // 检查网络状态(待测)
+    // 检查并监听网络状态(待测)
     checkNetwork: function(cb_success) {
+        // 检查网络
         wx.getNetworkType({
-            success(res) {
+            success: (res) => {
                 const networkType = res.networkType
-                console.log(networkType)
+                console.log('%c当前网络状态---' + networkType, 'color:#FC7F03;')
                 if (networkType == 'none') {
+                    this.globalData.isConnected = false
                     wx.showModal({
                         title: '提示',
                         content: '请检查网络设置',
@@ -95,6 +98,22 @@ App({
                 } else {
                     cb_success && cb_success()
                 }
+            }
+        })
+        // 监听网络
+        wx.onNetworkStatusChange((res) => {
+            if (!res.isConnected) {
+                this.globalData.isConnected = false
+                wx.showModal({
+                    title: '提示',
+                    content: '请检查网络设置',
+                    showCancel: false,
+                    cancelColor: '#000000',
+                    confirmColor: '#FC7F03'
+                })
+            } else {
+                this.globalData.isConnected = true
+                wx.hideToast()
             }
         })
     },

@@ -92,6 +92,13 @@
 					"id": -1,
 					"name": "个人中心",
 					"pathName": "pages/me/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/workbench/activityEdit/activityEdit",
+					"pathName": "pages/workbench/activityEdit/activityEdit",
 					"scene": null
 				}
 			]
