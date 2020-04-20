@@ -166,7 +166,7 @@
     height: 28rpx;
     position: absolute;
     right: 0;
-    bottom: 12rpx;
+    bottom: 14rpx;
 }
 
 .item-bottom.item-btn-box {

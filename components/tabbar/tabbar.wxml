@@ -21,7 +21,7 @@
                 </view>
             </view>
         </block>
-        <view class="tabbar-item flex flex-center flex-1" bindtap="base_jump" data-url="/pages/index/index" data-type="redirect">
+        <view class="tabbar-item flex flex-center flex-1" bindtap="base_jump" data-url="/pages/workbench/activityCreate/activityCreate">
             <view class="tabbar-item-inner">
                 <view class="tabbar-item-icon">
                     <image class="icon-publish" mode="aspectFit" src="/images/tabbar/icon-publish.png"></image>

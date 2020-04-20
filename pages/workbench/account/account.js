@@ -14,4 +14,7 @@ VM.onLoad = function(query) {
     this.init()
     base.onLoad(this)
 }
+VM.getList = function() {
+
+}
 Page(VM)

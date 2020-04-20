@@ -39,11 +39,16 @@
                         <image class="item-icon" src="/images/activity/event_icon03.png"></image>
                         <text class="item-txt">所属地区：广东省广州市海珠区</text>
                     </view>
-                    <view class="item flex flex-ver">
+                    <!-- <view class="item flex flex-ver">
                         <image class="item-icon" src="/images/activity/event_icon04.png"></image>
                         <text class="item-txt">联系方式：联系客服获取联系方式</text>
                         <image class="arrow-icon" src="/images/index/icon14.png"></image>
-                    </view>
+                    </view> -->
+                    <button open-type="contact" class="item flex flex-ver">
+                        <image class="item-icon" src="/images/activity/event_icon04.png"></image>
+                        <text class="item-txt">联系方式：联系客服获取联系方式</text>
+                        <image class="arrow-icon" src="/images/index/icon14.png"></image>
+                    </button>
                 </view>
             </view>
             <view class="hd-right">

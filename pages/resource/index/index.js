@@ -46,4 +46,7 @@ VM.sortHandle = function() {
         sortByOrder: this.data.sortByOrder === 1 ? 2 : 1
     })
 }
+// 添加为私有服务商
+VM.addToPrivate = function() {
+}
 Page(VM)

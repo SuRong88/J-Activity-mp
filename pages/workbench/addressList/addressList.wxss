@@ -11,6 +11,10 @@ page {
 
 .empty-box {
     padding-top: 17vh;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: #fff;
 }
 
 .empty-img {
@@ -77,9 +81,11 @@ page {
     font-size: 24rpx;
     color: #999999;
 }
-.address-item.is-selected .select-txt{
+
+.address-item.is-selected .select-txt {
     color: rgba(252, 127, 3, 1);
 }
+
 .select-icon {
     width: 32rpx;
     height: 32rpx;

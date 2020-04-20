@@ -19,13 +19,11 @@
                         平面设计
                     </view>
                     <view class="tag-spe">
-
                     </view>
                     <view class="tag">
                         平面设计
                     </view>
                     <view class="tag-spe">
-
                     </view>
                     <view class="tag">
                         平面设计
@@ -105,9 +103,13 @@
             </view>
         </view>
     </view>
+    <!-- 登录 -->
+    <mp-popBox cln="'login-popBox'" title="您还未登录\n请先登录再进行操作" bind:confirm='confirmLogin'
+        bind:cancel='cancelLogin' confirmText="登录">
+    </mp-popBox>
     <!-- 联系客服 -->
     <mp-popBox wx:if="{{showQrcode}}" cln="'qrcode-popBox'" title="长按二维码识别" showContent bind:confirm='closeQrcode'
-        showCancel='{{false}}' confirmText="确定">
+        bind:cancel='closeQrcode' showCancel='{{false}}' confirmText="确定">
         <image bindtap="previewImage" class="qrcode" src="/images/me/qrcode.png"></image>
     </mp-popBox>
     <!-- 登出 -->

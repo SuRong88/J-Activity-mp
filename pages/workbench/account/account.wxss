@@ -1,0 +1,64 @@
+/* pages/workbench/account/account.wxss */
+page {
+    background: rgba(249, 249, 249, 1) !important;
+}
+
+.detail-list {
+    background-color: #fff;
+    padding: 0 40rpx;
+}
+
+.detail-item {
+    padding: 32rpx 0 30rpx;
+    border-bottom: 2rpx solid #F5F5F5;
+}
+
+.detail-item:last-child {
+    border-bottom: 0;
+}
+
+.detail-item .item-hd {
+    margin-bottom: 18rpx;
+    height: 48rpx;
+}
+
+.detail-item .item-tit {
+    font-size: 34rpx;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+}
+
+.detail-item .item-amount {
+    font-size: 36rpx;
+    font-weight: 700;
+}
+
+.detail-item .item-amount.red {
+    color: rgba(224, 32, 32, 1);
+}
+
+.detail-item .item-amount.green {
+    color: rgba(83, 185, 128, 1);
+}
+
+.detail-item .item-amount.gray {
+    color: rgba(153, 153, 153, 1);
+}
+
+.detail-item .item-bd {}
+
+.detail-item .item-info {
+    font-size: 26rpx;
+    color: rgba(102, 102, 102, 1);
+    line-height: 36rpx;
+    margin-bottom: 16rpx;
+}
+
+.detail-item .item-info:last-child {
+    margin-bottom: 0;
+}
+
+.detail-item .item-info.tip {
+    font-size: 26rpx;
+    color: rgba(153, 153, 153, 1);
+}

@@ -1,0 +1,92 @@
+/* pages/workbench/record/record.wxss */
+
+.content {
+    height: 1448rpx;
+    background: #f9f9f9;
+}
+
+.first-box {
+    box-sizing: border-box;
+    padding: 38rpx 40rpx;
+    height: 212rpx;
+    background: #fff;
+}
+
+.top-box {
+    height: 50rpx;
+}
+
+.left-box {
+    width: 138rpx;
+    height: 50rpx;
+    background: rgba(245, 245, 245, 1);
+    border-radius: 6rpx;
+}
+
+.triangle {
+    width: 8rpx;
+    height: 8rpx;
+    margin-left: 8rpx;
+}
+
+.tit {
+    font-size: 24rpx;
+    font-weight: 400;
+    color: rgba(252, 127, 3, 1);
+    line-height: 34rpx;
+}
+
+.stat-tit {
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #999;
+    line-height: 34rpx;
+}
+
+.act-tit {
+    font-size: 30rpx;
+    font-weight: 800;
+    color: #333333;
+    line-height: 42rpx;
+}
+
+.down-box {
+    width: 20rpx;
+    height: 20rpx;
+}
+
+/* 底下各部分 */
+
+.box {
+    height: 396rpx;
+    box-sizing: border-box;
+    padding-left: 40rpx;
+    background: #fff;
+}
+
+.box-top {
+    height: 102rpx;
+    position: relative;
+}
+
+.stat-box {
+    width: 146rpx;
+    height: 64rpx;
+    background: rgba(83, 185, 128, 1);
+    border-radius: 0px 0px 0px 24rpx;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 26rpx;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    line-height: 66rpx;
+    text-align: center;
+}
+
+.small {
+    width: 4rpx;
+    height: 26rpx;
+    background: rgba(252, 127, 3, 1);
+    opacity: 0.59;
+}

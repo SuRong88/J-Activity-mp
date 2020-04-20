@@ -138,7 +138,7 @@
         </view>
         <view hidden="{{!showFilter}}" catchtouchmove="emptyHandle" class="filter-box-mask"></view>
         <view class="con-bd activity-list">
-            <view bindtap="base_jump" data-url="/pages/activity/detail/detail?id={{index}}" wx:for="{{6}}" class="activity-item flex">
+            <view bindtap="base_jump" data-url="/pages/activity/detail/detail?id={{index}}" wx:for="{{6}}" wx:key="index" class="activity-item flex">
                 <image wx:if="{{index%2==0}}" class="item-icon" src="/images/activity/hire.png"></image>
                 <image wx:else class="item-icon" src="/images/activity/over.png"></image>
                 <view class="item-l flex flex-col flex-jcsb">

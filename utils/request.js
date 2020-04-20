@@ -179,7 +179,7 @@ function request(key, data, option, success, fail) {
         fail: function(err) {
             console.log(err);
             wx.hideLoading();
-            util.errorToast('系统出错');
+            // util.errorToast('系统出错');
         }
     })
 }

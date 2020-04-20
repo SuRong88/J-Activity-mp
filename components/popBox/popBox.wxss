@@ -1,4 +1,5 @@
 @import "../../app.wxss";
+
 /**************自定义弹窗****************/
 .popBox {
     width: 100%;
@@ -192,4 +193,14 @@
 .qrcode-popBox.popBox .pop_tit {
     padding: 40rpx 0 30rpx;
 }
+
 /* 联系客服end */
+
+
+/* 登录 */
+.login-popBox .pop_tit {
+    padding: 50rpx 40rpx;
+    line-height: 56rpx;
+}
+
+/* 登录end*/

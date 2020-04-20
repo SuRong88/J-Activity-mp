@@ -1,0 +1,16 @@
+<!--pages/workbench/notify/notify.wxml-->
+<view class="container">
+    <mp-header cln='header' showBack title="消息"></mp-header>
+    <view class="content width-len  ">
+        <view wx:for="{{3}}" class="flex flex-start-cen width-len">
+            <text class='text'>2020-02-15 14:20</text>
+            <view class='notify-box width-len flex flex-col'>
+                <view class="flex flex-sb width-len">
+                    <view class='tit'>待验收提醒</view>
+                    <view class="redDot"></view>
+                </view>
+                <view class='detail text-j'>您有活动要验收啦，快去验收吧您有活动要验收啦，快去验收吧您有活动要验收啦，快去验收吧您有活动要验收啦，快去验收吧您有活动要验收啦，快去验收吧您有活动要验收啦，快去验收吧您有活动要验收啦，快去验收吧</view>
+            </view>
+        </view>
+    </view>
+</view>

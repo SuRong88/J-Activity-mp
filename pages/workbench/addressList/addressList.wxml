@@ -2,7 +2,7 @@
     <mp-header isHome="{{isHome}}" showBack title="收件地址"></mp-header>
     <view class="content">
         <!-- 无地址 -->
-        <view wx:if="{{false}}" class="empty-box text-c">
+        <view wx:if="{{test}}" class="empty-box text-c">
             <image class="empty-img" src="/images/workbench/address-empty.png"></image>
             <text class="empty-tip">暂无地址，快添加地址吧</text>
             <view class="common-btn">
@@ -83,7 +83,7 @@
                     </view>
                 </view>
             </view>
-            <view class="common-btn2">
+            <view bindtap="base_jump" data-url="/pages/workbench/addressAdd/addressAdd" class="common-btn2">
                 添加新地址
             </view>
         </view>

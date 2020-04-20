@@ -1,0 +1,22 @@
+<view class="container">
+    <mp-header isHome="{{isHome}}" showBack title="财务管理"></mp-header>
+    <view class="content">
+        <view class="manage-list">
+            <view bindtap="base_jump" data-url="/pages/workbench/recharge/recharge" class="manage-item flex flex-ver">
+                <image class="item-icon" src="/images/workbench/icon1.png"></image>
+                <text class="item-txt">充值</text>
+                <image class="item-icon-arrow" src="/images/index/icon12.png"></image>
+            </view>
+            <view bindtap="base_jump" data-url="/pages/workbench/record/record" class="manage-item flex flex-ver">
+                <image class="item-icon" src="/images/workbench/icon2.png"></image>
+                <text class="item-txt">充值记录</text>
+                <image class="item-icon-arrow" src="/images/index/icon12.png"></image>
+            </view>
+            <view bindtap="base_jump" data-url="/pages/workbench/account/account" class="manage-item flex flex-ver">
+                <image class="item-icon" src="/images/workbench/icon3.png"></image>
+                <text class="item-txt">账户明细</text>
+                <image class="item-icon-arrow" src="/images/index/icon12.png"></image>
+            </view>
+        </view>
+    </view>
+</view>

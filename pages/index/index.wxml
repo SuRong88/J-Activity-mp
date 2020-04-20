@@ -122,7 +122,7 @@
                     </swiper>
                     <view class="swiper-pagination flex flex-center">
                         <view class="flex pagination_block">
-                            <view class="{{swiperIndex02 == index?'active':''}}" wx:key="index " wx:for="{{4}}"></view>
+                            <view class="{{swiperIndex02 == index?'active':''}}" wx:key="index" wx:for="{{4}}"></view>
                         </view>
                     </view>
                 </view>

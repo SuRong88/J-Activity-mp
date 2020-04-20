@@ -131,8 +131,7 @@
         </view>
         <view hidden="{{!showFilter}}" catchtouchmove="emptyHandle" class="filter-box-mask"></view>
         <view class="con-bd resource-list">
-            <view bindtap="base_jump" data-url="/pages/resource/detail/detail?id={{index}}" wx:for="{{5}}" wx:index="index"
-                class="resource-item">
+            <view wx:for="{{5}}" wx:index="index" class="resource-item">
                 <view class="item-top flex">
                     <view class="item-top-l">
                         <image class="item-avatar" src="/images/resource/ISP_img04.png"></image>
@@ -166,8 +165,8 @@
                         <text>已私有</text>
                     </view>
                     <view class="item-btn-box flex">
-                        <view class="item-btn btn-ope">添加为私有服务商</view>
-                        <view class="item-btn">服务商详情</view>
+                        <view bindtap="addToPrivate" class="item-btn btn-ope">添加为私有服务商</view>
+                        <view bindtap="base_jump" data-url="/pages/resource/detail/detail" class="item-btn">服务商详情</view>
                     </view>
                 </view>
             </view>

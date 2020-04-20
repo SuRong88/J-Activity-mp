@@ -1,0 +1,20 @@
+<view class="container">
+    <mp-header cln='header' showBack title="完善信息"></mp-header>
+    <view class="content width-len flex flex-col flex-start flex-jcfs">
+        <text class="text">企业logo</text>
+        <image class="img-box" src='/images/workbench/img.png'></image>
+        <view class='center width-len flex flex-jcsb ' style='margin-top:40rpx;'>
+            <text class='text'>企业名称</text>
+            <text class='tit'>广州名锐讯动信息科技有限公司</text>
+        </view>
+        <text class="text" style="margin-top:40rpx;">联系方式</text>
+        <view class="tel-tit  width-len">
+            <input placeholder-class="holder-class" placeholder="请输入电话号码" bindblur="changeData" value="{{telephone}}" class='tel-text'></input>
+        </view>
+        <text class='text' style="margin-top:40rpx;">企业简介</text>
+        <textarea placeholder-class="holder-class" class='text-area' value='{{descript}}' placeholder="请输入" />
+        <view class='submit' bindtap="setDetail">确定</view>
+ 
+  </view> 
+  
+</view>

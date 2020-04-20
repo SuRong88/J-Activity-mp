@@ -5,7 +5,8 @@ const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 const VM = {
     data: {
-        showMask: false
+        showMask: false,
+        test:true
     }
 }
 VM.init = function() {

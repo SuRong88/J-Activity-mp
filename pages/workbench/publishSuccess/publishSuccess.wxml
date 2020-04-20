@@ -46,7 +46,7 @@
     </view> 
     <view bindtap="closeMask" hidden="{{!showPoster}}" style="padding-top: {{padHeight+40}}rpx;" class="poster-mask">
         <view class="poster-box">
-            <image catchtap="emptyHandle" src="/images/test/poster.png" class="poster-img">
+            <image mode="widthFix" catchtap="emptyHandle" src="/images/test/poster.png" class="poster-img">
             </image>
             <button catchtap="savePoster" class="btn-save">
                 保存图片至相册

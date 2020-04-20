@@ -1,6 +1,71 @@
 <view class="container">
-    <mp-header showBack title="工作台"></mp-header>
-    <view class="content">
+    <mp-header showTitle="{{false}}" title=""></mp-header>
+    <view class="content width-len">
+        <view class='header-box width-len flex flex-col flex-ver '>
+            <image class="banner-box width-len" src="/images/workbench/banner.jpg"></image>
+            <!-- 头部橙色部分 -->
+            <view class='banner-main width-len '>
+                <view class='main-head flex flex-align-start flex-jcfs'>
+                    <image class="logo" src='/images/workbench/logo.png'></image>
+                    <view class="right-box">
+                        <view class="title">广州名锐讯动信息科技有限公司</view>
+                        <view class="flex" style="margin-top:24rpx;">
+                            <view class='logout' bindtap="changeStatus">退出</view>
+                            <image class="icon-left" style="margin-top:8rpx" src="/images/workbench/left.png"></image>
+                        </view>
+                    </view>
+                </view>
+                <view class="right flex flex-align-center  flex-ver">
+                    <text class='right-tit' bindtap="base_jump" data-url="/pages/workbench/info/info">完善信息</text>
+                    <image class="icon-left" src="/images/workbench/left.png"></image>
+                </view>
+                <view class="main-bottom width-len flex flex-ver flex-sa">
+                    <view class="bottom-box flex flex-start-cen">
+                        <text style="margin-bottom:8rpx;font-size:28rpx;">¥1382.00</text>
+                        <text>余额</text>
+                    </view>
+                    <view class="center-box"></view>
+                    <view class="bottom-box flex flex-start-cen">
+                        <text style="margin-bottom:8rpx;font-size:28rpx;">¥3280.00</text>
+                        <text>本月结算金额</text>
+                    </view>
+                </view>
+            </view>
+            <view class='circle'></view>
+        </view>
     </view>
+    <!-- 中间 -->
+    <view class="total width-len flex flex-ver flex-sa">
+        <view class='flex flex-start-cen'>
+            <text class="total-text">3</text>
+            <text style="margin-top:14rpx;">未结束活动</text>
+        </view>
+        <view class='center-box' style="background-color:#999999"></view>
+        <view class='flex flex-start-cen'>
+            <text class="total-text">3</text>
+            <text style="margin-top:14rpx;">本月活动</text>
+        </view>
+        <view class="center-box" style="background-color:#999999"></view>
+        <view class='flex flex-start-cen'>
+            <text class="total-text">200%</text>
+            <text style="margin-top:14rpx;">服务费率</text>
+        </view>
+    </view>
+    <!-- 最底下部分 -->
+    <view class="footer-box  width-len  flex-wrap flex flex-jcfs">
+        <view wx:for="{{iconArr}}" bindtap="base_jump" data-url="{{item.link}}" class="icon-box flex flex-center flex1 ">
+            <image class='image-box' src="{{item.iconUrl}}"></image>
+            <text style="margin-top:8rpx;">{{item.name}}</text>
+        </view>
+        <view class='message-box' bindtap="base_jump" data-url="/pages/workbench/notification/notification">
+            <image class='img-message' src='/images/workbench/message.png'></image>
+        </view>
+    </view>
+    <mp-popBox wx:if="{{showBox}}" cln="'captcha-popBox'" showTitle="{{false}}" showContent bind:confirm='confirmHandle'
+        bind:cancel='cancelHandle' confirmText="确认" cancelText='取消' showCancel="{{true}}">
+        <view class="pop-class" style="text-align:center;padding:50rpx;">
+            您确定退出登录吗？
+        </view>
+    </mp-popBox>
     <mp-tabbar tabbarIndex="3"></mp-tabbar>
 </view>

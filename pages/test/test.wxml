@@ -1,6 +1,7 @@
 <view class="container">
     <mp-header cln="'header'" title="测试页"></mp-header>
     <view class="content">
+        <image style="width: 300rpx;border: 1px solid red;" class="" src="/images/index/banner01.png" mode="widthFix"></image> 
         <!-- 确认订单 -->
         <mp-popBox wx:if="{{false}}" cln="'order-popBox'" showTitle="{{false}}" showContent bind:confirm='confirmHandle'
             bind:cancel='cancelHandle' showCancel='{{false}}' confirmText="确认派单">

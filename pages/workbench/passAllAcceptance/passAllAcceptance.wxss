@@ -41,7 +41,7 @@
 
 
 .job-item.spread .item-icon-arrow {
-    transform: rotate(180deg);
+    transform: rotate(180deg) translateY(50%);
 }
 
 .item-icon-arrow {

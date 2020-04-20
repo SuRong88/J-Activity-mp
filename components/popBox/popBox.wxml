@@ -3,7 +3,7 @@
     <form catchtap="emptyHandle" bindsubmit='confirmHandle' bindreset='cancelHandle'>
         <view class='pop'>
             <view wx:if="{{showTitle}}" class="pop_tit">
-                {{title}}
+                <text>{{title}}</text>
             </view>
             <view wx:if="{{showContent}}" class='pop_con'>
                 <slot></slot>
