@@ -1,4 +1,4 @@
-const formatTime = date => {
+function formatTime(date) {
     const year = date.getFullYear()
     const month = date.getMonth() + 1
     const day = date.getDate()
@@ -8,7 +8,7 @@ const formatTime = date => {
     return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
-const formatNumber = n => {
+function formatNumber(n) {
     n = n.toString()
     return n[1] ? n : '0' + n
 }
@@ -82,6 +82,7 @@ function showModal(title, content, showCancel, cancelText, confirmText, cb_confi
         confirmColor: '#FC7F03',
         success: function(res) {
             if (res.confirm) {
+                console.log(cb_confirm);
                 cb_confirm && cb_confirm()
             } else if (res.cancel) {
                 cb_cancel && cb_cancel()
@@ -108,6 +109,29 @@ function dataset(e, key) {
     return e.currentTarget.dataset[key]
 }
 
+// 验证码倒计时
+function setDowntime(that, downtime = 60) {
+    that.setData({
+        phone_code_text: downtime + "s",
+        phone_code_class: "waiting",
+        phone_code_flag: true
+    });
+    let timer = setInterval(function() {
+        if (downtime > 1) {
+            that.setData({
+                phone_code_text: --downtime + "s"
+            })
+        } else {
+            clearInterval(timer);
+            that.setData({
+                phone_code_text: "重新发送",
+                phone_code_class: "",
+                phone_code_flag: false
+            });
+        }
+    }, 1000)
+}
+
 module.exports = {
     formatTime,
     space,
@@ -119,5 +143,6 @@ module.exports = {
     hideLoading,
     showModal,
     setHeader,
-    dataset
+    dataset,
+    setDowntime
 }

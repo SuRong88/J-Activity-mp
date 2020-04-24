@@ -26,8 +26,8 @@
                         </view>
                         <input bindinput="inputCode" placeholder="请输入验证码" placeholder-class="enter-placeholder" class="item-enter flex-1"
                             type="text" />
-                        <view bindtap="sendCode" class="send-btn">
-                            发送验证码
+                        <view bindtap="sendCode" class="send-btn {{phone_code_class}}">
+                            {{phone_code_text}}
                         </view>
                     </view>
                     <view class="agreement flex flex-ver">
@@ -52,7 +52,7 @@
                 <view class="box-main flex flex-ver">
                     <input bindinput="inputCaptcha" class="captcha-enter flex-1" placeholder="请输入右侧验证码"
                         placeholder-class="captcha-enter-placeholder" type="text" maxlength="4" />
-                    <image class="captcha-img" src="/images/login/img13.png" mode="aspectFit"></image>
+                    <image bindtap="changeCaptcha" class="captcha-img" src="{{captchaUrl}}" mode="aspectFit"></image>
                 </view>
                 <text class="tip">{{tips[tipIndex]}}</text>
             </view>

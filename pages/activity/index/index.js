@@ -15,6 +15,9 @@ const VM = {
 VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
+    this.setData({
+        tabbarType: app.globalData.roleType
+    })
 }
 VM.onLoad = function(query) {
     this.init()
@@ -36,7 +39,7 @@ VM.filterHandle = function(e) {
 }
 // 删除筛选条件
 VM.deleteFilter = function() {
-    
+
 }
 // 时间排序
 VM.sortHandle = function() {

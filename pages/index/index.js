@@ -25,19 +25,9 @@ const VM = {
 VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
-    // util.showModal('您确定移除该服务商吗？', '', true, '取消', '移除', ()=>{},()=>{})
-    // setTimeout(()=>{
-    //     wx.navigateTo({
-    //         url:'/pages/test/test'
-    //     })
-    // },2000)
-    // util.errorToast('错误');
-    // setTimeout(() => {
-    //     util.successToast('成功')
-    // }, 2000)
-    // setTimeout(() => {
-    //     util.sadToast('好伤心')
-    // }, 4000)
+    this.setData({
+        tabbarType: app.globalData.roleType
+    })
 }
 VM.onLoad = function(query) {
     this.init()

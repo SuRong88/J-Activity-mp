@@ -28,6 +28,7 @@ page {
 .avatar {
     width: 130rpx;
     height: 130rpx;
+    border-radius: 50%;
 }
 
 .name-status {

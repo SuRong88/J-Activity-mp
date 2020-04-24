@@ -55,13 +55,6 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/workbench/addressList/addressList",
-					"pathName": "pages/workbench/addressList/addressList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "pages/test/test",
 					"pathName": "pages/test/test",
 					"query": "",
@@ -99,6 +92,112 @@
 					"id": -1,
 					"name": "pages/workbench/activityEdit/activityEdit",
 					"pathName": "pages/workbench/activityEdit/activityEdit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/me/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "完善个人信息",
+					"pathName": "pages/me/information/information",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "选择类型",
+					"pathName": "pages/me/select/select",
+					"query": "type=type",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "选择地址",
+					"pathName": "pages/me/select/select",
+					"query": "type=address",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "我的任务",
+					"pathName": "pages/task/index/index",
+					"query": "type=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "修改银行卡",
+					"pathName": "pages/authentication/bankCard/bankCard",
+					"query": "type=address",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的任务",
+					"pathName": "pages/task/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "上传验收材料",
+					"pathName": "pages/task/upload/upload",
+					"query": "id=1&type=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "补充验收材料",
+					"pathName": "pages/task/upload/upload",
+					"query": "id=1&type=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的任务-活动详情",
+					"pathName": "pages/task/detail/detail",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "服务商列表页",
+					"pathName": "pages/resource/index/index",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": 19,
+					"name": "资源库",
+					"pathName": "pages/resource/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "接活动",
+					"pathName": "pages/activity/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动搜索",
+					"pathName": "pages/activity/search/search",
+					"query": "",
 					"scene": null
 				}
 			]

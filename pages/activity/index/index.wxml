@@ -120,23 +120,23 @@
                     </view>
                 </view>
             </view>
-            <!-- 已选择的筛选条件 -->
-            <view class="filter-select-box flex flex-wrap">
-                <view class="filter-select-item">
-                    主持司仪
-                    <image class="delete-icon" src="/images/search/event_icon09.png"></image>
-                </view>
-                <view class="filter-select-item">
-                    广东省广州市海珠区
-                    <image class="delete-icon" src="/images/search/event_icon09.png"></image>
-                </view>
-                <view class="filter-select-item">
-                    招募
-                    <image class="delete-icon" src="/images/search/event_icon09.png"></image>
-                </view>
-            </view>
         </view>
         <view hidden="{{!showFilter}}" catchtouchmove="emptyHandle" class="filter-box-mask"></view>
+        <!-- 已选择的筛选条件 -->
+        <view class="filter-select-box flex flex-wrap">
+            <view class="filter-select-item">
+                主持司仪
+                <image class="delete-icon" src="/images/search/event_icon09.png"></image>
+            </view>
+            <view class="filter-select-item">
+                广东省广州市海珠区
+                <image class="delete-icon" src="/images/search/event_icon09.png"></image>
+            </view>
+            <view class="filter-select-item">
+                招募
+                <image class="delete-icon" src="/images/search/event_icon09.png"></image>
+            </view>
+        </view>
         <view class="con-bd activity-list">
             <view bindtap="base_jump" data-url="/pages/activity/detail/detail?id={{index}}" wx:for="{{6}}" wx:key="index" class="activity-item flex">
                 <image wx:if="{{index%2==0}}" class="item-icon" src="/images/activity/hire.png"></image>
@@ -176,5 +176,5 @@
             </view>
         </view>
     </view>
-    <mp-tabbar tabbarIndex="1"></mp-tabbar>
+    <mp-tabbar tabbarType="{{tabbarType||1}}" tabbarIndex="1"></mp-tabbar>
 </view>

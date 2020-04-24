@@ -7,16 +7,21 @@ const VM = {
     data: {
         showMask: false,
         // 表单
-        phone: '15015050123',
+        captchaUrl: '',
+        phone: '15015050896',
         code: '',
-        bankCard: '',
+        bankCard: '621700322101716',
         captcha: '',
         tipIndex: 0,
         tips: [
             '',
             '请输入图形验证码',
             '图形验证码不正确'
-        ]
+        ],
+        // 倒计时
+        phone_code_text: "发送验证码",
+        phone_code_class: "",
+        phone_code_flag: false
     }
 }
 VM.init = function() {
@@ -50,23 +55,56 @@ VM.changeInput = function(e) {
 }
 // 发送验证码
 VM.sendCode = function(e) {
+    if (this.data.phone_code_flag) {
+        return util.Toast('请不要频繁操作')
+    }
+    if (!formcheck.check_bankCard(this.data.bankCard)) {
+        return util.Toast('银行卡号格式不正确')
+    }
     if (!formcheck.check_phone(this.data.phone)) {
         return util.Toast('手机号格式不正确')
     }
+    let captchaUrl = app.getCaptcha('change')
     this.setData({
         showMask: true,
-        tipIndex: 0
+        tipIndex: 0,
+        captchaUrl: captchaUrl
     })
-    // todo
+}
+// 改变图形码
+VM.changeCaptcha = function() {
+    this.setData({
+        captchaUrl: app.getCaptcha('change')
+    })
 }
 // 确认图形码
 VM.confirmCaptcha = function(e) {
+    if (this.data.phone_code_flag) {
+        return util.Toast('请不要频繁操作')
+    }
     if (formcheck.check_null(this.data.captcha)) {
         return this.setData({
             tipIndex: 1
         })
     }
-    // todo
+    Req.request('sendCode', {
+        phone: this.data.phone,
+        code: this.data.captcha,
+        sign: 'change'
+    }, {
+        method: 'get'
+    }, res => {
+        this.setData({
+            showMask: false,
+            captcha: '',
+        })
+        util.setDowntime(this)
+    }, err => {
+        this.setData({
+            captchaUrl: app.getCaptcha('change'),
+            tipIndex: 2
+        })
+    })
 }
 // 取消图形码
 VM.cancelCaptcha = function(e) {
@@ -77,12 +115,31 @@ VM.cancelCaptcha = function(e) {
 }
 // 提交
 VM.submitHandle = function(e) {
+    if (!formcheck.check_bankCard(this.data.bankCard)) {
+        return util.Toast('银行卡号格式不正确')
+    }
     if (!formcheck.check_phone(this.data.phone)) {
         return util.Toast('手机号格式不正确')
     }
     if (!formcheck.check_code(this.data.code)) {
         return util.Toast('验证码格式不正确')
     }
-    // todo
+    // 修改
+    Req.request('editBankCard', {
+        bank_num: this.data.bankCard,
+        phone: this.data.phone,
+        code: this.data.code
+    }, {
+        method: 'post'
+    }, res => {
+        util.Toast('修改成功')
+        setTimeout(() => {
+            wx.navigateBack({
+                delta: 1
+            })
+        }, 2000)
+    }, err => {
+        util.Toast(err.msg)
+    })
 }
 Page(VM)

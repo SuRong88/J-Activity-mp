@@ -1,8 +1,8 @@
 <!--使用tabbar的页面,wxss设置.container的padding-bottom -->
-<view class="tabbar flex flex-ver {{cln}}">
+<view catchtouchmove="emptyHandle" class="tabbar flex flex-ver {{cln}}">
     <!-- 服务商 -->
     <block wx:if="{{tabbarType==1}}">
-        <view wx:for="{{tabbarList}}" wx:key="index" class="tabbar-item flex flex-center flex-1 {{tabbarIndex == index?'active':''}}"
+        <view wx:for="{{tabbarListArr[tabbarType-1]}}" wx:key="index" class="tabbar-item flex flex-center flex-1 {{tabbarIndex == index?'active':''}}"
             bindtap="base_jump" data-url="{{item.pagePath}}" data-type="redirect">
             <view class="tabbar-item-inner">
                 <image class="tabbar-item-icon" mode="aspectFit" src="{{tabbarIndex==index?item.selectedIconPath:item.iconPath}}"></image>
@@ -12,7 +12,7 @@
     </block>
     <!-- 商家 -->
     <block wx:else>
-        <block wx:for="{{tabbarList}}" wx:key="index">
+        <block wx:for="{{tabbarListArr[tabbarType-1]}}" wx:key="index">
             <view wx:if="{{index<=1}}" class="tabbar-item flex flex-center flex-1 {{tabbarIndex == index?'active':''}}"
                 bindtap="base_jump" data-url="{{item.pagePath}}" data-type="redirect">
                 <view class="tabbar-item-inner">
@@ -29,7 +29,7 @@
                 <view class="tabbar-item-txt">发布</view>
             </view>
         </view>
-        <block wx:for="{{tabbarList}}" wx:key="index">
+        <block wx:for="{{tabbarListArr[tabbarType-1]}}" wx:key="index">
             <view wx:if="{{index>1}}" class="tabbar-item flex flex-center flex-1 {{tabbarIndex == index?'active':''}}"
                 bindtap="base_jump" data-url="{{item.pagePath}}" data-type="redirect">
                 <view class="tabbar-item-inner">

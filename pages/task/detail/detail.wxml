@@ -4,9 +4,8 @@
         <view class="banner">
             <image class="banner-bg" src="/images/task/banner.jpg"></image>
             <view class="status-box flex flex-ver flex-align-center">
-
                 <image class="status-icon" src="/images/task/mine_icon20.png"></image>
-                <text class="status-txt">待工作</text>
+                <text class="status-txt">{{typeArr[type-1]}}</text>
             </view>
 
         </view>
@@ -17,24 +16,24 @@
                     <image class="box01-img" src="/images/task/mine_img03.png"></image>
                 </view>
                 <view class="box01-r">
-                    <view class="box01-job">摄影师</view>
-                    <view class="box01-intro">2020年五·四青年节晚会</view>
-                    <view class="box01-price">¥1000.00</view>
+                    <view class="box01-job">{{detail.job_name}}</view>
+                    <view class="box01-intro">{{detail.name}}</view>
+                    <view class="box01-price">{{detail.salary}}</view>
                 </view>
 
             </view>
             <view class="box box02">
                 <view class="box02-info-item flex flex-ver">
                     <image class="info-item-icon" src="/images/task/mine_icon17.png"></image>
-                    <text class="info-item-txt">名锐讯动信息科技有限公司</text>
+                    <text class="info-item-txt">{{detail.enterprise_name}}</text>
                 </view>
                 <view class="box02-info-item flex flex-ver">
                     <image class="info-item-icon" src="/images/task/mine_icon18.png"></image>
-                    <text class="info-item-txt">广州市海珠区新港东路36号</text>
+                    <text class="info-item-txt">{{detail.address}}{{detail.address_detail}}</text>
                 </view>
                 <view class="box02-info-item flex flex-ver">
                     <image class="info-item-icon" src="/images/task/mine_icon19.png"></image>
-                    <text class="info-item-txt">2020.05.04-2020.05.04</text>
+                    <text class="info-item-txt">{{detail.start_time}}-{{detail.update_time}}</text>
                 </view>
             </view>
             <view class="box box03">
@@ -43,7 +42,7 @@
                         活动详情：
                     </view>
                     <view class="info-item-txt">
-                        为庆祝五四青年节，给公司员工一个真正展示自我风采和勇气的舞台，2020年名锐讯动青年节晚会将以宏大的气魄、不凡的手笔、新颖的题材、经典的节目，集多种舞台表演形式，溶大家同事之情于一体，对各同事以最诚挚的问候，祝愿青春永驻。
+                        {{detail.desc}}
                     </view>
                 </view>
                 <view class="box03-info-item">
@@ -51,19 +50,37 @@
                         岗位内容：
                     </view>
                     <view class="info-item-txt">
-                        1.负责公司抖音，快手短视频的的日常拍摄；
-                        2.参与拍摄的活动策划工作，确定拍摄方案，创意，手法等；
+                        {{detail.job_content}}
                     </view>
                 </view>
-
             </view>
             <view class="box box04">
-                <view class="box04-info-item">活动编号：2875829657</view>
-                <view class="box04-info-item">发布时间：2020.03.23 18:41:34</view>
-                <view class="box04-info-item">审核时间：2020.03.25 18:41:34</view>
+                <view class="box04-info-item">活动编号：{{detail.activity_id}}</view>
+                <view class="box04-info-item">发布时间：{{detail.start_time}}</view>
+                <view class="box04-info-item">审核时间：{{detail.update_time}}</view>
+                <!-- 已完结 显示 -->
+                <view wx:if="{{type==3}}" class="finish-info-box">
+                    <view class="finish-hd flex flex-ver flex-jcsb">
+                        <view class="hd-label">结算金额：</view>
+                        <view class="hd-price">¥{{detail.final_amount}}</view>
+                    </view>
+                    <view class="finish-bd">
+                        <view class="box04-info-item">验收材料：</view>
+                        <image class="img" src="{{detail.service_img}}"></image>
+                        <view class="box04-info-item">验收说明：{{detail.remark}}</view>
+                    </view>
+                </view>
             </view>
-            <view class="common-btn normal">
+            <view wx:if="{{type==1}}" class="common-btn normal">
                 确认
+            </view>
+            <view wx:if="{{type==2&&detail.settle_time<1}}" bindtap="base_jump" data-url="/pages/task/upload/upload?id={{id}}&type={{type}}"
+                class="common-btn normal">
+                申请验收结算
+            </view>
+            <view wx:if="{{type==3&&detail.settle_time<2}}" bindtap="base_jump" data-url="/pages/task/upload/upload?id={{id}}&type={{type}}"
+                class="common-btn normal">
+                补充验收材料
             </view>
         </view>
     </view>

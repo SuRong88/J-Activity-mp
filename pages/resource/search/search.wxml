@@ -100,8 +100,7 @@
                 <image bindtap="deleteAddressFilter" class="delete-icon" src="/images/search/event_icon09.png"></image>
             </view>
         </view>
-        <!-- 有结果 -->
-        <view wx:if="{{list.length>0}}" class="con-bd resource-list">
+        <view class="con-bd resource-list">
             <view wx:for="{{list}}" wx:key="index" class="resource-item">
                 <view class="item-top flex">
                     <view class="item-top-l">
@@ -145,11 +144,6 @@
                     </view>
                 </view>
             </view>
-        </view>
-        <!-- 无结果 -->
-        <view wx:else class="no-result-box">
-            <image class="no-result-img" src="/images/search/event_icon10.png"></image>
-            <view class="no-result-txt">无对应活动</view>
         </view>
     </view>
     <mp-tabbar tabbarType="{{tabbarType||1}}" tabbarIndex="2"></mp-tabbar>

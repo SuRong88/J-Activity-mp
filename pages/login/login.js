@@ -5,7 +5,7 @@ const base = require('../../utils/base.js');
 const Req = require('../../utils/request.js');
 const VM = {
     data: {
-        loading: true,
+        loading: false,
         // 展示验证码
         show1: false,
         // 展示协议
@@ -29,9 +29,14 @@ const VM = {
             '请输入图形验证码',
             '图形验证码不正确'
         ],
-        phone: '',
-        code: '', //
-        captcha: '', //
+        captchaUrl: '',
+        phone: '15015050896',
+        code: '1234', //
+        captcha: '1234', //
+        // 倒计时
+        phone_code_text: "发送验证码",
+        phone_code_class: "",
+        phone_code_flag: false
     }
 }
 VM.init = function() {
@@ -71,24 +76,54 @@ VM.closeAgreement = function(e) {
 }
 // 发送验证码
 VM.sendCode = function(e) {
+    if (this.data.phone_code_flag) {
+        return util.Toast('请不要频繁操作')
+    }
     if (!formcheck.check_phone(this.data.phone)) {
         return util.Toast('手机号格式不正确')
     }
+    let captchaUrl = app.getCaptcha()
     this.setData({
         show1: true,
         show2: false,
-        tipIndex: 0
+        tipIndex: 0,
+        captchaUrl: captchaUrl
     })
     // todo
 }
+// 改变图形码
+VM.changeCaptcha = function() {
+    this.setData({
+        captchaUrl: app.getCaptcha()
+    })
+}
 // 确认图形码
 VM.confirmCaptcha = function(e) {
+    if (this.data.phone_code_flag) {
+        return util.Toast('请不要频繁操作')
+    }
     if (formcheck.check_null(this.data.captcha)) {
         return this.setData({
             tipIndex: 1
         })
     }
-    // todo
+    Req.request('sendCode', {
+        phone: this.data.phone,
+        code: this.data.captcha
+    }, {
+        method: 'get'
+    }, res => {
+        this.setData({
+            show1: false,
+            captcha: '',
+        })
+        util.setDowntime(this)
+    }, err => {
+        this.setData({
+            captchaUrl: app.getCaptcha(),
+            tipIndex: 2
+        })
+    })
 }
 // 取消图形码
 VM.cancelCaptcha = function(e) {
@@ -109,6 +144,26 @@ VM.confirmLogin = function(e) {
         return util.Toast('未勾选同意协议')
     }
     // todo
+    Req.request('login', {
+        phone: this.data.phone,
+        code: this.data.code,
+        sign: 'login'
+    }, {
+        method: 'get'
+    }, res => {
+        console.log(res);
+        let data = res.data
+        wx.setStorageSync('token', data.token)
+        app.globalData.roleType = data.identity * 1
+        util.Toast('登录成功')
+        setTimeout(() => {
+            wx.reLaunch({
+                url: '/pages/index/index'
+            })
+        }, 1500)
+    }, err => {
+        return util.Toast(err.data.msg || '验证码不正确')
+    })
 }
 VM.inputPhone = function(e) {
     this.setData({

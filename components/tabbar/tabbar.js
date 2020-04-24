@@ -7,6 +7,11 @@ Component({
      * 组件的属性列表
      */
     properties: {
+        // 1.服务商 2.商家
+        tabbarType: {
+            type: Number,
+            value: 1
+        },
         // 标题
         tabbarIndex: {
             type: Number,
@@ -23,8 +28,6 @@ Component({
      * 组件的初始数据
      */
     data: {
-        // 1.服务商 2.商家
-        tabbarType: 1,
         tabbarList: [],
         tabbarListArr: [
             [{
@@ -81,29 +84,10 @@ Component({
     },
     // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
     lifetimes: {
-        created: function() {
-            // let type = app.globalData.roleType
-            // this.setData({
-            //    tabbarType: this.data.tabbarListArr[type]
-            // })
-            // console.log('tabbar类型'+this.data.tabbarType);
-            // let type = app.globalData.roleType 
-            // // this.data.tabbarList = this.data.tabbarListArr[type-1]
-            // this.setData({
-            //    tabbarList: this.data.tabbarListArr[type-1]
-            // })
-            // console.log(this.data.tabbarList);
-        },
+        created: function() {},
         attached: function() {
             // 不箭头函数 this指向该组件实例?
             base.onLoad(this);
-            let type = app.globalData.roleType
-            this.setData({
-                tabbarList: this.data.tabbarListArr[type - 1],
-                tabbarType: type
-            })
-            console.log('tabbar类型' + this.data.tabbarType);
-            console.log('tabbar数组' + this.data.tabbarList);
         },
         moved: function() {},
         detached: function() {},

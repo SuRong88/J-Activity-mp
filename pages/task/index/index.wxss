@@ -150,10 +150,10 @@ page {
     background: rgba(252, 127, 3, 1);
     border: 2rpx solid rgba(252, 127, 3, 1);
     border-radius: 10rpx;
+    margin-left: 20rpx;
 }
 
 .item-btn.plain {
-    margin-right: 20rpx;
     background: #fff;
     color: rgba(252, 127, 3, 1);
 }

@@ -16,14 +16,14 @@
                 <view class="phone-enter-box flex flex-ver flex-jcsb">
                     <input maxlength="11" bindinput="changeInput" data-key="phone" placeholder="请输入手机号"
                         placeholder-class="holder-class" class="item-enter flex-1" type="number" />
-                    <view bindtap="sendCode" class="send-code">发送验证码</view>
+                    <view bindtap="sendCode" class="send-code {{phone_code_class}}">{{phone_code_text}}</view>
                 </view>
             </view>
             <view class="info-item">
                 <view class="item-label flex flex-ver">
                     <text>手机验证码</text>
                 </view>
-                <input maxlength="6" bindinput="changeInput" data-key="idCard" placeholder="请输入验证码" placeholder-class="holder-class"
+                <input maxlength="6" bindinput="changeInput" data-key="code" placeholder="请输入验证码" placeholder-class="holder-class"
                     class="item-enter" type="code" />
             </view>
         </view>
@@ -34,9 +34,9 @@
         bind:cancel='cancelCaptcha' confirmText="确认">
         <view class="captcha-box">
             <view class="box-main flex flex-ver">
-                <input bindinput="changeInput" data-key="captcha" class="captcha-enter flex-1" placeholder="请输入右侧验证码" placeholder-class="captcha-enter-placeholder"
-                    type="text" maxlength="4" />
-                <image class="captcha-img" src="/images/login/img13.png" mode="aspectFit"></image>
+                <input bindinput="changeInput" data-key="captcha" class="captcha-enter flex-1" placeholder="请输入右侧验证码"
+                    placeholder-class="captcha-enter-placeholder" type="text" maxlength="4" />
+                <image bindtap="changeCaptcha" class="captcha-img" src="{{captchaUrl}}" mode="aspectFit"></image>
             </view>
             <text class="tip">{{tips[tipIndex]}}</text>
         </view>

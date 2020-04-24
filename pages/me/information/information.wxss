@@ -62,7 +62,7 @@
     position: relative;
     width: 130rpx;
     height: 130rpx;
-    border-radius: 20rpx;
+    border-radius: 10rpx;
     overflow: hidden;
 }
 

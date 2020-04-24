@@ -4,7 +4,7 @@
        <view class="enter-box">
             <textarea bindinput="changeTxt" class="txt-enter" placeholder="请输入您的反馈" placeholder-class="holder-class" maxlength="50"></textarea>
             <view class="enter-num">
-                {{txt.length}}/50
+                {{feedback.length}}/50
             </view>
        </view>
        <view bindtap="submitFeedback" class="common-btn">

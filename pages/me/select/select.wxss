@@ -31,6 +31,13 @@
     padding: 34rpx 40rpx 0rpx;
 }
 
+.filter-select-box.address {
+    align-items: center;
+    font-size: 28rpx;
+    color: #666;
+    padding: 0rpx 40rpx;
+}
+
 .filter-select-item {
     height: 56rpx;
     line-height: 52rpx;

@@ -1,8 +1,11 @@
 /* pages/test/test.wxss */
+page {
+    /* background: rgba(249, 249, 249, 1) !important; */
+}
+
 .content {
     height: 100%;
     padding-bottom: 160rpx;
-    background: rgba(249, 249, 249, 1);
 }
 
 /* 头部 */
@@ -63,7 +66,8 @@
 
 .filter-select-box {
     background-color: #fff;
-    padding: 56rpx 40rpx 46rpx;
+    /* padding: 56rpx 40rpx 46rpx; */
+    padding: 40rpx 40rpx 0rpx;
 }
 
 .filter-select-item {
@@ -73,6 +77,7 @@
     margin-right: 60rpx;
     position: relative;
     padding-right: 25rpx;
+    margin-bottom: 20rpx;
 }
 
 .filter-select-item .delete-icon {
@@ -305,7 +310,9 @@
 /* body */
 .con-bd {}
 
-.resource-list {}
+.resource-list {
+      background: rgba(249, 249, 249, 1);
+}
 
 .resource-item {
     padding: 36rpx 40rpx 30rpx;
@@ -406,4 +413,18 @@
 
 .btn-ope {
     margin-right: 20rpx;
+}
+.no-result-box{
+    padding-top: 144rpx;
+    text-align: center;
+}
+.no-result-img{
+    width: 440rpx;
+    height: 252rpx;
+    margin-bottom: 70rpx;
+}
+.no-result-txt{
+    font-size:32rpx;
+    color:rgba(51,51,51,1);
+    line-height:44rpx;
 }

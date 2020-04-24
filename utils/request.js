@@ -1,119 +1,139 @@
 const util = require('./util.js')
 const app = getApp();
-const HOST = 'https://xcxdemo2.mrxdtech.com/api';
+const HOST = 'http://xcx18.mrxdtech.com/api';
 let Request = null;
 // 接口
 const OPTIONS = {
+    /*
+     **工作台
+     */
+    // 获取企业信息
+    getEnterpriseInfo: {
+        url: `${HOST}/enterprise/completeInfo`
+    },
+    // 完善企业信息
+    completeEnterpriseInfo: {
+        url: `${HOST}/enterprise/completeInfo`
+    },
+    // 获取职位列表
+    getJobList: {
+        url: `${HOST}/activity/add`
+    },
+    // 创建活动
+    createActivity: {
+        url: `${HOST}/activity/add`
+    },
+    // 充值
+    recharge: {
+        url: `${HOST}/enterprise/recharge`
+    },
+    /*
+     **服务商
+     */
+    // 搜索服务商列表
+    getServiceList: {
+        url: `${HOST}/user/userList`
+    },
+    // 服务商详情
+    getServiceDetail: {
+        url: `${HOST}/user/detail`
+    },
+    // 添加私有服务商
+    addPrivate: {
+        url: `${HOST}/enterprise/privateUser`
+    },
+    // 删除私有服务商
+    removePrivate: {
+        url: `${HOST}/enterprise/privateUser`
+    },
+    // 私有服务商列表
+    getPrivateList: {
+        url: `${HOST}/enterprise/userList`
+    },
+    /*
+     **我的
+     */
+    // 获取个人信息
+    getMyInfo: {
+        url: `${HOST}/user/info`
+    },
+    //获取完善页面信息
+    getMyCompleteInfo: {
+        url: `${HOST}/user/completeInfo`
+    },
+    //保存信息
+    saveMyCompleteInfo: {
+        url: `${HOST}/user/completeInfo`
+    },
+    //我的任务
+    getTaskList: {
+        url: `${HOST}/activity/myActivity`
+    },
+    //任务详情
+    getTaskDetail: {
+        url: `${HOST}/user/jobDetail`
+    },
+    //上传验收材料
+    uploadAcceptance: {
+        url: `${HOST}/activity/acceptance`
+    },
+    //改变工作状态
+    changeJobStatus: {
+        url: `${HOST}/activity/changeApplyStatus`
+    },
+    //修改银行卡
+    editBankCard: {
+        url: `${HOST}/user/changeBankNum`
+    },
+    //提交反馈
+    submitFeedback: {
+        url: `${HOST}/user/feedback`
+    },
+    /*
+     **岗位标签
+     */
+    // 岗位一级
+    getTag: {
+        url: `${HOST}/position/classifyList`,
+    },
+    // 岗位二级
+    getTagList: {
+        url: `${HOST}/position/positionList`,
+    },
     /* 
-     **1.用户模块
+     **登录页
      */
-    // 登录
+    // 获取图形码---登录
+    getCaptcha: {
+        url: `${HOST}/captcha/login`,
+    },
+    // 获取图形码---修改银行卡
+    getCaptcha2: {
+        url: `${HOST}/captcha/change`,
+    },
+    // 发送验证码
+    sendCode: {
+        url: `${HOST}/user/send`,
+    },
+    // 验证登录
     login: {
-        url: `${HOST}/login`,
+        url: `${HOST}/user/login`,
     },
-    //获取用户信息
-    getUserInfo: {
-        url: `${HOST}/user`
-    },
-    // 添加用户偏好
-    addPreference: {
-        url: `${HOST}/user/prefer`
-    },
-    // 用户投诉
-    addComplaint: {
-        url: `${HOST}/complain`
-    },
-    // 获取投诉记录
-    getComplaintList: {
-        url: `${HOST}/complain`
-    },
-    // 提交送餐邀约
-    submitInvition: {
-        url: `${HOST}/invite`
-    },
-    // 获取配送订单记录
-    getOrderList: {
-        url: `${HOST}/order`
-    },
-    // 退款提现
-    refund: {
-        url: `${HOST}/refund`
-    },
-    // 获取代金券
-    getVoucherList: {
-        url: `${HOST}/voucher`
-    },
-    // 获取微信手机号
-    getPhoneNum: {
-        url: `${HOST}/user/phone`
-    },
-    //获取申请状态
-    getApplyState: {
-        url: `${HOST}//workRegist`
-    },
-    /*
-     **2.支付模块
+    /* 
+     **通用
      */
-    // 充值时间戳 加密等信息
-    chargeInfo: {
-        url: `${HOST}/pay`
+    // 获取地区
+    getArea: {
+        url: `${HOST}/common/area`,
     },
-    // 账户充值金额arr
-    chargeType: {
-        url: `${HOST}/pay/config`
+    // 上传图片
+    uploadImage: {
+        url: `${HOST}/upload/lrzupload`,
     },
-    // 余额流水
-    accountBill: {
-        url: `${HOST}/pay`
+    // 上传图片
+    getIdentity: {
+        url: `${HOST}/user/getIdentity`,
     },
-    /*
-     **3.定制计划模块
-     */
-    // 首页展示计划
-    indexPlanning: {
-        url: `${HOST}/plan/face`
-    },
-    // get获取 post提交 put修改定制计划
-    planning: {
-        url: `${HOST}/plan`
-    },
-    // 获取饭菜分量,例如--大份12元
-    getWeightList: {
-        url: `${HOST}/weight`
-    },
-    /*
-     **4.取消送餐模块
-     */
-    // get获取取消送餐的日期 post提交取消送餐的日期
-    cancelDelivery: {
-        url: `${HOST}/plan/cancel`
-    },
-    /*
-     **5.打包员模块
-     */
-    // 注册打包员
-    applyPacker: {
-        url: `${HOST}/packer/apply`
-    },
-    // 餐盒扫码
-    scanPacker: {
-        url: `${HOST}/packer/order`
-    },
-    // 提交打包
-    submitPacker: {
-        url: `${HOST}/packer/box`
-    },
-    /*
-     **6.配送员模块
-     */
-    // 注册配送员
-    applyDeliver: {
-        url: `${HOST}/runner/apply`
-    },
-    // 提交配送
-    submitDeliver: {
-        url: `${HOST}/runner/box`
-    }
 }
 // 状态码处理
 function codeCheck(data, success, fail) {
@@ -124,16 +144,9 @@ function codeCheck(data, success, fail) {
             break;
         case 50003: //token过期
             util.showModal('提示', '登录信息已过期,请重新登录', false, '', '确定', () => {
-                getApp().checkAuthorize(() => {
-                    getApp().userLogin((res) => {
-                        wx.reLaunch({
-                            url: '/pages/index/index'
-                        })
-                    })
-                }, () => {
-                    wx.reLaunch({
-                        url: '/pages/introduce/introduce'
-                    })
+                console.log('重新登录');
+                wx.redirectTo({
+                    url: '/pages/login/login'
                 })
             })
             break;

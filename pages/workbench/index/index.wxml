@@ -67,5 +67,5 @@
             您确定退出登录吗？
         </view>
     </mp-popBox>
-    <mp-tabbar tabbarIndex="3"></mp-tabbar>
+    <mp-tabbar tabbarType="{{2}}" tabbarIndex="3"></mp-tabbar>
 </view>

@@ -28,12 +28,12 @@ page {
     margin: 0 auto;
 }
 
-.fw400{
-    font-weight: 400!important;
+.fw400 {
+    font-weight: 400 !important;
 }
 
-.fw700{
-    font-weight: 700!important;
+.fw700 {
+    font-weight: 700 !important;
 }
 
 .fl {
@@ -424,4 +424,9 @@ button::after {
 input,
 textarea {
     width: 100%;
+}
+
+/* 手机验证码倒计时等待状态 */
+.waiting {
+    background: rgba(199, 195, 195, 1) !important;
 }

@@ -70,7 +70,7 @@ function onLoad(page) {
     page.setData({
         is_iphonex,
         system,
-        isHome: getCurrentPages().length <= 1
+        isHome: getCurrentPages().length <= 1,
     });
 }
 

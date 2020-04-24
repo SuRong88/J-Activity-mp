@@ -19,9 +19,8 @@
                     <text class="label-txt">Title/昵称/艺名</text>
                     <text class="label-tip">（非必填）</text>
                 </view>
-
                 <view class="item-con">
-                    <input bindinput="changeNickname" placeholder="请输入Title/昵称/艺名" class="item-info-enter"
+                    <input value="{{nickname}}" bindinput="changeNickname" placeholder="请输入Title/昵称/艺名" class="item-info-enter"
                         placeholder-class="enter-placeholder" type="text" />
                 </view>
             </view>
@@ -32,59 +31,44 @@
                 </view>
 
                 <view class="item-con">
-                    <textarea bindinput="changeExp" maxlength="150" placeholder="请输入工作经历" class="item-info-enter enter-textarea01"
+                    <textarea value="{{exp}}" bindinput="changeExp" maxlength="150" placeholder="请输入工作经历" class="item-info-enter enter-textarea01"
                         placeholder-class="enter-placeholder" type="text" />
                     <view class="txt-num-box">
                            {{exp.length}}/150
                         </view>
                     </view>
             </view>
-            <view class="info-item">
+            <view bindtap="base_jump" data-url="/pages/me/select/select?type=address&address={{address}}" class="info-item">
                 <view class="item-label flex flex-ver flex-jcsb">
                     <view>
                         <text class="label-txt">选择地区</text>
-                        <text class="label-tip">（非必填）</text>
+                        <text class="label-tip">（必填）</text>
                     </view>
-                    <view class="address line-hide line-1">广东省广州市海珠区</view>
+                    <view class="address line-hide line-1">{{address}}</view>
                     <image class="item-arrow-icon" src="/images/me/mine_icon13.png"></image>
                 </view>
-
                 <view class="item-con"></view>
             </view>
             <view class="info-item">
                 <view class="item-label flex flex-ver">
-                    <text class="label-txt">详细地址（非必填）</text>
-                    <text class="label-tip">（必填）</text>
+                    <text class="label-txt">详细地址</text>
+                    <text class="label-tip">（非必填）</text>
                 </view>
-
                 <view class="item-con">
-                     <textarea bindinput="changeAddressDetail" placeholder="请输入详细地址" class="item-info-enter enter-textarea02" placeholder-class="enter-placeholder" type="text" />
+                     <textarea value="{{addressDetail}}" bindinput="changeAddressDetail" placeholder="请输入详细地址" class="item-info-enter enter-textarea02" placeholder-class="enter-placeholder" type="text" />
                 </view>
             </view>
             <view class="info-item">
-                <view class="item-label flex flex-ver">
+                <view bindtap="selectType" class="item-label flex flex-ver">
                     <text class="label-txt">所属类型</text>
                     <text class="label-tip">（最多选择3个）</text>
                     <image class="item-arrow-icon" src="/images/me/mine_icon13.png"></image>
                 </view>
-                
-                <scroll-view enable-flex scroll-x class="type-scroll-box">
+                <scroll-view wx:if="{{typeList.length}}" enable-flex scroll-x class="type-scroll-box">
                     <view class="item-con type-list flex">
-                        <view class="type-item">
-                            平面设计
-                            <image class="remove-icon" src="/images/me/mine_icon14.png"></image>
-                        </view>
-                        <view class="type-item">
-                            平面设计
-                            <image class="remove-icon" src="/images/me/mine_icon14.png"></image>
-                        </view>
-                        <view class="type-item">
-                            平面设计
-                            <image class="remove-icon" src="/images/me/mine_icon14.png"></image>
-                        </view>
-                        <view class="type-item">
-                            平面设计
-                            <image class="remove-icon" src="/images/me/mine_icon14.png"></image>
+                        <view  wx:for="{{typeList}}" wx:key="index"  class="type-item">
+                            {{item.name}}
+                            <image bindtap="removeTypeItem" data-index="{{index}}" class="remove-icon" src="/images/me/mine_icon14.png"></image>
                         </view>
                     </view>
                 </scroll-view>
@@ -94,12 +78,11 @@
                     <text class="label-txt">上传资料卡/工作照</text>
                     <text class="label-tip">（非必填）</text>
                 </view>
-
                 <view bindtap="chooseImg" data-index="1" class="item-con upload-box flex flex-center">
                     <image class="upload-icon" src="{{certificatUrl?certificatUrl:'/images/task/upload.jpg'}}"></image>
                 </view>
             </view>
         </view>
-        <view class="common-btn normal submit-btn">提交</view>
+        <view bindtap="submitHandle" class="common-btn normal submit-btn">提交</view>
     </view>
 </view>

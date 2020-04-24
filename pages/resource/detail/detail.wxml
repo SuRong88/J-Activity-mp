@@ -5,45 +5,31 @@
             <view class="hd-left flex-1">
                 <view class="intro-box">
                     <view class="intro-hd flex flex-ver">
-                        <image class="wechat-avatar" src="/images/resource/ISP_img04.png"></image>
+                        <image class="wechat-avatar" src="{{detail.head_img}}"></image>
                         <view class="nickname">
-                            胡诗琪是个可爱无敌美少女
+                            {{detail.nickname}}
                         </view>
                     </view>
                     <view class="intro-bd tags flex flex-wrap">
-                        <view class="tag">
-                            舞蹈表演
-                        </view>
-                        <view class="tag">
-                            舞蹈表演
-                        </view>
-                        <view class="tag">
-                            舞蹈表演
-                        </view>
-                        <view class="tag">
-                            舞蹈表演
+                        <view wx:for="{{detail.position_list}}" wx:key="index" class="tag">
+                            {{item.name}}
                         </view>
                     </view>
                 </view>
                 <view class="info-box">
                     <view class="item flex flex-ver">
                         <image class="item-icon" src="/images/activity/event_icon02.png"></image>
-                        <text class="item-txt">入驻时长：23个月</text>
+                        <text class="item-txt">入驻时长：{{detail.settle_time}}个月</text>
                     </view>
                     <view class="item flex flex-ver">
                         <image class="item-icon" src="/images/resource/SIP_icon01.png"></image>
                         <text class="item-txt">接单数量：</text>
-                        <text class="num">78</text>
+                        <text class="num">{{detail.order_num}}</text>
                     </view>
                     <view class="item flex flex-ver">
                         <image class="item-icon" src="/images/activity/event_icon03.png"></image>
-                        <text class="item-txt">所属地区：广东省广州市海珠区</text>
+                        <text class="item-txt">所属地区：{{detail.address}}</text>
                     </view>
-                    <!-- <view class="item flex flex-ver">
-                        <image class="item-icon" src="/images/activity/event_icon04.png"></image>
-                        <text class="item-txt">联系方式：联系客服获取联系方式</text>
-                        <image class="arrow-icon" src="/images/index/icon14.png"></image>
-                    </view> -->
                     <button open-type="contact" class="item flex flex-ver">
                         <image class="item-icon" src="/images/activity/event_icon04.png"></image>
                         <text class="item-txt">联系方式：联系客服获取联系方式</text>
@@ -52,7 +38,7 @@
                 </view>
             </view>
             <view class="hd-right">
-                <image class="info-avatar" src="/images/index/img03.jpg"></image>
+                <image class="info-avatar" src="{{detail.work_img}}"></image>
             </view>
         </view>
         <view class="con-bd">
@@ -62,12 +48,14 @@
                     <view class="line"></view>
                 </view>
                 <view class="box-con">
-                    广州名锐讯动信息科技有限公司是一家专注于企业互联网+服务的企业，服务内容主要包括PC网站建设、移动端网站（html5）开发、微信平台技术支持、企业形象设计、大型项目策划、新媒体运营等。
-                    我们致力于为企业带来互联网+的蜕变，为各色项目提供解决方案，为创业者实现创业梦想。合作单位包括上市公司、国企、500强企业、政府部门等。
+                    {{detail.work_experience}}
                 </view>
             </view>
-            <view wx:if="{{roleType==2}}" class="common-btn">
-                {{status==0?'添加为私有服务商':'移除私有'}}
+            <view bindtap="addPrivate" wx:if="{{status==0}}" class="common-btn">
+                添加为私有服务商
+            </view>
+            <view bindtap="removePrivate" wx:if="{{status==1}}" class="common-btn">
+                移除私有
             </view>
         </view>
     </view>

@@ -8,8 +8,14 @@ function check_null(value) {
 }
 
 //检测手机验证码
+function check_bankCard(value) {
+    let reg = new RegExp(/^([1-9]{1})(\d{14}|\d{18})$/);
+    return reg.test(value);
+}
+
+//检测手机验证码
 function check_code(value) {
-    let reg = new RegExp(/^([0-9]{4})$/);
+    let reg = new RegExp(/^([0-9]{6})$/);
     return reg.test(value);
 }
 
@@ -115,6 +121,7 @@ function check_emoji(value) {
 }
 module.exports = {
     check_null,
+    check_bankCard,
     check_code,
     check_phone,
     check_tel,

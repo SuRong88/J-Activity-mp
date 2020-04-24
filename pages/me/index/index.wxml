@@ -5,29 +5,23 @@
             <image class="banner-img" src="/images/me/mine_bg01.jpg"></image>
             <view class="user-info-box ">
                 <view class="user-box flex flex-ver">
-                    <image class="avatar" src="/images/me/mine_img01.png"></image>
+                    <image class="avatar" src="{{avatarUrl}}"></image>
                     <view class="name-status">
-                        <view class="user-name">Dling.</view>
+                        <view class="user-name line-hide line-1">{{userInfo.nickname}}</view>
                         <view class="user-status">
-                            <image class="status-icon" src="/images/me/mine_icon11.png"></image>
-                            <text class="status-txt">已认证</text>
+                            <image class="status-icon" src="{{userInfo.is_auth?'/images/me/mine_icon11.png':'/images/me/mine_icon10.png'}}"></image>
+                            <text class="status-txt">{{userInfo.is_auth?'已认证':'未认证'}}</text>
                         </view>
                     </view>
                 </view>
                 <view class="user-tags flex flex-ver">
-                    <view class="tag">
-                        平面设计
-                    </view>
-                    <view class="tag-spe">
-                    </view>
-                    <view class="tag">
-                        平面设计
-                    </view>
-                    <view class="tag-spe">
-                    </view>
-                    <view class="tag">
-                        平面设计
-                    </view>
+                    <block wx:for="{{userInfo.position_list}}" wx:key="index">
+                        <view class="tag">
+                            {{item.name}}
+                        </view>
+                        <view hidden="{{index==userInfo.position_list.length-1}}" class="tag-spe">
+                        </view>
+                    </block>
                 </view>
                 <view bindtap="base_jump" data-url="/pages/me/information/information" class="complete-info flex flex-ver flex-align-center">
                     <text class="complete-txt">完善信息</text>
@@ -41,37 +35,37 @@
                     <view class="tool-tit">
                         我的任务
                     </view>
-                    <view bindtap="base_jump" data-url="/pages/task/index/index" class="tool-view-all flex flex-ver">
+                    <view bindtap="base_jump" data-url="/pages/task/index/index?type=0" class="tool-view-all flex flex-ver">
                         <text class="view-all">查看全部</text>
                         <image class="item-arrow" src="/images/me/mine_icon13.png"></image>
                     </view>
                 </view>
                 <view class="tool-tab flex flex-sa">
-                    <view bindtap="base_jump" data-url="/pages/task/index/index" class="tab-item">
+                    <view bindtap="base_jump" data-url="/pages/task/index/index?type=1" class="tab-item">
                         <image class="tab-icon" src="/images/me/mine_icon01.png"></image>
                         <view class="tab-txt">
                             待工作
                         </view>
                     </view>
-                    <view bindtap="base_jump" data-url="/pages/task/index/index" class="tab-item">
+                    <view bindtap="base_jump" data-url="/pages/task/index/index?type=2" class="tab-item">
                         <image class="tab-icon" src="/images/me/mine_icon02.png"></image>
                         <view class="tab-txt">
                             待验收
                         </view>
                     </view>
-                    <view bindtap="base_jump" data-url="/pages/task/index/index" class="tab-item">
+                    <view bindtap="base_jump" data-url="/pages/task/index/index?type=3" class="tab-item">
                         <image class="tab-icon" src="/images/me/mine_icon03.png"></image>
                         <view class="tab-txt">
                             已完结
                         </view>
                     </view>
-                    <view bindtap="base_jump" data-url="/pages/task/index/index" class="tab-item">
+                    <view bindtap="base_jump" data-url="/pages/task/index/index?type=4" class="tab-item">
                         <image class="tab-icon" src="/images/me/mine_icon04.png"></image>
                         <view class="tab-txt">
                             未选中
                         </view>
                     </view>
-                    <view bindtap="base_jump" data-url="/pages/task/index/index" class="tab-item">
+                    <view bindtap="base_jump" data-url="/pages/task/index/index?type=5" class="tab-item">
                         <image class="tab-icon" src="/images/me/mine_icon05.png"></image>
                         <view class="tab-txt">
                             已关闭
@@ -100,6 +94,9 @@
                     <text class="item-txt">退出登录</text>
                     <image class="item-arrow" src="/images/me/mine_icon13.png"></image>
                 </view>
+                <button open-type="getUserInfo" class="menu-item flex flex-ver">
+                    授权按钮（调试）
+                </button>
             </view>
         </view>
     </view>
@@ -108,14 +105,13 @@
         confirmText="登录">
     </mp-popBox>
     <!-- 联系客服 -->
-    <mp-popBox wx:if="{{showQrcode}}" cln="'qrcode-popBox'" title="长按二维码识别" showContent bind:confirm='closeQrcode'
+    <mp-popBox wx:if="{{showQrcode}}" cln="'qrcode-popBox'" title="点击保存二维码" showContent bind:confirm='closeQrcode'
         bind:cancel='closeQrcode' showCancel='{{false}}' confirmText="确定">
-        <image bindtap="previewImage" class="qrcode" data-src="http://qy30.mrxdtech.com/api/public//upload/image/20200403/5e86dc3d2ed8f.jpg"
-            src="http://qy30.mrxdtech.com/api/public//upload/image/20200403/5e86dc3d2ed8f.jpg"></image>
+        <image bindtap="previewImage" class="qrcode" data-src="{{userInfo.service_code}}" src="{{userInfo.service_code}}"></image>
     </mp-popBox>
     <!-- 登出 -->
     <mp-popBox wx:if="{{showLogout}}" cln="''" title="您确定退出登录吗？" bind:confirm='confirmLogout' bind:cancel='cancelLogout'
         confirmText="确定">
     </mp-popBox>
-    <mp-tabbar tabbarIndex="3"></mp-tabbar>
+    <mp-tabbar tabbarType="{{tabbarType||1}}" tabbarIndex="3"></mp-tabbar>
 </view>

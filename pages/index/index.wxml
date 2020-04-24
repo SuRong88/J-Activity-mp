@@ -213,5 +213,5 @@
             </view>
         </view>
     </view>
-    <mp-tabbar tabbarIndex="0"></mp-tabbar>
+    <mp-tabbar tabbarType="{{tabbarType||1}}" tabbarIndex="0"></mp-tabbar>
 </view>

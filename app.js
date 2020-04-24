@@ -5,11 +5,18 @@ App({
         this.checkNetwork()
         this.showLogs()
         this.checkVersion()
+        this.userLogin()
     },
     globalData: {
         isConnected: true,
-        userInfo: null,
-        roleType: 1 //用户角色 1-服务商、2-商家
+        isLogined: false,
+        userInfo: null, //微信用户信息
+        // myInfo: null, //服务器用户信息
+        roleType: 1, //用户角色 1-服务商、2-商家
+        oldTagList: [], //完善信息的类型数组
+        newTagList: [],
+        searchServiceInfo:null,//搜索服务商信息
+        searchActivityInfo:null//搜索服务商信息
     },
     // 展示本地存储能力
     showLogs: function() {
@@ -39,25 +46,12 @@ App({
     },
     // 用户授权登录
     userLogin: function(cb_success) {
-        wx.login({
-            success: res1 => {
-                wx.getUserInfo({
-                    success: res2 => {
-                        let userInfo = res2.userInfo
-                        this.globalData.userInfo = userInfo
-                        // todo
-                    }
-                })
-            },
-            fail: err => {
-                wx.showModal({
-                    title: '提示',
-                    content: '登录失败,请重试',
-                    showCancel: false,
-                    confirmColor: '#FC7F03',
-                })
-            }
-        })
+        // 已登录
+        if (wx.getStorageSync('token')) {
+            this.globalData.isLogined = true
+            this.getWexinInfo()
+            this.getIdentity()
+        }
     },
     // 判断有没有授权用户信息
     checkAuthorize: function(cb_success, cb_fail) {
@@ -152,5 +146,95 @@ App({
     // 获取data数据
     dataset: function(e, key) {
         return e.currentTarget.dataset[key]
+    },
+    // 获取图形码
+    getCaptcha: function(type = 'login') {
+        if (type == 'login') { //登录
+            return Req.OPTIONS.getCaptcha.url + '?t=' + new Date().getTime()
+        } else { //修改银行卡
+            return Req.OPTIONS.getCaptcha2.url + '?t=' + new Date().getTime()
+        }
+    },
+    // 获取服务器用户信息(未启用)
+    getUserInfo: function() {
+        Req.request('getMyInfo', null, {
+            method: 'get'
+        }, res => {
+            this.globalData.myInfo = res.data
+            console.log(this.globalData.myInfo);
+        })
+    },
+    // 获取微信用户信息
+    getWexinInfo: function() {
+        // 获取微信用户信息
+        this.checkAuthorize(() => {
+            wx.getUserInfo({
+                success: res => {
+                    this.globalData.userInfo = res.userInfo
+                    // 已登录已授权 获取服务器用户信息
+                    // this.getUserInfo()
+                }
+            })
+        }, () => {
+            wx.showModal({
+                title: '提示',
+                content: '请授权使用该小程序',
+                confirmColor: '#FC7F03',
+                showCancel: false,
+                success: res => {
+                    // 确认
+                    if (res.confirm) {
+                        wx.openSetting({
+                            success: dataAu => {
+                                // 开启授权
+                                if (dataAu.authSetting["scope.userInfo"] ==
+                                    true) {
+                                    util.Toast('授权成功')
+                                    wx.getUserInfo({
+                                        success: res => {
+                                            this.globalData.userInfo =
+                                                res.userInfo
+                                            // 更新当前页面信息
+                                            let pages =
+                                                getCurrentPages()
+                                            let currentPage =
+                                                pages[pages.length -
+                                                    1]
+                                            currentPage.init()
+                                        }
+                                    })
+                                } else {
+                                    util.Toast('取消授权')
+                                }
+                            }
+                        })
+                    } else if (res.cancel) {
+                        util.Toast('取消授权')
+                        // wx.navigateTo({
+                        //     url: '/pages/index/index'
+                        // })
+                    }
+                }
+            })
+        })
+    },
+    // 获取服务器用户角色
+    getIdentity: function() {
+        Req.request('getIdentity', null, {
+            method: 'get'
+        }, res => {
+            this.globalData.roleType = res.data.identity
+            console.log('用户角色类型' + res.data.identity);
+            // 更新当前页面栈的tabbar类型
+            let pages = getCurrentPages()
+            for (let i = 0; i < pages.length; i++) {
+                pages[i].setData({
+                    tabbarType: res.data.identity
+                })
+                // 可删除
+                // pages[i].init()
+                // 可删除end
+            }
+        })
     }
 })
