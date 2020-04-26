@@ -8,8 +8,7 @@
                 <view class="swiper__item" wx:for="{{bannerList}}" wx:key="index">
                     <swiper-item>
                         <image class="swiper--img {{swiperIndex01 == index?'active':''}} {{swiperIndex01-1==index||(swiperIndex01==0&&index==bannerList.length-1)?'active-prev':''}}  {{swiperIndex01+1==index||(index==0&&swiperIndex01==bannerList.length-1)?'active-next':''}}"
-                            src="{{item.imgUrl||item}}" mode="aspectFill" data-index="{{index}}" data-url="{{item.url||''}}"
-                            style="{{style||''}}"></image>
+                            src="{{item.cover||item}}" mode="aspectFill" data-index="{{index}}"></image>
                     </swiper-item>
                 </view>
             </swiper>
@@ -26,7 +25,7 @@
                 </view>
             </view>
             <view class="sec-bd">
-                <image class="sec-img" src="/images/index/img07.jpg"></image>
+                <image mode="widthFix" class="sec-img" src="{{platformUrl}}"></image>
             </view>
         </view>
         <view class="sec sec02">
@@ -42,31 +41,34 @@
             </view>
             <view class="sec-bd">
                 <view class="activity-list">
-                    <view bindtap="base_jump" data-url="/pages/activity/detail/detail?id={{1}}" class="activity-item flex">
+                    <view wx:for="{{recommendActivity}}" wx:key="index" bindtap="base_jump" data-url="/pages/activity/detail/detail?id={{item.id}}"
+                        class="activity-item flex">
                         <image class="item-icon" src="/images/index/icon13.png"></image>
                         <view class="item-l flex flex-col flex-jcsb">
                             <view class="item-l-top">
                                 <view class="item-tit line-hide line-2">
-                                    华为HUAWEI P40系列手机新品发布会
-                                    华为HUAWEI P40系列手机新品发布会
+                                    {{item.name}}
                                 </view>
                                 <view class="item-txt line-hide line-1">
-                                    创意节目、激光表演、造型设计
-                                    创意节目、激光表演、造型设计
+                                   <block wx:for="{{item.position_list}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="index"
+                                       class="tag-item">
+                                       {{subItem.name}}
+                                       {{subIndex<item.position_list.length-1?'、':''}}
+                                   </block>
                                 </view>
                             </view>
                             <view class="item-l-bottom info-list">
                                 <view class="info-item">
                                     <text>活动地区：</text>
-                                    <text>广东省广州市天河区</text>
+                                    <text>{{item.address}}</text>
                                 </view>
                                 <view class="info-item">
                                     <text>活动时间：</text>
-                                    <text>2020.03.26-2020.03.27</text>
+                                    <text> {{item.start_time}}- {{item.end_time}}</text>
                                 </view>
                                 <view class="info-item">
                                     <text>所需人数：</text>
-                                    <text>68/37</text>
+                                    <text> {{item.apply_num}}/ {{item.people_num}}</text>
                                 </view>
                             </view>
                         </view>
@@ -95,23 +97,23 @@
                 <view class="company-swiper-box">
                     <swiper bindchange="changeSwiper02" class="company-swiper" autoplay interval="5000" duration="500"
                         circular>
-                        <swiper-item bindtap="base_jump" data-url="/pages/enterprise/detail/detail?id={{1}}" class="swiper-item"
-                            wx:for="{{4}}" wx:key="index">
+                        <swiper-item bindtap="base_jump" data-url="/pages/enterprise/detail/detail?id={{item.id}}"
+                            class="swiper-item" wx:for="{{recommendEnterprise}}" wx:key="index">
                             <view class="item-top">
-                                <image class="item-img" src="/images/index/img05.jpg"></image>
+                                <image class="item-img" src="{{item.cover_img}}"></image>
                                 <view class="item-brief">
-                                    已入驻：9个月
+                                    已入驻：{{item.settle_time}}个月
                                 </view>
                             </view>
                             <view class="item-bottom">
                                 <view class="item-tit-box flex flex-ver">
-                                    <image class="item-avatar" src="/images/index/img06.png"></image>
+                                    <image class="item-avatar" src="{{item.logo}}"></image>
                                     <view class="item-tit line-hide line-1">
-                                        {{index}}广州名锐讯动信息科技有限公司
+                                        {{item.name}}
                                     </view>
                                 </view>
                                 <view class="item-desc line-hide line-2">
-                                    广州名锐讯动信息科技有限公司是一家专注于企业互联网+服务的企业，服务内容主要包括PC网站建设、移动端网站（html5）…
+                                    {{item.profiles}}
                                 </view>
                                 <view class="item-btn flex flex-align-center flex-ver">
                                     <text>企业详情</text>
@@ -122,7 +124,7 @@
                     </swiper>
                     <view class="swiper-pagination flex flex-center">
                         <view class="flex pagination_block">
-                            <view class="{{swiperIndex02 == index?'active':''}}" wx:key="index" wx:for="{{4}}"></view>
+                            <view class="{{swiperIndex02 == index?'active':''}}" wx:key="index" wx:for="{{recommendEnterprise.length}}"></view>
                         </view>
                     </view>
                 </view>
@@ -142,18 +144,20 @@
             <view class="sec-bd">
                 <view class="service-swiper-box">
                     <swiper class="service-swiper" autoplay="{{false}}" interval="5000" duration="500" next-margin="190rpx">
-                        <swiper-item bindtap="base_jump" data-url="/pages/resource/detail/detail?id={{1}}" class="swiper-item"
-                            wx:for="{{4}}" wx:key="index">
+                        <swiper-item bindtap="base_jump" data-url="/pages/resource/detail/detail?id={{item.id}}" class="swiper-item"
+                            wx:for="{{recommendUser}}" wx:key="index">
                             <view class="swiper-item-inner">
                                 <view class="item-top flex">
-                                    <image class="top-l item-avatar" src="/images/index/img05.jpg"></image>
-                                    <view class="top-r flex flex-col flex-align-center">
+                                    <image class="top-l item-avatar" src="{{item.head_img}}"></image>
+                                    <view class="top-r flex-1 flex flex-col flex-align-center">
                                         <view class="item-time">
-                                            已入驻：9个月
+                                            已入驻：{{item.settle_time}}个月
                                         </view>
-                                        <view class="tag-list">
-                                            <view class="tag-item">
-                                                舞蹈表演
+                                        <view class="tag-list flex flex-wrap">
+                                            <view wx:for="{{item.position_list}}" wx:for-item="subItem" wx:for-index="subIndex"
+                                                wx:key="index" class="tag-item">
+                                                {{subItem.name}}
+                                                {{subIndex<item.position_list.length-1?'、':''}}
                                             </view>
                                         </view>
                                     </view>
@@ -162,13 +166,13 @@
                                     <view class="item-tit-box flex flex-ver">
                                         <image class="item-icon" src="/images/index/icon15.png"></image>
                                         <view class="item-tit line-hide line-1">
-                                            胡诗琪是个可爱无敌美少女 </view>
+                                            {{item.nickname}} </view>
                                     </view>
                                     <view class="item-other flex flex-ver">
                                         <image class="item-icon" src="/images/index/icon16.png"></image>
                                         <view class="item-txt line-hide line-1">
                                             接单数量：
-                                            <text class="item-count">78</text>
+                                            <text class="item-count">{{item.order_num}}</text>
                                         </view>
                                     </view>
 
@@ -190,13 +194,13 @@
                 <view class="partner-swiper-box">
                     <swiper bindchange="changeSwiper04" class="partner-swiper" autoplay="{{false}}" interval="5000"
                         duration="500" circular>
-                        <swiper-item class="swiper-item" wx:for="{{4}}" wx:key="index">
-                            <image class="item-img" src="/images/index/img08.jpg"></image>
+                        <swiper-item class="swiper-item" wx:for="{{cooperate}}" wx:key="index">
+                            <image mode="aspectFill" class="item-img" src="{{item}}"></image>
                         </swiper-item>
                     </swiper>
                     <view class="swiper-pagination flex flex-center">
                         <view class="flex pagination_block">
-                            <view class="{{swiperIndex04 == index?'active':''}}" wx:key="index" wx:for="{{4}}"></view>
+                            <view class="{{swiperIndex04 == index?'active':''}}" wx:key="index" wx:for="{{cooperate.length}}"></view>
                         </view>
                     </view>
                 </view>
@@ -209,7 +213,7 @@
                 </view>
             </view>
             <view class="sec-bd">
-                <image class="sec-img" src="/images/index/img09.jpg"></image>
+                <image mode="widthFix" class="sec-img" src="{{service}}"></image>
             </view>
         </view>
     </view>

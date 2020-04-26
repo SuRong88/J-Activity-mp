@@ -5,7 +5,7 @@
         <view wx:if="{{test}}" class="empty-box text-c">
             <image class="empty-img" src="/images/workbench/address-empty.png"></image>
             <text class="empty-tip">暂无地址，快添加地址吧</text>
-            <view class="common-btn">
+            <view class="common-btn" bindtap="base_jump" data-url="/pages/workbench/addressAdd/addressAdd?type=1">
                 添加
             </view>
         </view>
@@ -74,7 +74,7 @@
                                 删除
                             </view>
                         </view>
-                        <view class="btn-item flex flex-ver">
+                        <view class="btn-item flex flex-ver" bindtap="base_jump" data-url="/pages/workbench/addressAdd/addressAdd?type=2">
                             <image class="btn-icon" src="/images/workbench/BS_icon25.png"></image>
                             <view class="btn-txt">
                                 编辑
@@ -83,7 +83,7 @@
                     </view>
                 </view>
             </view>
-            <view bindtap="base_jump" data-url="/pages/workbench/addressAdd/addressAdd" class="common-btn2">
+            <view bindtap="base_jump" data-url="/pages/workbench/addressAdd/addressAdd?type=1" class="common-btn2">
                 添加新地址
             </view>
         </view>

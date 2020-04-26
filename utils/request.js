@@ -27,6 +27,18 @@ const OPTIONS = {
     recharge: {
         url: `${HOST}/enterprise/recharge`
     },
+    // 获取开票设置信息
+    invoiceSetting: {
+        url: `${HOST}/invoice/setting`
+    },
+    // 获取开票类目
+    invoiceClassifity: {
+        url: `${HOST}/invoice/classifyList`
+    },
+    // 添加地址
+    addAddress: {
+        url: `${HOST}/user/contact`
+    },
     /*
      **服务商
      */
@@ -94,46 +106,80 @@ const OPTIONS = {
      */
     // 岗位一级
     getTag: {
-        url: `${HOST}/position/classifyList`,
+        url: `${HOST}/position/classifyList`
     },
     // 岗位二级
     getTagList: {
-        url: `${HOST}/position/positionList`,
+        url: `${HOST}/position/positionList`
     },
     /* 
      **登录页
      */
     // 获取图形码---登录
     getCaptcha: {
-        url: `${HOST}/captcha/login`,
+        url: `${HOST}/captcha/login`
     },
     // 获取图形码---修改银行卡
     getCaptcha2: {
-        url: `${HOST}/captcha/change`,
+        url: `${HOST}/captcha/change`
     },
     // 发送验证码
     sendCode: {
-        url: `${HOST}/user/send`,
+        url: `${HOST}/user/send`
     },
     // 验证登录
     login: {
-        url: `${HOST}/user/login`,
+        url: `${HOST}/user/login`
     },
     /* 
      **通用
      */
     // 获取地区
     getArea: {
-        url: `${HOST}/common/area`,
+        url: `${HOST}/common/area`
     },
     // 上传图片
     uploadImage: {
-        url: `${HOST}/upload/lrzupload`,
+        url: `${HOST}/upload/lrzupload`
     },
     // 上传图片
     getIdentity: {
-        url: `${HOST}/user/getIdentity`,
+        url: `${HOST}/user/getIdentity`
     },
+    // 获取首页数据
+    getIndexData: {
+        url: `${HOST}/index/indexData`
+    },
+    /*
+     **企业
+     */
+    // 获取企业列表
+    getEnterpriseList: {
+        url: `${HOST}/enterprise/list`
+    },
+    // 获取企业详情
+    getEnterpriseDetail: {
+        url: `${HOST}/enterprise/detail`
+    },
+    /*
+     **活动
+     */
+    // 获取活动列表
+    getActivityList: {
+        url: `${HOST}/activity/list`
+    },
+    // 获取活动详情
+    getActivityDetail: {
+        url: `${HOST}/activity/detail`
+    },
+    // 获取活动职位列表
+    getActivityJobList: {
+        url: `${HOST}/activity/activityJobDetail`
+    },
+    // 活动报名
+    signUpActivity: {
+        url: `${HOST}/user/activityApply`
+    }
 }
 // 状态码处理
 function codeCheck(data, success, fail) {

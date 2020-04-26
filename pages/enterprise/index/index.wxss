@@ -39,6 +39,7 @@
     width: 52rpx;
     height: 52rpx;
     margin-right: 20rpx;
+    border-radius: 50%;
 }
 
 .enterprise-item .item-tit {

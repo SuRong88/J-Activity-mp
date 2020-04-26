@@ -1,14 +1,15 @@
 <view class="container">
-    <mp-header isHome="{{isHome}}" showBack cln="'header'" title=""></mp-header>
+    <mp-header isHome="{{isHome}}" showBack cln="'header'" title="搜索"></mp-header>
     <view class="content">
         <view catchtouchmove="emptyHandle" class="con-hd">
             <view class="search-box flex flex-ver">
                 <view class="search-enter flex flex-ver flex-1">
                     <image class="search-icon" src="/images/search/event_icon01.png"></image>
-                    <input placeholder="搜索关键字" placeholder-class="placeholder" class="search-input flex-1" type="text" />
-                    <image class="close-icon" src="/images/search/event_icon02.png"></image>
+                    <input value="{{keyword}}" bindinput="changeInput" placeholder="搜索关键字" placeholder-class="placeholder"
+                        class="search-input flex-1" type="text" />
+                    <image bindtap="clearKeyword" class="close-icon" src="/images/search/event_icon02.png"></image>
                 </view>
-                <view class="search-btn">
+                <view bindtap="confirmSearch" class="search-btn">
                     搜索
                 </view>
             </view>
@@ -39,25 +40,13 @@
                     <view wx:if="{{filterType==0}}" class="filter-con flex {{'filter-type'+(filterType)}}">
                         <!-- 一级条件 -->
                         <scroll-view scroll-y class="select-list-l">
-                            <view wx:for="{{20}}" wx:key="index" class="select-item {{index%2==0?'active':''}}">全部{{index}}</view>
+                            <view bindtap="tagFilter" data-index="{{index}}" wx:for="{{tagList}}" wx:key="index" class="select-item {{tagIndex==index?'active':''}}">{{item.name}}</view>
                         </scroll-view>
                         <!-- 次级条件 -->
                         <view class="select-list-r flex-1 flex">
                             <scroll-view scroll-y class="select-list-r-scroll flex-1">
-                                <view class="select-item active">全部</view>
-                                <view class="select-item">歌手</view>
-                                <view class="select-item">乐队</view>
-                                <view class="select-item">乐器演奏</view>
-                                <view class="select-item">主持司仪</view>
-                                <view class="select-item">模仿秀表演</view>
-                                <view class="select-item">魔术师</view>
-                                <view class="select-item">小丑表演</view>
-                                <view class="select-item">乐队</view>
-                                <view class="select-item">乐器演奏</view>
-                                <view class="select-item">主持司仪</view>
-                                <view class="select-item">模仿秀表演</view>
-                                <view class="select-item">魔术师</view>
-                                <view class="select-item">小丑表演</view>
+                                <view bindtap="tagSubFilter" data-index="{{index}}" wx:for="{{tagSubList}}" wx:key="index"
+                                    class="select-item {{item.selected?'active':''}}">{{item.name}}</view>
                             </scroll-view>
                         </view>
                     </view>
@@ -65,42 +54,18 @@
                     <view wx:if="{{filterType==1}}" class="filter-con flex {{'filter-type'+filterType}}">
                         <!-- 一级条件 -->
                         <scroll-view scroll-y class="select-list-l">
-                            <view class="select-item active">不限</view>
-                            <view class="select-item"></view>
-                            <view class="select-item">上海市</view>
-                            <view class="select-item">广东省</view>
-                            <view class="select-item">广西省</view>
-                            <view class="select-item">云南省</view>
-                            <view class="select-item">江西省</view>
-                            <view class="select-item">湖南省</view>
-                            <view class="select-item">湖北省</view>
-                            <view class="select-item">内蒙古自治区</view>
-                            <view class="select-item">新疆自治区</view>
-                            <view class="select-item">广西省</view>
-                            <view class="select-item">浙江省</view>
-                            <view class="select-item">海南省</view>
+                            <view bindtap="provinceFilter" data-index="{{index}}" wx:for="{{provinceList}}" wx:key="index"
+                                class="select-item {{provinceIndex==index?'active':''}}">{{item.name}}</view>
                         </scroll-view>
                         <!-- 次级条件 -->
                         <view class="select-list-r flex-1 flex">
                             <scroll-view scroll-y class="select-list-r-scroll flex-1">
-                                <view class="select-item active">不限</view>
-                                <view class="select-item">深圳市</view>
-                                <view class="select-item">中山市</view>
-                                <view class="select-item">茂名市</view>
-                                <view class="select-item">清远市</view>
-                                <view class="select-item">韶关市</view>
-                                <view class="select-item">城市a</view>
-                                <view class="select-item">城市b</view>
-                                <view class="select-item">城市c</view>
-                                <view class="select-item">城市d</view>
-                                <view class="select-item">城市e</view>
-                                <view class="select-item">城市f</view>
-                                <view class="select-item">城市g</view>
-                                <view class="select-item">城市h</view>
+                                <view bindtap="cityFilter" data-index="{{index}}" wx:for="{{cityList}}" wx:key="index"
+                                    class="select-item {{cityIndex==index?'active':''}}">{{item.name}}</view>
                             </scroll-view>
                             <scroll-view scroll-y class="select-list-r-scroll flex-1">
-                                <view class="select-item select-item-min active">不限</view>
-                                <view wx:for="{{20}}" wx:key="index" class="select-item-min select-item">某某区{{index}}</view>
+                                <view bindtap="areaFilter" data-index="{{index}}" wx:for="{{areaList}}" wx:key="index"
+                                    class="select-item-min select-item {{areaIndex==index?'active':''}}">{{item.name}}</view>
                             </scroll-view>
                         </view>
                     </view>
@@ -109,75 +74,92 @@
                         <!-- 只有一级 -->
                         <view class="select-list-r flex-1 flex">
                             <scroll-view scroll-y class="select-list-r-scroll flex-1">
-                                <view class="select-item active">招募</view>
-                                <view class="select-item">结束</view>
+                                <view bindtap="statusFilter" data-index="{{0}}" class="select-item {{statusIndex==0?'active':''}}">不限</view>
+                                <view bindtap="statusFilter" data-index="{{1}}" class="select-item {{statusIndex==1?'active':''}}">招募</view>
+                                <view bindtap="statusFilter" data-index="{{2}}" class="select-item {{statusIndex==2?'active':''}}">结束</view>
                             </scroll-view>
                         </view>
                     </view>
                     <view class="filter-btn-box flex flex-jcsb">
-                        <view class="btn-clean">清除</view>
-                        <view class="btn-confirm">确定</view>
+                        <view bindtap="cancelSelect" class="btn-clean">清除</view>
+                        <view bindtap="confirmSelect" class="btn-confirm">确定</view>
                     </view>
                 </view>
             </view>
-            <!-- 已选择的筛选条件 -->
-            <view class="filter-select-box flex flex-wrap">
-                <view class="filter-select-item">
-                    主持司仪
-                    <image class="delete-icon" src="/images/search/event_icon09.png"></image>
-                </view>
-                <view class="filter-select-item">
-                    广东省广州市海珠区
-                    <image class="delete-icon" src="/images/search/event_icon09.png"></image>
-                </view>
-                <view class="filter-select-item">
-                    招募
-                    <image class="delete-icon" src="/images/search/event_icon09.png"></image>
-                </view>
+
+        </view>
+        <view bindtap="hideFilter" hidden="{{!showFilter}}" catchtouchmove="emptyHandle" class="filter-box-mask"></view>
+        <!-- 已选择的筛选条件 -->
+        <view wx:if="{{checkTagList.length>0||address!=''||statusIndex>0}}" class="filter-select-box flex flex-wrap">
+            <!-- 1类型 -->
+            <!-- 1.1类型-全部 -->
+            <view wx:if="{{tagSubAll}}" class="filter-select-item">
+                {{tagList[tagIndex].name}}-全部
+                <image bindtap="deleteTagAll" data-index="index" class="delete-icon" src="/images/search/event_icon09.png"></image>
+            </view>
+            <!-- 1.2类型 某一些 -->
+            <view wx:if="{{!tagSubAll}}" wx:for="{{checkTagList}}" wx:key="index" class="filter-select-item">
+                {{item.name}}
+                <image bindtap="deleteTagItem" data-index="{{index}}" class="delete-icon" src="/images/search/event_icon09.png"></image>
+            </view>
+            <!-- 2地址 -->
+            <view wx:if="{{address!=''}}" class="filter-select-item">
+                {{address}}
+                <image bindtap="deleteAddressFilter" class="delete-icon" src="/images/search/event_icon09.png"></image>
+            </view>
+            <!-- 3状态 -->
+            <view wx:if="{{statusIndex>0}}" class="filter-select-item">
+                {{statusIndex==1?'招募':'结束'}}
+                <image bindtap="deleteStatusFilter" class="delete-icon" src="/images/search/event_icon09.png"></image>
             </view>
         </view>
-        <view hidden="{{!showFilter}}" catchtouchmove="emptyHandle" class="filter-box-mask"></view>
-        <view wx:if="{{false}}" class="con-bd activity-list">
-            <view bindtap="base_jump" data-url="/pages/activity/detail/detail?id={{index}}" wx:for="{{6}}" class="activity-item flex">
-                <image wx:if="{{index%2==0}}" class="item-icon" src="/images/activity/hire.png"></image>
+        <!-- 有结果 -->
+        <view wx:if="{{list.length>0}}" class="con-bd activity-list">
+            <view wx:for="{{list}}" wx:key="index" bindtap="base_jump" data-url="/pages/activity/detail/detail?id={{item.id}}"
+                class="activity-item flex">
+                <image wx:if="{{item.status==1}}" class="item-icon" src="/images/activity/hire.png"></image>
                 <image wx:else class="item-icon" src="/images/activity/over.png"></image>
                 <view class="item-l flex flex-col flex-jcsb">
                     <view class="item-l-top">
                         <view class="item-tit line-hide line-2">
-                            华为HUAWEI P40系列手机新品发布会
-                            华为HUAWEI P40系列手机新品发布会
+                            {{item.name}}
                         </view>
                         <view class="item-txt line-hide line-1">
-                            创意节目、激光表演、造型设计
-                            创意节目、激光表演、造型设计
+                            <block wx:for="{{item.position_list}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="index"
+                                class="tag-item">
+                                {{subItem.name}}
+                                {{subIndex<item.position_list.length-1?'、':''}}
+                            </block>
                         </view>
                     </view>
                     <view class="item-l-bottom info-list">
                         <view class="info-item">
                             <text>活动地区：</text>
-                            <text>广东省广州市天河区</text>
+                            <text>{{item.address}}</text>
                         </view>
                         <view class="info-item">
                             <text>活动时间：</text>
-                            <text>2020.03.26-2020.03.27</text>
+                            <text>{{item.start_time}}-{{item.end_time}}</text>
                         </view>
                         <view class="info-item">
                             <text>所需人数：</text>
-                            <text>68/37</text>
+                            <text>{{item.apply_num}}/{{item.people_num}}</text>
                         </view>
                     </view>
                 </view>
-                <view class="item-r flex-1">
-                    <image class="item-img" src="/images/index/img01.jpg"></image>
+                <view wx:if="{{item.status==1}}" class="item-r flex-1">
+                    <image mode="aspectFill" class="item-img" src="{{item.cover_img}}"></image>
                     <view class="item-btn">
                         报名接单
                     </view>
                 </view>
             </view>
         </view>
+        <!-- 无结果 -->
         <view wx:else class="no-result-box">
             <image class="no-result-img" src="/images/search/event_icon10.png"></image>
             <view class="no-result-txt">无对应活动</view>
         </view>
     </view>
+    <!-- <mp-tabbar tabbarType="{{tabbarType||1}}" tabbarIndex="1"></mp-tabbar> -->
 </view>

@@ -137,7 +137,7 @@
 
 .sec01 .sec-img {
     width: 100%;
-    height: 438rpx;
+    /* height: 438rpx; */
 }
 
 /* 平台资源 end*/
@@ -276,6 +276,7 @@
     width: 52rpx;
     height: 52rpx;
     margin-right: 20rpx;
+    border-radius: 50%;
 }
 
 .sec03 .item-tit {
@@ -369,6 +370,7 @@
     font-size: 20rpx;
     font-weight: 400;
     color: rgba(153, 153, 153, 1);
+    line-height: 1.4;
 }
 
 .sec04 .item-bottom {}
@@ -436,7 +438,7 @@
 
 .sec06 .sec-img {
     width: 100%;
-    height: 592rpx;
+    /* height: 592rpx; */
 }
 
 /* 服务流程 end*/

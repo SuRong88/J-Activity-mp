@@ -8,9 +8,9 @@ const VM = {
         showMask: false,
         // 表单
         captchaUrl: '',
-        phone: '15015050896',
+        phone: '',
         code: '',
-        bankCard: '621700322101716',
+        bankCard: '',
         captcha: '',
         tipIndex: 0,
         tips: [

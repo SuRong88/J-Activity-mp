@@ -1,5 +1,5 @@
 <view class="container">
-    <mp-header isHome="{{isHome}}" showBack cln="'header'" title=""></mp-header>
+    <mp-header isHome="{{isHome}}" showBack cln="'header'" title="搜索"></mp-header>
     <view class="content">
         <view catchtouchmove="emptyHandle" class="con-hd">
             <view class="search-box flex flex-ver">
@@ -100,7 +100,8 @@
                 <image bindtap="deleteAddressFilter" class="delete-icon" src="/images/search/event_icon09.png"></image>
             </view>
         </view>
-        <view class="con-bd resource-list">
+        <!-- 有结果 -->
+        <view wx:if="{{list.length>0}}" class="con-bd resource-list">
             <view wx:for="{{list}}" wx:key="index" class="resource-item">
                 <view class="item-top flex">
                     <view class="item-top-l">
@@ -145,6 +146,11 @@
                 </view>
             </view>
         </view>
+        <!-- 无结果 -->
+        <view wx:else class="no-result-box">
+            <image class="no-result-img" src="/images/search/event_icon10.png"></image>
+            <view class="no-result-txt">无对应服务商</view>
+        </view>
     </view>
-    <mp-tabbar tabbarType="{{tabbarType||1}}" tabbarIndex="2"></mp-tabbar>
+    <!-- <mp-tabbar tabbarType="{{tabbarType||1}}" tabbarIndex="2"></mp-tabbar> -->
 </view>

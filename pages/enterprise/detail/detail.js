@@ -6,26 +6,32 @@ const Req = require('../../../utils/request.js');
 const VM = {
     data: {
         // 企业id
-        id:''
+        id: '',
+        // 企业信息
+        enterprise: '',
+        // 活动列表
+        activityList: []
     }
 }
 VM.init = function(query) {
     // 设置自定义头部
     util.setHeader(this);
-    console.log(query.id);
-    this.setData({
-        id:query.id
+    let id = query.id
+    Req.request('getEnterpriseDetail', {
+        enterprise_id: id
+    }, {
+        method: 'get'
+    }, (res) => {
+        let data = res.data
+        this.setData({
+            id: id,
+            enterprise: data.enterprise,
+            activityList: data.activity_list
+        })
     })
 }
 VM.onLoad = function(query) {
     this.init(query)
     base.onLoad(this)
-}
-VM.onShareAppMessage = function() {
-    return {
-        title: "分享标题",
-        path: '/pages/index/index',
-        imageUrl: ''
-    };
 }
 Page(VM)

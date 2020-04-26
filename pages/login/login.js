@@ -30,9 +30,9 @@ const VM = {
             '图形验证码不正确'
         ],
         captchaUrl: '',
-        phone: '15015050896',
-        code: '1234', //
-        captcha: '1234', //
+        phone: '',
+        code: '', //
+        captcha: '', //
         // 倒计时
         phone_code_text: "发送验证码",
         phone_code_class: "",

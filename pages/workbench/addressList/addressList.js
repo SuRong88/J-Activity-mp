@@ -6,7 +6,7 @@ const Req = require('../../../utils/request.js');
 const VM = {
     data: {
         showMask: false,
-        test:true
+        test:true,
     }
 }
 VM.init = function() {
@@ -14,6 +14,7 @@ VM.init = function() {
     util.setHeader(this);
 }
 VM.onLoad = function(query) {
+
     this.init()
     base.onLoad(this)
 }
@@ -33,5 +34,13 @@ VM.cancelDelete = function() {
     this.setData({
         showMask: false
     })
+}
+
+VM.base_jump=function(e){
+  console.log(11)
+  let url=e.currentTarget.dataset.url;
+  wx.navigateTo({
+    url: url,
+  })
 }
 Page(VM)

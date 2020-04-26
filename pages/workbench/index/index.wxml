@@ -5,11 +5,11 @@
             <image class="banner-box width-len" src="/images/workbench/banner.jpg"></image>
             <!-- 头部橙色部分 -->
             <view class='banner-main width-len '>
-                <view class='main-head flex flex-align-start flex-jcfs'>
-                    <image class="logo" src='/images/workbench/logo.png'></image>
+                <view class='main-head flex flex-ver'>
+                    <image class="logo" src='{{compData.logo}}'></image>
                     <view class="right-box">
-                        <view class="title">广州名锐讯动信息科技有限公司</view>
-                        <view class="flex" style="margin-top:24rpx;">
+                        <view class="title line-hide line-2">{{compData.name}}</view>
+                        <view class="flex" style="margin-top:12rpx;">
                             <view class='logout' bindtap="changeStatus">退出</view>
                             <image class="icon-left" style="margin-top:8rpx" src="/images/workbench/left.png"></image>
                         </view>
@@ -67,5 +67,5 @@
             您确定退出登录吗？
         </view>
     </mp-popBox>
-    <mp-tabbar tabbarType="{{2}}" tabbarIndex="3"></mp-tabbar>
+    <mp-tabbar tabbarIndex="3"></mp-tabbar>
 </view>

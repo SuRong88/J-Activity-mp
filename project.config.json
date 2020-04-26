@@ -199,6 +199,55 @@
 					"pathName": "pages/activity/search/search",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "企业列表",
+					"pathName": "pages/enterprise/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动列表",
+					"pathName": "pages/activity/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 24,
+					"name": "活动详情",
+					"pathName": "pages/activity/detail/detail",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动搜索",
+					"pathName": "pages/activity/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "服务商搜索",
+					"pathName": "pages/resource/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-首页",
+					"pathName": "pages/workbench/index/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

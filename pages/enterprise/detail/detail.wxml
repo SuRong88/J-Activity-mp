@@ -3,19 +3,14 @@
     <view class="content">
         <view class="con-hd">
             <view class="hd-top">
-                广州名锐讯动信息科技有限公司
+                {{enterprise.name}}
             </view>
             <view class="hd-bottom flex flex-ver flex-jcsb">
                 <view class="l-part">
                     <view class="item flex flex-ver">
                         <image class="item-icon" src="/images/activity/event_icon02.png"></image>
-                        <text class="item-txt">入驻时长：23个月</text>
+                        <text class="item-txt">入驻时长：{{enterprise.settle_time}}个月</text>
                     </view>
-                    <!-- <view class="item flex flex-ver">
-                        <image class="item-icon" src="/images/activity/event_icon04.png"></image>
-                        <text class="item-txt">联系方式：联系客服获取联系方式</text>
-                        <image class="arrow-icon" src="/images/index/icon14.png"></image>
-                    </view> -->
                     <button open-type="contact" class="item flex flex-ver">
                         <image class="item-icon" src="/images/activity/event_icon04.png"></image>
                         <text class="item-txt">联系方式：联系客服获取联系方式</text>
@@ -23,7 +18,7 @@
                     </button>
                 </view>
                 <view class="r-part">
-                    <image class="part-img" src="/images/index/img03.jpg"></image>
+                    <image class="part-img" src="{{enterprise.logo}}"></image>
                 </view>
             </view>
         </view>
@@ -34,8 +29,7 @@
                     <view class="line"></view>
                 </view>
                 <view class="box-con">
-                    广州名锐讯动信息科技有限公司是一家专注于企业互联网+服务的企业，服务内容主要包括PC网站建设、移动端网站（html5）开发、微信平台技术支持、企业形象设计、大型项目策划、新媒体运营等。
-                    我们致力于为企业带来互联网+的蜕变，为各色项目提供解决方案，为创业者实现创业梦想。合作单位包括上市公司、国企、500强企业、政府部门等。
+                    {{enterprise.profiles}}
                 </view>
             </view>
             <view class="list-box">
@@ -45,17 +39,18 @@
                 </view>
                 <view class="box-con">
                     <view class="list">
-                        <view wx:for='{{6}}' wx:key="index" class="list-item flex">
+                        <view wx:for="{{activityList}}" wx:key="index" bindtap="base_jump" data-url="/pages/activity/detail/detail?id={{item.id}}"
+                            class="list-item flex">
                             <view class="item-l flex-1 flex flex-col flex-jcsb">
                                 <view class="item-tit line-hide line-2">
-                                    名锐讯动信息科技五四青年节活动晚会
+                                    {{item.name}}
                                 </view>
                                 <view class="item-date">
-                                    活动时间：2020.05.04-2020.05.04
+                                    活动时间：{{item.start_time}}-{{item.end_time}}
                                 </view>
                             </view>
                             <view class="item-r">
-                                <image class="item-img" src="/images/index/img03.jpg"></image>
+                                <image mode="aspectFill" class="item-img" src="{{item.cover_img}}"></image>
                             </view>
                         </view>
                     </view>

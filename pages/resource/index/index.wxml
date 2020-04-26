@@ -1,5 +1,5 @@
 <view class="container">
-    <mp-header isHome="{{isHome}}" showBack cln="'header'" title=""></mp-header>
+    <mp-header isHome="{{isHome}}" cln="'header'" title=""></mp-header>
     <view class="content">
         <view catchtouchmove="emptyHandle" class="con-hd">
             <view class="search-box flex flex-ver">
@@ -149,7 +149,7 @@
         <!-- 无结果 -->
         <view wx:else class="no-result-box">
             <image class="no-result-img" src="/images/search/event_icon10.png"></image>
-            <view class="no-result-txt">无对应活动</view>
+            <view class="no-result-txt">无对应服务商</view>
         </view>
     </view>
     <mp-tabbar tabbarType="{{tabbarType||1}}" tabbarIndex="2"></mp-tabbar>

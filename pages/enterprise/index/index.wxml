@@ -2,22 +2,23 @@
     <mp-header isHome="{{isHome}}" showBack cln="'header'" title="企业列表"></mp-header>
     <view class="content">
         <view class="enterprise-list">
-            <view bindtap="base_jump" data-url="/pages/enterprise/detail/detail?id={{index}}" class="enterprise-item" wx:for="{{4}}" wx:key="index">
+            <view bindtap="base_jump" data-url="/pages/enterprise/detail/detail?id={{item.id}}" class="enterprise-item"
+                wx:for="{{list}}" wx:key="index">
                 <view class="item-top">
-                    <image class="item-img" src="/images/index/img05.jpg"></image>
+                    <image class="item-img" src="{{item.cover_img}}"></image>
                     <view class="item-brief">
-                        已入驻：9个月
+                        已入驻：{{item.settle_time}}个月
                     </view>
                 </view>
                 <view class="item-bottom">
                     <view class="item-tit-box flex flex-ver">
-                        <image class="item-avatar" src="/images/index/img06.png"></image>
+                        <image class="item-avatar" src="{{item.logo}}"></image>
                         <view class="item-tit line-hide line-1">
-                            {{index}}广州名锐讯动信息科技有限公司
+                            {{item.name}}
                         </view>
                     </view>
                     <view class="item-desc line-hide line-2">
-                        广州名锐讯动信息科技有限公司是一家专注于企业互联网+服务的企业，服务内容主要包括PC网站建设、移动端网站（html5）…
+                        {{item.profiles}}
                     </view>
                     <view class="item-btn flex flex-align-center flex-ver">
                         <text>企业详情</text>

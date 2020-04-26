@@ -46,8 +46,12 @@ const VM = {
 VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
+    let searchServiceInfo = app.globalData.searchServiceInfo
     this.setData({
-        tabbarType: app.globalData.roleType
+        tabbarType: app.globalData.roleType,
+        keyword: searchServiceInfo.keyword,
+        checkTagList: searchServiceInfo.checkTagList,
+        address: searchServiceInfo.address
     })
     this.getList();
 }
@@ -55,6 +59,7 @@ VM.onLoad = function(query) {
     this.init()
     base.onLoad(this)
 }
+
 // 搜索
 VM.changeInput = function(e) {
     this.setData({
@@ -68,12 +73,8 @@ VM.clearKeyword = function(e) {
         keyword: ''
     });
 }
-// 确认搜索
-VM.confirmSearch = function(e) {
-    console.log('搜索');
-    // todo
-}
-// 获取订单
+
+// 获取列表
 VM.getList = function() {
     if (this.data.current >= this.data.total_page) {
         return false
@@ -176,6 +177,11 @@ VM.deleteTagAll = function(e) {
 // 删除筛选条件-地址
 VM.deleteAddressFilter = function() {
     this.setData({
+        provinceIndex: 0,
+        cityIndex: 0,
+        areaIndex: 0,
+        cityList: [],
+        areaList: [],
         address: ''
     })
 }
@@ -450,6 +456,16 @@ VM.confirmSelect = function() {
             filterType: -1,
         })
     } else { //地址
+        // let address = ''
+        // if (this.data.provinceIndex > 1) {
+        //     address += this.data.provinceList[this.data.provinceIndex]
+        // }
+        // if (this.data.cityIndex > 1) {
+        //     address += this.data.cityList[this.data.cityIndex]
+        // }
+        // if (this.data.areaIndex > 1) {
+        //     address += this.data.areaList[this.data.areaIndex]
+        // }
         this.setData({
             showFilter: false,
             filterType: -1,
@@ -457,11 +473,55 @@ VM.confirmSelect = function() {
     }
 }
 // 按接单数量筛选
-VM.sortByNum = function(){
-    
+VM.sortByNum = function() {
+
 }
-// 按入驻市时长筛选
-VM.sortByDate = function(){
-    
+// 按入驻时长筛选
+VM.sortByDate = function() {
+
+}
+// 搜索
+VM.confirmSearch = function() {
+    // 清空列表数据
+    this.setData({
+        current: 0,
+        total: 0,
+        total_page: 1
+    })
+    // 岗位类型id 数组
+    let checkTagArr = []
+    for (let i = 0; i < this.data.checkTagList.length; i++) {
+        checkTagArr.push(this.data.checkTagList[i].id)
+    }
+    if (checkTagArr.length <= 0) {
+        checkTagArr = ''
+    } else {
+        checkTagArr = JSON.stringify(checkTagArr)
+    }
+    Req.request('getServiceList', {
+        is_recommend: 0,
+        position_id: checkTagArr,
+        address: this.data.address,
+        keyword: this.data.keyword,
+        page: this.data.current + 1,
+        identity: app.globalData.roleType,
+        rownum: this.data.rownum
+    }, {
+        method: 'get'
+    }, (res) => {
+        let list = res.data.list
+        let pagination = res.data.pagination
+        this.setData({
+            list: list,
+            current: pagination.current * 1,
+            rownum: pagination.rownum * 1,
+            total: pagination.total * 1,
+            total_page: pagination.total_page * 1,
+            isEmpty: pagination.total * 1 <= 0 ? true : false
+        })
+    })
+}
+VM.onReachBottom = function() {
+    this.getList()
 }
 Page(VM)
