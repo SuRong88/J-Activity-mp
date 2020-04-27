@@ -248,6 +248,47 @@
 					"pathName": "pages/workbench/index/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-创建活动",
+					"pathName": "pages/workbench/activityCreate/activityCreate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "地址列表",
+					"pathName": "pages/workbench/addressList/addressList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-添加职位",
+					"pathName": "pages/workbench/jobAdd/jobAdd",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-选择服务商",
+					"pathName": "pages/workbench/privateSelect/privateSelect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-地址列表",
+					"pathName": "pages/workbench/addressList/addressList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-添加地址",
+					"pathName": "pages/workbench/addressAdd/addressAdd",
+					"scene": null
 				}
 			]
 		}

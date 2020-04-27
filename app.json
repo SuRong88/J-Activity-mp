@@ -51,6 +51,8 @@
         "pages/workbench/invoiceManage/invoiceManage",
         "pages/workbench/jobAdd/jobAdd",
         "pages/workbench/publishSuccess/publishSuccess",
+        "pages/workbench/addressSelect/addressSelect",
+        "pages/workbench/jobSelect/jobSelect",
         "pages/test/test"
     ],
     "permission": {
@@ -73,7 +75,7 @@
         "backgroundColor": "#FC7F03",
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#FC7F03",
-        "navigationBarTitleText": "项目标题",
+        "navigationBarTitleText": "J活动",
         "navigationBarTextStyle": "white",
         "navigationStyle": "custom"
     },

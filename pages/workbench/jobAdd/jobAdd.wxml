@@ -2,38 +2,51 @@
     <mp-header isHome="{{isHome}}" showBack title="添加职位"></mp-header>
     <view class="content ">
         <view class="job-list">
-            <view class="job-item {{test?'spread':''}}">
-                <view class="info-item">
+            <view wx:for="{{jobList}}" wx:key="index" class="job-item {{item.spread?'spread':''}}">
+                <image wx:if="{{jobList.length>1}}" bindtap="deleteJob" data-index="{{index}}" class="delete-icon" src="/images/activity/delete.png"></image>
+                <view class="info-item" bindtap="base_jump" data-url="/pages/workbench/jobSelect/jobSelect?index={{index}}">
                     <view class="item-label flex flex-ver flex-jcsb">
                         <text class="label">职位名称</text>
-                        <text class="item-value-txt">摄影</text>
+                        <text class="item-value-txt">{{item.jobName}}</text>
                         <image class="arrow-icon" src="/images/index/icon12.png"></image>
                     </view>
                     <view class="item-content">
                     </view>
                 </view>
-                <block wx:if="{{test}}">
+                <block wx:if="{{item.spread}}">
                     <view class="info-item">
                         <view class="item-label">
                             <text class="label">工作内容</text>
                             <text class="label-desc"></text>
                         </view>
                         <view class="item-content item-content-desc">
-                            <textarea bindinput="changeInput" data-key="desc" class="item-enter-textarea enter-desc"
-                                placeholder="请输入工作内容" placeholder-class="holder-class-textarea" type="text" />
+                            <textarea value="{{item.content}}" bindinput="changeInput" data-key="content" data-index="{{index}}"
+                                class="item-enter-textarea enter-desc" placeholder="请输入工作内容" placeholder-class="holder-class-textarea"
+                                type="text" />
                             </view>
                                    </view>
                                    <view class="info-item">
                                        <view class="item-label flex flex-ver flex-jcsb">
                                            <text class="label">职位时间</text>
                                            <view class="item-date-box flex flex-ver">
-                                               <view class="date-item flex flex-ver">
-                                                   2020-04-02
-                                               </view>
+                                              <!-- <picker mode="date" data-index="{{index}}" bindchange="startDateChange" value="{{}}"> 
+                                                   <view class="date-item flex flex-ver">
+                                                       {{item.startDate}}
+                                                   </view>
+                                               </picker>
                                                <view class="spe-line">-</view>
-                                               <view class="date-item flex flex-ver">
-                                                   2020-04-02
-                                               </view>
+                                               <picker mode="date" data-index="{{index}}" bindchange="endDateChange" value="{{}}">
+                                                   <view class="date-item flex flex-ver">
+                                                       {{item.endDate}}
+                                                   </view>
+                                               </picker> -->
+                                                <view class="date-item flex flex-ver">
+                                                    {{startDate}}
+                                                </view>
+                                                <view class="spe-line">-</view>
+                                                <view class="date-item flex flex-ver">
+                                                    {{endDate}}
+                                                </view>
                                            </view>
                                        </view>
                                        <view class="item-content">
@@ -45,18 +58,21 @@
                                            <text class="label-desc"></text>
                                        </view>
                                        <view class="item-content">
-                                           <view class="address-txt">广州市海珠区新港东路234号某某大厦
-                    </view>
+                                           <view class="address-txt">
+                                            {{workAddress}}
+                                           </view>
                                        </view>
                                    </view>
                                    <view class="info-item">
-                                       <view class="item-label flex flex-ver">
-                                           <text class="label">职位所需人数</text>
-                                           <text class="label-desc">（必填）</text>
-                                           <view class="hire-num-box">
-                                               <text class="hire-num">2</text>
-                                           </view>
-                                       </view>
+                                        <picker range="{{numberArr}}" data-index="{{index}}" bindchange="numberChange">
+                                            <view class="item-label flex flex-ver">
+                                                <text class="label">职位所需人数</text>
+                                                <text class="label-desc">（必填）</text>
+                                                <view class="hire-num-box">
+                                                    <text class="hire-num">{{item.number}}</text>
+                                                </view>
+                                            </view>
+                                        </picker>
                                        <view class="item-content">
                                        </view>
                                    </view>
@@ -66,7 +82,7 @@
                                            <text class="label-desc">（面议为0，必填）</text>
                                        </view>
                                        <view class="item-content">
-                                           <input bindinput="changeInput" data-key="name" class="item-enter" placeholder="请输入预算金额"
+                                           <input value="{{item.salary}}" type="number" bindinput="changeInput" data-key="price" data-index="{{index}}" class="item-enter" placeholder="请输入预算金额"
                                                placeholder-class="holder-class" type="text" />
                                        </view>
                                    </view>
@@ -76,21 +92,21 @@
                                            <text class="label-desc">（必填）</text>
                                        </view>
                                        <view class="item-content job-type-menu flex flex-ver">
-                                          <view class="job-type-item flex flex-ver flex-1">
-                                              <image src="/images/workbench/BS_icon15.png"
+                                          <view bindtap="jobHireType"  data-value="{{0}}" data-index="{{index}}" class="job-type-item flex flex-ver flex-1">
+                                              <image  src="{{item.special==0?'/images/workbench/BS_icon15.png':'/images/workbench/BS_icon27.png'}}"
                                                   class="job-type-select-icon">
                                               </image>
                                               <text class="job-type-select-txt">普通</text>
                                           </view>
-                                          <view class="job-type-item flex flex-ver flex-1">
-                                              <image src="/images/workbench/BS_icon27.png"
+                                          <view bindtap="jobHireType"  data-value="{{1}}" data-index="{{index}}" class="job-type-item flex flex-ver flex-1">
+                                             <image  src="{{item.special==1?'/images/workbench/BS_icon15.png':'/images/workbench/BS_icon27.png'}}"
                                                   class="job-type-select-icon">
                                               </image>
                                               <text class="job-type-select-txt">指定</text>
                                           </view>
                                        </view>
                                    </view>
-                                   <view class="info-item">
+                                   <view wx:if="{{item.special==1}}" class="info-item" bindtap="base_jump" data-url="/pages/workbench/privateSelect/privateSelect?limit={{item.number}}&index={{index}}">
                                        <view class="item-label flex flex-ver">
                                            <text class="label">选择服务商</text>
                                            <text class="label-desc">（必填）</text>
@@ -100,14 +116,14 @@
                                        </view>
                                    </view>
                 </block>
-                <image bindtap="spreadItem" class="flod-icon" src="/images/workbench/arrow-down.png"></image>
+                <image bindtap="spreadItem" data-index="{{index}}" class="flod-icon" src="/images/workbench/arrow-down.png"></image>
             </view>
-            <view class="add-btn flex flex-ver">
+            <view bindtap="addJob" class="add-btn flex flex-ver">
                 <image class="add-icon" src="/images/workbench/BS_icon02.png"></image>
                 <text class="add-txt">添加职位</text>
             </view>
         </view>
-        <view class="common-btn">
+        <view bindtap="createActivity" class="common-btn">
             发布
         </view>
     </view>

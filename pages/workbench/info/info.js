@@ -4,100 +4,137 @@ const util = require('../../../utils/util.js');
 const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 const VM = {
-  data: {
-    compInfo: {
-      logo: '../../../images/workbench/img.png',
-      compname: '',
-      phone: '',
-      intro: '',
-      isdefaultlogo: true, //默认logo
+    data: {
+        // 企业logo图片id
+        logoId: '',
+        coverId: '',
+        compInfo: null
     }
-  }
 }
 VM.init = function(query) {
-  // 设置自定义头部
-  util.setHeader(this);
+    // 设置自定义头部
+    util.setHeader(this);
+    let compInfo = app.globalData.companyInfo
+    compInfo.isdefaultlogo = true
+    this.setData({
+        compInfo: compInfo
+    })
 }
 VM.onLoad = function(query) {
-  this.init(query)
-  base.onLoad(this)
+    this.init(query)
+    base.onLoad(this)
 }
 VM.onShareAppMessage = function() {
-  return {
-    title: "分享标题",
-    path: '/pages/index/index',
-    imageUrl: ''
-  };
+    return {
+        title: "分享标题",
+        path: '/pages/index/index',
+        imageUrl: ''
+    };
 }
 
 // 上传图片
-VM.choseImg = function() {
-  let that = this;
-  wx.chooseImage({
-    count: 1,
-    sizeType: ['compressed'],
-    sourceType: ['album'],
-    success(res) {
-      console.log(res)
-      // tempFilePath可以作为img标签的src属性显示图片
-      const tempFilePaths = res.tempFilePaths[0]
-      that.setData({
-        ['compInfo.logo']: tempFilePaths,
-        ['compInfo.isdefaultlogo']: false,
-      })
-    }
-  })
+VM.chooseImg = function(e) {
+    let type = util.dataset(e, 'type')
+    let that = this;
+    wx.chooseImage({
+        count: 1,
+        sizeType: ['compressed'],
+        sourceType: ['album'],
+        success(res) {
+            const tempFilePaths = res.tempFilePaths[0]
+            if (type == 'logo') {
+                that.setData({
+                    ['compInfo.logo']: tempFilePaths,
+                    ['compInfo.isdefaultlogo']: false,
+                })
+                wx.uploadFile({
+                    url: Req.OPTIONS.uploadImage.url,
+                    filePath: tempFilePaths,
+                    name: 'file',
+                    formData: {},
+                    success: res2 => {
+                        let inf = JSON.parse(res2.data)
+                        let id = inf.data.id
+                        that.setData({
+                            logoId: id
+                        })
+                    },
+                    fail: err2 => {
+                        util.Toast('上传失败')
+                    }
+                })
+            } else {
+                that.setData({
+                    ['compInfo.cover_img']: tempFilePaths
+                })
+                wx.uploadFile({
+                    url: Req.OPTIONS.uploadImage.url,
+                    filePath: tempFilePaths,
+                    name: 'file',
+                    formData: {},
+                    success: res2 => {
+                        let inf = JSON.parse(res2.data)
+                        let id = inf.data.id
+                        that.setData({
+                            coverId: id
+                        })
+                    },
+                    fail: err2 => {
+                        util.Toast('上传失败')
+                    }
+                })
+            }
+        }
+    })
 }
 // 修改公司名
 VM.changecomp = function(e) {
-  this.setData({
-    ['compInfo.compname']: e.detail.value,
-  })
+    this.setData({
+        ['compInfo.name']: e.detail.value,
+    })
 }
 // 修改电话
-VM.changePhone = function (e) {
-  this.setData({
-    ['compInfo.phone']: e.detail.value,
-  })
+VM.changePhone = function(e) {
+    this.setData({
+        ['compInfo.contact_phone']: e.detail.value,
+    })
 }
 // 修改简介
-VM.changeintro = function (e) {
-  this.setData({
-    ['compInfo.intro']: e.detail.value,
-  })
+VM.changeintro = function(e) {
+    this.setData({
+        ['compInfo.profiles']: e.detail.value,
+    })
 }
 // 提交
 VM.formSubmit = function(e) {
-  var data = this.data.compInfo;
-  if (data.isdefaultlogo) {
-    util.errorToast('请上传Logo')
-  } else if (formcheck.check_null(data.compname)){
-    util.errorToast('请输入企业名称')
-  } else if (!formcheck.check_phone(data.phone)){
-    util.errorToast('请输入正确的手机')
-  } else if (formcheck.check_null(data.intro)){
-    util.errorToast('请输入描述')
-  } else if (data.intro.length > 20){
-    util.errorToast('描述不能多于20个字')
-  }else {
-    Req.request('completeEnterpriseInfo', {
-      logo: data.logo,
-      name: data.compname,
-      contact_phone: data.phone,
-      profiles: data.intro
-    }, {
-      method: 'post'
-    }, res => {
-      console.log(res)
-      util.Toast('保存成功')
-      setTimeout(()=>{
-          wx.navigateBack({})     //返回上一级      
-      },1000)
-    }, err => {
-      console.log(err)
-    })
-  }
-
-
+    let data = this.data.compInfo;
+    let logoId = this.data.logoId
+    let coverId = this.data.coverId
+    if (!formcheck.check_phone(data.contact_phone)) {
+        util.Toast('请输入正确的手机')
+    } else if (formcheck.check_null(data.profiles)) {
+        util.Toast('请输入描述')
+    } else if (data.profiles.length > 20) {
+        util.Toast('描述不能多于20个字')
+    } else {
+        Req.request('completeEnterpriseInfo', {
+            logo: logoId,
+            contact_phone: data.contact_phone,
+            profiles: data.profiles,
+            cover_img: coverId
+        }, {
+            method: 'put'
+        }, res => {
+            util.Toast('保存成功')
+            let pages = getCurrentPages()
+            let prevPage = pages[pages.length - 2]
+            prevPage.init()
+            setTimeout(() => {
+                wx.navigateBack({
+                    delta: 1
+                })
+            }, 2000)
+        })
+    }
 }
 Page(VM)

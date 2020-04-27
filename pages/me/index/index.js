@@ -55,7 +55,14 @@ VM.closeQrcode = function() {
     })
 }
 VM.confirmLogout = function() {
-
+    this.setData({
+        showLogout: false
+    })
+    app.globalData.isLogined = false
+    wx.clearStorage()
+    wx.redirectTo({
+        url: '/pages/index/index'
+    })
 }
 VM.cancelLogout = function() {
     this.setData({

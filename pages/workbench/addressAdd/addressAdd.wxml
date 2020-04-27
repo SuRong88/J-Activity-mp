@@ -1,5 +1,5 @@
 <view class="container">
-    <mp-header isHome="{{isHome}}" showBack title="添加地址"></mp-header>
+    <mp-header isHome="{{isHome}}" showBack title="{{titleArr[type]}}"></mp-header>
     <view class="content ">
         <view class="info-list">
             <view class="info-item">
@@ -8,7 +8,8 @@
                     <text class="label-desc">（必填）</text>
                 </view>
                 <view class="item-content">
-                    <input maxlength="10" class="item-enter" placeholder="请输入姓名" placeholder-class="holder-class" type="text" />
+                    <input value="{{name}}" bindinput="changeInput" data-key="name" maxlength="10" class="item-enter"
+                        placeholder="请输入姓名" placeholder-class="holder-class" type="text" />
                 </view>
             </view>
             <view class="info-item">
@@ -17,13 +18,14 @@
                     <text class="label-desc">（必填）</text>
                 </view>
                 <view class="item-content">
-                    <input class="item-enter" placeholder="请输入电话号码" placeholder-class="holder-class" type="number" />
+                    <input value="{{phone}}" bindinput="changeInput" data-key="phone" class="item-enter" placeholder="请输入电话号码"
+                        placeholder-class="holder-class" type="number" />
                 </view>
             </view>
-            <view class="info-item">
+            <view class="info-item" bindtap="base_jump" data-url="/pages/workbench/addressSelect/addressSelect">
                 <view class="item-label flex flex-ver flex-jcsb">
                     <text class="label">选择地区</text>
-                    <text class="address-txt">广东省广州市海珠区</text>
+                    <text class="address-txt">{{address}}</text>
                     <image class="arrow-icon" src="/images/index/icon12.png"></image>
                 </view>
                 <view class="item-content">
@@ -36,12 +38,12 @@
                     <text class="label-desc">（必填）</text>
                 </view>
                 <view class="item-content">
-                    <textarea class="item-enter-textarea" placeholder="请输入详细地址" placeholder-class="holder-class-textarea"
-                        type="text" />
+                    <textarea value="{{addressDetail}}" bindinput="changeInput" data-key="addressDetail" class="item-enter-textarea"
+                        placeholder="请输入详细地址" placeholder-class="holder-class-textarea" type="text" />
                     </view>
             </view>
         </view>
-        <view class="common-btn">
+        <view bindtap="addAddress" class="common-btn">
             保存
         </view>
     </view>

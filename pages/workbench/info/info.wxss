@@ -17,6 +17,27 @@
     margin-top: 20rpx;
     width: 130rpx;
     height: 130rpx;
+    border-radius: 4rpx;
+    position: relative;
+}
+
+.img-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.14);
+    border-radius: 8rpx;
+    overflow: hidden;
+}
+
+.img-logo {
+    width: 100%;
+    height: 100%;
+}
+
+.upload-icon {
+    width: 60rpx;
+    height: 60rpx;
 }
 
 .tit {
@@ -53,21 +74,26 @@
     margin-top: 20rpx;
 }
 
-.holder-class{
-   color: rgba(153, 153, 153, 1); 
+.holder-class {
+    color: rgba(153, 153, 153, 1);
 }
 
 .submit {
     width: 606rpx;
     height: 90rpx;
+    margin: 0 auto;
     background: rgba(252, 127, 3, 1);
     border-radius: 45rpx;
-    margin-left: 22rpx;
     font-size: 32rpx;
     font-weight: 400;
     color: rgba(255, 255, 255, 1);
     line-height: 90rpx;
     text-align: center;
-    position: fixed;
-    bottom: 68rpx;
+}
+
+.upload-icon2 {
+    width: 200rpx;
+    height: 200rpx;
+    margin-top: 30rpx;
+    margin-bottom: 220rpx;
 }

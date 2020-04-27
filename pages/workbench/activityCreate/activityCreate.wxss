@@ -16,6 +16,7 @@
     margin-bottom: 14rpx;
     line-height: 42rpx;
     position: relative;
+    white-space: nowrap;
 }
 
 .address-txt {
@@ -110,4 +111,13 @@
     margin: 0 20rpx;
     font-size: 34rpx;
     color: rgba(153, 153, 153, 1);
+}
+
+.upload-img {
+    width: 200rpx;
+    height: 200rpx;
+}
+
+.common-btn{
+    margin-top: 70rpx;
 }

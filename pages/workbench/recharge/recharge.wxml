@@ -2,9 +2,9 @@
     <mp-header cln='header' showBack title="充值"></mp-header>
     <view class="content width-len flex flex-col flex-start flex-jcfs">
         <text class="text">充值金额</text>
-        <input  placeholder="请输入" value="{{rechargeData.amount}}" placeholder-class="holder-class" bindinput="changeamount" class="inp width-len"></input>
+        <input type="number" placeholder="请输入" value="{{amount}}" placeholder-class="holder-class" bindinput="changeamount" class="inp width-len"></input>
         <text class="text">上传转账凭证</text>
-        <image class="photo" src='{{rechargeData.img}}' bindtap="changeImg"></image>
+        <image mode="aspectFill" class="photo" src="{{imgSrc?imgSrc:'/images/task/upload.jpg'}}" bindtap="changeImg"></image>
         <view class="btn" bindtap="sumbit">提交</view>
     </view>
 </view>

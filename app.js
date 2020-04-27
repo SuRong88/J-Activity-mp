@@ -11,12 +11,14 @@ App({
         isConnected: true,
         isLogined: false,
         userInfo: null, //微信用户信息
+        companyInfo: null, //企业信息
         // myInfo: null, //服务器用户信息
         roleType: 1, //用户角色 1-服务商、2-商家
         oldTagList: [], //完善信息的类型数组
         newTagList: [],
-        searchServiceInfo:null,//搜索服务商信息
-        searchActivityInfo:null//搜索服务商信息
+        searchServiceInfo: null, //搜索服务商信息
+        searchActivityInfo: null, //搜索服务商信息
+        activityCreateInfo: null //创建活动信息
     },
     // 展示本地存储能力
     showLogs: function() {

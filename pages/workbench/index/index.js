@@ -45,12 +45,15 @@ const VM = {
 VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
+    this.setData({
+        tabbarType: app.globalData.roleType
+    })
+    this.getcompData()
 }
 
 VM.onLoad = function(query) {
     this.init()
     base.onLoad(this)
-    this.getcompData()
 }
 VM.changeStatus = function() {
     this.setData({
@@ -66,16 +69,21 @@ VM.confirmHandle = function() {
     this.setData({
         showBox: false
     })
+    app.globalData.isLogined = false
+    wx.clearStorage()
+    wx.redirectTo({
+        url: '/pages/index/index'
+    })
 }
 
 VM.getcompData = function() {
     Req.request('completeEnterpriseInfo', null, {
         method: 'get'
     }, res => {
-        console.log(res)
         this.setData({
             compData: res.data
         })
+        app.globalData.companyInfo = res.data
     })
 }
 Page(VM)

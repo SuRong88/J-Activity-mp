@@ -12,7 +12,7 @@
                 <text class="item-txt">开票记录</text>
                 <image class="item-icon-arrow" src="/images/index/icon12.png"></image>
             </view>
-            <view bindtap="base_jump" data-url="/pages/workbench/invoiceApplication/invoiceApplication" class="manage-item flex flex-ver">
+            <view bindtap="base_jump" data-url="/pages/workbench/addressList/addressList" class="manage-item flex flex-ver">
                 <image class="item-icon" src="/images/workbench/icon03.png"></image>
                 <text class="item-txt">收件地址</text>
                 <image class="item-icon-arrow" src="/images/index/icon12.png"></image>

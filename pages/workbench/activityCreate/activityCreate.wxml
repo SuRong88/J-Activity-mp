@@ -2,14 +2,14 @@
     <mp-header isHome="{{isHome}}" showBack title="创建活动"></mp-header>
     <view class="content ">
         <view class="info-list">
-            <view class="info-item">
+            <!-- <view class="info-item">
                 <view class="item-label">
                     <text class="label">活动编号：7296526828</text>
                     <text class="label-desc"></text>
                 </view>
                 <view class="item-content">
                 </view>
-            </view>
+            </view> -->
             <view class="info-item">
                 <view class="item-label">
                     <text class="label">活动名称</text>
@@ -26,7 +26,7 @@
                     <text class="label-desc">（非必填）</text>
                 </view>
                 <view class="item-content item-content-desc">
-                    <textarea bindinput="changeInput" data-key="desc" class="item-enter-textarea enter-desc"
+                    <textarea maxlength="150" bindinput="changeInput" data-key="desc" class="item-enter-textarea enter-desc"
                         placeholder="请输入活动描述" placeholder-class="holder-class-textarea" type="text" />
                     <view class="enter-desc-num">
                         {{desc.length}}/150
@@ -34,25 +34,41 @@
                 </view>
             </view>
             <view class="info-item">
+                <view class="item-label">
+                    <text class="label">活动图片</text>
+                    <text class="label-desc">（必填）</text>
+                </view>
+                <view class="item-content">
+                    <image bindtap="chooseImg" mode="aspectFill" class="upload-img" src="{{coverImg?coverImg:'/images/task/upload.jpg'}}"></image> 
+                </view>
+            </view>
+            <view class="info-item">
                 <view class="item-label flex flex-ver flex-jcsb">
                     <text class="label">活动时间</text>
                     <view class="item-date-box flex flex-ver">
-                        <view class="date-item flex flex-ver">
-                            2020-04-02
-                        </view>
+                        <picker mode="date" bindchange="startDateChange" value="{{}}">
+                            <view class="date-item flex flex-ver">
+                                {{startDate}}
+                            </view>
+                        </picker>
                         <view class="spe-line">-</view>
-                        <view class="date-item flex flex-ver">
-                            2020-04-02
-                        </view>
+                        <picker mode="date" bindchange="endDateChange" value="{{}}">
+                            <view class="date-item flex flex-ver">
+                                {{endDate}}
+                            </view>
+                        </picker>
                     </view>
                 </view>
                 <view class="item-content">
                 </view>
             </view>
             <view class="info-item">
-                <view class="item-label flex flex-ver flex-jcsb">
-                    <text class="label">选择地区</text>
-                    <text class="address-txt">广东省广州市海珠区</text>
+                <view bindtap="base_jump" data-url="/pages/workbench/addressSelect/addressSelect" class="item-label flex flex-ver flex-jcsb">
+                    <view class="item-label" style="margin-bottom: 0;">
+                        <text class="label">选择地区</text>
+                        <text class="label-desc">（必填）</text>
+                    </view>
+                    <text class="address-txt line-hide line-1">{{address}}</text>
                     <image class="arrow-icon" src="/images/index/icon12.png"></image>
                 </view>
                 <view class="item-content">
@@ -61,14 +77,14 @@
             <view class="info-item">
                 <view class="item-label">
                     <text class="label">详细地址</text>
-                    <text class="label-desc">（必填）</text>
+                    <text class="label-desc">（非必填）</text>
                 </view>
                 <view class="item-content">
-                    <textarea bindinput="changeInput" data-key=""address class="item-enter-textarea" placeholder="请输入详细地址" placeholder-class="holder-class-textarea" type="text" />
+                    <textarea value="{{addressDetail}}" bindinput="changeInput" data-key=""addressDetail class="item-enter-textarea" placeholder="请输入详细地址" placeholder-class="holder-class-textarea" type="text" />
                 </view>
             </view>
         </view>
-        <view class="common-btn">
+        <view bindtap="addJob" class="common-btn normal">
             添加职位
         </view>
     </view>

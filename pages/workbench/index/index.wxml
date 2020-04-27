@@ -6,7 +6,7 @@
             <!-- 头部橙色部分 -->
             <view class='banner-main width-len '>
                 <view class='main-head flex flex-ver'>
-                    <image class="logo" src='{{compData.logo}}'></image>
+                    <image class="logo" src="{{compData.logo?compData.logo:'/images/workbench/default.png'}}"></image>
                     <view class="right-box">
                         <view class="title line-hide line-2">{{compData.name}}</view>
                         <view class="flex" style="margin-top:12rpx;">
@@ -21,12 +21,12 @@
                 </view>
                 <view class="main-bottom width-len flex flex-ver flex-sa">
                     <view class="bottom-box flex flex-start-cen">
-                        <text style="margin-bottom:8rpx;font-size:28rpx;">¥1382.00</text>
+                        <text style="margin-bottom:8rpx;font-size:28rpx;">¥{{compData.amount}}</text>
                         <text>余额</text>
                     </view>
                     <view class="center-box"></view>
                     <view class="bottom-box flex flex-start-cen">
-                        <text style="margin-bottom:8rpx;font-size:28rpx;">¥3280.00</text>
+                        <text style="margin-bottom:8rpx;font-size:28rpx;">¥{{compData.settle_amount}}</text>
                         <text>本月结算金额</text>
                     </view>
                 </view>
@@ -37,23 +37,23 @@
     <!-- 中间 -->
     <view class="total width-len flex flex-ver flex-sa">
         <view class='flex flex-start-cen'>
-            <text class="total-text">3</text>
+            <text class="total-text">{{compData.un_finish_activity}}</text>
             <text style="margin-top:14rpx;">未结束活动</text>
         </view>
         <view class='center-box' style="background-color:#999999"></view>
         <view class='flex flex-start-cen'>
-            <text class="total-text">3</text>
+            <text class="total-text">{{compData.month_activity}}</text>
             <text style="margin-top:14rpx;">本月活动</text>
         </view>
         <view class="center-box" style="background-color:#999999"></view>
         <view class='flex flex-start-cen'>
-            <text class="total-text">200%</text>
+            <text class="total-text">{{compData.rate}}%</text>
             <text style="margin-top:14rpx;">服务费率</text>
         </view>
     </view>
     <!-- 最底下部分 -->
     <view class="footer-box  width-len  flex-wrap flex flex-jcfs">
-        <view wx:for="{{iconArr}}" bindtap="base_jump" data-url="{{item.link}}" class="icon-box flex flex-center flex1 ">
+        <view wx:for="{{iconArr}}" wx:key="index" bindtap="base_jump" data-url="{{item.link}}" class="icon-box flex flex-center flex1 ">
             <image class='image-box' src="{{item.iconUrl}}"></image>
             <text style="margin-top:8rpx;">{{item.name}}</text>
         </view>
@@ -67,5 +67,5 @@
             您确定退出登录吗？
         </view>
     </mp-popBox>
-    <mp-tabbar tabbarIndex="3"></mp-tabbar>
+    <mp-tabbar tabbarType="2" tabbarIndex="3"></mp-tabbar>
 </view>

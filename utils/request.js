@@ -27,6 +27,22 @@ const OPTIONS = {
     recharge: {
         url: `${HOST}/enterprise/recharge`
     },
+    // 添加地址
+    addAddress: {
+        url: `${HOST}/user/contact`
+    },
+    // 编辑地址
+    editAddress: {
+        url: `${HOST}/user/contact`
+    },
+    // 获取地址详情
+    getAddressDetail: {
+        url: `${HOST}/user/contact`
+    },
+    // 获取地址列表
+    getAddressList: {
+        url: `${HOST}/user/contact`
+    },
     // 获取开票设置信息
     invoiceSetting: {
         url: `${HOST}/invoice/setting`
@@ -234,6 +250,13 @@ function request(key, data, option, success, fail) {
         success: function(res) {
             wx.hideLoading();
             codeCheck(res.data, success, fail);
+            // wx.hideLoading({
+            //     complete: (complete) => {
+            //         if (complete.errMsg == 'hideLoading:ok') {
+            //             codeCheck(res.data, success, fail);
+            //         }
+            //     }
+            // });
         },
         fail: function(err) {
             console.log(err);

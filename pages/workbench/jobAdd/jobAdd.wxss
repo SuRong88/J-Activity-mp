@@ -43,10 +43,19 @@
 
 .info-item {
     margin-bottom: 40rpx;
+    position: relative;
 }
 
 .info-item:last-child {
     margin-bottom: 0rpx;
+}
+
+.delete-icon {
+    width: 32rpx;
+    height: 32rpx;
+    position: absolute;
+    top: 18rpx;
+    right: 18rpx;
 }
 
 .item-label {

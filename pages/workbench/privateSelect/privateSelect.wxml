@@ -2,45 +2,44 @@
     <mp-header isHome="{{isHome}}" showBack title="私有服务商"></mp-header>
     <view class="content ">
         <view class="resource-list">
-            <view wx:for="{{5}}" wx:index="index" class="resource-item">
+            <view wx:for="{{list}}" wx:key="index" class="resource-item">
                 <view class="item-top flex">
                     <view class="item-top-l">
-                        <image class="item-avatar" src="/images/resource/ISP_img04.png"></image>
+                        <image mode="aspectFill" class="item-avatar" src="{{item.head_img}}"></image>
                     </view>
                     <view class="item-top-r flex-1">
                         <view class="item-tit line-hide line-1">
-                            胡诗琪是个可爱无敌美少女
+                            {{item.nickname}}
                         </view>
                         <view class="item-tags flex flex-wrap">
-                            <view class="item-tag">
-                                舞蹈表演
-                            </view>
-                            <view class="item-spe flex flex-ver">
-                                |
-                            </view>
-                            <view class="item-tag">
-                                舞蹈表演
-                            </view>
+                            <block wx:for="{{item.position_list}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex">
+                                <view class="item-tag">
+                                    {{subItem.name}}
+                                </view>
+                                <view wx:if="{{subIndex<item.position_list.length-1}}" class="item-spe flex flex-ver">
+                                    |
+                                </view>
+                            </block>
                         </view>
                         <view class="item-info">
-                            姓名：胡诗琪
+                            姓名：{{item.nickname}}
                         </view>
                         <view class="item-info">
-                            身份证号码：441881199604139284
+                            身份证号码：{{item.id_card}}
                         </view>
                         <view class="item-info">
-                            手机号码：15626129191
+                            手机号码：{{item.phone}}
                         </view>
                         <view class="item-info item-about flex flex-ver flex-jcsb">
-                            <view class="item-time">已入驻：14个月</view>
+                            <view class="item-time">已入驻：{{item.settle_time}}个月</view>
                             <view class="item-num">
-                                接单数量：<text class="num">78</text>
+                                接单数量：<text class="num">{{item.order_num}}</text>
                             </view>
                         </view>
                     </view>
                 </view>
-                <view class="item-select-btn">
-                    <image src="{{index%2==0?'/images/workbench/BS_icon15.png':'/images/workbench/BS_icon27.png'}}"
+                <view bindtap="selectItem" data-index="{{index}}" class="item-select-btn">
+                    <image src="{{item.selected?'/images/workbench/BS_icon15.png':'/images/workbench/BS_icon27.png'}}"
                         class="select-icon">
                     </image>
                 </view>
@@ -48,9 +47,9 @@
         </view>
         <view class="bottom-box flex flex-jcsb flex-ver">
             <view class="select-num">
-                可选择2/2
+                可选择{{selectedList.length}}/{{limit}}
             </view>
-            <view class="btn-confirm">确认</view>
+            <view bindtap="confirmHandle" class="btn-confirm">确认</view>
         </view>
     </view>
 </view>

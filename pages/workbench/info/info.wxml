@@ -1,18 +1,26 @@
 <view class="container">
-  <mp-header cln='header' showBack title="完善信息"></mp-header>
-  <view class="content width-len flex flex-col flex-start flex-jcfs">
-    <text class="text">企业logo</text>
-    <image class="img-box" src="{{compInfo.logo}}" bindtap="choseImg"></image>
-    <view class='center width-len flex flex-jcsb ' style='margin-top:40rpx;'>
-      <text class='text'>企业名称</text>
-      <input class='tit' placeholder="请输入企业名称" value="{{compInfo.compname}}" bindinput="changecomp"></input>
-    </view>
-    <text class="text" style="margin-top:40rpx;">联系方式</text>
-    <view class="tel-tit  width-len">
-      <input placeholder-class="holder-class" placeholder="请输入电话号码" bindinput="changePhone"  value="{{compInfo.phone}}" class='tel-text'></input>
-    </view>
-    <text class='text' style="margin-top:40rpx;">企业简介</text>
-    <textarea placeholder-class="holder-class" class='text-area' bindinput="changeintro" value='{{compInfo.intro}}' placeholder="请输入" />
-    <view class='submit' bindtap="formSubmit">确定</view>
+    <mp-header cln='header' showBack title="完善信息"></mp-header>
+    <view class="content width-len flex flex-col flex-start flex-jcfs">
+        <text class="text">企业logo</text>
+        <view class="img-box" bindtap="chooseImg" data-type="logo">
+            <view class="img-mask flex flex-center">
+                <image class="upload-icon" src="/images/me/BS_icon10.png"></image>
+            </view>
+            <image mode="aspectFill" class="img-logo" src="{{compInfo.logo?compInfo.logo:'/images/workbench/default.png'}}"></image>
+        </view>
+        <view class='center width-len flex flex-jcsb ' style='margin-top:40rpx;'>
+            <text class='text'>企业名称</text>
+            <text class='tit'>{{compInfo.name}}</text>
+        </view>
+        <text class="text" style="margin-top:40rpx;">联系方式</text>
+        <view class="tel-tit  width-len">
+            <input placeholder-class="holder-class" placeholder="请输入电话号码" bindinput="changePhone" value="{{compInfo.contact_phone}}"
+                class='tel-text'></input>
+        </view>
+        <text class='text' style="margin-top:40rpx;">企业简介</text>
+        <textarea placeholder-class="holder-class" class='text-area' bindinput="changeintro" value='{{compInfo.profiles}}'
+            placeholder="请输入" />
+        <image bindtap="chooseImg" data-type="cover" mode="aspectFill" class="upload-icon2" src="{{compInfo.cover_img?compInfo.cover_img:'/images/task/upload.jpg'}}"></image>   
+        <view class='submit' bindtap="formSubmit">确定</view>
 </view>
 </view>

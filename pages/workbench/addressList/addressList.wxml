@@ -2,7 +2,7 @@
     <mp-header isHome="{{isHome}}" showBack title="收件地址"></mp-header>
     <view class="content">
         <!-- 无地址 -->
-        <view wx:if="{{test}}" class="empty-box text-c">
+        <view wx:if="{{list.length<0}}" class="empty-box text-c">
             <image class="empty-img" src="/images/workbench/address-empty.png"></image>
             <text class="empty-tip">暂无地址，快添加地址吧</text>
             <view class="common-btn" bindtap="base_jump" data-url="/pages/workbench/addressAdd/addressAdd?type=1">
@@ -12,69 +12,35 @@
         <!-- 有地址 -->
         <view wx:else class="address-box">
             <view class="address-list">
-                <view class="address-item {{true?'is-selected':''}}">
+                <view wx:for="{{list}}" wx:key="index" class="address-item {{item.selected?'is-selected':''}}">
                     <view class="detail-box">
-                        <image class="address-icon" src="/images/workbench/BS_icon23.png"></image>
+                        <image class="address-icon" src="{{item.selected?'/images/workbench/BS_icon23.png':'/images/workbench/BS_icon26.png'}}"></image>
                         <view class="item flex">
                             <view class="item-txt">收件人：</view>
-                            <view class="item-label">胡诗琪</view>
+                            <view class="item-label">{{item.name}}</view>
                         </view>
                         <view class="item  flex">
                             <view class="item-label">联系电话：</view>
-                            <view class="item-txt">15626129191</view>
+                            <view class="item-txt">{{item.phone}}</view>
                         </view>
                         <view class="item flex">
                             <view class="item-label">收获地址：</view>
-                            <view class="item-txt">广州市海珠区新港东路234号某某大厦</view>
+                            <view class="item-txt">{{item.province_name}}{{item.city_name}}{{item.district_name}}{{item.address}}</view>
                         </view>
-                        <view class="select-btn flex flex-ver">
+                        <view bindtap="selectAddress" data-index="{{index}}" class="select-btn flex flex-ver">
                             <text class="select-txt">选择</text>
-                            <image class="select-icon" src="/images/workbench/BS_icon15.png"></image>
+                            <image class="select-icon" src="{{item.selected?'/images/workbench/BS_icon15.png':'/images/workbench/BS_icon27.png'}}"></image>
                         </view>
                     </view>
                     <view class="btn-box flex flex-ver flex-jcfe">
-                        <view bindtap="deleteAddress" data-id="" class="btn-item flex flex-ver">
+                        <view bindtap="deleteAddress" data-id="{{item.id}}" class="btn-item flex flex-ver">
                             <image class="btn-icon" src="/images/workbench/BS_icon24.png"></image>
                             <view class="btn-txt">
                                 删除
                             </view>
                         </view>
-                        <view bindtap="editAddress" data-id="" class="btn-item flex flex-ver">
-                            <image class="btn-icon" src="/images/workbench/BS_icon25.png"></image>
-                            <view class="btn-txt">
-                                编辑
-                            </view>
-                        </view>
-                    </view>
-                </view>
-                <view class="address-item {{false?'is-selected':''}}">
-                    <view class="detail-box">
-                        <image class="address-icon" src="/images/workbench/BS_icon26.png"></image>
-                        <view class="item flex">
-                            <view class="item-txt">收件人：</view>
-                            <view class="item-label">胡诗琪</view>
-                        </view>
-                        <view class="item  flex">
-                            <view class="item-label">联系电话：</view>
-                            <view class="item-txt">15626129191</view>
-                        </view>
-                        <view class="item flex">
-                            <view class="item-label">收获地址：</view>
-                            <view class="item-txt">广州市海珠区新港东路234号某某大厦</view>
-                        </view>
-                        <view class="select-btn flex flex-ver">
-                            <text class="select-txt">选择</text>
-                            <image class="select-icon" src="/images/workbench/BS_icon27.png"></image>
-                        </view>
-                    </view>
-                    <view class="btn-box flex flex-ver flex-jcfe">
-                        <view class="btn-item flex flex-ver">
-                            <image class="btn-icon" src="/images/workbench/BS_icon24.png"></image>
-                            <view class="btn-txt">
-                                删除
-                            </view>
-                        </view>
-                        <view class="btn-item flex flex-ver" bindtap="base_jump" data-url="/pages/workbench/addressAdd/addressAdd?type=2">
+                        <view bindtap="base_jump" data-url="/pages/workbench/addressAdd/addressAdd?type=0&id={{item.id}}"
+                            class="btn-item flex flex-ver">
                             <image class="btn-icon" src="/images/workbench/BS_icon25.png"></image>
                             <view class="btn-txt">
                                 编辑

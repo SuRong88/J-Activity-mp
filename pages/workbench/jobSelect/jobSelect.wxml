@@ -1,0 +1,59 @@
+<view class="container">
+    <mp-header isHome="{{isHome}}" showBack title="{{titleArr[filterType]}}"></mp-header>
+    <view class="content flex flex-col">
+        <!-- 已选择的筛选条件 -->
+        <view hidden="{{checkTagList.length==0&&address==''}}" class="filter-select-box flex flex-wrap {{filterType==0?'':'address'}}">
+            <view wx:if="{{filterType==0}}" wx:for="{{checkTagList}}" wx:key="index" class="filter-select-item">
+                {{item.name}}
+                <image bindtap="deleteTagItem" data-index="{{index}}" class="item-icon" src="/images/me/mine_icon16.png"></image>
+            </view>
+
+            <view wx:if="{{filterType==1}}">
+                {{address}}
+            </view>
+        </view>
+        <view class="filter-box">
+            <!-- 筛选menu -->
+            <view class="filter-bd">
+                <!--1. 岗位 -->
+                <view style="height: calc(100vh - {{address!=''||checkTagList.length>0?240:120}}rpx - {{padHeight}}rpx);"
+                    wx:if="{{filterType==0}}" class="filter-con flex {{'filter-type'+(filterType)}}">
+                    <!-- 一级条件 -->
+                    <scroll-view scroll-y class="select-list-l">
+                        <view bindtap="tagFilter" data-index="{{index}}" wx:for="{{tagList}}" wx:key="index" class="select-item {{tagIndex==index?'active':''}}">{{item.name}}</view>
+                    </scroll-view>
+                    <!-- 次级条件 -->
+                    <view class="select-list-r flex-1 flex">
+                        <scroll-view scroll-y class="select-list-r-scroll flex-1">
+                            <view bindtap="tagSubFilter" data-index="{{index}}" wx:for="{{tagSubList}}" wx:key="index"
+                                class="select-item {{item.selected?'active':''}}">{{item.name}}</view>
+                        </scroll-view>
+                    </view>
+                </view>
+                <!--2. 地区 -->
+                <view style="height: calc(100vh - {{address!=''||checkTagList.length>0?240:120}}rpx - {{padHeight}}rpx);" wx:if="{{filterType==1}}" class="filter-con flex {{'filter-type'+filterType}}">
+                    <!-- 一级条件 -->
+                    <scroll-view scroll-y class="select-list-l">
+                        <view bindtap="provinceFilter" data-index="{{index}}" wx:for="{{provinceList}}" wx:key="index"
+                            class="select-item {{provinceIndex==index?'active':''}}">{{item.name}}</view>
+                    </scroll-view>
+                    <!-- 次级条件 -->
+                    <view class="select-list-r flex-1 flex">
+                        <scroll-view scroll-y class="select-list-r-scroll flex-1">
+                            <view bindtap="cityFilter" data-index="{{index}}" wx:for="{{cityList}}" wx:key="index"
+                                class="select-item {{cityIndex==index?'active':''}}">{{item.name}}</view>
+                        </scroll-view>
+                        <scroll-view scroll-y class="select-list-r-scroll flex-1">
+                            <view bindtap="areaFilter" data-index="{{index}}" wx:for="{{areaList}}" wx:key="index"
+                                class="select-item-min select-item {{areaIndex==index?'active':''}}">{{item.name}}</view>
+                        </scroll-view>
+                    </view>
+                </view>
+            </view>
+            <view class="filter-btn-box flex flex-jcsb">
+                <view bindtap="cancelSelect" class="btn-clean">清除</view>
+                <view bindtap="confirmSelect" class="btn-confirm">确定</view>
+            </view>
+        </view>
+    </view>
+</view>

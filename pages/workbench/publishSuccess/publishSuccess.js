@@ -5,6 +5,7 @@ const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 const VM = {
     data: {
+        id: '', //创建活动-id
         titleIndex: 2,
         titleArr: ['验收成功', '派单成功', '发布成功'],
         tipArr: ['验收成功！', '派单成功！', '发布成功！'],
@@ -12,12 +13,16 @@ const VM = {
         showPoster: false //海报
     }
 }
-VM.init = function() {
+VM.init = function(query) {
     // 设置自定义头部
     util.setHeader(this);
+    this.setData({
+        id: query.id,
+        titleIndex: query.type
+    })
 }
 VM.onLoad = function(query) {
-    this.init()
+    this.init(query)
     base.onLoad(this)
 }
 // 展示分享mask
