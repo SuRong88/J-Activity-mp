@@ -30,8 +30,12 @@ page {
     width: 132rpx;
     line-height: 52rpx;
     text-align: center;
-    background: rgba(252, 127, 3, 1);
+    background:rgba(153,153,153,1);
     border-radius: 26rpx 0px 0px 26rpx;
+}
+
+.activity-info-box .item-status.orange {
+    background: rgba(252, 127, 3, 1);
 }
 
 .activity-info-box .info-bd {

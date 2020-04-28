@@ -2,41 +2,17 @@
     <mp-header isHome="{{isHome}}" showBack title="账户明细"></mp-header>
     <view class="content detail-list">
         <!-- 充值 -->
-        <view class="detail-item red">
+        <!-- 1充值2支出 -->
+        <view wx:for="{{list}}" wx:key="index" class="detail-item {{classArr[item.type-1]}}">
             <view class="item-hd flex flex-ver flex-jcsb">
                 <view class="item-tit">账号充值</view>
-                <view class="item-amount">+¥3000.00</view>
+                <view class="item-amount">{{item.type==2?'-':'+'}}¥{{item.amount}}</view>
             </view>
             <view class="item-bd">
-                <view class="item-info">编号：3720758688</view>
-                <view class="item-info">时间：2020-04-02 14:32 </view>
-                <view class="item-info">余额：¥3500.00</view>
-                <view class="item-info tip line-hide line-1">备注：</view>
-            </view>
-        </view>
-        <!-- 支出 -->
-        <view class="detail-item green">
-            <view class="item-hd flex flex-ver flex-jcsb">
-                <view class="item-tit">结算支出</view>
-                <view class="item-amount">+¥3000.00</view>
-            </view>
-            <view class="item-bd">
-                <view class="item-info">编号：3720758688</view>
-                <view class="item-info">时间：2020-04-02 14:32 </view>
-                <view class="item-info">余额：¥3500.00</view>
-                <view class="item-info tip line-hide line-1">备注：</view>
-            </view>
-        </view>
-        <view class="detail-item gray">
-            <view class="item-hd flex flex-ver flex-jcsb">
-                <view class="item-tit">账号充值</view>
-                <view class="item-amount">+¥3000.00</view>
-            </view>
-            <view class="item-bd">
-                <view class="item-info">编号：3720758688</view>
-                <view class="item-info">时间：2020-04-02 14:32 </view>
-                <view class="item-info">余额：¥3500.00</view>
-                <view class="item-info tip line-hide line-1">备注：</view>
+                <view class="item-info">编号：{{item.id}}</view>
+                <view class="item-info">时间：{{item.create_time}} </view>
+                <view class="item-info">余额：¥{{item.real_amount}}</view>
+                <view class="item-info tip line-hide line-1">备注：{{}}</view>
             </view>
         </view>
     </view>

@@ -23,7 +23,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.9.2",
 	"appid": "wxe25cbea0d2a8b4a8",
-	"projectname": "mp-demo",
+	"projectname": "JActivity",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -288,6 +288,56 @@
 					"id": -1,
 					"name": "工作台-添加地址",
 					"pathName": "pages/workbench/addressAdd/addressAdd",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-开票管理",
+					"pathName": "pages/workbench/invoiceManage/invoiceManage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 35,
+					"name": "工作台-申请开票",
+					"pathName": "pages/workbench/invoiceApplication/invoiceApplication",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-活动管理",
+					"pathName": "pages/workbench/activityManage/activityManage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 37,
+					"name": "工作台-活动详情",
+					"pathName": "pages/workbench/activityDetail/activityDetail",
+					"query": "id=23",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-消息",
+					"pathName": "pages/workbench/notification/notification",
+					"query": "id=17",
+					"scene": null
+				},
+				{
+					"id": 39,
+					"name": "工作台-充值记录",
+					"pathName": "pages/workbench/record/record",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-账户明细",
+					"pathName": "pages/workbench/account/account",
+					"query": "",
 					"scene": null
 				}
 			]

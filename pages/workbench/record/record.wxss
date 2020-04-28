@@ -40,7 +40,7 @@
     font-size: 24rpx;
     font-weight: 400;
     color: #999;
-    line-height: 34rpx;
+    /* line-height: 34rpx; */
 }
 
 .act-tit {
@@ -51,8 +51,8 @@
 }
 
 .down-box {
-    width: 20rpx;
-    height: 20rpx;
+    width: 16rpx;
+    height: 16rpx;
 }
 
 /* 底下各部分 */
@@ -72,7 +72,6 @@
 .stat-box {
     width: 146rpx;
     height: 64rpx;
-    background: rgba(83, 185, 128, 1);
     border-radius: 0px 0px 0px 24rpx;
     position: absolute;
     right: 0;
@@ -82,6 +81,18 @@
     color: rgba(255, 255, 255, 1);
     line-height: 66rpx;
     text-align: center;
+}
+
+.each-item.green .stat-box {
+    background:rgba(83,185,128,1);
+}
+
+.each-item.orange .stat-box {
+    background:rgba(252,127,3,1);
+}
+
+.each-item.gray .stat-box {
+    background:rgba(153,153,153,1);
 }
 
 .small {

@@ -33,15 +33,15 @@ page {
     font-weight: 700;
 }
 
-.detail-item .item-amount.red {
+.detail-item.red .item-amount {
     color: rgba(224, 32, 32, 1);
 }
 
-.detail-item .item-amount.green {
+.detail-item.green .item-amount {
     color: rgba(83, 185, 128, 1);
 }
 
-.detail-item .item-amount.gray {
+.detail-item.gray .item-amount {
     color: rgba(153, 153, 153, 1);
 }
 

@@ -27,6 +27,10 @@ const OPTIONS = {
     recharge: {
         url: `${HOST}/enterprise/recharge`
     },
+    // 获取充值记录
+    getRechargeList: {
+        url: `${HOST}/enterprise/rechargeLog`
+    },
     // 添加地址
     addAddress: {
         url: `${HOST}/user/contact`
@@ -43,17 +47,81 @@ const OPTIONS = {
     getAddressList: {
         url: `${HOST}/user/contact`
     },
-    // 获取开票设置信息
-    invoiceSetting: {
-        url: `${HOST}/invoice/setting`
+    // 添加地址
+    addAddress: {
+        url: `${HOST}/user/contact`
+    },
+    // 删除地址
+    deleteAddress: {
+        url: `${HOST}/user/contact`
     },
     // 获取开票类目
     invoiceClassifity: {
         url: `${HOST}/invoice/classifyList`
     },
-    // 添加地址
-    addAddress: {
-        url: `${HOST}/user/contact`
+    // 获取开票设置信息
+    invoiceSetting: {
+        url: `${HOST}/invoice/setting`
+    },
+    // 申请开票
+    invoiceApply: {
+        url: `${HOST}/invoice/apply`
+    },
+    // 开票记录
+    invoiceList: {
+        url: `${HOST}/invoice/list`
+    },
+    // 关闭活动
+    closeActivity: {
+        url: `${HOST}/activity/close`
+    },
+    //关闭职位
+    closeJob: {
+        url: `${HOST}/activity/closeJob`
+    },
+    //活动列表
+    activityList: {
+        url: `${HOST}/enterprise/activityList`
+    },
+    //一键验收
+    passAcceptanceAll: {
+        url: `${HOST}/enterprise/acceptanceAll`
+    },
+    //修改活动
+    editActivity: {
+        url: `${HOST}/activity/update`
+    },
+    //活动详情
+    activityDetail: {
+        url: `${HOST}/enterprise/activityDetail`
+    },
+    //职位详情
+    jobDetail: {
+        url: `${HOST}/enterprise/jobDetail`
+    },
+    //活动派单
+    dispatch: {
+        url: `${HOST}/enterprise/allowApply`
+    },
+    //一键派单
+    dispatchAll: {
+        url: `${HOST}/enter[rise/allowApplyPlu`
+    },
+    //通过验收
+    passAcceptance: {
+        url: `${HOST}/enterprise/acceptance`
+    },
+    //驳回验收
+    refuseAcceptance: {
+        url: `${HOST}/enterprise/rejectAcceptance`
+    },
+    //消息列表
+    getMsgList: {
+        url: `${HOST}/enterprise/message`
+    },
+    //账户明细
+    getAccountList: {
+        url: `${HOST}/enterprise/accountLog`
     },
     /*
      **服务商

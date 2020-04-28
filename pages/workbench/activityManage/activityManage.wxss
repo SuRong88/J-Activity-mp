@@ -50,6 +50,10 @@ page {
     position: relative;
 }
 
+.activity-item.orange .item-status {
+    background: rgba(252, 127, 3, 1);
+}
+
 .item-num {
     font-size: 24rpx;
     color: rgba(102, 102, 102, 1);

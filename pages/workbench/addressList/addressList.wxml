@@ -25,15 +25,15 @@
                         </view>
                         <view class="item flex">
                             <view class="item-label">收获地址：</view>
-                            <view class="item-txt">{{item.province_name}}{{item.city_name}}{{item.district_name}}{{item.address}}</view>
+                            <view class="item-txt line-hide line-4">{{item.province_name}}{{item.city_name}}{{item.district_name}}{{item.address}}</view>
                         </view>
-                        <view bindtap="selectAddress" data-index="{{index}}" class="select-btn flex flex-ver">
+                        <view wx:if="{{type=='select'}}" bindtap="selectAddress" data-index="{{index}}" class="select-btn flex flex-ver">
                             <text class="select-txt">选择</text>
                             <image class="select-icon" src="{{item.selected?'/images/workbench/BS_icon15.png':'/images/workbench/BS_icon27.png'}}"></image>
                         </view>
                     </view>
                     <view class="btn-box flex flex-ver flex-jcfe">
-                        <view bindtap="deleteAddress" data-id="{{item.id}}" class="btn-item flex flex-ver">
+                        <view bindtap="deleteAddress" data-index="{{index}}" data-id="{{item.id}}" class="btn-item flex flex-ver">
                             <image class="btn-icon" src="/images/workbench/BS_icon24.png"></image>
                             <view class="btn-txt">
                                 删除

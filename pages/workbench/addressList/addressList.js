@@ -5,14 +5,15 @@ const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 const VM = {
     data: {
+        type: '', //select为选择地址
         showMask: false,
-        test: true,
         list: [],
         // 删除地址的id
-        deleteId: ''
+        deleteId: '',
+        waiting: false
     }
 }
-VM.init = function() {
+VM.init = function(query) {
     // 设置自定义头部
     util.setHeader(this);
     this.getList()
@@ -20,21 +21,44 @@ VM.init = function() {
 VM.onLoad = function(query) {
     // this.init()
     base.onLoad(this)
+    if (query.type && query.type == 'select') {
+        this.setData({
+            type: 'select'
+        })
+    }
 }
 VM.onShow = function(query) {
-    this.init()
+    this.init(query)
 }
 // 选择
 VM.selectAddress = function(e) {
+    if (this.data.waiting) {
+        return false
+    }
     let index = util.dataset(e, 'index')
     let list = this.data.list
+    // 可删除？
     list.forEach(item => {
         item.selected = false
     })
+    // end
     list[index].selected = true
     this.setData({
-        list: list
+        list: list,
+        waiting: true
     })
+    let addressInfo = list[index]
+    let pages = getCurrentPages();
+    let prevPage = pages[pages.length - 2];
+    let address = this.data.address;
+    prevPage.setData({
+        addressInfo: addressInfo
+    });
+    setTimeout(() => {
+        wx.navigateBack({
+            delta: 1
+        })
+    }, 1000)
 }
 // 删除
 VM.deleteAddress = function(e) {
@@ -49,12 +73,24 @@ VM.editAddress = function() {
 
 }
 // 确认删除
-VM.confirmDelete = function() {
-    // 删除地址的id
-    let id = this.data.deleteId
+VM.confirmDelete = function(e) {
+    let index = util.dataset(e, 'index')
+    let id = this.data.deleteId // 删除地址的id
     console.log(id);
-    //todo 需要删除地址的接口
-
+    Req.request('deleteAddress', {
+        id: id
+    }, {
+        method: 'DELETE'
+    }, (res) => {
+        util.Toast('删除成功')
+        let list = this.data.list
+        list.splice(index, 1)
+        this.setData({
+            list: list,
+            showMask: false,
+            deleteId: ''
+        })
+    })
 }
 // 取消删除
 VM.cancelDelete = function() {
@@ -85,8 +121,8 @@ VM.getList = function(type) {
         })
     })
 }
-// VM.
-VM.onReachBottom = function() {
-    this.getList()
-}
+// 地址列表没有分页
+// VM.onReachBottom = function() {
+//     this.getList()
+// }
 Page(VM)

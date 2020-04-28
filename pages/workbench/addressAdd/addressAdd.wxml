@@ -25,7 +25,7 @@
             <view class="info-item" bindtap="base_jump" data-url="/pages/workbench/addressSelect/addressSelect">
                 <view class="item-label flex flex-ver flex-jcsb">
                     <text class="label">选择地区</text>
-                    <text class="address-txt">{{address}}</text>
+                    <text class="address-txt line-hide line-1">{{address}}</text>
                     <image class="arrow-icon" src="/images/index/icon12.png"></image>
                 </view>
                 <view class="item-content">

@@ -50,6 +50,7 @@
         "pages/workbench/invoiceApplication/invoiceApplication",
         "pages/workbench/invoiceManage/invoiceManage",
         "pages/workbench/jobAdd/jobAdd",
+        "pages/workbench/jobAddAgain/jobAddAgain",
         "pages/workbench/publishSuccess/publishSuccess",
         "pages/workbench/addressSelect/addressSelect",
         "pages/workbench/jobSelect/jobSelect",

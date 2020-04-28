@@ -65,11 +65,13 @@ page {
 .item-label {
     font-size: 26rpx;
     color: rgba(153, 153, 153, 1);
+    white-space: nowrap;
 }
 
 .item-txt {
     font-size: 26rpx;
     color: rgba(102, 102, 102, 1);
+    margin-left: 40rpx;
 }
 
 .bd-b {

@@ -5,25 +5,188 @@ const util = require('../../../utils/util.js');
 const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 const VM = {
-  data: {
-    number: ''
-  }
-}
-VM.init = function (query) {
+    data: {
+        classArr: ['', 'green', 'orange', 'gray'],
+        // status: 0,
+        statusIndex: 0,
+        statusRange: [{
+                name: '不限',
+                sel: true
+            },
+            {
+                name: '充值成功',
+                sel: false
+            },
+            {
+                name: '充值中',
+                sel: false
+            }, {
+                name: '充值失败',
+                sel: false
+            }
+        ],
+        priceIndex: 0,
+        priceRange: [{
+                name: '不限',
+                sel: true
+            }, {
+                name: '0-1000',
+                sel: false
+            },
+            {
+                name: '1000-2000',
+                sel: false
+            },
+            {
+                name: '2000-3000',
+                sel: false
+            }, {
+                name: '3000-4000',
+                sel: false
+            }
+        ],
+        startDate: '开始日期',
+        endDate: '结束日期',
+        startSelected: false,
+        endSelected: false,
 
-  // 设置自定义头部
-  util.setHeader(this);
+        // pagination
+        current: 0,
+        rownum: 10,
+        total: 0,
+        total_page: 1,
+        list: [],
+        isEmpty: false
+
+    }
 }
-VM.onLoad = function (query) {
-  this.init(query)
-  base.onLoad(this)
+VM.init = function(query) {
+    // 设置自定义头部
+    util.setHeader(this);
+    this.getList();
 }
-VM.onShareAppMessage = function () {
-  return {
-    title: "分享标题",
-    path: '/pages/index/index',
-    imageUrl: ''
-  };
+VM.onLoad = function(query) {
+    this.init(query)
+    base.onLoad(this)
+}
+// 获取列表
+VM.getList = function() {
+    let data = this.data
+    if (data.current >= data.total_page) {
+        return util.Toast('没有更多数据了')
+    }
+    let startDate = ''
+    let endDate = ''
+    let amountSection = ''
+    if (data.startSelected && data.endSelected) {
+        startDate = data.startDate
+        endDate = data.endDate
+    }
+    if (data.priceIndex > 0) {
+        amountSection = data.priceRange[data.priceIndex].name
+    }
+    Req.request('getRechargeList', {
+        page: data.current + 1,
+        rownum: data.rownum,
+        status: data.statusIndex,
+        start_time: startDate,
+        end_time: endDate,
+        amount_section: amountSection
+    }, {
+        method: 'get'
+    }, (res) => {
+        let data = res.data
+        let pagination = res.data.pagination
+        let list = this.data.list
+        this.setData({
+            list: list.concat(data.list),
+            current: pagination.current * 1,
+            rownum: pagination.rownum * 1,
+            total: pagination.total * 1,
+            total_page: pagination.total_page * 1,
+            isEmpty: pagination.total * 1 <= 0 ? true : false
+        })
+    })
+}
+// 修改开票类型
+VM.statusChange = function(e) {
+    let index = e.detail.value;
+    if (index == this.data.statusIndex) {
+        return false
+    }
+    this.setData({
+        statusIndex: index,
+        // pagination
+        current: 0,
+        rownum: 10,
+        total: 0,
+        total_page: 1,
+        list: [],
+        isEmpty: false
+    })
+    this.getList()
 }
 
+// 修改开票类型
+VM.priceChange = function(e) {
+    let index = e.detail.value;
+    if (index == this.data.priceIndex) {
+        return false
+    }
+    this.setData({
+        priceIndex: index,
+        // pagination
+        current: 0,
+        rownum: 10,
+        total: 0,
+        total_page: 1,
+        list: [],
+        isEmpty: false
+    })
+    this.getList()
+}
+
+// 
+VM.startDateChange = function(e) {
+    this.setData({
+        startDate: e.detail.value,
+        startSelected: true
+    });
+    // 起始日期都选中 改变触发列表刷新
+    let data = this.data
+    if (data.startSelected && data.endSelected) {
+        this.setData({
+            // pagination
+            current: 0,
+            rownum: 10,
+            total: 0,
+            total_page: 1,
+            list: [],
+            isEmpty: false
+        })
+        this.getList()
+    }
+}
+VM.endDateChange = function(e) {
+    this.setData({
+        endDate: e.detail.value,
+        endSelected: true
+    });
+    let data = this.data
+    if (data.startSelected && data.endSelected) {
+        this.setData({
+            // pagination
+            current: 0,
+            rownum: 10,
+            total: 0,
+            total_page: 1,
+            list: [],
+            isEmpty: false
+        })
+        this.getList()
+    }
+}
+VM.onReachBottom = function() {
+    this.getList()
+}
 Page(VM)

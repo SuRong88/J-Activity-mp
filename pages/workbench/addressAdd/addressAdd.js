@@ -7,6 +7,7 @@ const VM = {
     data: {
         type: 1, // 0编辑还是1添加操作
         titleArr: ['编辑地址', '添加地址'],
+        addressId: '', //编辑地址才有
         name: '',
         phone: '',
         address: '',
@@ -26,6 +27,9 @@ VM.init = function(query) {
     })
     if (type == 0) {
         let addressId = query.id
+        this.setData({
+            addressId: addressId
+        })
         Req.request('getAddressDetail', {
             id: addressId
         }, {
@@ -67,6 +71,7 @@ VM.changeInput = function(e) {
 }
 VM.addAddress = function(e) {
     let data = this.data
+    let type = data.type
     if (formcheck.check_null(data.name)) {
         return util.Toast('请填写收件人')
     }
@@ -79,22 +84,43 @@ VM.addAddress = function(e) {
     if (formcheck.check_null(data.addressDetail)) {
         return util.Toast('请填写详细地址')
     }
-    Req.request('addAddress', {
-        name: data.name,
-        phone: data.phone,
-        address: data.addressDetail,
-        province: data.provinceId,
-        city: data.cityId,
-        district: data.areaId
-    }, {
-        method: data.type == 1 ? 'post' : 'put'
-    }, res => {
-        util.Toast('保存成功')
-        setTimeout(() => {
-            wx.navigateBack({
-                delta: 1
-            })
-        }, 1500)
-    })
+    if (type == 1) { //添加
+        Req.request('addAddress', {
+            name: data.name,
+            phone: data.phone,
+            address: data.addressDetail,
+            province: data.provinceId,
+            city: data.cityId,
+            district: data.areaId
+        }, {
+            method: 'post'
+        }, res => {
+            util.Toast('保存成功')
+            setTimeout(() => {
+                wx.navigateBack({
+                    delta: 1
+                })
+            }, 1500)
+        })
+    } else { //编辑
+        Req.request('addAddress', {
+            id: data.addressId,
+            name: data.name,
+            phone: data.phone,
+            address: data.addressDetail,
+            province: data.provinceId,
+            city: data.cityId,
+            district: data.areaId
+        }, {
+            method: 'put'
+        }, res => {
+            util.Toast('保存成功')
+            setTimeout(() => {
+                wx.navigateBack({
+                    delta: 1
+                })
+            }, 1500)
+        })
+    }
 }
 Page(VM)

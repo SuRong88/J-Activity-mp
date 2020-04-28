@@ -3,126 +3,69 @@
     <view class="content width-len flex flex-col flex-start flex-jcfs">
         <view class="first-box flex-col  width-len">
             <view class="top-box flex width-len flex-jcfs flex-ver ">
-                <view class="left flex flex-ver" style="margin-right:80rpx;">
-                    <view class="flex flex-align-center flex-ver left-box" style="margin-right:22rpx;">
-                        <text class="stat-tit">状态</text>
-                        <image class='triangle' src='/images/workbench/triangle.png'></image>
+                <picker range="{{statusRange}}" bindchange="statusChange" value="{{index}}" range-key="name">
+                    <view class="left flex flex-ver" style="margin-right:80rpx;">
+                        <view class="flex flex-align-center flex-ver left-box" style="margin-right:22rpx;">
+                            <text class="stat-tit">状态</text>
+                            <image class='triangle' src='/images/workbench/triangle.png'></image>
+                        </view>
+                        <text class="tit">{{statusRange[statusIndex].name}}</text>
                     </view>
-                    <text class="tit">充值成功</text>
-                </view>
-                <view class="right flex flex-ver">
-                    <view class="flex flex-align-center flex-ver left-box" style="margin-right:22rpx;">
-                        <text class="stat-tit">金额</text>
-                        <image class='triangle' src='/images/workbench/triangle.png'></image>
+                </picker>
+                <picker range="{{priceRange}}" bindchange="priceChange" value="{{index}}" range-key="name">
+                    <view class="right flex flex-ver">
+                        <view class="flex flex-align-center flex-ver left-box" style="margin-right:22rpx;">
+                            <text class="stat-tit">金额</text>
+                            <image class='triangle' src='/images/workbench/triangle.png'></image>
+                        </view>
+                        <text class="tit">{{priceRange[priceIndex].name}}</text>
                     </view>
-                    <text class="tit">0-1000</text>
-                </view>
+                </picker>
             </view>
             <view class="bottom-box width-len flex flex-ver flex-sb" style="margin-top:40rpx">
                 <text class="act-tit fw400">活动时间</text>
                 <view class="date-box flex flex-ver">
-                    <text class="stat-tit">2020-04-02</text>
-                    <image class="down-box" src="/images/workbench/down.png" style="margin-left:8rpx;margin-right:10rpx;"></image>
+                    <picker mode="date" bindchange="startDateChange" value="{{}}">
+                        <text class="stat-tit">{{startDate}}</text>
+                        <image class="down-box" src="/images/workbench/down.png" style="margin-left:8rpx;margin-right:10rpx;"></image>
+                    </picker>
                     <text class="stat-tit" style="margin-right:20rpx;">-</text>
-                    <text class="stat-tit"> 2020-04-02</text>
-                    <image class="down-box" src="/images/workbench/down.png" style="margin-left:8rpx;"></image>
+                    <picker mode="date" bindchange="endDateChange" value="{{}}">
+                        <text class="stat-tit">{{endDate}}</text>
+                        <image class="down-box" src="/images/workbench/down.png" style="margin-left:8rpx;"></image>
+                    </picker>
                 </view>
             </view>
         </view>
         <!-- 底下 -->
-        <view class="box flex width-len flex-col flex-jcfs " style="margin-top:20rpx;">
+        <view wx:for="{{list}}" wx:key="index" class="each-item box flex width-len flex-col flex-jcfs {{classArr[item.status]}}"
+            style="margin-top:20rpx;">
             <view class="box-top flex flex-ver flex-jcfs width-len">
                 <view class="small" style="margin-right:12rpx;">
                 </view>
-                <view class="stat-tit">申请时间：2020-04-01 14:32</view>
-                <view class="stat-box">充值成功</view>
+                <view class="stat-tit">申请时间：{{item.create_time}}</view>
+                <view class="stat-box">{{statusRange[item.status].name}}</view>
             </view>
             <view style='height:2rpx;width:670rpx;background:#F5F5F5;margin-bottom:28rpx;'></view>
             <view class="box-bottom width-len flex flex-start flex-col flex-jcfs">
                 <view class="flex flex-jcsb  width-len">
-                    <text class="act-tit">广州名锐讯动信息科技有限公司</text>
-                    <text class="act-tit" style="color:#FC7F03;margin-right:40rpx">¥3000.00</text>
+                    <text class="act-tit">{{item.enterprise_name}}</text>
+                    <text class="act-tit" style="color:#FC7F03;margin-right:40rpx">¥{{item.amount}}</text>
                 </view>
                 <view class=" flex flex-ver flex-jcfs width-len" style="margin-top:32rpx;margin-bottom:24rpx;">
                     <view class="small" style="margin-right:12rpx;">
                     </view>
-                    <view class="stat-tit">申请时间：2020-04-01 14:32</view>
+                    <view class="stat-tit">充值编号：{{item.id}}</view>
                 </view>
                 <view class=" flex flex-ver flex-jcfs width-len" style="margin-bottom:24rpx;">
                     <view class="small" style="margin-right:12rpx;">
                     </view>
-                    <view class="stat-tit">申请时间：2020-04-01 14:32</view>
+                    <view class="stat-tit">到账时间：{{item.update_time}}</view>
                 </view>
                 <view class=" flex flex-ver flex-jcfs width-len" style="margin-bottom:24rpx;">
                     <view class="small" style="margin-right:12rpx;">
                     </view>
-                    <view class="stat-tit" style="color:#999999">备注：</view>
-                </view>
-                <view>
-
-                </view>
-            </view>
-        </view>
-        <view class="box flex width-len flex-col flex-jcfs " style="margin-top:20rpx;">
-            <view class="box-top flex flex-ver flex-jcfs width-len">
-                <view class="small" style="margin-right:12rpx;">
-                </view>
-                <view class="stat-tit">申请时间：2020-04-01 14:32</view>
-                <view class="stat-box" style="background:#FC7F03">充值中</view>
-            </view>
-            <view style='height:2rpx;width:670rpx;background:#F5F5F5;margin-bottom:28rpx;'></view>
-            <view class="box-bottom width-len flex flex-start flex-col flex-jcfs">
-                <view class="flex flex-jcsb  width-len">
-                    <text class="act-tit">广州名锐讯动信息科技有限公司</text>
-                    <text class="act-tit" style="color:#FC7F03;margin-right:40rpx">¥3000.00</text>
-                </view>
-                <view class=" flex flex-ver flex-jcfs width-len" style="margin-top:32rpx;margin-bottom:24rpx;">
-                    <view class="small" style="margin-right:12rpx;">
-                    </view>
-                    <view class="stat-tit">申请时间：2020-04-01 14:32</view>
-                </view>
-                <view class=" flex flex-ver flex-jcfs width-len" style="margin-bottom:24rpx;">
-                    <view class="small" style="margin-right:12rpx;">
-                    </view>
-                    <view class="stat-tit">申请时间：2020-04-01 14:32</view>
-                </view>
-                <view class=" flex flex-ver flex-jcfs width-len" style="margin-bottom:24rpx;">
-                    <view class="small" style="margin-right:12rpx;">
-                    </view>
-                    <view class="stat-tit" style="color:#999999">备注：</view>
-                </view>
-                <view>
-
-                </view>
-            </view>
-        </view>
-        <view class="box flex width-len flex-col flex-jcfs " style="margin-top:20rpx;">
-            <view class="box-top flex flex-ver flex-jcfs width-len">
-                <view class="small" style="margin-right:12rpx;">
-                </view>
-                <view class="stat-tit">申请时间：2020-04-01 14:32</view>
-                <view class="stat-box" style="background:#999">充值失败</view>
-            </view>
-            <view style='height:2rpx;width:670rpx;background:#F5F5F5;margin-bottom:28rpx;'></view>
-            <view class="box-bottom width-len flex flex-start flex-col flex-jcfs">
-                <view class="flex flex-jcsb  width-len">
-                    <text class="act-tit">广州名锐讯动信息科技有限公司</text>
-                    <text class="act-tit" style="color:#FC7F03;margin-right:40rpx">¥3000.00</text>
-                </view>
-                <view class=" flex flex-ver flex-jcfs width-len" style="margin-top:32rpx;margin-bottom:24rpx;">
-                    <view class="small" style="margin-right:12rpx;">
-                    </view>
-                    <view class="stat-tit">申请时间：2020-04-01 14:32</view>
-                </view>
-                <view class=" flex flex-ver flex-jcfs width-len" style="margin-bottom:24rpx;">
-                    <view class="small" style="margin-right:12rpx;">
-                    </view>
-                    <view class="stat-tit">申请时间：2020-04-01 14:32</view>
-                </view>
-                <view class=" flex flex-ver flex-jcfs width-len" style="margin-bottom:24rpx;">
-                    <view class="small" style="margin-right:12rpx;">
-                    </view>
-                    <view class="stat-tit" style="color:#999999">备注：</view>
+                    <view class="stat-tit" style="color:#999999">备注：{{item.refuse_reason||''}}</view>
                 </view>
                 <view>
 
