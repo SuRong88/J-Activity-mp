@@ -6,119 +6,154 @@
             <view class="item-hd flex flex-ver flex-jcsb">
                 <view class="flex flex-ver">
                     <view class="item-tit">
-                        摄影
+                        {{jobInfo.position_name}}
                     </view>
                     <view class="item-status">
-                        {{statusArr[status]}}
+                        {{statusArr[status-1]}}
                     </view>
                 </view>
                 <view class="item-price">
-                    ¥5800.00
+                    ¥{{jobInfo.salary}}
                 </view>
             </view>
             <view class="item-bd">
                 <view class="job-info-item flex">
-                    职位性质：普通
+                    职位性质：{{jobInfo.nature}}
                 </view>
                 <view class="job-info-item flex">
-                    职位时间：2020.05.04-2020.05.04
+                    职位时间：{{jobInfo.start_time}}-{{jobInfo.end_time}}
                 </view>
                 <view class="job-info-item flex">
-                    职位地点：广州市海珠区新港东路234号某某大厦
+                    职位地点：{{jobInfo.address}}{{jobInfo.address_detail}}
                 </view>
                 <view class="job-info-item job-info-content">
                     <view class="label">
                         工作内容：
                     </view>
                     <view class="con-detail">
-                        1、负责节目主持工作；
-                        2、负责与节目相关信息的采集、撰写、审查；
-                        3、维持现场秩序，活跃现场气氛；
+                        {{jobInfo.job_content}}
                     </view>
                 </view>
             </view>
         </view>
         <!-- 服务商列表 -->
         <view class="resource-list">
-            <view wx:for="{{5}}" wx:index="index" class="resource-item">
+            <view wx:for="{{jobInfo.apply_list}}" wx:key="index" class="resource-item">
                 <view class="item-top flex">
                     <view wx:if="{{status==1}}" class="item-top-l">
-                        <image class="item-select-icon" src="{{item%2==0?'/images/workbench/BS_icon15.png':'/images/workbench/BS_icon27.png'}}"></image>
+                        <image bindtap="selectPerson" data-index="{{index}}" class="item-select-icon" src="{{item.selected?'/images/workbench/BS_icon15.png':'/images/workbench/BS_icon27.png'}}"></image>
                     </view>
                     <view class="item-top-r flex-1">
                         <view class="item-hd flex flex-ver flex-jcsb">
-                            <view class="item-tit flex-1 line-hide line-1">胡诗琪是个可爱无敌美少女胡诗琪是个可爱无敌美少女</view>
-                            <text wx:if="{{status==1}}" class="item-other">已选定</text>
-                            <text wx:if="{{status==3}}" class="item-price"> ¥5800.00</text>
+                            <view class="item-tit flex-1 line-hide line-1">
+                                {{item.nickname}}
+                            </view>
+                            <text wx:if="{{status==1}}" class="item-other">
+                                {{personStatusArr[item.is_approve]}}
+                            </text>
+                            <text wx:if="{{status==3}}" class="item-price"> ¥{{jobInfo.salary}}</text>
                         </view>
                         <view class="item-tags flex flex-wrap">
-                            <view class="item-tag">
-                                舞蹈表演
-                            </view>
-                            <view class="item-spe flex flex-ver">
-                                |
-                            </view>
-                            <view class="item-tag">
-                                舞蹈表演
-                            </view>
+                            <block wx:for="{{item.position_list}}" wx:key="subIndex" wx:for-index="subIndex"
+                                wx:for-item="subItem">
+                                <view class="item-tag">
+                                    {{subItem.name}}
+                                </view>
+                                <view wx:if="{{subIndex<item.position_list.length-1}}" class="item-spe flex flex-ver">
+                                    |
+                                </view>
+                            </block>
                         </view>
                         <view class="item-info">
-                            姓名：胡诗琪
+                            姓名： {{item.nickname}}
                         </view>
                         <view class="item-info">
-                            手机号码：15626129191
+                            手机号码： {{item.phone}}
                         </view>
                         <view class="item-info">
-                            身份证号码：441881199604139284
+                            身份证号码： {{item.id_card}}
                         </view>
                         <!-- “待验收”状态 -->
                         <block wx:if="{{status==3}}">
                             <view class="item-info">
                                 验收材料：
                             </view>
-                            <image class="data-img" src="/images/workbench/proof.png"></image>
+                            <image class="data-img" src="{{item.service_img}}"></image>
                             <view class="item-info">
-                                验收说明：无
+                                验收说明：{{item.remark||'无'}}
                             </view>
                         </block>
                     </view>
                 </view>
                 <view class="item-bottom flex flex-end flex-jcfe">
-                    <view class="item-btn plain">
-                        服务商详情
-                    </view>
-                    <view class="item-btn">
-                        驳回
-                    </view>
+                    <!-- 招募中1 -->
+                    <block wx:if="{{status==1}}">
+                        <view bindtap="base_jump" data-url="/pages/workbench/serviceDetail/serviceDetail?userId={{item.id}}&index={{index}}"
+                            class="item-btn plain">
+                            服务商详情
+                        </view>
+                    </block>
+                    <!-- 待验收2 -->
+                    <block wx:if="{{status==2}}">
+                        <view bindtap="base_jump" data-url="/pages/workbench/serviceDetail/serviceDetail?userId={{item.id}}&index={{index}}"
+                            class="item-btn plain">
+                            服务商详情
+                        </view>
+                        <view bindtap="base_jump" data-url="/pages/workbench/reject/reject?id={{item.apply_id}}" class="item-btn plain">
+                            驳回
+                        </view>
+                        <view bindtap="base_jump" data-url="/pages/workbench/passAcceptance/passAcceptance?applyId={{item.apply_id}}&userId={{item.id}}&type=1"
+                            class="item-btn">
+                            通过验收
+                        </view>
+                    </block>
+                    <!-- 已完结3 -->
+                    <block wx:if="{{status==3}}">
+                        <view bindtap="base_jump" data-url="/pages/workbench/serviceDetail/serviceDetail?userId={{item.id}}&index={{index}}"
+                            class="item-btn plain">
+                            服务商详情
+                        </view>
+                        <view bindtap="base_jump" data-url="/pages/workbench/passAcceptance/passAcceptance?applyId={{item.apply_id}}&userId={{item.id}}&type=2"
+                            class="item-btn plain">
+                            补充验收材料
+                        </view>
+                    </block>
+                    <!-- 已关闭4 -->
+                    <block wx:if="{{status==4}}">
+                        <view bindtap="base_jump" data-url="/pages/workbench/serviceDetail/serviceDetail?userId={{item.id}}&index={{index}}"
+                            class="item-btn">
+                            服务商详情
+                        </view>
+                    </block>
                 </view>
             </view>
         </view>
         <!-- 招募选中服务商按钮 -->
         <view wx:if="{{status==1}}" class="bottom-box flex flex flex-jcsb flex-ver">
             <view class="select-num">
-                可选择2/2
+                可选择{{checkedLength}}/{{checkedMaxLength}}
             </view>
-            <view class="btn-confirm">确认</view>
+            <view bindtap="confirmSend" class="btn-confirm">确认</view>
         </view>
         <!-- 确认派单 -->
         <mp-popBox wx:if="{{showMask}}" cln="'order-popBox'" showTitle="{{false}}" showContent bind:confirm='confirmHandle'
             bind:cancel='cancelHandle' showCancel='{{false}}' confirmText="确认派单">
             <view class="order-list">
-                <view wx:for="{{5}}" class="order-item flex">
+                <view wx:for="{{checkedArr}}" wx:key="index" class="order-item flex">
                     <view class="item-l flex flex-ver">
                         <image class="item-icon" src="/images/workbench/BS_icon15.png" mode="aspectFit"></image>
                     </view>
                     <view class="item-r flex-1">
                         <view class="item-tit">
-                            胡诗琪
+                            {{item.nickname}}
                         </view>
                         <view class="item-info item-name">
                             <text class="label">姓名：</text>
-                            <text class="value">胡诗琪</text>
+                            <text class="value">{{item.nickname}}</text>
                         </view>
                         <view class="item-info item-id">
                             <text class="label">身份证号：</text>
-                            <text class="value">441881199604133949</text>
+                            <text class="value">{{item.id_card}}</text>
                         </view>
                     </view>
                 </view>

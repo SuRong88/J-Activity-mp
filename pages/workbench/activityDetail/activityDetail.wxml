@@ -19,94 +19,66 @@
             </view>
         </view>
         <view class="activity-job-box">
-            <view class="job-item orange">
+            <view wx:for="{{info.position_list}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex" class="job-item {{subItem.status!=4?'orange':''}}">
                 <view class="item-t flex flex-ver flex-jcsb">
                     <view class="flex flex-ver">
                         <view class="item-tit">
-                            摄影
+                            {{subItem.position_name}}
                         </view>
                         <view class="item-status">
-                            招募中
+                            {{statusArr[subItem.status-1]}}
                         </view>
                     </view>
                     <view class="item-price">
-                        ¥5800.00
+                        ¥{{subItem.salary}}
                     </view>
                 </view>
                 <view class="item-m">
                     <view class="job-info-item flex">
-                        所需人数：5/3
+                        所需人数：{{subItem.apply_num}}/{{subItem.people_num}}
                     </view>
                     <view class="job-info-item flex">
-                        职位性质：普通
+                        职位性质：{{subItem.nature}}
                     </view>
                     <view class="job-info-item flex">
-                        职位时间：2020.05.04-2020.05.04
+                        职位时间：{{subItem.start_time}}-{{subItem.end_time}}
                     </view>
                     <view class="job-info-item flex">
-                        职位地点：广州市海珠区新港东路234号某某大厦
+                        职位地点：{{info.address}}{{info.address_detail}}
                     </view>
                     <view class="job-info-item job-info-content">
                         <view class="label">
                             工作内容：
                         </view>
-                        <view class="con-detail {{item.spread?'spread':''}}">
-                            1、负责节目主持工作；
-                            2、负责与节目相关信息的采集、撰写、审查；
-                            3、维持现场秩序，活跃现场气氛；
-                            <image bindtap="showJobContent" class="fold-icon" src="/images/workbench/arrow-down.png"></image>
+                        <view class="con-detail {{subItem.spread?'spread':''}}">
+                            {{subItem.job_content}}
+                            <image data-index="{{subIndex}}" bindtap="showJobContent" class="fold-icon" src="/images/workbench/arrow-down.png"></image>
                         </view>
                     </view>
-
                 </view>
                 <view class="item-b flex flex-jcfe">
-                    <view class="item-btn plain">关闭职位</view>
-                    <view class="item-btn">补充验收材料</view>
-                </view>
-            </view>
-            <view class="job-item">
-                <view class="item-t flex flex-ver flex-jcsb">
-                    <view class="flex flex-ver">
-                        <view class="item-tit">
-                            摄影
-                        </view>
-                        <view class="item-status">
-                            招募中
-                        </view>
-                    </view>
-                    <view class="item-price">
-                        ¥5800.00
-                    </view>
-                </view>
-                <view class="item-m">
-                    <view class="job-info-item flex">
-                        所需人数：5/3
-                    </view>
-                    <view class="job-info-item flex">
-                        职位性质：普通
-                    </view>
-                    <view class="job-info-item flex">
-                        职位时间：2020.05.04-2020.05.04
-                    </view>
-                    <view class="job-info-item flex">
-                        职位地点：广州市海珠区新港东路234号某某大厦
-                    </view>
-                    <view class="job-info-item job-info-content">
-                        <view class="label">
-                            工作内容：
-                        </view>
-                        <view class="con-detail spread">
-                            1、负责节目主持工作；
-                            2、负责与节目相关信息的采集、撰写、审查；
-                            3、维持现场秩序，活跃现场气氛；
-                            <image class="fold-icon" src="/images/workbench/arrow-down.png"></image>
-                        </view>
-                    </view>
-
-                </view>
-                <view class="item-b flex flex-jcfe">
-                    <view class="item-btn plain">关闭职位</view>
-                    <view class="item-btn">补充验收材料</view>
+                    <!-- 招募中 -->
+                    <block wx:if="{{subItem.status==1}}">
+                        <view data-index="{{subIndex}}" data-id="{{subItem.position_id}}" bindtap="showCloseJob" class="item-btn plain">关闭职位</view>
+                        <view bindtap="shareJob" class="item-btn plain">分享职位</view>
+                        <view bindtap="base_jump" data-url="/pages/workbench/jobDetail/jobDetail?status={{subItem.status}}&activity_id={{info.id}}&id={{subItem.position_id}}"
+                            class="item-btn">勾选派单</view>
+                    </block>
+                    <!-- 待验收 -->
+                    <block wx:if="{{subItem.status==2}}">
+                        <view bindtap="base_jump" data-url="/pages/workbench/jobDetail/jobDetail?status={{subItem.status}}&activity_id={{info.id}}&id={{subItem.position_id}}"
+                            class="item-btn plain">查看服务商</view>
+                        <view bindtap="base_jump" data-url="/pages/workbench/jobDetail/jobDetail?status={{subItem.status}}&activity_id={{info.id}}&id={{subItem.position_id}}"
+                            class="item-btn">验收结算</view>
+                    </block>
+                    <!-- 已完结 -->
+                    <block wx:if="{{subItem.status==3}}">
+                        <view bindtap="base_jump" data-url="/pages/workbench/jobDetail/jobDetail?status={{subItem.status}}&activity_id={{info.id}}&id={{subItem.position_id}}"
+                            class="item-btn plain">查看服务商</view>
+                        <view bindtap="base_jump" data-url="/pages/workbench/jobDetail/jobDetail?status={{subItem.status}}&activity_id={{info.id}}&id={{subItem.position_id}}"
+                            class="item-btn">补充验收材料</view>
+                    </block>
+                    <!-- 已关闭 不显示 -->
                 </view>
             </view>
         </view>

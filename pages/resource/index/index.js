@@ -207,7 +207,7 @@ VM.addPrivate = function(e) {
 VM.removePrivate = function(e) {
     let id = util.dataset(e, 'id')
     let index = util.dataset(e, 'index')
-    Req.request('addPrivate', {
+    Req.request('removePrivate', {
         user_id: id
     }, {
         method: 'delete'

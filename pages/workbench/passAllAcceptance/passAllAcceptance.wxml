@@ -3,33 +3,39 @@
     <view class="content">
 
         <view class="job-list">
-            <view wx:for="{{3}}" wx:key="index" class="job-item {{index%2==0?'spread':''}}">
+            <view wx:for="{{list}}" wx:key="index" class="job-item {{item.spread?'spread':''}}">
                 <view class="job-item-hd flex flex-ver">
                     <item class="job-name">
-                        主持司仪
+                        {{item.name}}
                     </item>
-                    <image class="item-icon-arrow" src="/images/workbench/arrow-down.png"></image>
+                    <image bindtap="spreadHandle" data-index="{{index}}" class="item-icon-arrow" src="/images/workbench/arrow-down.png"></image>
                 </view>
-                <view class="job-item-bd">
+                <view hidden="{{!item.spread}}" class="job-item-bd">
                     <view class="service-list">
-                        <view wx:for="{{3}}" wx:key="index" class="service-item flex">
+                        <view wx:for="{{item.apply_list}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex"
+                            class="service-item flex">
                             <view class="service-item-l">
                                 <view class="service-item-index">
-                                    0{{index}}
+                                    0{{subIndex+1}}
                                 </view>
                             </view>
                             <view class="service-item-r flex-1">
-                                <view class="service-item-name">
-                                    胡诗琪
+                                <view class="service-item-name-price flex flex-ver flex-jcsb">
+                                    <text class="service-item-name">{{subItem.nickname}}</text>
+                                    <text class="service-item-price">¥{{subItem.salary}}</text>
                                 </view>
                                 <view class="service-item-info">
-                                    身份证号：441881199604133949
+                                    身份证号：{{subItem.id_card}}
                                 </view>
                                 <view class="service-item-info">
-                                    银行卡号：92346219635263856
+                                    银行卡号：{{subItem.bank_num}}
                                 </view>
                                 <view class="service-item-info">
-                                    手机号：15626129191
+                                    手机号：{{subItem.phone}}
+                                </view>
+                                <view class="service-item-enter-box flex flex-jcfe">
+                                    <input data-index1="{{index}}" data-index2="{{subIndex}}" value="{{subItem.value}}" bindinput="changeinput" placeholder="金额"
+                                        placeholder-class="holder-class" class="service-item-enter" type="number" />
                                 </view>
                             </view>
                         </view>
@@ -39,8 +45,8 @@
         </view>
 
         <view class="bottom-box flex flex-jcfe flex-ver">
-            <view class="btn-confirm">上传验收材料</view>
-            <view class="btn-confirm">一键验收</view>
+            <view bindtap="base_jump" data-url="/pages/workbench/uploadData/uploadData" class="btn-confirm">上传验收材料</view>
+            <view bindtap="submitHandle" class="btn-confirm {{disabled?'waiting':''}}">一键验收</view>
         </view>
     </view>
 </view>

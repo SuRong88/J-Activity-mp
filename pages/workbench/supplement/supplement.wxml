@@ -1,6 +1,29 @@
 <view class="container">
-    <mp-header cln="'header'" title="工作台"></mp-header>
+    <mp-header isHome="{{isHome}}" showBack title="{{titleArr[type-1]}}"></mp-header>
     <view class="content">
+        <view class="data-menu">
+            <view class="data-item">
+                <view class="item-label">
+                    验收材料
+                </view>
+                <image class="upload-icon" src="/images/workbench/mine_img07.png"></image>
+            </view>
+            <view class="data-item">
+                <view class="item-label">
+                    {{labelArr[type-1]}}
+                </view>
+                <image class="upload-icon" src="/images/task/upload.jpg"></image>
+            </view>
+            <view class="data-item">
+                <view class="item-label">
+                    结算金额
+                </view>
+                <input class="item-enter" placeholder="请输入结算金额" placeholder-class="item-placeholder" type="text" />
+            </view>
+
+        </view>
+        <view class="common-btn">
+            提交
+        </view>
     </view>
-    <mp-tabbar tabbarIndex="3"></mp-tabbar>
 </view>

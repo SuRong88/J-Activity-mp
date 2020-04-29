@@ -94,7 +94,7 @@ VM.closeActivity = function(e) {
 VM.confirmClose = function(e) {
     let closeId = this.data.closeId
     let closeIndex = this.data.closeIndex
-    Req.request('closeJob', {
+    Req.request('closeActivity', {
         activity_id: closeId
     }, {
         method: 'post'

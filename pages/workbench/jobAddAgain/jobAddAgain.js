@@ -5,6 +5,8 @@ const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 const VM = {
     data: {
+        // 添加职位的活动id
+        activityId: '',
         // 工作地址
         workAddress: '',
         startDate: '',
@@ -21,7 +23,7 @@ const VM = {
             // startSelected: false,
             // endDate: '结束日期',
             // endSelected: false,
-            special: 1,
+            special: 0,
             userIds: [],
             salary: ''
         }],
@@ -31,9 +33,10 @@ VM.init = function(query) {
     // 设置自定义头部
     util.setHeader(this);
     this.setData({
-        workAddress: query.workAddress || '活动地址',
-        startDate: query.startDate || '1970-01-01',
-        endDate: query.endDate || '1970-01-01'
+        activityId: query.id,
+        workAddress: query.workAddress,
+        startDate: query.startDate,
+        endDate: query.endDate
     })
 }
 VM.onLoad = function(query) {
@@ -53,7 +56,7 @@ VM.addJob = function() {
     let job = {
         jobId: '',
         content: '',
-        spread: false,
+        spread: true,
         number: 1,
         // startDate: '开始日期',
         // startSelected: false,
@@ -131,7 +134,8 @@ VM.jobHireType = function(e) {
 //     });
 // }
 // 发布活动
-VM.createActivity = function() {
+VM.submitInfo = function() {
+    let activityId = this.data.activityId
     let jobList = this.data.jobList
     for (let i = 0; i < jobList.length; i++) {
         let item = jobList[i]
@@ -162,24 +166,18 @@ VM.createActivity = function() {
         job_list.push(newItem)
     }
     console.log('职位列表', job_list);
-    // 创建活动的基本信息
-    let activityCreateInfo = app.globalData.activityCreateInfo
-    Req.request('createActivity', {
-        cover_img: activityCreateInfo.coverId,
-        name: activityCreateInfo.name,
-        desc: activityCreateInfo.desc,
-        address: activityCreateInfo.address,
-        address_detail: activityCreateInfo.addressDetail,
-        start_time: activityCreateInfo.startDate,
-        end_time: activityCreateInfo.endDate,
+    Req.request('addJobAgain', {
+        activity_id: activityId,
         job_list: JSON.stringify(job_list)
     }, {
         method: 'post'
     }, (res) => {
-        //res.data返回创建活动的id 
-        wx.navigateTo({
-            url: '/pages/workbench/publishSuccess/publishSuccess?id'+res.data+'&type=2'
-        })
+        util.Toast('添加成功')
+        setTimeout(() => {
+            wx.navigateBack({
+                delta: 1
+            })
+        }, 1500)
     })
 
 

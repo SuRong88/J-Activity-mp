@@ -123,8 +123,8 @@
                 <text class="add-txt">添加职位</text>
             </view>
         </view>
-        <view bindtap="createActivity" class="common-btn">
-            发布
+        <view bindtap="submitInfo" class="common-btn">
+            添加
         </view>
     </view>
 </view>

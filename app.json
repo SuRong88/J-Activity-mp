@@ -54,6 +54,7 @@
         "pages/workbench/publishSuccess/publishSuccess",
         "pages/workbench/addressSelect/addressSelect",
         "pages/workbench/jobSelect/jobSelect",
+        "pages/workbench/uploadData/uploadData",
         "pages/test/test"
     ],
     "permission": {

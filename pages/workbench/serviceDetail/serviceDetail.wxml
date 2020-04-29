@@ -5,51 +5,42 @@
             <view class="hd-left flex-1">
                 <view class="intro-box">
                     <view class="intro-hd flex flex-ver">
-                        <image class="wechat-avatar" src="/images/resource/ISP_img04.png"></image>
+                        <image class="wechat-avatar" src="{{info.head_img}}"></image>
                         <view class="nickname">
-                            胡诗琪是个可爱无敌美少女
+                            {{info.nickname}}
                         </view>
                     </view>
                     <view class="intro-bd tags flex flex-wrap">
-                        <view class="tag">
-                            舞蹈表演
-                        </view>
-                        <view class="tag">
-                            舞蹈表演
-                        </view>
-                        <view class="tag">
-                            舞蹈表演
-                        </view>
-                        <view class="tag">
-                            舞蹈表演
+                        <view wx:for="{{info.position_list}}" wx:key="index" class="tag">
+                            {{item.name}}
                         </view>
                     </view>
                 </view>
                 <view class="info-box">
                     <view class="item flex flex-ver">
                         <image class="item-icon" src="/images/workbench/BS_icon17.png"></image>
-                        <text class="item-txt">姓名：胡诗琪</text>
+                        <text class="item-txt">姓名：{{info.nickname}}</text>
                     </view>
                     <view class="item flex flex-ver">
                         <image class="item-icon" src="/images/activity/event_icon04.png"></image>
-                        <text class="item-txt">联系方式：15626129191</text>
+                        <text class="item-txt">联系方式：{{info.phone}}</text>
                     </view>
                     <view class="item flex flex-ver">
                         <image class="item-icon" src="/images/workbench/BS_icon18.png"></image>
-                        <text class="item-txt">身份证号：441881199604130394</text>
+                        <text class="item-txt">身份证号：{{info.id_card}}</text>
                     </view>
                     <view class="item flex flex-ver">
                         <image class="item-icon" src="/images/workbench/BS_icon19.png"></image>
-                        <text class="item-txt">银行卡号：23752706287602748</text>
+                        <text class="item-txt">银行卡号：{{info.bank_num}}</text>
                     </view>
                     <view class="item flex flex-ver">
                         <image class="item-icon" src="/images/activity/event_icon03.png"></image>
-                        <text class="item-txt">所属地区：广东省广州市海珠区</text>
+                        <text class="item-txt">所属地区：{{info.address}}{{info.address_detail}}</text>
                     </view>
                 </view>
             </view>
             <view class="hd-right">
-                <image class="info-avatar" src="/images/index/img03.jpg"></image>
+                <image class="info-avatar" src="{{info.head_img}}"></image>
             </view>
         </view>
         <view class="con-bd">
@@ -59,13 +50,25 @@
                     <view class="line"></view>
                 </view>
                 <view class="box-con">
-                    广州名锐讯动信息科技有限公司是一家专注于企业互联网+服务的企业，服务内容主要包括PC网站建设、移动端网站（html5）开发、微信平台技术支持、企业形象设计、大型项目策划、新媒体运营等。
-                    我们致力于为企业带来互联网+的蜕变，为各色项目提供解决方案，为创业者实现创业梦想。合作单位包括上市公司、国企、500强企业、政府部门等。
+                    {{info.work_experience}}
                 </view>
             </view>
             <view class="bottom-box flex flex-ver flex-jcfe">
-                <view class="control-btn plain">拒绝</view>
-                <view class="control-btn">派单</view>
+                <!-- 0未审核 1已审核 2已拒绝 -->
+                <!-- 可派单 -->
+                <block wx:if="{{info.is_approve==0}}">
+                    <view bindtap="refuseHandle" class="control-btn plain">拒绝</view>
+                    <view bindtap="sendHandle" class="control-btn">派单</view>
+                </block>
+                <!-- 已拒绝 -->
+                <block wx:if="{{info.is_approve==1}}">
+                    <view class="control-btn plain">已派单</view>
+                </block>
+                <!-- 已派单 -->
+                <block wx:if="{{info.is_approve==2}}">
+                    <view class="control-btn plain">已拒绝</view>
+                </block>
+                
             </view>
         </view>
     </view>

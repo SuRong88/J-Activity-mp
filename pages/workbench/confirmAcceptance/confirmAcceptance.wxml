@@ -4,32 +4,32 @@
 
         <view class="user-info">
             <view class="info-hd flex flex-ver flex-jcsb">
-                <view class="info-name">胡诗琪</view>
-                <view class="info-price">¥800.00</view>
+                <view class="info-name">{{prevData.info.name}}</view>
+                <view class="info-price">¥{{prevData.amount}}</view>
             </view>
             <view class="info-bd">
-                <view class="info-item">身份证号：441881199604133949</view>
-                <view class="info-item">银行卡号：92346219635263856</view>
-                <view class="info-item">手机号：15626129191</view>
+                <view class="info-item">身份证号：{{prevData.info.id_card}}</view>
+                <view class="info-item">银行卡号：{{prevData.info.bank_num}}</view>
+                <view class="info-item">手机号：{{prevData.info.phone}}</view>
             </view>
         </view>
 
         <view class="phone-box">
             <view class="enter-item flex flex-ver">
                 <image class="item-icon" src="/images/login/icon18.png"></image>
-                <input bindinput="" placeholder="请输入手机号码" placeholder-class="enter-placeholder" class="item-enter flex-1"
+                <input bindinput="inputPhone" placeholder="请输入手机号码" placeholder-class="enter-placeholder" class="item-enter flex-1"
                     type="text" />
             </view>
             <view class="enter-item  flex flex-ver">
                 <image class="item-icon" src="/images/login/icon19.png"></image>
-                <input bindinput="" placeholder="请输入验证码" placeholder-class="enter-placeholder" class="item-enter flex-1"
+                <input bindinput="inputCode" placeholder="请输入验证码" placeholder-class="enter-placeholder" class="item-enter flex-1"
                     type="text" />
-                <view bindtap="sendCode" class="send-btn">
-                    发送验证码
+                <view bindtap="sendCode" class="send-btn {{phone_code_class}}">
+                    {{phone_code_text}}
                 </view>
             </view>
         </view>
-        <view class="common-btn">确认验收</view>
+        <view bindtap="submitHandle" class="common-btn">确认验收</view>
     </view>
     <!-- 图形验证码 -->
     <mp-popBox wx:if="{{showMask}}" cln="'captcha-popBox'" title="图形验证码" showContent bind:confirm='confirmCaptcha'
@@ -38,7 +38,7 @@
             <view class="box-main flex flex-ver">
                 <input bindinput="inputCaptcha" class="captcha-enter flex-1" placeholder="请输入右侧验证码" placeholder-class="captcha-enter-placeholder"
                     type="text" maxlength="4" />
-                <image class="captcha-img" src="/images/login/img13.png" mode="aspectFit"></image>
+                <image bindtap="changeCaptcha" class="captcha-img" src="{{captchaUrl}}" mode="aspectFit"></image>
             </view>
             <text class="tip">{{tips[tipIndex]}}</text>
         </view>

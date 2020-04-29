@@ -339,6 +339,48 @@
 					"pathName": "pages/workbench/account/account",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-私有服务商",
+					"pathName": "pages/workbench/privateList/privateList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-职位详情",
+					"pathName": "pages/workbench/jobDetail/jobDetail",
+					"query": "activity_id=23&id=17&status=1",
+					"scene": null
+				},
+				{
+					"id": 43,
+					"name": "工作台-通过验收",
+					"pathName": "pages/workbench/passAcceptance/passAcceptance",
+					"query": "applyId=16&userId=1&type=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-一键验收-再次确认",
+					"pathName": "pages/workbench/confirmAllAcceptance/confirmAllAcceptance",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-一键验收-上传材料",
+					"pathName": "pages/workbench/uploadData/uploadData",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-一键验收",
+					"pathName": "pages/workbench/passAllAcceptance/passAllAcceptance",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

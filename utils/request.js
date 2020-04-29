@@ -71,7 +71,15 @@ const OPTIONS = {
     invoiceList: {
         url: `${HOST}/invoice/list`
     },
-    // 关闭活动
+    // 开票记录
+    invoiceList: {
+        url: `${HOST}/invoice/list`
+    },
+    // 添加职位（已有活动-添加职位）
+    addJobAgain: {
+        url: `${HOST}/activity/addPosition`
+    },
+    //关闭活动
     closeActivity: {
         url: `${HOST}/activity/close`
     },
@@ -107,6 +115,10 @@ const OPTIONS = {
     dispatchAll: {
         url: `${HOST}/enter[rise/allowApplyPlu`
     },
+    //获取验收时候的基本信息（服务商的信息）
+    getAcceptanceInfo: {
+        url: `${HOST}/enterprise/acceptanceInfo`
+    },
     //通过验收
     passAcceptance: {
         url: `${HOST}/enterprise/acceptance`
@@ -115,6 +127,10 @@ const OPTIONS = {
     refuseAcceptance: {
         url: `${HOST}/enterprise/rejectAcceptance`
     },
+    //拒绝报名
+    refuseApply: {
+        url: `${HOST}/enterprise/refuseApply`
+    },
     //消息列表
     getMsgList: {
         url: `${HOST}/enterprise/message`
@@ -122,6 +138,10 @@ const OPTIONS = {
     //账户明细
     getAccountList: {
         url: `${HOST}/enterprise/accountLog`
+    },
+    // 获取一键验收、一键派单的列表
+    getAllList:{
+        url: `${HOST}/activity/getApplyList`
     },
     /*
      **服务商
@@ -203,8 +223,12 @@ const OPTIONS = {
     getCaptcha: {
         url: `${HOST}/captcha/login`
     },
-    // 获取图形码---修改银行卡
+    // 获取图形码---验收
     getCaptcha2: {
+        url: `${HOST}/captcha/acceptance`
+    },
+    // 获取图形码---修改银行卡
+    getCaptcha3: {
         url: `${HOST}/captcha/change`
     },
     // 发送验证码

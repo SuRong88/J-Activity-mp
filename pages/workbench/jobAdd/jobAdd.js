@@ -21,7 +21,7 @@ const VM = {
             // startSelected: false,
             // endDate: '结束日期',
             // endSelected: false,
-            special: 1,
+            special: 0,
             userIds: [],
             salary: ''
         }],
@@ -53,7 +53,7 @@ VM.addJob = function() {
     let job = {
         jobId: '',
         content: '',
-        spread: false,
+        spread: true,
         number: 1,
         // startDate: '开始日期',
         // startSelected: false,

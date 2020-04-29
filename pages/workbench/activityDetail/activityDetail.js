@@ -7,10 +7,13 @@ const VM = {
     data: {
         // 活动详情
         info: null,
-        
+
         // 关闭职位
         showMask: false, //关闭职位mask
-        
+        closeId: '', //关闭职位id
+        closeIndex: '', //关闭职位index
+
+
         statusArr: ['招募中', '待验收', '已完结', '已关闭'],
 
     }
@@ -64,8 +67,8 @@ VM.getList = function() {
     })
 }
 
-// 关闭活动
-VM.closeActivity = function(e) {
+// 关闭职位
+VM.showCloseJob = function(e) {
     let closeId = util.dataset(e, 'id')
     let closeIndex = util.dataset(e, 'index')
     this.setData({
@@ -77,18 +80,20 @@ VM.closeActivity = function(e) {
 
 // 确认关闭
 VM.confirmClose = function(e) {
+    let activityId = this.data.info.id
+    // 职位id
     let closeId = this.data.closeId
     let closeIndex = this.data.closeIndex
-    Req.request('closeActivity', {
-        activity_id: closeId
+    Req.request('closeJob', {
+        activity_id: activityId,
+        position_id: closeId
     }, {
         method: 'post'
     }, (res) => {
         util.Toast('关闭成功')
-        let list = this.data.list
-        list[closeIndex].status = 4
+        let tar = 'info.position_list[' + closeIndex + '].status'
         this.setData({
-            list: list,
+            [tar]: 4,
             showMask: false,
             closeId: '',
             closeIndex: ''
@@ -99,7 +104,20 @@ VM.confirmClose = function(e) {
 VM.cancelClose = function() {
     this.setData({
         showMask: false,
-        closeId: ''
+        closeId: '',
+        closeIndex: ''
     })
+}
+// 折叠职位列表的工作内容
+VM.showJobContent = function(e) {
+    let index = util.dataset(e, 'index')
+    let tar = 'info.position_list[' + index + '].spread'
+    this.setData({
+        [tar]: !this.data.info.position_list[index].spread
+    })
+}
+// 分享职位（生成海报）
+VM.shareJob = function(e) {
+    util.Toast('待补充接口')
 }
 Page(VM)

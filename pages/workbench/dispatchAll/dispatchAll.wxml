@@ -16,7 +16,7 @@
                 </view>
                 <view class="job-item-bd">
                     <view class="service-list">
-                        <view wx:for="{{3}}" wx:key="index" class="service-item flex">
+                        <view wx:for="{{3}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex" class="service-item flex">
                             <view class="service-item-l">
                                 <image class="item-icon" src="/images/workbench/BS_icon15.png"></image>
                             </view>

@@ -153,8 +153,10 @@ App({
     getCaptcha: function(type = 'login') {
         if (type == 'login') { //登录
             return Req.OPTIONS.getCaptcha.url + '?t=' + new Date().getTime()
-        } else { //修改银行卡
+        } else if (type == 'acceptance') { //验收
             return Req.OPTIONS.getCaptcha2.url + '?t=' + new Date().getTime()
+        } else { //修改银行卡
+            return Req.OPTIONS.getCaptcha3.url + '?t=' + new Date().getTime()
         }
     },
     // 获取服务器用户信息(未启用)

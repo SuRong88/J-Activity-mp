@@ -31,6 +31,7 @@
                     <view class="item-address line-hide line-1">活动地点：{{item.address}}{{item.addressDetail}}</view>
                 </view>
                 <view class="item-b flex flex-ver flex-jcfe">
+                    <!-- 招募中 -->
                     <block wx:if="{{item.status==1}}">
                         <view bindtap="closeActivity" data-id="{{item.id}}" data-index="{{index}}" class="item-btn plain">
                             关闭活动
@@ -41,12 +42,13 @@
                         <view bindtap="base_jump" data-url="/pages/workbench/dispatchAll/dispatchAll?id={{item.id}}" class="item-btn plain">
                             一键派单
                         </view>
-                        <view bindtap="base_jump" data-url="/pages/workbench/jobAddAgain/jobAddAgain?id={{item.id}}" class="item-btn">
+                        <view bindtap="base_jump" data-url="/pages/workbench/jobAddAgain/jobAddAgain?id={{item.id}}&workAddress={{item.address}}{{item.address_detail}}&startDate={{item.start_time}}&endDate={{item.end_time}}" class="item-btn">
                             添加职位
                         </view>
                     </block>
+                    <!-- 待验收 -->
                     <block  wx:if="{{item.status==2}}">
-                        <view bindtap="base_jump" data-url="/pages/workbench/confirmAcceptance/confirmAcceptance?id={{item.id}}" class="item-btn">
+                        <view bindtap="base_jump" data-url="/pages/workbench/passAllAcceptance/passAllAcceptance?id={{item.id}}" class="item-btn">
                             一键验收
                         </view>
                     </block>

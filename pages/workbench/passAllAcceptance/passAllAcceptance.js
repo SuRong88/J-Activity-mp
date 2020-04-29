@@ -4,14 +4,69 @@ const util = require('../../../utils/util.js');
 const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 const VM = {
-    data: {}
+    data: {
+        disabled: true, //校验
+        imgId: '', //验收材料imgId
+        activityId: '',
+        list: [] //验收数组
+    }
 }
-VM.init = function() {
+VM.init = function(query) {
     // 设置自定义头部
     util.setHeader(this);
+    let activityId = query.id
+    this.setData({
+        activityId: activityId
+    })
+    Req.request('getAllList', {
+        // activity_id: activityId,
+        // test
+        activity_id: 13,
+        // test end
+        status: 1 //1为派单列 2为验收列
+    }, {
+        method: 'get'
+    }, res => {
+        let list = res.data
+        list.forEach(item => {
+            item.spread = false
+            item.apply_list.forEach(subItem => {
+                subItem.amount = ''
+            })
+        })
+        this.setData({
+            list: list
+        })
+    })
 }
 VM.onLoad = function(query) {
-    this.init()
+    this.init(query)
     base.onLoad(this)
+}
+// 折叠
+VM.spreadHandle = function(e) {
+    let index = util.dataset(e, 'index')
+    let list = this.data.list
+    list[index].spread = !list[index].spread
+    this.setData({
+        list: list
+    })
+
+}
+// 输入金额
+VM.changeinput = function(e) {
+    // todo
+    let amount = e.detail.value
+    let index1 = util.dataset(e, 'index1')
+    let index2 = util.dataset(e, 'index2')
+    let list = this.data.list
+    list[index1].apply_list[index2].amount = amount
+    this.setData({
+        list: list
+    })
+}
+// 一键验收
+VM.submitHandle = function() {
+
 }
 Page(VM)

@@ -82,7 +82,7 @@ VM.sendCode = function(e) {
     if (!formcheck.check_phone(this.data.phone)) {
         return util.Toast('手机号格式不正确')
     }
-    let captchaUrl = app.getCaptcha()
+    let captchaUrl = app.getCaptcha('login')
     this.setData({
         show1: true,
         show2: false,
@@ -94,7 +94,7 @@ VM.sendCode = function(e) {
 // 改变图形码
 VM.changeCaptcha = function() {
     this.setData({
-        captchaUrl: app.getCaptcha()
+        captchaUrl: app.getCaptcha('login')
     })
 }
 // 确认图形码
@@ -120,7 +120,7 @@ VM.confirmCaptcha = function(e) {
         util.setDowntime(this)
     }, err => {
         this.setData({
-            captchaUrl: app.getCaptcha(),
+            captchaUrl: app.getCaptcha('login'),
             tipIndex: 2
         })
     })
