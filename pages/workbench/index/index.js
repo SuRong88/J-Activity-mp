@@ -5,7 +5,7 @@ const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 const VM = {
     data: {
-        showBox: false,
+        showLogout: false,
         iconArr: [{
             name: "充值",
             iconUrl: '/images/workbench/money.png',
@@ -17,11 +17,11 @@ const VM = {
         }, {
             name: '派单',
             iconUrl: '/images/workbench/money.png',
-            link: '/pages/workbench/dispatchAll/dispatchAll'
+            link: '/pages/workbench/activityManage/activityManage'
         }, {
             name: '验收结算',
             iconUrl: '/images/workbench/money.png',
-            link: '/pages/workbench/recharge/recharge'
+            link: '/pages/workbench/activityManage/activityManage?status=2'
         }, {
             name: '财务管理',
             iconUrl: '/images/workbench/money.png',
@@ -57,23 +57,37 @@ VM.onLoad = function(query) {
 }
 VM.changeStatus = function() {
     this.setData({
-        showBox: true
+        showLogout: true
     })
 }
-VM.cancelHandle = function() {
+VM.cancelLogout = function() {
     this.setData({
-        showBox: false
+        showLogout: false
     })
 }
-VM.confirmHandle = function() {
+VM.confirmLogout = function() {
     this.setData({
-        showBox: false
+        showLogout: false
     })
-    app.globalData.isLogined = false
+    app.globalData = {
+        isConnected: true,
+        isLogined: false,
+        userInfo: null, //微信用户信息
+        companyInfo: null, //企业信息
+        // myInfo: null, //服务器用户信息
+        roleType: 1, //用户角色 1-服务商、2-商家
+        oldTagList: [], //完善信息的类型数组
+        newTagList: [],
+        searchServiceInfo: null, //搜索服务商信息
+        searchActivityInfo: null, //搜索服务商信息
+        activityCreateInfo: null //创建活动信息
+    }
     wx.clearStorage()
-    wx.redirectTo({
+    app.onLaunch()
+    wx.reLaunch({
         url: '/pages/index/index'
     })
+    console.log(app.globalData);
 }
 
 VM.getcompData = function() {

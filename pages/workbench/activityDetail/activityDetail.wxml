@@ -60,7 +60,7 @@
                     <!-- 招募中 -->
                     <block wx:if="{{subItem.status==1}}">
                         <view data-index="{{subIndex}}" data-id="{{subItem.position_id}}" bindtap="showCloseJob" class="item-btn plain">关闭职位</view>
-                        <view bindtap="shareJob" class="item-btn plain">分享职位</view>
+                        <view data-index="{{subIndex}}" bindtap="showShareMask" class="item-btn plain">分享职位</view>
                         <view bindtap="base_jump" data-url="/pages/workbench/jobDetail/jobDetail?status={{subItem.status}}&activity_id={{info.id}}&id={{subItem.position_id}}"
                             class="item-btn">勾选派单</view>
                     </block>
@@ -86,4 +86,36 @@
     <mp-popBox wx:if="{{showMask}}" cln="''" title="您确定关闭该职位吗？" bind:confirm='confirmClose' bind:cancel='cancelClose'
         confirmText="确定">
     </mp-popBox>
+    <!-- 生成“分享职位”海报 -->
+    <view bindtap="closeMask" hidden="{{!showShare}}" class="share-mask">
+        <view catchtap="emptyHandle" class="share-box flex">
+            <button catchtap="createPoster" class="share-item text-c flex-1">
+                <image src="/images/workbench/BS_icon20.png" class="share-icon">
+
+                </image>
+                <view class="share-txt">
+                    生成分享海报
+                </view>
+            </button>
+            <button open-type="share" class="share-item text-c flex-1">
+                <image src="/images/workbench/BS_icon21.png" class="share-icon">
+
+                </image>
+                <view class="share-txt">
+                    分享给好友
+                </view>
+            </button>
+        </view>
+    </view>
+    <view bindtap="closeMask" hidden="{{!showPoster}}" style="padding-top: {{padHeight+40}}rpx;" class="poster-mask">
+        <view class="poster-box">
+            <image mode="widthFix" bindload="showPosterMask" catchtap="previewImage" data-src="{{posterUrl}}" src="{{posterUrl}}"
+                class="poster-img">
+            </image>
+            <button catchtap="savePoster" class="btn-save">
+                保存图片至相册
+            </button>
+        </view>
+    </view>
+    <!-- 生成“分享职位”海报end -->
 </view>

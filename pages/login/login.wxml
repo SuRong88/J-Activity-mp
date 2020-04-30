@@ -40,9 +40,9 @@
                         </view>
                     </view>
                 </view>
-                <view bindtap="confirmLogin" class="common-btn login-btn">
+                <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="common-btn login-btn">
                     立即登录
-                </view>
+                </button>
             </view>
         </view>
         <!-- 图形验证码 -->

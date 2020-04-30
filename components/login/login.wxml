@@ -1,0 +1,17 @@
+<!--自定义弹窗-->
+<view bindtap="cancelHandle" class='popBox login-popBox'>
+    <form catchtap="emptyHandle" bindsubmit='confirmHandle' bindreset='cancelHandle'>
+        <view class='pop'>
+            <view wx:if="{{showTitle}}" class="pop_tit">
+                <text>您还未登录\n请先登录再进行操作</text>
+            </view>
+            <view wx:if="{{showContent}}" class='pop_con'>
+                <slot></slot>
+            </view>
+            <view class='pop_btnBox'>
+                <button wx:if='{{showCancel}}' formType="reset" plain='true' class='pop_btn cancel'>取消</button>
+                <button formType="submit" plain='true' class='pop_btn submit'>确定</button>
+            </view>
+        </view>
+    </form>
+</view>

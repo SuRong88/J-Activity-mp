@@ -5,20 +5,20 @@ const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 const VM = {
     data: {
-        showFilter: false,
-        // 筛选条件
-        filterType: -1,
-        // 排序 1 2
-        sortType: 1,
-
         // pagination
         current: 0,
-        rownum: 4,
+        rownum: 10,
         total: 0,
         total_page: 1,
         list: [],
         isEmpty: false,
 
+        // 筛选条件框
+        showFilter: false,
+        // 筛选条件
+        filterType: -1,
+        // 排序 1 2
+        sortType: 1,
         //搜索信息-关键字
         keyword: '',
         // 搜索信息-职位类型

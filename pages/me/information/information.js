@@ -24,13 +24,13 @@ VM.init = function() {
     }, res => {
         let data = res.data
         this.setData({
-            avatarUrl: data.logo,
-            nickname: data.nickname,
-            exp: data.work_experience,
-            address: data.address,
-            addressDetail: data.address_detail,
-            typeList: data.position_list,
-            certificatUrl: data.work_img
+            avatarUrl: data.logo || '',
+            nickname: data.nickname || '',
+            exp: data.work_experience || '',
+            address: data.address || '',
+            addressDetail: data.address_detail || '',
+            typeList: data.position_list || '',
+            certificatUrl: data.work_img || ''
         })
     })
 }
@@ -145,6 +145,11 @@ VM.submitHandle = function() {
         method: 'put'
     }, res => {
         util.Toast('保存成功')
+        setTimeout(() => {
+            wx.navigateBack({
+                delta: 1
+            })
+        }, 1500)
     })
 }
 Page(VM)

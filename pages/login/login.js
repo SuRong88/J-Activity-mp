@@ -5,7 +5,7 @@ const base = require('../../utils/base.js');
 const Req = require('../../utils/request.js');
 const VM = {
     data: {
-        loading: false,
+        loading: true,
         // 展示验证码
         show1: false,
         // 展示协议
@@ -132,6 +132,16 @@ VM.cancelCaptcha = function(e) {
         captcha: ''
     })
 }
+
+// 用户授权
+VM.getUserInfo = function(e) {
+    if (e.detail.userInfo) { //用户按了允许授权按钮
+        this.confirmLogin()
+    } else { //用户取消授权
+        util.showModal('提示', '请在设置中打开授权', false, '', '确定');
+    }
+}
+
 // 登录
 VM.confirmLogin = function(e) {
     if (!formcheck.check_phone(this.data.phone)) {
@@ -154,8 +164,8 @@ VM.confirmLogin = function(e) {
         console.log(res);
         let data = res.data
         wx.setStorageSync('token', data.token)
-        app.globalData.roleType = data.identity * 1
         util.Toast('登录成功')
+        app.onLaunch()
         setTimeout(() => {
             wx.reLaunch({
                 url: '/pages/index/index'

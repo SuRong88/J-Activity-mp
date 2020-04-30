@@ -12,6 +12,7 @@ const VM = {
     }
 }
 VM.init = function(query) {
+    util.showModal('提示', '服务器出错', false, '', '确定')
     // 设置自定义头部
     util.setHeader(this);
     let activityId = query.id

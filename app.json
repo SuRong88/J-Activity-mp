@@ -1,19 +1,19 @@
 {
     "pages": [
         "pages/index/index",
+        "pages/authentication/index/index",
         "pages/authentication/info/info",
         "pages/authentication/bankCard/bankCard",
         "pages/authentication/complete/complete",
-        "pages/authentication/index/index",
         "pages/authentication/protocol/protocol",
-        "pages/me/index/index",
-        "pages/me/feedback/feedback",
+        "pages/task/index/index",
         "pages/task/detail/detail",
         "pages/task/upload/upload",
-        "pages/task/index/index",
         "pages/login/login",
-        "pages/me/select/select",
+        "pages/me/index/index",
         "pages/me/information/information",
+        "pages/me/select/select",
+        "pages/me/feedback/feedback",
         "pages/resource/index/index",
         "pages/resource/search/search",
         "pages/resource/detail/detail",
@@ -65,7 +65,8 @@
     "usingComponents": {
         "mp-header": "/components/header/header",
         "mp-tabbar": "/components/tabbar/tabbar",
-        "mp-popBox": "/components/popBox/popBox"
+        "mp-popBox": "/components/popBox/popBox",
+        "mp-login": "/components/login/login"
     },
     "networkTimeout": {
         "request": 10000,

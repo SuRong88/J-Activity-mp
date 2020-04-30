@@ -7,8 +7,8 @@
                 <view class="user-box flex flex-ver">
                     <image class="avatar" src="{{avatarUrl}}"></image>
                     <view class="name-status">
-                        <view class="user-name line-hide line-1">{{userInfo.nickname}}</view>
-                        <view class="user-status">
+                        <view class="user-name line-hide line-1">{{nickname}}</view>
+                        <view class="user-status" bindtap="base_jump" data-url="/pages/authentication/index/index">
                             <image class="status-icon" src="{{userInfo.is_auth?'/images/me/mine_icon11.png':'/images/me/mine_icon10.png'}}"></image>
                             <text class="status-txt">{{userInfo.is_auth?'已认证':'未认证'}}</text>
                         </view>
@@ -94,16 +94,12 @@
                     <text class="item-txt">退出登录</text>
                     <image class="item-arrow" src="/images/me/mine_icon13.png"></image>
                 </view>
-                <button open-type="getUserInfo" class="menu-item flex flex-ver">
+               <!-- <button open-type="getUserInfo" class="menu-item flex flex-ver">
                     授权按钮（调试）
-                </button>
+                </button> -->
             </view>
         </view>
     </view>
-    <!-- 登录 -->
-    <mp-popBox wx:if="{{false}}" cln="'login-popBox'" title="您还未登录\n请先登录再进行操作" bind:confirm='confirmLogin' bind:cancel='cancelLogin'
-        confirmText="登录">
-    </mp-popBox>
     <!-- 联系客服 -->
     <mp-popBox wx:if="{{showQrcode}}" cln="'qrcode-popBox'" title="点击保存二维码" showContent bind:confirm='closeQrcode'
         bind:cancel='closeQrcode' showCancel='{{false}}' confirmText="确定">

@@ -19,26 +19,47 @@ function jump(e) {
     var pages = getCurrentPages();
     var currentPage = pages[pages.length - 1];
     var oldUrl = currentPage.route;
-    var url = getApp().dataset(e, 'url');
+    var newUrl = getApp().dataset(e, 'url');
     var type = getApp().dataset(e, 'type');
-    if (`/${oldUrl}` == url) {
+    // 1.未登录可跳转页面
+    var allowPages = ['/pages/index/index', '/pages/activity/index/index', '/pages/activity/detail/detail',
+        '/pages/resource/index/index', '/pages/resource/detail/detail', '/pages/enterprise/index/index',
+        '/pages/enterprise/detail/detail'
+    ]
+    var isLogined = getApp().globalData.isLogined
+    var checkIndex = newUrl.indexOf('?')
+    var checkUrl = newUrl
+    if (checkIndex >= 0) {
+        checkUrl = checkUrl.slice(0, checkIndex)
+    }
+    if (allowPages.indexOf(checkUrl) < 0 && !isLogined) {
+        return currentPage.setData({
+            showLogin: true
+        })
+    }
+    console.log(oldUrl, newUrl, type);
+    console.log(checkIndex, checkUrl);
+    console.log(allowPages.indexOf(checkUrl));
+    // 1.未登录可跳转页面 end
+    // 2.跳转
+    if (`/${oldUrl}` == newUrl) {
         return false
     }
     if (type == 'reLaunch') {
-        url && wx.reLaunch({
-            url
+        newUrl && wx.reLaunch({
+            url: newUrl
         });
     } else if (type == 'switchTab') {
-        url && wx.switchTab({
-            url
+        newUrl && wx.switchTab({
+            url: newUrl
         });
     } else if (type == 'redirect') {
-        url && wx.redirectTo({
-            url
+        newUrl && wx.redirectTo({
+            url: newUrl
         });
     } else {
-        url && wx.navigateTo({
-            url
+        newUrl && wx.navigateTo({
+            url: newUrl
         });
     }
 }
@@ -71,6 +92,7 @@ function onLoad(page) {
         is_iphonex,
         system,
         isHome: getCurrentPages().length <= 1,
+        showLogin: false
     });
 }
 

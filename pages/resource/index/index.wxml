@@ -153,4 +153,8 @@
         </view>
     </view>
     <mp-tabbar tabbarType="{{tabbarType||1}}" tabbarIndex="2"></mp-tabbar>
+    <!-- 登录 -->
+    <mp-login wx:if="{{showLogin}}">
+    </mp-login>
+    <!-- 登录 end-->
 </view>

@@ -240,12 +240,17 @@ VM.confirmSelect = function() {
             delta: 1
         });
     } else { //地址
-        if (this.data.address == '') {
+        let data = this.data
+        let address = data.address
+        let addressValiate = data.provinceIndex >= 0 && data.cityIndex >= 0 && data.areaIndex >= 0
+        if (address == '') {
             return util.Toast('请选择地址')
+        }
+        if (!addressValiate) {
+            return util.Toast('请选择完整地址')
         }
         let pages = getCurrentPages();
         let prevPage = pages[pages.length - 2];
-        let address = this.data.address;
         prevPage.setData({
             address: address
         });

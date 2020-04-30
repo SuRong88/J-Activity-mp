@@ -20,13 +20,19 @@
                     <image class="icon-left" src="/images/workbench/left.png"></image>
                 </view>
                 <view class="main-bottom width-len flex flex-ver flex-sa">
-                    <view class="bottom-box flex flex-start-cen">
-                        <text style="margin-bottom:8rpx;font-size:28rpx;">¥{{compData.amount}}</text>
+                    <view class="bottom-box flex flex-1 flex-start-cen">
+                        <view style="margin-bottom:8rpx;">
+                            <text style="font-size:26rpx;">¥</text>
+                            <text style="font-size:40rpx;">{{compData.amount}}</text>
+                        </view>
                         <text>余额</text>
                     </view>
                     <view class="center-box"></view>
-                    <view class="bottom-box flex flex-start-cen">
-                        <text style="margin-bottom:8rpx;font-size:28rpx;">¥{{compData.settle_amount}}</text>
+                    <view class="bottom-box flex flex-1 flex-start-cen">
+                        <view style="margin-bottom:8rpx;">
+                            <text style="font-size:26rpx;">¥</text>
+                            <text style="font-size:40rpx;">{{compData.settle_amount}}</text>
+                        </view>
                         <text>本月结算金额</text>
                     </view>
                 </view>
@@ -58,14 +64,12 @@
             <text style="margin-top:8rpx;">{{item.name}}</text>
         </view>
         <view class='message-box' bindtap="base_jump" data-url="/pages/workbench/notification/notification">
-            <image class='img-message' src='/images/workbench/message.png'></image>
+            <image class="img-message {{compData.is_msg?'new-message':''}}" src='/images/workbench/message.png'></image>
         </view>
     </view>
-    <mp-popBox wx:if="{{showBox}}" cln="'captcha-popBox'" showTitle="{{false}}" showContent bind:confirm='confirmHandle'
-        bind:cancel='cancelHandle' confirmText="确认" cancelText='取消' showCancel="{{true}}">
-        <view class="pop-class" style="text-align:center;padding:50rpx;">
-            您确定退出登录吗？
-        </view>
+    <!-- 登出 -->
+    <mp-popBox wx:if="{{showLogout}}" cln="''" title="您确定退出登录吗？" bind:confirm='confirmLogout' bind:cancel='cancelLogout'
+        confirmText="确定">
     </mp-popBox>
     <mp-tabbar tabbarType="2" tabbarIndex="3"></mp-tabbar>
 </view>

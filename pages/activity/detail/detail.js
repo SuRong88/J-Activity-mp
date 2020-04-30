@@ -92,6 +92,12 @@ VM.cancelSign = function(e) {
 }
 //确认报名 confirmSign
 VM.confirmSign = function(e) {
+    // 报名触发登录
+    if (!app.globalData.isLogined) {
+        return this.setData({
+            showLogin: true
+        })
+    }
     let index = util.dataset(e, 'index')
     // 职位id
     let id = util.dataset(e, 'id')

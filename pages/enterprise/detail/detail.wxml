@@ -58,4 +58,8 @@
             </view>
         </view>
     </view>
+    <!-- 登录 -->
+    <mp-login wx:if="{{showLogin}}">
+    </mp-login>
+    <!-- 登录 end-->
 </view>

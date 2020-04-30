@@ -117,4 +117,7 @@ VM.cancelClose = function() {
         closeId: ''
     })
 }
+VM.onReachBottom = function() {
+    this.getList()
+}
 Page(VM)

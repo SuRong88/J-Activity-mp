@@ -8,14 +8,21 @@ const VM = {
         showQrcode: false,
         showLogout: false,
         userInfo: null,
-        avatarUrl: ''
+        // 微信用户头像 昵称
+        avatarUrl: '',
+        nickname: ''
     }
 }
 VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
+    let globalData = app.globalData
+    console.log(globalData);
     this.setData({
-        tabbarType: app.globalData.roleType
+        tabbarType: globalData.roleType,
+        // 微信头像
+        avatarUrl: globalData.userInfo ? globalData.userInfo.avatarUrl : '',
+        nickname: globalData.userInfo.nickName ? globalData.userInfo.nickName : ''
     })
     // 要在app.js里面请求获取用户信息 
     Req.request('getMyInfo', null, {
@@ -23,8 +30,6 @@ VM.init = function() {
     }, res => {
         this.setData({
             userInfo: res.data,
-            // 微信头像
-            avatarUrl: app.globalData.userInfo ? app.globalData.userInfo.avatarUrl : ''
         })
     })
 }
@@ -58,9 +63,22 @@ VM.confirmLogout = function() {
     this.setData({
         showLogout: false
     })
-    app.globalData.isLogined = false
+    app.globalData = {
+        isConnected: true,
+        isLogined: false,
+        userInfo: null, //微信用户信息
+        companyInfo: null, //企业信息
+        // myInfo: null, //服务器用户信息
+        roleType: 1, //用户角色 1-服务商、2-商家
+        oldTagList: [], //完善信息的类型数组
+        newTagList: [],
+        searchServiceInfo: null, //搜索服务商信息
+        searchActivityInfo: null, //搜索服务商信息
+        activityCreateInfo: null //创建活动信息
+    }
     wx.clearStorage()
-    wx.redirectTo({
+    app.onLaunch()
+    wx.reLaunch({
         url: '/pages/index/index'
     })
 }

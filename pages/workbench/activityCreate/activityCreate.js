@@ -105,7 +105,7 @@ VM.addJob = function() {
     app.globalData.activityCreateInfo = data
     wx.navigateTo({
         url: '/pages/workbench/jobAdd/jobAdd?workAddress=' + data.address + data.addressDetail +
-            '&startDate=' + data.startDate + '&endDate' + data.endDate
+            '&startDate=' + data.startDate + '&endDate=' + data.endDate
     })
 }
 Page(VM)

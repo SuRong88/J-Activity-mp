@@ -1,6 +1,6 @@
 const util = require('./util.js')
 const app = getApp();
-const HOST = 'http://xcx18.mrxdtech.com/api';
+const HOST = 'https://xcxdemo2.mrxdtech.com/api';
 let Request = null;
 // 接口
 const OPTIONS = {
@@ -140,7 +140,7 @@ const OPTIONS = {
         url: `${HOST}/enterprise/accountLog`
     },
     // 获取一键验收、一键派单的列表
-    getAllList:{
+    getAllList: {
         url: `${HOST}/activity/getApplyList`
     },
     /*
@@ -287,7 +287,14 @@ const OPTIONS = {
     // 活动报名
     signUpActivity: {
         url: `${HOST}/user/activityApply`
-    }
+    },
+    /*
+     **分享海报
+     */
+    // 海报生成
+    createPoster: {
+        url: `${HOST}/activity/poster`
+    },
 }
 // 状态码处理
 function codeCheck(data, success, fail) {

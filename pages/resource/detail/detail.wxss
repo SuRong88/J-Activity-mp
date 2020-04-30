@@ -37,6 +37,7 @@
     background: rgba(252, 127, 3, 0.1);
     border-radius: 8rpx;
     margin-right: 20rpx;
+    text-align: center;
 }
 
 .tags .tag:last-child {

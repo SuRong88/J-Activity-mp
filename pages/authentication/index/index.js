@@ -9,6 +9,7 @@ const VM = {
 VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
+    util.showModal('提示', '服务器出错', false, '', '确定')
 }
 VM.onLoad = function(query) {
     this.init()

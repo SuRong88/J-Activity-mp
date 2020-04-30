@@ -8,7 +8,7 @@
                     <text class="label-tip"></text>
                 </view>
                 <view bindtap="chooseImg" data-index="0" class="item-con item-avatar">
-                    <image class="avatar" src="{{avatarUrl?avatarUrl:'/images/me/mine_img02.png'}}"></image>
+                    <image class="avatar" src="{{avatarUrl?avatarUrl:'/images/workbench/default.png'}}"></image>
                     <view class="edit-avatar">
                         <image class="edit-icon" src="/images/me/BS_icon10.png"></image>
                     </view>

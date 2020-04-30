@@ -11,7 +11,7 @@ const VM = {
         classArr: ['wait', 'wait', 'close', 'unselect', 'close'],
         // pagination
         current: 0,
-        rownum: 4,
+        rownum: 10,
         total: 0,
         total_page: 1,
         list: [],
@@ -31,7 +31,7 @@ VM.init = function(query) {
 VM.onShow = function() {
     this.setData({
         current: 0,
-        rownum: 4,
+        rownum: 10,
         total: 0,
         total_page: 1,
         list: [],
