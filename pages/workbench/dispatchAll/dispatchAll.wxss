@@ -1,5 +1,8 @@
+page {
+    background: rgba(249, 249, 249, 1) !important;
+}
+
 .job-list {
-    background:rgba(249,249,249,1);
     padding-bottom: 124rpx;
 }
 

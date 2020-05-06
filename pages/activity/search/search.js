@@ -18,7 +18,7 @@ const VM = {
         // 筛选条件
         filterType: -1,
         // 排序 1 2
-        sortType: 1,
+        sortType01: 1,
         //搜索信息-关键字
         keyword: '',
         // 搜索信息-职位类型
@@ -81,7 +81,6 @@ VM.clearKeyword = function(e) {
         keyword: ''
     });
 }
-
 // 获取列表
 VM.getList = function(type) {
     if (this.data.current >= this.data.total_page) {
@@ -216,11 +215,29 @@ VM.deleteStatusFilter = function(e) {
         statusIndex: 0
     })
 }
-// 处理排序
-VM.sortHandle = function() {
+// 按入驻时长筛选
+VM.sortByDate = function() {
+    let sortType01 = this.data.sortType01 === 1 ? 2 : 1
+    let list = this.data.list
+    list = this.sortDataArray(list, sortType01)
     this.setData({
-        sortByOrder: this.data.sortByOrder === 1 ? 2 : 1
+        sortType01: sortType01,
+        list: list
     })
+}
+//对数组根据日期进行排序
+VM.sortDataArray = function(dataArray, sortType01) {
+    if (sortType01 == 1) {
+        return dataArray.sort(function(a, b) {
+            return Date.parse(b.start_time.replace(/\./g, "/")) - Date.parse(a.start_time.replace(/\./g,
+                "/"));
+        });
+    } else {
+        return dataArray.sort(function(a, b) {
+            return Date.parse(a.start_time.replace(/\./g, "/")) - Date.parse(b.start_time.replace(/\./g,
+                "/"));
+        });
+    }
 }
 // 添加为私有服务商
 VM.addPrivate = function(e) {
@@ -509,14 +526,6 @@ VM.confirmSelect = function() {
             filterType: -1,
         })
     }
-}
-// 按接单数量筛选
-VM.sortByNum = function() {
-
-}
-// 按入驻市时长筛选
-VM.sortByDate = function() {
-
 }
 // 搜索
 VM.confirmSearch = function() {

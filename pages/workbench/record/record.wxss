@@ -84,15 +84,15 @@
 }
 
 .each-item.green .stat-box {
-    background:rgba(83,185,128,1);
+    background: rgba(83, 185, 128, 1);
 }
 
 .each-item.orange .stat-box {
-    background:rgba(252,127,3,1);
+    background: rgba(252, 127, 3, 1);
 }
 
 .each-item.gray .stat-box {
-    background:rgba(153,153,153,1);
+    background: rgba(153, 153, 153, 1);
 }
 
 .small {
@@ -100,4 +100,24 @@
     height: 26rpx;
     background: rgba(252, 127, 3, 1);
     opacity: 0.59;
+}
+
+.filter-tab-item .item-txt::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-bottom: 2px solid #999999;
+    border-right: 2px solid #999999;
+    margin-left: 8rpx;
+}
+
+.filter-tab-item.active .item-txt {
+    color: rgba(252, 127, 3, 1);
+}
+
+.filter-tab-item.active .item-txt::after {
+    border-bottom: 2px solid rgba(252, 127, 3, 1);
+    border-right: 2px solid rgba(252, 127, 3, 1);
 }

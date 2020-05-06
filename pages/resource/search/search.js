@@ -9,9 +9,9 @@ const VM = {
         // 筛选条件
         filterType: -1,
         // 接单排序 1 2
-        sortByOrder: 1,
+        sortByOrder: 0,
         // 入驻时间排序 1 2
-        sortByTime: 1,
+        sortByTime: 0,
 
         // 列表信息
         current: 0,
@@ -473,12 +473,50 @@ VM.confirmSelect = function() {
     }
 }
 // 按接单数量筛选
-VM.sortByNum = function() {
-
+VM.sortByOrderHandle = function() {
+    let sortType = this.data.sortByOrder === 1 ? 2 : 1
+    let list = this.data.list
+    list = this.sortOrderArray(list, sortType)
+    this.setData({
+        sortByTime: 0,
+        sortByOrder: sortType,
+        list: list
+    })
 }
 // 按入驻时长筛选
-VM.sortByDate = function() {
-
+VM.sortByTimeHandle = function() {
+    let sortType = this.data.sortByTime === 1 ? 2 : 1
+    let list = this.data.list
+    list = this.sortDateArray(list, sortType)
+    this.setData({
+        sortByOrder: 0,
+        sortByTime: sortType,
+        list: list
+    })
+}
+//按接单进行排序
+VM.sortOrderArray = function(dataArray, sortType) {
+    if (sortType == 1) {
+        return dataArray.sort(function(a, b) {
+            return b.order_num - a.order_num;
+        });
+    } else {
+        return dataArray.sort(function(a, b) {
+            return a.order_num - b.order_num;
+        });
+    }
+}
+//按入驻时长进行排序
+VM.sortDateArray = function(dataArray, sortType) {
+    if (sortType == 1) {
+        return dataArray.sort(function(a, b) {
+            return b.settle_time - a.settle_time;
+        });
+    } else {
+        return dataArray.sort(function(a, b) {
+            return a.settle_time - b.settle_time;
+        });
+    }
 }
 // 搜索
 VM.confirmSearch = function() {

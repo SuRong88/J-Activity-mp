@@ -26,7 +26,7 @@
 
                         <text class="item-txt">状态</text>
                     </view>
-                    <view bindtap="sortHandle" class="filter-tab-item flex flex-ver">
+                    <view bindtap="sortByDate" class="filter-tab-item flex flex-ver {{sortType01==2?'sort-by-date':''}}">
                         <text class="item-txt">时间</text>
                         <view class="sort-icon-box">
                             <view class="sort-icon"></view>

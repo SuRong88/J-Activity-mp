@@ -22,14 +22,14 @@
                     <view bindtap="filterHandle" data-type="1" class="filter-tab-item {{filterType==1?'active':''}}">
                         <text class="item-txt">地区</text>
                     </view>
-                    <view bindtap="sortHandle" class="filter-tab-item flex flex-ver flex-align-center">
+                    <view bindtap="sortByOrderHandle" class="filter-tab-item flex flex-ver {{sortByOrder==1?'desc':''}} {{sortByOrder==2?'asc':''}}">
                         <text class="item-txt">接单数</text>
                         <view class="sort-icon-box">
                             <view class="sort-icon"></view>
                             <view class="sort-icon"></view>
                         </view>
                     </view>
-                    <view bindtap="sortHandle" class="filter-tab-item flex flex-ver">
+                    <view bindtap="sortByTimeHandle" class="filter-tab-item flex flex-ver {{sortByTime==1?'desc':''}} {{sortByTime==2?'asc':''}}">
                         <text class="item-txt">入驻时长</text>
                         <view class="sort-icon-box">
                             <view class="sort-icon"></view>

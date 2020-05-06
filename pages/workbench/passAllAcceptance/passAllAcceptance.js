@@ -12,7 +12,6 @@ const VM = {
     }
 }
 VM.init = function(query) {
-    util.showModal('提示', '服务器出错', false, '', '确定')
     // 设置自定义头部
     util.setHeader(this);
     let activityId = query.id
@@ -30,7 +29,7 @@ VM.init = function(query) {
     }, res => {
         let list = res.data
         list.forEach(item => {
-            item.spread = false
+            item.spread = true
             item.apply_list.forEach(subItem => {
                 subItem.amount = ''
             })
@@ -62,12 +61,32 @@ VM.changeinput = function(e) {
     let index2 = util.dataset(e, 'index2')
     let list = this.data.list
     list[index1].apply_list[index2].amount = amount
+    let checkAmount = true
+    let checkUpload = this.data.imgId !== '' ? true : false
+    for (let i = 0; i < list.length; i++) {
+        if (!checkAmount) {
+            break
+        }
+        for (let j = 0; j < list[i].apply_list.length; j++) {
+            if (formcheck.check_null(list[i].apply_list[j].amount)) {
+                checkAmount = false
+                break
+            }
+        }
+    }
+    let disabled = !(checkAmount && checkUpload)
     this.setData({
-        list: list
+        list: list,
+        disabled: disabled
     })
 }
 // 一键验收
 VM.submitHandle = function() {
-
+    if (this.data.disabled) {
+        return false
+    }
+    wx.navigateTo({
+        url: '/pages/workbench/confirmAllAcceptance/confirmAllAcceptance'
+    })
 }
 Page(VM)

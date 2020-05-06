@@ -7,6 +7,8 @@ const Req = require('../../../utils/request.js');
 const VM = {
     data: {
         classArr: ['', 'green', 'orange', 'gray'],
+        // 筛选条件下标
+        filterIndex: -1,
         // status: 0,
         statusIndex: 0,
         statusRange: [{
@@ -108,13 +110,35 @@ VM.getList = function() {
         })
     })
 }
-// 修改开票类型
+
+VM.pickerSelect = function(e) {
+    let key = util.dataset(e, 'key')
+    if (key == 'status') {
+        this.setData({
+            filterIndex: 0
+        })
+    } else if (key == 'price') {
+        this.setData({
+            filterIndex: 1
+        })
+    }
+}
+
+VM.pickerCancel = function() {
+    this.setData({
+        filterIndex: -1
+    })
+}
+
+// 状态改变
 VM.statusChange = function(e) {
+    console.log(233);
     let index = e.detail.value;
     if (index == this.data.statusIndex) {
         return false
     }
     this.setData({
+        filterIndex: -1,
         statusIndex: index,
         // pagination
         current: 0,
@@ -122,18 +146,19 @@ VM.statusChange = function(e) {
         total: 0,
         total_page: 1,
         list: [],
-        isEmpty: false
+        isEmpty: false,
     })
     this.getList()
 }
 
-// 修改开票类型
+// 金额改变
 VM.priceChange = function(e) {
     let index = e.detail.value;
     if (index == this.data.priceIndex) {
         return false
     }
     this.setData({
+        filterIndex: -1,
         priceIndex: index,
         // pagination
         current: 0,

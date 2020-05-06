@@ -113,7 +113,7 @@ const OPTIONS = {
     },
     //一键派单
     dispatchAll: {
-        url: `${HOST}/enter[rise/allowApplyPlu`
+        url: `${HOST}/enterprise/allowApplyPlu`
     },
     //获取验收时候的基本信息（服务商的信息）
     getAcceptanceInfo: {

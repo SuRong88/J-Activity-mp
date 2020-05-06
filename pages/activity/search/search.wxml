@@ -23,10 +23,9 @@
                         <text class="item-txt">地区</text>
                     </view>
                     <view bindtap="filterHandle" data-type="2" class="filter-tab-item {{filterType==2?'active':''}}">
-
                         <text class="item-txt">状态</text>
                     </view>
-                    <view bindtap="sortHandle" class="filter-tab-item flex flex-ver">
+                    <view bindtap="sortByDate" class="filter-tab-item flex flex-ver {{sortType01==2?'sort-by-date':''}}">
                         <text class="item-txt">时间</text>
                         <view class="sort-icon-box">
                             <view class="sort-icon"></view>

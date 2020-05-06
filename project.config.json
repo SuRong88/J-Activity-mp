@@ -1,352 +1,374 @@
 {
-    "description": "项目配置文件",
-    "packOptions": {
-        "ignore": []
-    },
-    "setting": {
-        "urlCheck": false,
-        "es6": true,
-        "postcss": true,
-        "minified": true,
-        "newFeature": true,
-        "coverView": true,
-        "autoAudits": true,
-        "checkInvalidKey": true,
-        "checkSiteMap": false,
-        "uploadWithSourceMap": true,
-        "babelSetting": {
-            "ignore": [],
-            "disablePlugins": [],
-            "outputPath": ""
-        }
-    },
-    "compileType": "miniprogram",
-    "libVersion": "2.9.2",
-    "appid": "wx05c3e24505dbc922",
-    "projectname": "JActivity",
-    "debugOptions": {
-        "hidedInDevtools": []
-    },
-    "scripts": {},
-    "simulatorType": "wechat",
-    "simulatorPluginLibVersion": {},
-    "condition": {
-        "search": {
-            "current": -1,
-            "list": []
-        },
-        "conversation": {
-            "current": -1,
-            "list": []
-        },
-        "plugin": {
-            "current": -1,
-            "list": []
-        },
-        "game": {
-            "list": []
-        },
-        "gamePlugin": {
-            "current": -1,
-            "list": []
-        },
-        "miniprogram": {
-            "current": -1,
-            "list": [{
-                    "id": -1,
-                    "name": "pages/test/test",
-                    "pathName": "pages/test/test",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "登录",
-                    "pathName": "pages/login/login",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "首页",
-                    "pathName": "pages/index/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "个人中心",
-                    "pathName": "pages/me/index/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "完善个人信息",
-                    "pathName": "pages/me/information/information",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": 10,
-                    "name": "选择类型",
-                    "pathName": "pages/me/select/select",
-                    "query": "type=type",
-                    "scene": null
-                },
-                {
-                    "id": 11,
-                    "name": "选择地址",
-                    "pathName": "pages/me/select/select",
-                    "query": "type=address",
-                    "scene": null
-                },
-                {
-                    "id": 12,
-                    "name": "我的任务",
-                    "pathName": "pages/task/index/index",
-                    "query": "type=0",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "修改银行卡",
-                    "pathName": "pages/authentication/bankCard/bankCard",
-                    "query": "type=address",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "我的任务",
-                    "pathName": "pages/task/index/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": 15,
-                    "name": "上传验收材料",
-                    "pathName": "pages/task/upload/upload",
-                    "query": "id=1&type=2",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "补充验收材料",
-                    "pathName": "pages/task/upload/upload",
-                    "query": "id=1&type=3",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "我的任务-活动详情",
-                    "pathName": "pages/task/detail/detail",
-                    "query": "id=1",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "服务商列表页",
-                    "pathName": "pages/resource/index/index",
-                    "query": "id=1",
-                    "scene": null
-                },
-                {
-                    "id": 19,
-                    "name": "资源库",
-                    "pathName": "pages/resource/index/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "接活动",
-                    "pathName": "pages/activity/index/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "活动搜索",
-                    "pathName": "pages/activity/search/search",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "企业列表",
-                    "pathName": "pages/enterprise/index/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "活动列表",
-                    "pathName": "pages/activity/index/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": 24,
-                    "name": "活动详情",
-                    "pathName": "pages/activity/detail/detail",
-                    "query": "id=1",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "活动搜索",
-                    "pathName": "pages/activity/search/search",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "服务商搜索",
-                    "pathName": "pages/resource/search/search",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "工作台-首页",
-                    "pathName": "pages/workbench/index/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "工作台-创建活动",
-                    "pathName": "pages/workbench/activityCreate/activityCreate",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "工作台-添加职位",
-                    "pathName": "pages/workbench/jobAdd/jobAdd",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "工作台-选择服务商",
-                    "pathName": "pages/workbench/privateSelect/privateSelect",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "工作台-地址列表",
-                    "pathName": "pages/workbench/addressList/addressList",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "工作台-添加地址",
-                    "pathName": "pages/workbench/addressAdd/addressAdd",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "工作台-开票管理",
-                    "pathName": "pages/workbench/invoiceManage/invoiceManage",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": 35,
-                    "name": "工作台-申请开票",
-                    "pathName": "pages/workbench/invoiceApplication/invoiceApplication",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "工作台-活动管理",
-                    "pathName": "pages/workbench/activityManage/activityManage",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": 37,
-                    "name": "工作台-活动详情",
-                    "pathName": "pages/workbench/activityDetail/activityDetail",
-                    "query": "id=23",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "工作台-消息",
-                    "pathName": "pages/workbench/notification/notification",
-                    "query": "id=17",
-                    "scene": null
-                },
-                {
-                    "id": 39,
-                    "name": "工作台-充值记录",
-                    "pathName": "pages/workbench/record/record",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "工作台-账户明细",
-                    "pathName": "pages/workbench/account/account",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "工作台-私有服务商",
-                    "pathName": "pages/workbench/privateList/privateList",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "工作台-职位详情",
-                    "pathName": "pages/workbench/jobDetail/jobDetail",
-                    "query": "activity_id=23&id=17&status=1",
-                    "scene": null
-                },
-                {
-                    "id": 43,
-                    "name": "工作台-通过验收",
-                    "pathName": "pages/workbench/passAcceptance/passAcceptance",
-                    "query": "applyId=16&userId=1&type=1",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "工作台-一键验收-再次确认",
-                    "pathName": "pages/workbench/confirmAllAcceptance/confirmAllAcceptance",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "工作台-一键验收-上传材料",
-                    "pathName": "pages/workbench/uploadData/uploadData",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": -1,
-                    "name": "工作台-一键验收",
-                    "pathName": "pages/workbench/passAllAcceptance/passAllAcceptance",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "id": 47,
-                    "name": "工作台-活动发布-发布成功",
-                    "pathName": "pages/workbench/publishSuccess/publishSuccess",
-                    "query": "id=33&type=2",
-                    "scene": null
-                }
-            ]
-        }
-    }
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": false,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.9.2",
+	"appid": "wx05c3e24505dbc922",
+	"projectname": "JActivity",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/test/test",
+					"pathName": "pages/test/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/me/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "完善个人信息",
+					"pathName": "pages/me/information/information",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "选择类型",
+					"pathName": "pages/me/select/select",
+					"query": "type=type",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "选择地址",
+					"pathName": "pages/me/select/select",
+					"query": "type=address",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "我的任务",
+					"pathName": "pages/task/index/index",
+					"query": "type=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "修改银行卡",
+					"pathName": "pages/authentication/bankCard/bankCard",
+					"query": "type=address",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的任务",
+					"pathName": "pages/task/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "上传验收材料",
+					"pathName": "pages/task/upload/upload",
+					"query": "id=1&type=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "补充验收材料",
+					"pathName": "pages/task/upload/upload",
+					"query": "id=1&type=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的任务-活动详情",
+					"pathName": "pages/task/detail/detail",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "服务商列表页",
+					"pathName": "pages/resource/index/index",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": 19,
+					"name": "资源库",
+					"pathName": "pages/resource/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "接活动",
+					"pathName": "pages/activity/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动搜索",
+					"pathName": "pages/activity/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "企业列表",
+					"pathName": "pages/enterprise/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动列表",
+					"pathName": "pages/activity/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 24,
+					"name": "活动详情",
+					"pathName": "pages/activity/detail/detail",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动搜索",
+					"pathName": "pages/activity/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "服务商搜索",
+					"pathName": "pages/resource/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-首页",
+					"pathName": "pages/workbench/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-创建活动",
+					"pathName": "pages/workbench/activityCreate/activityCreate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-添加职位",
+					"pathName": "pages/workbench/jobAdd/jobAdd",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-选择服务商",
+					"pathName": "pages/workbench/privateSelect/privateSelect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-地址列表",
+					"pathName": "pages/workbench/addressList/addressList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-添加地址",
+					"pathName": "pages/workbench/addressAdd/addressAdd",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-开票管理",
+					"pathName": "pages/workbench/invoiceManage/invoiceManage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 35,
+					"name": "工作台-申请开票",
+					"pathName": "pages/workbench/invoiceApplication/invoiceApplication",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-活动管理",
+					"pathName": "pages/workbench/activityManage/activityManage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 37,
+					"name": "工作台-活动详情",
+					"pathName": "pages/workbench/activityDetail/activityDetail",
+					"query": "id=23",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-消息",
+					"pathName": "pages/workbench/notification/notification",
+					"query": "id=17",
+					"scene": null
+				},
+				{
+					"id": 39,
+					"name": "工作台-充值记录",
+					"pathName": "pages/workbench/record/record",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-账户明细",
+					"pathName": "pages/workbench/account/account",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-私有服务商",
+					"pathName": "pages/workbench/privateList/privateList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-职位详情",
+					"pathName": "pages/workbench/jobDetail/jobDetail",
+					"query": "activity_id=23&id=17&status=1",
+					"scene": null
+				},
+				{
+					"id": 43,
+					"name": "工作台-通过验收",
+					"pathName": "pages/workbench/passAcceptance/passAcceptance",
+					"query": "applyId=16&userId=1&type=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-一键验收-再次确认",
+					"pathName": "pages/workbench/confirmAllAcceptance/confirmAllAcceptance",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-一键验收-上传材料",
+					"pathName": "pages/workbench/uploadData/uploadData",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-一键验收",
+					"pathName": "pages/workbench/passAllAcceptance/passAllAcceptance",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 47,
+					"name": "工作台-活动发布-发布成功",
+					"pathName": "pages/workbench/publishSuccess/publishSuccess",
+					"query": "id=33&type=2",
+					"scene": null
+				},
+				{
+					"id": 42,
+					"name": "工作台-一键验收",
+					"pathName": "pages/workbench/passAllAcceptance/passAllAcceptance",
+					"query": "id=18",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工作台-成功页面",
+					"pathName": "pages/workbench/publishSuccess/publishSuccess",
+					"query": "type=0",
+					"scene": null
+				},
+				{
+					"id": 44,
+					"name": "工作台 -一键派单",
+					"pathName": "pages/workbench/dispatchAll/dispatchAll",
+					"query": "id=13",
+					"scene": null
+				}
+			]
+		}
+	}
 }

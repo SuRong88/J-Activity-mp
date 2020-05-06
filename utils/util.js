@@ -82,7 +82,6 @@ function showModal(title, content, showCancel, cancelText, confirmText, cb_confi
         confirmColor: '#FC7F03',
         success: function(res) {
             if (res.confirm) {
-                console.log(cb_confirm);
                 cb_confirm && cb_confirm()
             } else if (res.cancel) {
                 cb_cancel && cb_cancel()

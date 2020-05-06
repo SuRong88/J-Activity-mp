@@ -1,34 +1,34 @@
 <view class="container">
     <mp-header isHome="{{isHome}}" showBack title="一键派单"></mp-header>
     <view class="content">
-
         <view class="job-list">
-            <view wx:for="{{3}}" wx:key="index" class="job-item {{index%2==0?'spread':''}}">
+            <view wx:for="{{list}}" wx:key="index" class="job-item {{item.spread?'spread':''}}">
                 <view class="job-item-hd flex flex-ver">
-                    <image class="item-icon" src="/images/workbench/BS_icon15.png"></image>
+                    <image bindtap="selectItem" data-index="{{index}}" class="item-icon" src="{{item.selected?'/images/workbench/BS_icon15.png':'/images/workbench/BS_icon16.png'}}"></image>
                     <item class="job-name">
-                        主持司仪
+                        {{item.name}}
                     </item>
                     <item class="job-num">
-                        2/2
+                        {{item.selectedLength}}/{{item.apply_list.length}}
                     </item>
-                    <image class="item-icon-arrow" src="/images/workbench/arrow-down.png"></image>
+                    <image bindtap="spreadHandle" data-index="{{index}}" class="item-icon-arrow" src="/images/workbench/arrow-down.png"></image>
                 </view>
-                <view class="job-item-bd">
+                <view hidden="{{!item.spread}}" class="job-item-bd">
                     <view class="service-list">
-                        <view wx:for="{{3}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex" class="service-item flex">
+                        <view wx:for="{{item.apply_list}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex"
+                            class="service-item flex">
                             <view class="service-item-l">
-                                <image class="item-icon" src="/images/workbench/BS_icon15.png"></image>
+                                <image bindtap="selectSubItem" data-index1="{{index}}" data-index2="{{subIndex}}" class="item-icon" src="{{subItem.selected?'/images/workbench/BS_icon15.png':'/images/workbench/BS_icon16.png'}}"></image>
                             </view>
                             <view class="service-item-r flex-1">
                                 <view class="service-item-name">
-                                    胡诗琪
+                                    {{subItem.nickname}}
                                 </view>
                                 <view class="service-item-info">
-                                    姓名：胡诗琪
+                                    姓名：{{subItem.name}}
                                 </view>
                                 <view class="service-item-info">
-                                    身份证号：441881199604133949
+                                    身份证号：{{subItem.id_card}}
                                 </view>
                             </view>
                         </view>
@@ -36,9 +36,8 @@
                 </view>
             </view>
         </view>
-
         <view class="bottom-box flex flex-jcfe flex-ver">
-            <view class="btn-confirm">一键派单</view>
+            <view bindtap="dispatchAll" class="btn-confirm">一键派单</view>
         </view>
     </view>
 </view>

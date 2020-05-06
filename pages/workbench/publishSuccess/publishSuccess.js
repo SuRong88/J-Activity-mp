@@ -18,7 +18,7 @@ VM.init = function(query) {
     // 设置自定义头部
     util.setHeader(this);
     this.setData({
-        activityId: query.id,
+        activityId: query.id || '', //发布活动的时候才有
         titleIndex: query.type //0验收成功 1派单成功 2发布成功
     })
 }

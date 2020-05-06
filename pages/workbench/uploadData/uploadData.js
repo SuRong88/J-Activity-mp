@@ -56,8 +56,23 @@ VM.submitHandle = function() {
     }
     let pages = getCurrentPages()
     let prevPage = pages[pages.length - 2]
+    let list = prevPage.data.list
+    // 校验上一页的输入金额
+    let checkAmount = true
+    for (let i = 0; i < list.length; i++) {
+        if (!checkAmount) {
+            break
+        }
+        for (let j = 0; j < list[i].apply_list.length; j++) {
+            if (formcheck.check_null(list[i].apply_list[j].amount)) {
+                checkAmount = false
+                break
+            }
+        }
+    }
     prevPage.setData({
-        imgId: this.data.imgId
+        imgId: this.data.imgId,
+        disabled: !checkAmount
     })
     wx.navigateBack({
         delta: 1

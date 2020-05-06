@@ -2,34 +2,36 @@
     <mp-header isHome="{{isHome}}" showBack title="一键验收"></mp-header>
     <view class="content">
         <view class="job-list">
-            <view wx:for="{{3}}" wx:key="index" class="job-item {{index%2==0?'spread':''}}">
+            <view wx:for="{{list}}" wx:key="index" class="job-item {{item.spread?'spread':''}}">
                 <view class="job-item-hd flex flex-ver">
                     <item class="job-name">
-                        主持司仪
+                        {{item.name}}
                     </item>
-                    <image class="item-icon-arrow" src="/images/workbench/arrow-down.png"></image>
+                    <image bindtap="spreadHandle" data-index="{{index}}" class="item-icon-arrow" src="/images/workbench/arrow-down.png"></image>
                 </view>
-                <view class="job-item-bd">
+                <view hidden="{{!item.spread}}" class="job-item-bd">
                     <view class="service-list">
-                        <view wx:for="{{3}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex" class="service-item flex">
+                        <view wx:for="{{item.apply_list}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex"
+                            class="service-item flex">
                             <view class="service-item-l">
                                 <view class="service-item-index">
-                                    0{{index}}
+                                    0{{subIndex+1}}
                                 </view>
                             </view>
                             <view class="service-item-r flex-1">
                                 <view class="service-item-name-price flex flex-ver flex-jcsb">
-                                    <text class="service-item-name">蓦然默然</text>
-                                    <text class="service-item-price">¥800.00</text>
+                                    <text class="service-item-name">{{subItem.nickname}}</text>
+                                    <text class="service-item-price">¥{{subItem.amount}}</text>
+                                    <!-- <text class="service-item-price">¥{{subItem.salary}}</text> -->
                                 </view>
                                 <view class="service-item-info">
-                                    身份证号：441881199604133949
+                                    身份证号：{{subItem.id_card}}
                                 </view>
                                 <view class="service-item-info">
-                                    银行卡号：92346219635263856
+                                    银行卡号：{{subItem.bank_num}}
                                 </view>
                                 <view class="service-item-info">
-                                    手机号：15626129191
+                                    手机号：{{subItem.phone}}
                                 </view>
                             </view>
                         </view>
@@ -40,19 +42,19 @@
         <view class="phone-box">
             <view class="enter-item flex flex-ver">
                 <image class="item-icon" src="/images/login/icon18.png"></image>
-                <input bindinput="" placeholder="请输入手机号码" placeholder-class="enter-placeholder" class="item-enter flex-1"
-                    type="text" />
+                <input bindinput="changeInput" data-key="phone" placeholder="请输入手机号码" placeholder-class="enter-placeholder"
+                    class="item-enter flex-1" type="text" />
             </view>
             <view class="enter-item  flex flex-ver">
                 <image class="item-icon" src="/images/login/icon19.png"></image>
-                <input bindinput="" placeholder="请输入验证码" placeholder-class="enter-placeholder" class="item-enter flex-1"
-                    type="text" />
-                <view bindtap="sendCode" class="send-btn">
-                    发送验证码
+                <input bindinput="changeInput" data-key="code" placeholder="请输入验证码" placeholder-class="enter-placeholder"
+                    class="item-enter flex-1" type="text" />
+                <view bindtap="sendCode" class="send-btn {{phone_code_class}}">
+                    {{phone_code_text}}
                 </view>
             </view>
         </view>
-        <view class="common-btn confirm-btn disabled">
+        <view bindtap="confirmHandle" class="common-btn confirm-btn {{disabled?'disabled':''}}">
             确认验收
         </view>
     </view>
@@ -61,9 +63,9 @@
         bind:cancel='cancelCaptcha' confirmText="确认">
         <view class="captcha-box">
             <view class="box-main flex flex-ver">
-                <input bindinput="inputCaptcha" class="captcha-enter flex-1" placeholder="请输入右侧验证码" placeholder-class="captcha-enter-placeholder"
-                    type="text" maxlength="4" />
-                <image class="captcha-img" src="/images/login/img13.png" mode="aspectFit"></image>
+                <input bindinput="changeInput" data-key="captcha" class="captcha-enter flex-1" placeholder="请输入右侧验证码"
+                    placeholder-class="captcha-enter-placeholder" type="text" maxlength="4" />
+                <image bindtap="changeCaptcha" class="captcha-img" src="{{captchaUrl}}" mode="aspectFit"></image>
             </view>
             <text class="tip">{{tips[tipIndex]}}</text>
         </view>

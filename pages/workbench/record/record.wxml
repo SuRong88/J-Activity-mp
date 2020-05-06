@@ -3,27 +3,29 @@
     <view class="content width-len flex flex-col flex-start flex-jcfs">
         <view class="first-box flex-col  width-len">
             <view class="top-box flex width-len flex-jcfs flex-ver ">
-                <picker range="{{statusRange}}" bindchange="statusChange" value="{{index}}" range-key="name">
-                    <view class="left flex flex-ver" style="margin-right:80rpx;">
+                <picker range="{{statusRange}}" bindcancel="pickerCancel" bindchange="statusChange" bindtap="pickerSelect"
+                    data-key="status" value="{{index}}" range-key="name">
+                    <view class="filter-tab-item left flex flex-ver {{filterIndex==0?'active':''}}" style="margin-right:80rpx;">
                         <view class="flex flex-align-center flex-ver left-box" style="margin-right:22rpx;">
-                            <text class="stat-tit">状态</text>
-                            <image class='triangle' src='/images/workbench/triangle.png'></image>
+                            <text class="stat-tit item-txt">状态</text>
+                            <!-- <image class='triangle' src='/images/workbench/triangle.png'></image> -->
                         </view>
                         <text class="tit">{{statusRange[statusIndex].name}}</text>
                     </view>
                 </picker>
-                <picker range="{{priceRange}}" bindchange="priceChange" value="{{index}}" range-key="name">
-                    <view class="right flex flex-ver">
+                <picker range="{{priceRange}}" bindcancel="pickerCancel" bindchange="priceChange" bindtap="pickerSelect"
+                    data-key="price" value="{{index}}" range-key="name">
+                    <view class="filter-tab-item right flex flex-ver {{filterIndex==1?'active':''}}">
                         <view class="flex flex-align-center flex-ver left-box" style="margin-right:22rpx;">
-                            <text class="stat-tit">金额</text>
-                            <image class='triangle' src='/images/workbench/triangle.png'></image>
+                            <text class="stat-tit item-txt">金额</text>
+                            <!-- <image class='triangle' src='/images/workbench/triangle.png'></image> -->
                         </view>
                         <text class="tit">{{priceRange[priceIndex].name}}</text>
                     </view>
                 </picker>
             </view>
             <view class="bottom-box width-len flex flex-ver flex-sb" style="margin-top:40rpx">
-                <text class="act-tit fw400">活动时间</text>
+                <text class="act-tit fw400">充值时间</text>
                 <view class="date-box flex flex-ver">
                     <picker mode="date" bindchange="startDateChange" value="{{}}">
                         <text class="stat-tit">{{startDate}}</text>

@@ -6,29 +6,33 @@
             <text class="success-txt">{{tipArr[titleIndex]}}</text>
         </view>
         <view class="btn-box">
-           
+            <!-- 验收成功 -->
+            <view wx:if="{{titleIndex==0}}" bindtap="base_jump" data-url="/pages/workbench/activityManage/activityManage?status=2" data-type="redirect"
+                class="common-btn normal btn-back">
+                返回活动列表
+            </view>
+            <!-- 派单成功 -->
+            <view wx:if="{{titleIndex==1}}" bindtap="base_jump" data-url="/pages/workbench/activityManage/activityManage?status=1" data-type="redirect"
+                class="common-btn normal btn-back">
+                返回活动列表
+            </view>
+            <!-- 发布活动成功 -->
             <block wx:if="{{titleIndex==2}}">
-                <view bindtap="base_jump" data-url="/pages/workbench/activityDetail/activityDetail?id={{activityId}}"  class="common-btn normal btn-view">
+                <view bindtap="base_jump" data-url="/pages/workbench/activityDetail/activityDetail?id={{activityId}}" data-type="redirect"
+                    class="common-btn normal btn-view">
                     查看活动
                 </view>
                 <view bindtap="showShareMask" class="common-btn normal btn-share">
                     分享活动
                 </view>
             </block>
-            <view wx:else class="common-btn normal btn-back">
-               返回活动列表
-            </view>
         </view>
     </view>
-    
-    
-    
     <!--以下内容 验收成功、派单成功不使用 -->
     <view bindtap="closeMask" hidden="{{!showShare}}" class="share-mask">
         <view catchtap="emptyHandle" class="share-box flex">
             <button catchtap="createPoster" class="share-item text-c flex-1">
                 <image src="/images/workbench/BS_icon20.png" class="share-icon">
-
                 </image>
                 <view class="share-txt">
                     生成分享海报
@@ -36,17 +40,17 @@
             </button>
             <button open-type="share" class="share-item text-c flex-1">
                 <image src="/images/workbench/BS_icon21.png" class="share-icon">
-
                 </image>
                 <view class="share-txt">
                     分享给好友
                 </view>
             </button>
         </view>
-    </view> 
+    </view>
     <view bindtap="closeMask" hidden="{{!showPoster}}" style="padding-top: {{padHeight+40}}rpx;" class="poster-mask">
         <view class="poster-box">
-            <image mode="widthFix" bindload="showPosterMask" catchtap="previewImage" data-src="{{posterUrl}}" src="{{posterUrl}}" class="poster-img">
+            <image mode="widthFix" bindload="showPosterMask" catchtap="previewImage" data-src="{{posterUrl}}" src="{{posterUrl}}"
+                class="poster-img">
             </image>
             <button catchtap="savePoster" class="btn-save">
                 保存图片至相册
