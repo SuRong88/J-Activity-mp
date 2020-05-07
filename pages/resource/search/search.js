@@ -79,11 +79,21 @@ VM.getList = function() {
     if (this.data.current >= this.data.total_page) {
         return false
     }
+    // 岗位类型id 数组
+    let checkTagArr = []
+    for (let i = 0; i < this.data.checkTagList.length; i++) {
+        checkTagArr.push(this.data.checkTagList[i].id)
+    }
+    if (checkTagArr.length <= 0) {
+        checkTagArr = ''
+    } else {
+        checkTagArr = JSON.stringify(checkTagArr)
+    }
     Req.request('getServiceList', {
         is_recommend: 0,
-        position_id: '',
-        address: '',
-        keyword: '',
+        position_id: checkTagArr,
+        address: this.data.address,
+        keyword: this.data.keyword,
         page: this.data.current + 1,
         identity: app.globalData.roleType,
         rownum: this.data.rownum

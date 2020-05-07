@@ -42,9 +42,12 @@
                     <image bindtap="chooseImg" mode="aspectFill" class="upload-img" src="{{coverImg?coverImg:'/images/task/upload.jpg'}}"></image> 
                 </view>
             </view>
-            <view class="info-item">
-                <view class="item-label flex flex-ver flex-jcsb">
+            <view class="info-item flex flex-ver flex-jcsb">
+                <view style="margin-bottom: 0;" class="item-label">
                     <text class="label">活动时间</text>
+                    <text class="label-desc">（必填）</text>
+                </view>
+                <view style="line-height: 42rpx;" class="item-content flex">
                     <view class="item-date-box flex flex-ver">
                         <picker mode="date" bindchange="startDateChange" value="{{}}">
                             <view class="date-item flex flex-ver">
@@ -58,8 +61,6 @@
                             </view>
                         </picker>
                     </view>
-                </view>
-                <view class="item-content">
                 </view>
             </view>
             <view class="info-item">

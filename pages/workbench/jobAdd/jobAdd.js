@@ -99,6 +99,7 @@ VM.numberChange = function(e) {
     this.setData({
         [tar]: e.detail.value
     })
+    console.log(index, e.detail.value);
 }
 // 职位雇佣 0普通 1指定
 VM.jobHireType = function(e) {
@@ -177,9 +178,9 @@ VM.createActivity = function() {
         method: 'post'
     }, (res) => {
         //res.data返回创建活动的id 
-        console.log('创建活动id:'+res.data);
+        console.log('创建活动id:' + res.data);
         wx.navigateTo({
-            url: '/pages/workbench/publishSuccess/publishSuccess?id='+res.data+'&type=2'
+            url: '/pages/workbench/publishSuccess/publishSuccess?id=' + res.data + '&type=2'
         })
     })
 

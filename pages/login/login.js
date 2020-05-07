@@ -5,7 +5,7 @@ const base = require('../../utils/base.js');
 const Req = require('../../utils/request.js');
 const VM = {
     data: {
-        loading: true,
+        loading: false,
         // 展示验证码
         show1: false,
         // 展示协议

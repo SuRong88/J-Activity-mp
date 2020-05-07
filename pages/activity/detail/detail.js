@@ -18,16 +18,30 @@ VM.init = function(query) {
     // 设置自定义头部
     util.setHeader(this);
     let id = query.id
+    let type = query.type || ''
     Req.request('getActivityDetail', {
         activity_id: id
     }, {
         method: 'get'
     }, (res) => {
         this.setData({
-            id: id,
             detail: res.data
         })
     })
+    if (type == 'sign') {
+        this.setData({
+            id: id,
+            tabIndex: 1
+        })
+        if (this.data.jobList.length > 0) {
+            return false
+        }
+        this.getJobList()
+    } else {
+        this.setData({
+            id: id
+        })
+    }
 }
 VM.onLoad = function(query) {
     this.init(query)
@@ -49,8 +63,13 @@ VM.switchTab = function(e) {
 
 // 获取活动职位列表
 VM.getJobList = function() {
+    let identity = ''
+    if (app.globalData.isLogined) {
+        identity = app.globalData.roleType
+    }
     Req.request('getActivityJobList', {
-        activity_id: this.data.id
+        activity_id: this.data.id,
+        identity: identity
     }, {
         method: 'get'
     }, (res) => {

@@ -8,6 +8,8 @@ App({
         this.userLogin()
     },
     globalData: {
+        showWelcome: true, //首页欢迎
+        showModaled: false, // 防止显示多个showModal
         isConnected: true,
         isLogined: false,
         userInfo: null, //微信用户信息

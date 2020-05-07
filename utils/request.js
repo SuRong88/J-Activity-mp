@@ -316,7 +316,7 @@ function codeCheck(data, success, fail) {
                 fail(data)
             } else {
                 // util.Toast(data.msg);
-                util.showModal('提示', data.msg, false, '', '确定')
+                util.showModal('提示', data.msg || '系统出错', false, '', '确定')
             }
             break;
     }

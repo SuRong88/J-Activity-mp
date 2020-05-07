@@ -149,7 +149,7 @@
                 </view>
                 <view wx:if="{{item.status==1}}" class="item-r flex-1">
                     <image mode="aspectFill" class="item-img" src="{{item.cover_img}}"></image>
-                    <view class="item-btn">
+                    <view catchtap="base_jump" data-url="/pages/activity/detail/detail?id={{item.id}}&type=sign" class="item-btn">
                         报名接单
                     </view>
                 </view>

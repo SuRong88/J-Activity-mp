@@ -25,7 +25,6 @@ VM.init = function(query) {
     this.setData({
         type: type
     })
-    this.getList(type);
 }
 // 更新页面数据
 VM.onShow = function() {
@@ -37,9 +36,7 @@ VM.onShow = function() {
         list: [],
         isEmpty: false
     })
-    wx.nextTick(() => {
-        this.getList(this.data.type)
-    })
+    this.getList(this.data.type)
 }
 VM.onLoad = function(query) {
     this.init(query)

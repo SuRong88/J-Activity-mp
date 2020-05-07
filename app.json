@@ -75,9 +75,7 @@
         "downloadFile": 10000
     },
     "window": {
-        "backgroundColor": "#FC7F03",
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#FC7F03",
         "navigationBarTitleText": "J活动",
         "navigationBarTextStyle": "white",
         "navigationStyle": "custom"

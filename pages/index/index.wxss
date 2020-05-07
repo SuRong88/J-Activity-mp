@@ -442,3 +442,26 @@
 }
 
 /* 服务流程 end*/
+
+
+/* 启动 */
+.loading-part {
+    height: 100%;
+    /* padding-top: 186rpx; */
+    padding-top: 12vh;
+}
+
+.loading-part-img01 {
+    display: block;
+    margin: 0 auto 10vh;
+    width: 300rpx;
+    /* height: 164rpx; */
+    /* margin-bottom: 190rpx; */
+}
+
+.loading-part-img02 {
+    display: block;
+    margin: 0 auto;
+    width: 634rpx;
+    /* height: 534rpx; */
+}

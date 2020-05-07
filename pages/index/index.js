@@ -5,6 +5,7 @@ const base = require('../../utils/base.js');
 const Req = require('../../utils/request.js');
 const VM = {
     data: {
+        loading: true,
         marginNum: 32,
         swiperIndex01: 0,
         swiperIndex02: 0,
@@ -21,6 +22,19 @@ const VM = {
 VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
+    // 展示欢迎
+    if (app.globalData.showWelcome) {
+        setTimeout(() => {
+            this.setData({
+                loading: false
+            })
+        }, 3000)
+    } else {
+       this.setData({
+           loading: false
+       }) 
+    }
+    app.globalData.showWelcome = false
     this.setData({
         tabbarType: app.globalData.roleType
     })

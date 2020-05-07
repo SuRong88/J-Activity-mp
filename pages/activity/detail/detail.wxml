@@ -51,7 +51,7 @@
                 <view wx:for="{{jobList}}" wx:key="index" class="job-item">
                     <view class="item-top flex flex-ver flex-jcsb">
                         <text class="item-job-type">{{item.position_name}}</text>
-                        <text class="item-job-price">¥{{item.salary}}</text>
+                        <text class="item-job-price">{{item.salary==0?'面议':'¥'+item.salary}}</text>
                     </view>
                     <view class="item-middle job-info">
                         <view class="info-item">所需人数：{{item.apply_num}}/{{item.people_num}}</view>
@@ -77,7 +77,7 @@
                             </view>
                         </block>
                         <!-- 未报名 -->
-                        <view wx:else bindtap="confirmSign" data-index="{{index}}" data-id="{{item.id}}" class="btn btn-sign-up">
+                        <view wx:else bindtap="confirmSign" data-index="{{index}}" data-id="{{item.position_id}}" class="btn btn-sign-up">
                             立即报名
                         </view>
                     </view>

@@ -72,6 +72,13 @@ function hideLoading(success, fail, complete) {
 
 // 模态弹窗
 function showModal(title, content, showCancel, cancelText, confirmText, cb_confirm, cb_cancel) {
+    // 防止显示多个showModal
+    let globalData = getApp().globalData
+    if (globalData.showModaled) {
+        return false
+    }
+    globalData.showModaled = true
+    // 防止显示多个showModal end
     wx.showModal({
         title: title,
         content: content,
@@ -82,8 +89,10 @@ function showModal(title, content, showCancel, cancelText, confirmText, cb_confi
         confirmColor: '#FC7F03',
         success: function(res) {
             if (res.confirm) {
+                globalData.showModaled = false
                 cb_confirm && cb_confirm()
             } else if (res.cancel) {
+                globalData.showModaled = false
                 cb_cancel && cb_cancel()
             }
         }

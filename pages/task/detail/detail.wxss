@@ -56,7 +56,7 @@ page {
 .box01-img {
     width: 116rpx;
     height: 116rpx;
-    border-radius: 10rpx;
+    border-radius: 8rpx;
 }
 
 .box01-r {

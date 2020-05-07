@@ -1,225 +1,233 @@
 <view class="container">
     <mp-header cln="'header'" title=""></mp-header>
-    <view class="content">
-        <!-- 轮播图 -->
-        <view class="banner-swiper-box">
-            <swiper class="banner-swiper" autoplay interval="5000" duration="500" bindchange="changeSwiper01"
-                previous-margin="{{marginNum}}rpx" next-margin="{{marginNum}}rpx" circular>
-                <view class="swiper__item" wx:for="{{bannerList}}" wx:key="index">
-                    <swiper-item>
-                        <image class="swiper--img {{swiperIndex01 == index?'active':''}} {{swiperIndex01-1==index||(swiperIndex01==0&&index==bannerList.length-1)?'active-prev':''}}  {{swiperIndex01+1==index||(index==0&&swiperIndex01==bannerList.length-1)?'active-next':''}}"
-                            src="{{item.cover||item}}" mode="aspectFill" data-index="{{index}}"></image>
-                    </swiper-item>
-                </view>
-            </swiper>
-            <view class="swiper-pagination flex flex-center">
-                <view class="flex pagination_block">
-                    <view class="{{swiperIndex01 == index?'active':''}}" wx:key="index" wx:for="{{bannerList.length}}"></view>
-                </view>
-            </view>
-        </view>
-        <view class="sec sec01">
-            <view class="sec-hd flex flex-ver flex-jcsb">
-                <view class="sec-tit flex flex-ver">
-                    <text class="tit-txt">平台资源</text>
-                </view>
-            </view>
-            <view class="sec-bd">
-                <image mode="widthFix" class="sec-img" src="{{platformUrl}}"></image>
-            </view>
-        </view>
-        <view class="sec sec02">
-            <view class="sec-hd flex flex-ver flex-jcsb">
-                <view class="sec-tit flex flex-ver">
-                    <text class="tit-txt">活动精选</text>
-                    <image class="tit-icon" src="/images/index/icon11.png"></image>
-                </view>
-                <view bindtap="base_jump" data-url="/pages/activity/index/index" class="view-more flex flex-ver">
-                    查看更多
-                    <image class="arrow-icon" src="/images/index/icon12.png"></image>
-                </view>
-            </view>
-            <view class="sec-bd">
-                <view class="activity-list">
-                    <view wx:for="{{recommendActivity}}" wx:key="index" bindtap="base_jump" data-url="/pages/activity/detail/detail?id={{item.id}}"
-                        class="activity-item flex">
-                        <image class="item-icon" src="/images/index/icon13.png"></image>
-                        <view class="item-l flex flex-col flex-jcsb">
-                            <view class="item-l-top">
-                                <view class="item-tit line-hide line-2">
-                                    {{item.name}}
-                                </view>
-                                <view class="item-txt line-hide line-1">
-                                    <block wx:for="{{item.position_list}}" wx:for-item="subItem" wx:for-index="subIndex"
-                                        wx:key="index" class="tag-item">
-                                        {{subItem.name}}
-                                        {{subIndex<item.position_list.length-1?'、':''}}
-                                    </block>
-                                </view>
-                            </view>
-                            <view class="item-l-bottom info-list">
-                                <view class="info-item">
-                                    <text>活动地区：</text>
-                                    <text>{{item.address}}</text>
-                                </view>
-                                <view class="info-item">
-                                    <text>活动时间：</text>
-                                    <text> {{item.start_time}}- {{item.end_time}}</text>
-                                </view>
-                                <view class="info-item">
-                                    <text>所需人数：</text>
-                                    <text> {{item.apply_num}}/ {{item.people_num}}</text>
-                                </view>
-                            </view>
-                        </view>
-                        <view class="item-r flex-1">
-                            <image class="item-img" src="/images/index/img01.jpg"></image>
-                            <view class="item-btn">
-                                报名接单
-                            </view>
-                        </view>
+    <!-- 启动 -->
+    <view wx:if="{{loading}}" class="loading-part">
+        <image mode="widthFix" class="loading-part-img01" src="/images/login/Si_bg02.png"></image>
+        <image mode="widthFix" class="loading-part-img02" src="/images/login/Si_bg01.png"></image>
+    </view>
+    <!-- 启动之后 -->
+    <block wx:else>
+        <view class="content">
+            <!-- 轮播图 -->
+            <view class="banner-swiper-box">
+                <swiper class="banner-swiper" autoplay interval="5000" duration="500" bindchange="changeSwiper01"
+                    previous-margin="{{marginNum}}rpx" next-margin="{{marginNum}}rpx" circular>
+                    <view class="swiper__item" wx:for="{{bannerList}}" wx:key="index">
+                        <swiper-item>
+                            <image class="swiper--img {{swiperIndex01 == index?'active':''}} {{swiperIndex01-1==index||(swiperIndex01==0&&index==bannerList.length-1)?'active-prev':''}}  {{swiperIndex01+1==index||(index==0&&swiperIndex01==bannerList.length-1)?'active-next':''}}"
+                                src="{{item.cover||item}}" mode="aspectFill" data-index="{{index}}"></image>
+                        </swiper-item>
+                    </view>
+                </swiper>
+                <view class="swiper-pagination flex flex-center">
+                    <view class="flex pagination_block">
+                        <view class="{{swiperIndex01 == index?'active':''}}" wx:key="index" wx:for="{{bannerList.length}}"></view>
                     </view>
                 </view>
             </view>
-        </view>
-        <view class="sec sec03">
-            <view class="sec-hd flex flex-ver flex-jcsb">
-                <view class="sec-tit flex flex-ver">
-                    <text class="tit-txt">企业精选</text>
-                    <image class="tit-icon" src="/images/index/icon11.png"></image>
+            <view class="sec sec01">
+                <view class="sec-hd flex flex-ver flex-jcsb">
+                    <view class="sec-tit flex flex-ver">
+                        <text class="tit-txt">平台资源</text>
+                    </view>
                 </view>
-                <view bindtap="base_jump" data-url="/pages/enterprise/index/index" class="view-more flex flex-ver">
-                    <text>查看更多</text>
-                    <image class="arrow-icon" src="/images/index/icon12.png"></image>
+                <view class="sec-bd">
+                    <image mode="widthFix" class="sec-img" src="{{platformUrl}}"></image>
                 </view>
             </view>
-            <view class="sec-bd">
-                <view class="company-swiper-box">
-                    <swiper bindchange="changeSwiper02" class="company-swiper" autoplay interval="5000" duration="500"
-                        circular>
-                        <swiper-item bindtap="base_jump" data-url="/pages/enterprise/detail/detail?id={{item.id}}"
-                            class="swiper-item" wx:for="{{recommendEnterprise}}" wx:key="index">
-                            <view class="item-top">
-                                <image class="item-img" src="{{item.cover_img}}"></image>
-                                <view class="item-brief">
-                                    已入驻：{{item.settle_time}}个月
-                                </view>
-                            </view>
-                            <view class="item-bottom">
-                                <view class="item-tit-box flex flex-ver">
-                                    <image class="item-avatar" src="{{item.logo}}"></image>
-                                    <view class="item-tit line-hide line-1">
+            <view class="sec sec02">
+                <view class="sec-hd flex flex-ver flex-jcsb">
+                    <view class="sec-tit flex flex-ver">
+                        <text class="tit-txt">活动精选</text>
+                        <image class="tit-icon" src="/images/index/icon11.png"></image>
+                    </view>
+                    <view bindtap="base_jump" data-url="/pages/activity/index/index" class="view-more flex flex-ver">
+                        查看更多
+                        <image class="arrow-icon" src="/images/index/icon12.png"></image>
+                    </view>
+                </view>
+                <view class="sec-bd">
+                    <view class="activity-list">
+                        <view wx:for="{{recommendActivity}}" wx:key="index" bindtap="base_jump" data-url="/pages/activity/detail/detail?id={{item.id}}"
+                            class="activity-item flex">
+                            <image class="item-icon" src="/images/index/icon13.png"></image>
+                            <view class="item-l flex flex-col flex-jcsb">
+                                <view class="item-l-top">
+                                    <view class="item-tit line-hide line-2">
                                         {{item.name}}
                                     </view>
+                                    <view class="item-txt line-hide line-1">
+                                        <block wx:for="{{item.position_list}}" wx:for-item="subItem" wx:for-index="subIndex"
+                                            wx:key="index" class="tag-item">
+                                            {{subItem.name}}
+                                            {{subIndex<item.position_list.length-1?'、':''}}
+                                        </block>
+                                    </view>
                                 </view>
-                                <view class="item-desc line-hide line-2">
-                                    {{item.profiles}}
-                                </view>
-                                <view class="item-btn flex flex-align-center flex-ver">
-                                    <text>企业详情</text>
-                                    <image class="btn-icon" src="/images/index/icon14.png"></image>
+                                <view class="item-l-bottom info-list">
+                                    <view class="info-item">
+                                        <text>活动地区：</text>
+                                        <text>{{item.address}}</text>
+                                    </view>
+                                    <view class="info-item">
+                                        <text>活动时间：</text>
+                                        <text> {{item.start_time}}- {{item.end_time}}</text>
+                                    </view>
+                                    <view class="info-item">
+                                        <text>所需人数：</text>
+                                        <text> {{item.apply_num}}/ {{item.people_num}}</text>
+                                    </view>
                                 </view>
                             </view>
-                        </swiper-item>
-                    </swiper>
-                    <view class="swiper-pagination flex flex-center">
-                        <view class="flex pagination_block">
-                            <view class="{{swiperIndex02 == index?'active':''}}" wx:key="index" wx:for="{{recommendEnterprise.length}}"></view>
+                            <view class="item-r flex-1">
+                                <image class="item-img" src="/images/index/img01.jpg"></image>
+                                <view class="item-btn">
+                                    报名接单
+                                </view>
+                            </view>
                         </view>
                     </view>
                 </view>
             </view>
-        </view>
-        <view class="sec sec04">
-            <view class="sec-hd flex flex-ver flex-jcsb">
-                <view class="sec-tit flex flex-ver">
-                    <text class="tit-txt">服务商精选</text>
-                    <image class="tit-icon" src="/images/index/icon11.png"></image>
+            <view class="sec sec03">
+                <view class="sec-hd flex flex-ver flex-jcsb">
+                    <view class="sec-tit flex flex-ver">
+                        <text class="tit-txt">企业精选</text>
+                        <image class="tit-icon" src="/images/index/icon11.png"></image>
+                    </view>
+                    <view bindtap="base_jump" data-url="/pages/enterprise/index/index" class="view-more flex flex-ver">
+                        <text>查看更多</text>
+                        <image class="arrow-icon" src="/images/index/icon12.png"></image>
+                    </view>
                 </view>
-                <view bindtap="base_jump" data-url="/pages/resource/index/index" class="view-more flex flex-ver">
-                    <text>查看更多</text>
-                    <image class="arrow-icon" src="/images/index/icon12.png"></image>
-                </view>
-            </view>
-            <view class="sec-bd">
-                <view class="service-swiper-box">
-                    <swiper class="service-swiper" autoplay interval="5000" duration="500" next-margin="190rpx">
-                        <swiper-item bindtap="base_jump" data-url="/pages/resource/detail/detail?id={{item.id}}" class="swiper-item"
-                            wx:for="{{recommendUser}}" wx:key="index">
-                            <view class="swiper-item-inner">
-                                <view class="item-top flex">
-                                    <image class="top-l item-avatar" src="{{item.head_img}}"></image>
-                                    <view class="top-r flex-1 flex flex-col flex-align-center">
-                                        <view class="item-time">
-                                            已入驻：{{item.settle_time}}个月
-                                        </view>
-                                        <view class="tag-list flex flex-wrap">
-                                            <view wx:for="{{item.position_list}}" wx:for-item="subItem" wx:for-index="subIndex"
-                                                wx:key="index" class="tag-item">
-                                                {{subItem.name}}
-                                                {{subIndex<item.position_list.length-1?'、':''}}
-                                            </view>
-                                        </view>
+                <view class="sec-bd">
+                    <view class="company-swiper-box">
+                        <swiper bindchange="changeSwiper02" class="company-swiper" autoplay interval="5000" duration="500"
+                            circular>
+                            <swiper-item bindtap="base_jump" data-url="/pages/enterprise/detail/detail?id={{item.id}}"
+                                class="swiper-item" wx:for="{{recommendEnterprise}}" wx:key="index">
+                                <view class="item-top">
+                                    <image class="item-img" src="{{item.cover_img}}"></image>
+                                    <view class="item-brief">
+                                        已入驻：{{item.settle_time}}个月
                                     </view>
                                 </view>
                                 <view class="item-bottom">
                                     <view class="item-tit-box flex flex-ver">
-                                        <image class="item-icon" src="/images/index/icon15.png"></image>
+                                        <image class="item-avatar" src="{{item.logo}}"></image>
                                         <view class="item-tit line-hide line-1">
-                                            {{item.nickname}} </view>
-                                    </view>
-                                    <view class="item-other flex flex-ver">
-                                        <image class="item-icon" src="/images/index/icon16.png"></image>
-                                        <view class="item-txt line-hide line-1">
-                                            接单数量：
-                                            <text class="item-count">{{item.order_num}}</text>
+                                            {{item.name}}
                                         </view>
                                     </view>
-
+                                    <view class="item-desc line-hide line-2">
+                                        {{item.profiles}}
+                                    </view>
+                                    <view class="item-btn flex flex-align-center flex-ver">
+                                        <text>企业详情</text>
+                                        <image class="btn-icon" src="/images/index/icon14.png"></image>
+                                    </view>
                                 </view>
-                                <image class="swiper-item-icon" src="/images/index/img12.png"></image>
+                            </swiper-item>
+                        </swiper>
+                        <view class="swiper-pagination flex flex-center">
+                            <view class="flex pagination_block">
+                                <view class="{{swiperIndex02 == index?'active':''}}" wx:key="index" wx:for="{{recommendEnterprise.length}}"></view>
                             </view>
-                        </swiper-item>
-                    </swiper>
-                </view>
-            </view>
-        </view>
-        <view class="sec sec05">
-            <view class="sec-hd flex flex-ver flex-jcsb">
-                <view class="sec-tit flex flex-ver">
-                    <text class="tit-txt">合作伙伴</text>
-                </view>
-            </view>
-            <view class="sec-bd">
-                <view class="partner-swiper-box">
-                    <swiper bindchange="changeSwiper04" class="partner-swiper" autoplay interval="5000" duration="500"
-                        circular>
-                        <swiper-item class="swiper-item" wx:for="{{cooperate}}" wx:key="index">
-                            <image mode="aspectFill" class="item-img" src="{{item}}"></image>
-                        </swiper-item>
-                    </swiper>
-                    <view class="swiper-pagination flex flex-center">
-                        <view class="flex pagination_block">
-                            <view class="{{swiperIndex04 == index?'active':''}}" wx:key="index" wx:for="{{cooperate.length}}"></view>
                         </view>
                     </view>
                 </view>
             </view>
-        </view>
-        <view class="sec sec06">
-            <view class="sec-hd flex flex-ver flex-jcsb">
-                <view class="sec-tit flex flex-ver">
-                    <text class="tit-txt">服务流程</text>
+            <view class="sec sec04">
+                <view class="sec-hd flex flex-ver flex-jcsb">
+                    <view class="sec-tit flex flex-ver">
+                        <text class="tit-txt">服务商精选</text>
+                        <image class="tit-icon" src="/images/index/icon11.png"></image>
+                    </view>
+                    <view bindtap="base_jump" data-url="/pages/resource/index/index" class="view-more flex flex-ver">
+                        <text>查看更多</text>
+                        <image class="arrow-icon" src="/images/index/icon12.png"></image>
+                    </view>
+                </view>
+                <view class="sec-bd">
+                    <view class="service-swiper-box">
+                        <swiper class="service-swiper" autoplay interval="5000" duration="500" next-margin="190rpx">
+                            <swiper-item bindtap="base_jump" data-url="/pages/resource/detail/detail?id={{item.id}}"
+                                class="swiper-item" wx:for="{{recommendUser}}" wx:key="index">
+                                <view class="swiper-item-inner">
+                                    <view class="item-top flex">
+                                        <image class="top-l item-avatar" src="{{item.head_img}}"></image>
+                                        <view class="top-r flex-1 flex flex-col flex-align-center">
+                                            <view class="item-time">
+                                                已入驻：{{item.settle_time}}个月
+                                            </view>
+                                            <view class="tag-list flex flex-wrap">
+                                                <view wx:for="{{item.position_list}}" wx:for-item="subItem"
+                                                    wx:for-index="subIndex" wx:key="index" class="tag-item">
+                                                    {{subItem.name}}
+                                                    {{subIndex<item.position_list.length-1?'、':''}}
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                    <view class="item-bottom">
+                                        <view class="item-tit-box flex flex-ver">
+                                            <image class="item-icon" src="/images/index/icon15.png"></image>
+                                            <view class="item-tit line-hide line-1">
+                                                {{item.nickname}} </view>
+                                        </view>
+                                        <view class="item-other flex flex-ver">
+                                            <image class="item-icon" src="/images/index/icon16.png"></image>
+                                            <view class="item-txt line-hide line-1">
+                                                接单数量：
+                                                <text class="item-count">{{item.order_num}}</text>
+                                            </view>
+                                        </view>
+
+                                    </view>
+                                    <image class="swiper-item-icon" src="/images/index/img12.png"></image>
+                                </view>
+                            </swiper-item>
+                        </swiper>
+                    </view>
                 </view>
             </view>
-            <view class="sec-bd">
-                <image mode="widthFix" class="sec-img" src="{{service}}"></image>
+            <view class="sec sec05">
+                <view class="sec-hd flex flex-ver flex-jcsb">
+                    <view class="sec-tit flex flex-ver">
+                        <text class="tit-txt">合作伙伴</text>
+                    </view>
+                </view>
+                <view class="sec-bd">
+                    <view class="partner-swiper-box">
+                        <swiper bindchange="changeSwiper04" class="partner-swiper" autoplay interval="5000" duration="500"
+                            circular>
+                            <swiper-item class="swiper-item" wx:for="{{cooperate}}" wx:key="index">
+                                <image mode="aspectFill" class="item-img" src="{{item}}"></image>
+                            </swiper-item>
+                        </swiper>
+                        <view class="swiper-pagination flex flex-center">
+                            <view class="flex pagination_block">
+                                <view class="{{swiperIndex04 == index?'active':''}}" wx:key="index" wx:for="{{cooperate.length}}"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="sec sec06">
+                <view class="sec-hd flex flex-ver flex-jcsb">
+                    <view class="sec-tit flex flex-ver">
+                        <text class="tit-txt">服务流程</text>
+                    </view>
+                </view>
+                <view class="sec-bd">
+                    <image mode="widthFix" class="sec-img" src="{{service}}"></image>
+                </view>
             </view>
         </view>
-    </view>
-    <mp-tabbar tabbarType="{{tabbarType||1}}" tabbarIndex="0"></mp-tabbar>
-    <!-- 登录 -->
-    <mp-login wx:if="{{showLogin}}">
-    </mp-login>
-    <!-- 登录 end-->
+        <mp-tabbar tabbarType="{{tabbarType||1}}" tabbarIndex="0"></mp-tabbar>
+        <!-- 登录 -->
+        <mp-login wx:if="{{showLogin}}">
+        </mp-login>
+        <!-- 登录 end-->
+    </block>
 </view>

@@ -13,7 +13,7 @@
         <view class="info-box">
             <view class="box box01 flex">
                 <view class="box01-l">
-                    <image class="box01-img" src="/images/task/mine_img03.png"></image>
+                    <image class="box01-img" src="{{detail.cover_img}}"></image>
                 </view>
                 <view class="box01-r">
                     <view class="box01-job">{{detail.job_name}}</view>
@@ -71,7 +71,7 @@
                     </view>
                 </view>
             </view>
-            <view wx:if="{{type==1}}" class="common-btn normal">
+            <view wx:if="{{type==1}}" bindtap="confirmTask" class="common-btn normal">
                 确认
             </view>
             <view wx:if="{{type==2&&detail.settle_time<1}}" bindtap="base_jump" data-url="/pages/task/upload/upload?id={{id}}&type={{type}}"

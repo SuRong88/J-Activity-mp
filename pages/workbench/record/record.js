@@ -36,14 +36,22 @@ const VM = {
                 sel: false
             },
             {
-                name: '1000-2000',
+                name: '1001-2000',
                 sel: false
             },
             {
-                name: '2000-3000',
+                name: '2001-3000',
                 sel: false
             }, {
-                name: '3000-4000',
+                name: '3001-4000',
+                sel: false
+            },
+            {
+                name: '4001-5000',
+                sel: false
+            },
+            {
+                name: '5000以上',
                 sel: false
             }
         ],
