@@ -205,6 +205,33 @@ const OPTIONS = {
     submitFeedback: {
         url: `${HOST}/user/feedback`
     },
+    //获取客服二维码
+    getServiceQrcode: {
+        url: `${HOST}/index/service`
+    },
+    //获取平台协议
+    getAgreement: {
+        url: `${HOST}/common/agreement`
+    },
+    /*
+     **实名认证
+     */
+    // 查看认证状态
+    getAuthStatus: {
+        url: `${HOST}/user/auth`
+    },
+    // 提交认证信息
+    submitAuthInfo: {
+        url: `${HOST}/user/auth`
+    },
+    // 获取认证信息
+    getAuthInfo: {
+        url: `${HOST}/user/authInfo`
+    },
+    // 生成合同
+    getContract: {
+        url: `${HOST}/qys/create`
+    },
     /*
      **岗位标签
      */

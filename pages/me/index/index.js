@@ -39,7 +39,7 @@ VM.onLoad = function(query) {
 }
 VM.onShow = function() {
     // “完善信息”修改信息之后 更新页面数据
-    this.init()
+    // this.init()
 }
 // 弹窗
 VM.showMask = function(e) {

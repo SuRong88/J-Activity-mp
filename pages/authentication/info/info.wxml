@@ -7,7 +7,7 @@
                     姓名
                 </view>
                 <view class="item-value">
-                    郑钉玲
+                    {{info.name}}
                 </view>
             </view>
             <view class="info-item flex flex-ver flex-jcsb">
@@ -15,7 +15,7 @@
                     手机号
                 </view>
                 <view class="item-value">
-                    15626129192
+                    {{info.phone}}
                 </view>
             </view>
             <view class="info-item flex flex-ver flex-jcsb">
@@ -23,7 +23,7 @@
                     身份证号
                 </view>
                 <view class="item-value">
-                    441881199604139277
+                    {{info.id_card}}
                 </view>
             </view>
             <view class="info-item flex flex-ver flex-jcsb">
@@ -31,7 +31,7 @@
                     银行卡号
                 </view>
                 <view class="item-value">
-                    622372648495737483
+                    {{info.bank_num}}
                 </view>
             </view>
         </view>

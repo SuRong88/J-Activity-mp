@@ -3,6 +3,7 @@ const formcheck = require('../../utils/formcheck.js');
 const util = require('../../utils/util.js');
 const base = require('../../utils/base.js');
 const Req = require('../../utils/request.js');
+var WxParse = require('../../wxParse/wxParse');
 const VM = {
     data: {
         loading: false,
@@ -16,11 +17,11 @@ const VM = {
         agreementIndex: 0,
         agreementList: [{
                 title: '《用户服务协议》',
-                txt: "用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议用户服务协议"
+                txt: ""
             },
             {
                 title: '《隐私协议》',
-                txt: "隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议"
+                txt: ""
             }
         ],
         tipIndex: 0,
@@ -62,9 +63,30 @@ VM.agreementToggle = function(e) {
 // 展示协议
 VM.showAgreement = function(e) {
     let index = util.dataset(e, 'index')
-    this.setData({
-        show2: true,
-        agreementIndex: index
+    let sign = ''
+    if (this.data.agreementList[index].txt != '') {
+        return this.setData({
+            show2: true,
+            agreementIndex: index
+        })
+    }
+    if (index == 0) {
+        sign = 'register_agreement'
+    } else {
+        sign = 'privacy_agreement'
+    }
+    Req.request('getAgreement', {
+        sign: sign
+    }, {
+        method: 'get'
+    }, res => {
+        // let tar = 'agreementList[' + index + '].txt'
+        WxParse.wxParse('agreementTxt', 'html', res.data.content, this, 5);
+        this.setData({
+            show2: true,
+            agreementIndex: index,
+            // [tar]: res.data.content
+        })
     })
 }
 // 关闭协议

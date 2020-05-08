@@ -6,6 +6,7 @@
         "pages/authentication/bankCard/bankCard",
         "pages/authentication/complete/complete",
         "pages/authentication/protocol/protocol",
+        "pages/authentication/sign/sign",
         "pages/task/index/index",
         "pages/task/detail/detail",
         "pages/task/upload/upload",

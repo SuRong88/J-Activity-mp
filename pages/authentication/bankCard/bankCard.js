@@ -133,6 +133,9 @@ VM.submitHandle = function(e) {
         method: 'post'
     }, res => {
         util.Toast('修改成功')
+        let pages = getCurrentPages()
+        let prevPage = pages[pages.length - 2]
+        prevPage.init()
         setTimeout(() => {
             wx.navigateBack({
                 delta: 1

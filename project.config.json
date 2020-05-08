@@ -367,6 +367,13 @@
 					"pathName": "pages/workbench/dispatchAll/dispatchAll",
 					"query": "id=13",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "实名认证-完善信息",
+					"pathName": "pages/authentication/complete/complete",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

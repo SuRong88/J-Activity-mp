@@ -8,7 +8,7 @@ App({
         this.userLogin()
     },
     globalData: {
-        showWelcome: true, //首页欢迎
+        showWelcome: false, //首页欢迎
         showModaled: false, // 防止显示多个showModal
         isConnected: true,
         isLogined: false,
@@ -20,7 +20,8 @@ App({
         newTagList: [],
         searchServiceInfo: null, //搜索服务商信息
         searchActivityInfo: null, //搜索服务商信息
-        activityCreateInfo: null //创建活动信息
+        activityCreateInfo: null, //创建活动信息
+        authInfo: null
     },
     // 展示本地存储能力
     showLogs: function() {

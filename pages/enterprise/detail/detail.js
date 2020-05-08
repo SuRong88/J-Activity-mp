@@ -5,6 +5,7 @@ const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 const VM = {
     data: {
+        showQrcode: false,
         // 企业id
         id: '',
         // 企业信息
@@ -33,5 +34,30 @@ VM.init = function(query) {
 VM.onLoad = function(query) {
     this.init(query)
     base.onLoad(this)
+}
+// 弹窗
+VM.showMask = function(e) {
+    let key = util.dataset(e, 'key')
+    if (key == 'qrcode') {
+        this.setData({
+            showQrcode: true
+        })
+    } else {
+        this.setData({
+            showLogout: true
+        })
+    }
+}
+VM.closeQrcode = function() {
+    this.setData({
+        showQrcode: false
+    })
+}
+VM.previewImage = function(e) {
+    let current = e.target.dataset.src;
+    wx.previewImage({
+        current: current,
+        urls: [current]
+    })
 }
 Page(VM)

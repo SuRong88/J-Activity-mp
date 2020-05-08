@@ -2,7 +2,9 @@
     padding: 10rpx 50rpx 86rpx;
 }
 
-.info-item {}
+.info-item {
+    white-space: nowrap;
+}
 
 .item-label {
     padding: 40rpx 0 14rpx;

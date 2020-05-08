@@ -35,8 +35,8 @@ VM.init = function(query) {
     this.setData({
         activityId: query.id,
         workAddress: query.workAddress,
-        startDate: query.startDate,
-        endDate: query.endDate
+        startDate: query.startDate.replace(/\./g,'-'),
+        endDate: query.endDate.replace(/\./g,'-')
     })
 }
 VM.onLoad = function(query) {

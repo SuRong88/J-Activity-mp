@@ -1,3 +1,4 @@
+<import src="/wxParse/wxParse.wxml" />
 <view class="container">
     <mp-header showTitle="{{false}}"></mp-header>
     <view class="content">
@@ -62,7 +63,9 @@
         <mp-popBox wx:if="{{show2}}" cln="'agreement-popBox'" title="{{agreementList[agreementIndex].title}}"
             showContent bind:confirm='closeAgreement' bind:cancel='closeAgreement' showCancel='{{false}}' confirmText="知道了">
             <view class="text-j">
-                <text>{{agreementList[agreementIndex].txt}}</text>
+                <!-- == wxParse == -->
+                <template is="wxParse" data="{{wxParseData: agreementTxt.nodes}}"></template>
+                <!--== /wxParse ==-->
             </view>
         </mp-popBox>
         <!-- 用户协议 end -->

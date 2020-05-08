@@ -210,3 +210,10 @@
     border: 2rpx solid rgba(255, 255, 255, 1);
     background-color: rgba(252, 127, 3, 1);
 }
+.qrcode{
+    display: block;
+    width: 300rpx;
+    height: 300rpx;
+    margin: 0 auto 12rpx;
+    /* margin-bottom: 32rpx; */
+}

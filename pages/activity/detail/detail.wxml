@@ -33,7 +33,7 @@
                         <image class="item-icon" src="/images/activity/event_icon03.png"></image>
                         <text class="item-txt">活动地区：{{detail.address}}</text>
                     </view>
-                    <view class="brief-item flex flex-ver">
+                    <view bindtap="showMask" data-key="qrcode" class="brief-item flex flex-ver">
                         <image class="item-icon" src="/images/activity/event_icon04.png"></image>
                         <text class="item-txt">联系方式：联系客服获取联系方式</text>
                         <image class="arrow-icon" src="/images/index/icon14.png"></image>
@@ -85,6 +85,11 @@
             </view>
         </view>
     </view>
+    <!-- 联系客服 -->
+    <mp-popBox wx:if="{{showQrcode}}" cln="'qrcode-popBox'" title="点击保存二维码" showContent bind:confirm='closeQrcode'
+        bind:cancel='closeQrcode' showCancel='{{false}}' confirmText="确定">
+        <image bindtap="previewImage" class="qrcode" data-src="{{detail.service_code}}" src="{{detail.service_code}}"></image>
+    </mp-popBox>
     <!-- 登录 -->
     <mp-login wx:if="{{showLogin}}">
     </mp-login>

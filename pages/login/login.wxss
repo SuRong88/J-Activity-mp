@@ -124,6 +124,7 @@
     font-size: 22rpx;
     color: rgba(153, 153, 153, 1);
     line-height: 32rpx;
+    white-space: nowrap;
 }
 
 .agreement-txt {

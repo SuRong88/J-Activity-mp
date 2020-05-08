@@ -1,3 +1,4 @@
+<import src="/wxParse/wxParse.wxml" />
 <view class="container">
     <mp-header showBack title="我的协议"></mp-header>
     <view class="content">
@@ -14,13 +15,23 @@
                 平台规则协议
             </view>
             <view class="protocol-list">
-                <view class="protocol-item">
-                    《平台注册使用协议》
+                <view bindtap="showAgreement" data-index="0" class="protocol-item">
+                    《用户服务协议》
                 </view>
-                <view class="protocol-item">
-                    《平台注册使用协议》
+                <view bindtap="showAgreement" data-index="1" class="protocol-item">
+                    《隐私协议》
                 </view>
             </view>
         </view>
     </view>
+    <!-- 用户协议 -->
+    <mp-popBox wx:if="{{showAgreement}}" cln="'agreement-popBox'" title="{{agreementList[agreementIndex].title}}" showContent
+        bind:confirm='closeAgreement' bind:cancel='closeAgreement' showCancel='{{false}}' confirmText="知道了">
+        <view class="text-j">
+            <!-- == wxParse == -->
+            <template is="wxParse" data="{{wxParseData: agreementTxt.nodes}}"></template>
+            <!--== /wxParse ==-->
+        </view>
+    </mp-popBox>
+    <!-- 用户协议 end -->
 </view>
