@@ -2,16 +2,15 @@
     <mp-header isHome="{{isHome}}" showBack title="{{titleArr[filterType]}}"></mp-header>
     <view class="content flex flex-col">
         <!-- 已选择的筛选条件 -->
-        <view hidden="{{checkTagList.length==0&&address==''}}" class="filter-select-box flex flex-wrap {{filterType==0?'':'address'}}">
+        <scroll-view scroll-x enable-flex hidden="{{checkTagList.length==0&&address==''}}" class="filter-select-box flex {{filterType==0?'':'address'}}">
             <view wx:if="{{filterType==0}}" wx:for="{{checkTagList}}" wx:key="index" class="filter-select-item">
                 {{item.name}}
                 <image bindtap="deleteTagItem" data-index="{{index}}" class="item-icon" src="/images/me/mine_icon16.png"></image>
             </view>
-
-            <view wx:if="{{filterType==1}}">
+            <view class="flex flex-ver" style="line-height: 1.4; height: 100%;" wx:if="{{filterType==1}}">
                 {{address}}
             </view>
-        </view>
+        </scroll-view>
         <view class="filter-box">
             <!-- 筛选menu -->
             <view class="filter-bd">

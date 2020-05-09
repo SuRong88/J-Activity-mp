@@ -38,8 +38,16 @@ page {
 .user-name {
     font-size: 36rpx;
     color: rgba(255, 255, 255, 1);
-    line-height: 50rpx;
-    margin-bottom: 16rpx;
+    /* line-height: 50rpx; */
+    /* margin-bottom: 16rpx; */
+    margin-bottom: 10rpx;
+}
+
+.user-phone {
+   font-size: 26rpx;
+   color: rgba(255, 255, 255, 1);
+   /* margin-bottom: 16rpx; */
+   margin-bottom: 10rpx;
 }
 
 .user-status {
@@ -67,11 +75,11 @@ page {
 
 }
 
-
-
 .tag {
+    white-space: nowrap;
     font-size: 26rpx;
     color: rgba(255, 255, 255, 1);
+    margin-bottom: 8rpx;
 }
 
 .tag-spe {
@@ -79,6 +87,7 @@ page {
     height: 18rpx;
     background-color: #fff;
     margin: 0 24rpx;
+    margin-bottom: 8rpx;
 }
 
 .complete-info {

@@ -13,7 +13,7 @@
                     </view>
                 </view>
                 <view class="item-price">
-                    ¥{{jobInfo.salary}}
+                    {{jobInfo.salary==0?'面议':'¥'+jobInfo.salary}}
                 </view>
             </view>
             <view class="item-bd">
@@ -99,9 +99,11 @@
                             class="item-btn plain">
                             服务商详情
                         </view>
-                        <view bindtap="base_jump" data-url="/pages/workbench/reject/reject?id={{item.apply_id}}" class="item-btn plain">
+                        <!-- 暂时关闭 -->
+                        <!-- <view bindtap="base_jump" data-url="/pages/workbench/reject/reject?id={{item.apply_id}}" class="item-btn plain">
                             驳回
-                        </view>
+                        </view> -->
+                        <!-- 暂时关闭end -->
                         <view bindtap="base_jump" data-url="/pages/workbench/passAcceptance/passAcceptance?applyId={{item.apply_id}}&userId={{item.id}}&type=1"
                             class="item-btn">
                             通过验收

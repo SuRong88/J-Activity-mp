@@ -135,8 +135,5 @@ VM.submitHandle = function() {
     }, (err) => {
         util.Toast(err.msg)
     })
-
-
-
 }
 Page(VM)

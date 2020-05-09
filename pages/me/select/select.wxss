@@ -24,15 +24,21 @@
     border-bottom: 2rpx solid rgba(217, 215, 215, 0.3);
 }
 
+.type-scroll-box {
+    height: 120rpx;
+}
+
 .filter-select-box {
     height: 120rpx;
+    padding: 34rpx 40rpx 0rpx;
     box-shadow: 0px 4px 18px 0px rgba(248, 245, 245, 1);
     background-color: #fff;
-    padding: 34rpx 40rpx 0rpx;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
 }
 
 .filter-select-box.address {
-    align-items: center;
+    /* align-items: center; */
     font-size: 28rpx;
     color: #666;
     padding: 0rpx 40rpx;
@@ -48,6 +54,7 @@
     border: 2rpx solid rgba(252, 127, 3, 1);
     margin-right: 30rpx;
     position: relative;
+    white-space: nowrap;
 }
 
 .filter-select-item:last-child {

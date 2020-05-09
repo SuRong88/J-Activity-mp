@@ -40,10 +40,10 @@
                     <view class="info-r flex-1">
                         <view class="info-tit flex flex-ver flex-jcsb">
                             <view class="info-job">
-                                {{item.job_name}}
+                                {{item.position_name}}
                             </view>
                             <view class="info-price">
-                                ¥{{item.salary}}
+                                {{item.salary==0?'面议':'¥'+item.salary}}
                             </view>
                         </view>
                         <view class="info-intro">

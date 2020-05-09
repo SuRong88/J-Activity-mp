@@ -8,13 +8,14 @@
                     <image class="avatar" src="{{avatarUrl}}"></image>
                     <view class="name-status">
                         <view class="user-name line-hide line-1">{{nickname}}</view>
+                        <view class="user-phone line-hide line-1">{{userInfo.phone}}</view>
                         <view class="user-status" bindtap="base_jump" data-url="/pages/authentication/index/index">
                             <image class="status-icon" src="{{userInfo.is_auth?'/images/me/mine_icon11.png':'/images/me/mine_icon10.png'}}"></image>
                             <text class="status-txt">{{userInfo.is_auth?'已认证':'未认证'}}</text>
                         </view>
                     </view>
                 </view>
-                <view class="user-tags flex flex-ver">
+                <view class="user-tags flex flex-ver flex-wrap">
                     <block wx:for="{{userInfo.position_list}}" wx:key="index">
                         <view class="tag">
                             {{item.name}}

@@ -8,7 +8,7 @@
     <!-- 启动之后 -->
     <block wx:else>
         <view class="content">
-            <!-- 轮播图 -->
+            <!-- 1.banner轮播图 -->
             <view class="banner-swiper-box">
                 <swiper class="banner-swiper" autoplay interval="5000" duration="500" bindchange="changeSwiper01"
                     previous-margin="{{marginNum}}rpx" next-margin="{{marginNum}}rpx" circular>
@@ -25,7 +25,9 @@
                     </view>
                 </view>
             </view>
-            <view class="sec sec01">
+            <!-- 2.六大模块 -->
+            <!-- 平台资源 -->
+            <view wx:if="{{platformUrl!=''}}" class="sec sec01">
                 <view class="sec-hd flex flex-ver flex-jcsb">
                     <view class="sec-tit flex flex-ver">
                         <text class="tit-txt">平台资源</text>
@@ -35,7 +37,8 @@
                     <image mode="widthFix" class="sec-img" src="{{platformUrl}}"></image>
                 </view>
             </view>
-            <view class="sec sec02">
+            <!-- 活动精选 -->
+            <view wx:if="{{recommendActivity.length>0}}" class="sec sec02">
                 <view class="sec-hd flex flex-ver flex-jcsb">
                     <view class="sec-tit flex flex-ver">
                         <text class="tit-txt">活动精选</text>
@@ -81,7 +84,7 @@
                             </view>
                             <view class="item-r flex-1">
                                 <image class="item-img" src="/images/index/img01.jpg"></image>
-                                <view class="item-btn">
+                                <view catchtap="base_jump" data-url="/pages/activity/detail/detail?id={{item.id}}&type=sign" class="item-btn">
                                     报名接单
                                 </view>
                             </view>
@@ -89,7 +92,8 @@
                     </view>
                 </view>
             </view>
-            <view class="sec sec03">
+            <!-- 企业精选 -->
+            <view wx:if="{{recommendEnterprise.length>0}}" class="sec sec03">
                 <view class="sec-hd flex flex-ver flex-jcsb">
                     <view class="sec-tit flex flex-ver">
                         <text class="tit-txt">企业精选</text>
@@ -137,7 +141,8 @@
                     </view>
                 </view>
             </view>
-            <view class="sec sec04">
+            <!-- 服务商精选 -->
+            <view wx:if="{{recommendUser.length>0}}" class="sec sec04">
                 <view class="sec-hd flex flex-ver flex-jcsb">
                     <view class="sec-tit flex flex-ver">
                         <text class="tit-txt">服务商精选</text>
@@ -191,7 +196,8 @@
                     </view>
                 </view>
             </view>
-            <view class="sec sec05">
+            <!-- 合作伙伴 -->
+            <view wx:if="{{cooperate.length>0}}" class="sec sec05">
                 <view class="sec-hd flex flex-ver flex-jcsb">
                     <view class="sec-tit flex flex-ver">
                         <text class="tit-txt">合作伙伴</text>
@@ -213,7 +219,8 @@
                     </view>
                 </view>
             </view>
-            <view class="sec sec06">
+            <!-- 服务流程 -->
+            <view wx:if="{{service!=''}}" class="sec sec06">
                 <view class="sec-hd flex flex-ver flex-jcsb">
                     <view class="sec-tit flex flex-ver">
                         <text class="tit-txt">服务流程</text>

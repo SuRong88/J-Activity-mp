@@ -160,7 +160,7 @@ VM.getUserInfo = function(e) {
     if (e.detail.userInfo) { //用户按了允许授权按钮
         this.confirmLogin()
     } else { //用户取消授权
-        util.showModal('提示', '请在设置中打开授权', false, '', '确定');
+        util.showModal('提示', '请授权使用该小程序', false, '', '确定');
     }
 }
 

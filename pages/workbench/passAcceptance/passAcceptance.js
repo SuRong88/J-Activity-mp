@@ -31,7 +31,7 @@ VM.init = function(query) {
         apply_id: query.applyId,
         user_id: query.userId
     }, {
-        method: 'put'
+        method: 'get'
     }, (res) => {
         this.setData({
             info: res.data

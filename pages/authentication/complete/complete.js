@@ -6,6 +6,8 @@ const Req = require('../../../utils/request.js');
 var WxParse = require('../../../wxParse/wxParse');
 const VM = {
     data: {
+        //输入框
+        disabled: false,
         showMask: false,
         // 展示协议
         showAgreement: false,
@@ -26,12 +28,12 @@ const VM = {
         //认证通过
         pass: false,
         // 表单
-        name: '苏家荣',
-        phone: '15015050896',
+        name: '郑钉玲',
+        phone: '15626129191',
         idCard: '445202199701288511',
         bankCard: '6217003260002101716',
         //合同id
-        contractId: '' 
+        contractId: ''
     }
 }
 VM.init = function() {
@@ -49,19 +51,24 @@ VM.init = function() {
 VM.onLoad = function(query) {
     this.init()
     base.onLoad(this)
-    let authInfo = app.globalData.authInfo
+    console.log(query);
     if (query.status && query.status == 'success') {
+        let authInfo = app.globalData.authInfo
+        let userInfo = JSON.parse(query.userInfo)
+        console.log(userInfo);
         this.setData({
             showMask: true,
             pass: true,
+            disabled: true,
             // 表单
-            name: authInfo.name,
-            phone: authInfo.phone,
-            idCard: authInfo.idCard,
-            bankCard: authInfo.bankCard,
+            name: userInfo.username,
+            phone: userInfo.mobile,
+            idCard: userInfo.cardNo,
+            bankCard: authInfo.bankCard
         })
     }
     if (query.status && query.status == 'fail') {
+        let authInfo = app.globalData.authInfo
         this.setData({
             showMask: true,
             pass: false,
@@ -138,7 +145,7 @@ VM.authHandle = function() {
         }
         app.globalData.authInfo = autoInfo
         wx.navigateTo({
-            url: "/pages/authentication/sign/sign?contractId=" + data.contractId + "&phone=" +
+            url: "/pages/authentication/auth/auth?contractId=" + data.contractId + "&phone=" +
                 data.phone
         })
     })
@@ -149,22 +156,7 @@ VM.test = function() {
 VM.confirmHandle = function() {
     // 通过
     if (this.data.pass) {
-        let data = this.data
-        Req.request('submitAuthInfo', {
-            name: data.name,
-            phone: data.phone,
-            id_card: data.idCard,
-            bank_num: data.bankCard
-        }, {
-            method: 'post'
-        }, (res) => {
-            util.Toast('入驻成功')
-            setTimeout(() => {
-                wx.redirectTo({
-                    url: "/pages/authentication/index/index"
-                })
-            }, 1500)
-        })
+        this.submitAuthInfo()
     } else {
         this.setData({
             showMask: false,
@@ -180,6 +172,25 @@ VM.cancelHandle = function() {
             showMask: false,
         })
     }
+}
+// 提交实名认证信息
+VM.submitAuthInfo = function() {
+    let data = this.data
+    Req.request('submitAuthInfo', {
+        name: data.name,
+        phone: data.phone,
+        id_card: data.idCard,
+        bank_num: data.bankCard
+    }, {
+        method: 'post'
+    }, (res) => {
+        util.Toast('入驻成功')
+        setTimeout(() => {
+            wx.redirectTo({
+                url: "/pages/authentication/index/index"
+            })
+        }, 1500)
+    })
 }
 // 展示协议
 VM.showAgreement = function(e) {

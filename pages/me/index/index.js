@@ -34,8 +34,55 @@ VM.init = function() {
     })
 }
 VM.onLoad = function(query) {
-    this.init()
     base.onLoad(this)
+    this.init()
+    // 获取微信用户信息
+    // app.checkAuthorize(() => {
+    //     this.init()
+    //     wx.getUserInfo({
+    //         success: res => {
+    //             app.globalData.userInfo = res.userInfo
+    //         }
+    //     })
+    // }, () => {
+    //     wx.showModal({
+    //         title: '提示',
+    //         content: '请授权使用该小程序',
+    //         confirmColor: '#FC7F03',
+    //         showCancel: false,
+    //         success: res => {
+    //             // 确认
+    //             if (res.confirm) {
+    //                 wx.openSetting({
+    //                     success: dataAu => {
+    //                         // 开启授权
+    //                         if (dataAu.authSetting["scope.userInfo"] ==
+    //                             true) {
+    //                             util.Toast('授权成功')
+    //                             wx.getUserInfo({
+    //                                 success: res => {
+    //                                     app.globalData.userInfo =
+    //                                         res.userInfo
+    //                                     // 更新当前页面信息
+    //                                     let pages =
+    //                                         getCurrentPages()
+    //                                     let currentPage =
+    //                                         pages[pages.length -
+    //                                             1]
+    //                                     currentPage.init()
+    //                                 }
+    //                             })
+    //                         } else {
+    //                             util.Toast('取消授权')
+    //                         }
+    //                     }
+    //                 })
+    //             } else if (res.cancel) {
+    //                 util.Toast('取消授权')
+    //             }
+    //         }
+    //     })
+    // })
 }
 VM.onShow = function() {
     // “完善信息”修改信息之后 更新页面数据

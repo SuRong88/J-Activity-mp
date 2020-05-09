@@ -30,7 +30,7 @@
                         </view>
                     </view>
                     <view class="item-price">
-                        ¥{{subItem.salary}}
+                        {{subItem.salary==0?'面议':'¥'+subItem.salary}}
                     </view>
                 </view>
                 <view class="item-m">
