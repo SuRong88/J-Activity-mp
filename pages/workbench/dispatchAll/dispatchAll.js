@@ -18,7 +18,7 @@ VM.init = function(query) {
     })
     Req.request('getAllList', {
         activity_id: activityId,
-        status: 2 //1为派单列 2为验收列
+        status: 1 //1为派单列 2为验收列
     }, {
         method: 'get'
     }, res => {
@@ -122,6 +122,9 @@ VM.dispatchAll = function() {
             paramList.push(obj)
         }
     })
+    if(paramList.length<=0){
+        return util.Toast('请选择派单服务商')
+    }
     Req.request('dispatchAll', {
         data: JSON.stringify(paramList)
     }, {

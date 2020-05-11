@@ -5,6 +5,7 @@ const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 const VM = {
     data: {
+        query: null, //页面参数
         id: '', //职位id
         activityId: '', //活动id
         status: 1, //职位状态 招募中1 待验收2 已完结3 已关闭4
@@ -16,7 +17,9 @@ const VM = {
         personStatusArr: ['待选定', '已选定', '已拒绝'],
         checkedArr: [],
         checkedLength: 0, //选中人数
-        checkedMaxLength: 0 //可选人数
+        checkedMaxLength: 0, //可选人数
+
+        onshow: true //第一次onshow
     }
 }
 VM.init = function(query) {
@@ -24,9 +27,11 @@ VM.init = function(query) {
     util.setHeader(this);
     console.log(query);
     this.setData({
+        query: query,
         id: query.id,
         activityId: query.activity_id,
-        status: query.status || 1,
+        // 5-11修改
+        // status: query.status || 1,
     })
     Req.request('jobDetail', {
         activity_id: query.activity_id,
@@ -43,6 +48,8 @@ VM.init = function(query) {
             }
         })
         this.setData({
+            // 5-11修改
+            status: jobInfo.status,
             jobInfo: jobInfo,
             checkedMaxLength: checkedMaxLength
         })
@@ -52,15 +59,28 @@ VM.onLoad = function(query) {
     this.init(query)
     base.onLoad(this)
 }
-
+VM.onShow = function() {
+    if (this.data.onshow) {
+        return this.setData({
+            onshow: false
+        })
+    } else {
+        this.init(this.data.query)
+    }
+}
 // 选择服务商
 VM.selectPerson = function(e) {
     let index = util.dataset(e, 'index')
     let item = this.data.jobInfo.apply_list[index]
     if (item.is_approve == 0) {
         item.selected = !item.selected
+        let num = 0;//选中人数
+        this.data.jobInfo.apply_list.forEach(obj => {
+            obj.selected && num++
+        })
         this.setData({
-            jobInfo: this.data.jobInfo
+            jobInfo: this.data.jobInfo,
+            checkedLength: num
         })
     } else {
         util.Toast('不可操作')
@@ -71,6 +91,9 @@ VM.selectPerson = function(e) {
 VM.confirmSend = function() {
     let checkedArr = []
     let applyList = this.data.jobInfo.apply_list
+    if (applyList.length <= 0) {
+        return util.Toast('未勾选服务商')
+    }
     applyList.forEach(item => {
         item.selected && checkedArr.push(item)
     })
@@ -107,7 +130,7 @@ VM.confirmHandle = function() {
         method: 'put'
     }, (res) => {
         util.Toast('派单成功')
-        this.onLoad(query)
+        this.init(this.data.query)
         this.setData({
             showMask: false
         })

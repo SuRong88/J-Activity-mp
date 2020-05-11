@@ -100,7 +100,7 @@ VM.numberChange = function(e) {
     let index = util.dataset(e, 'index')
     let tar = 'jobList[' + index + '].number'
     this.setData({
-        [tar]: e.detail.value
+        [tar]: parseInt(e.detail.value) + 1
     })
 }
 // 职位雇佣 0普通 1指定

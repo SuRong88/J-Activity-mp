@@ -69,7 +69,7 @@
                         <text class="label">选择地区</text>
                         <text class="label-desc">（必填）</text>
                     </view>
-                    <text class="address-txt line-hide line-1">{{address}}</text>
+                    <text class="address-txt ell">{{address}}</text>
                     <image class="arrow-icon" src="/images/index/icon12.png"></image>
                 </view>
                 <view class="item-content">

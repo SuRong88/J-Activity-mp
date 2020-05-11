@@ -10,6 +10,10 @@
     margin-bottom: 24rpx;
 }
 
+.intro-box {
+    padding-bottom: 64rpx;
+}
+
 .wechat-avatar {
     width: 56rpx;
     height: 56rpx;
@@ -25,7 +29,7 @@
 }
 
 .tags {
-    padding-bottom: 64rpx;
+    /* padding-bottom: 64rpx; */
 }
 
 .tags .tag {
@@ -37,6 +41,7 @@
     background: rgba(252, 127, 3, 0.1);
     border-radius: 8rpx;
     margin-right: 20rpx;
+    margin-bottom: 20rpx;
     text-align: center;
 }
 
@@ -50,27 +55,32 @@
 
 .intro-bd {}
 
-.info-box {}
+.info-box {
+    /* padding-bottom: 64rpx; */
+}
 
 .info-box .item {
     margin-bottom: 30rpx;
+    line-height: 36rpx;
 }
 
 .info-box .item:last-child {
     margin-bottom: 0rpx;
+    line-height: 40rpx;
 }
 
 .info-box .item-icon {
     width: 32rpx;
     height: 32rpx;
     margin-right: 22rpx;
+    flex-shrink: 0;
 }
 
 .info-box .item-txt {
     font-size: 28rpx;
     color: rgba(102, 102, 102, 1);
-    line-height: 40rpx;
-    white-space: nowrap;
+    /* line-height: 40rpx; */
+    /* white-space: nowrap; */
 }
 
 .info-box .item .num {
@@ -127,7 +137,7 @@
     font-size: 28rpx;
     color: rgba(102, 102, 102, 1);
     line-height: 56rpx;
-    padding-bottom: 110rpx;
+    padding-bottom: 200rpx;
 }
 
 .enterprise-role .bd-intro-box {
@@ -139,6 +149,11 @@
     font-size: 28rpx;
     color: rgba(102, 102, 102, 1);
     line-height: 2;
+}
+
+.bd-intro-box .work-img {
+    width: 100%;
+    margin-bottom: 36rpx;
 }
 
 .qrcode {

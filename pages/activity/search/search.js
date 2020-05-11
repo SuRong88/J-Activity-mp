@@ -18,7 +18,7 @@ const VM = {
         // 筛选条件
         filterType: -1,
         // 排序 1 2
-        sortType01: 1,
+        sortType01: 0,
         //搜索信息-关键字
         keyword: '',
         // 搜索信息-职位类型
@@ -215,7 +215,7 @@ VM.deleteStatusFilter = function(e) {
         statusIndex: 0
     })
 }
-// 按入驻时长筛选
+// 按活动开始时间排序
 VM.sortByDate = function() {
     let sortType01 = this.data.sortType01 === 1 ? 2 : 1
     let list = this.data.list
@@ -533,7 +533,8 @@ VM.confirmSearch = function() {
     this.setData({
         current: 0,
         total: 0,
-        total_page: 1
+        total_page: 1,
+        sortType01: 0
     })
     // 岗位类型id 数组
     let checkTagArr = []

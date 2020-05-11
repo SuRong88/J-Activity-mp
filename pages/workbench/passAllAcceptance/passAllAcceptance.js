@@ -19,11 +19,8 @@ VM.init = function(query) {
         activityId: activityId
     })
     Req.request('getAllList', {
-        // activity_id: activityId,
-        // test
-        activity_id: 13,
-        // test end
-        status: 1 //1为派单列 2为验收列
+        activity_id: activityId,
+        status: 2 //1为派单列 2为验收列
     }, {
         method: 'get'
     }, res => {

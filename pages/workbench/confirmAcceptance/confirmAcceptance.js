@@ -117,7 +117,7 @@ VM.cancelCaptcha = function(e) {
 VM.submitHandle = function() {
     let data = this.data
     let prevData = this.data.prevData
-    Req.request('getAcceptanceInfo', {
+    Req.request('passAcceptance', {
         apply_id: prevData.applyId,
         final_amount: prevData.amount,
         enterprise_img: prevData.imgId,

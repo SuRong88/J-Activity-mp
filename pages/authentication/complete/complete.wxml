@@ -48,12 +48,12 @@
         <view wx:if="{{!pass}}" bindtap="authHandle" class="common-btn">
             实名认证
         </view>
-        <view wx:else class="common-btn">
+        <view wx:else bindtap="submitAuthInfo" class="common-btn">
             提交信息
         </view>
     </view>
     <mp-popBox wx:if="{{showMask}}" cln="''" title="{{pass?'实名认证通过':'实名认证不通过，请重新认证'}}" bind:confirm='confirmHandle'
-        bind:cancel='cancelHandle' showCancel="{{false}}" confirmText="{{pass?'签约入驻':'确定'}}">
+        bind:cancel='cancelHandle' showCancel="{{false}}" confirmText="{{pass?'提交信息':'确定'}}">
     </mp-popBox>
     <!-- 用户协议 -->
     <mp-popBox wx:if="{{showAgreement}}" cln="'agreement-popBox'" title="{{agreementList[agreementIndex].title}}"

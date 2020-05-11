@@ -1,9 +1,9 @@
 <view class="container">
     <mp-header isHome="{{isHome}}" showBack cln="'header'" title="服务商详情"></mp-header>
     <view class="content">
-        <view class="con-hd flex">
-            <view class="hd-left flex-1">
-                <view class="intro-box">
+        <view class="con-hd">
+            <view class="intro-box flex flex-jcsb">
+                <view class="intro-box-l">
                     <view class="intro-hd flex flex-ver">
                         <image class="wechat-avatar" src="{{info.head_img}}"></image>
                         <view class="nickname">
@@ -16,31 +16,31 @@
                         </view>
                     </view>
                 </view>
-                <view class="info-box">
-                    <view class="item flex flex-ver">
-                        <image class="item-icon" src="/images/workbench/BS_icon17.png"></image>
-                        <text class="item-txt">姓名：{{info.nickname}}</text>
-                    </view>
-                    <view class="item flex flex-ver">
-                        <image class="item-icon" src="/images/activity/event_icon04.png"></image>
-                        <text class="item-txt">联系方式：{{info.phone}}</text>
-                    </view>
-                    <view class="item flex flex-ver">
-                        <image class="item-icon" src="/images/workbench/BS_icon18.png"></image>
-                        <text class="item-txt">身份证号：{{info.id_card}}</text>
-                    </view>
-                    <view class="item flex flex-ver">
-                        <image class="item-icon" src="/images/workbench/BS_icon19.png"></image>
-                        <text class="item-txt">银行卡号：{{info.bank_num}}</text>
-                    </view>
-                    <view class="item flex flex-ver">
-                        <image class="item-icon" src="/images/activity/event_icon03.png"></image>
-                        <text class="item-txt">所属地区：{{info.address}}{{info.address_detail}}</text>
-                    </view>
+                <view class="intro-box-r">
+                    <image class="info-avatar" src="{{info.logo}}"></image>
                 </view>
             </view>
-            <view class="hd-right">
-                <image class="info-avatar" src="{{info.head_img}}"></image>
+            <view class="info-box">
+                <view class="item flex flex-ver">
+                    <image class="item-icon" src="/images/workbench/BS_icon17.png"></image>
+                    <text class="item-txt">姓名：{{info.name}}</text>
+                </view>
+                <view class="item flex flex-ver">
+                    <image class="item-icon" src="/images/activity/event_icon04.png"></image>
+                    <text class="item-txt">联系方式：{{info.phone}}</text>
+                </view>
+                <view class="item flex flex-ver">
+                    <image class="item-icon" src="/images/workbench/BS_icon18.png"></image>
+                    <text class="item-txt">身份证号：{{info.id_card}}</text>
+                </view>
+                <view class="item flex flex-ver">
+                    <image class="item-icon" src="/images/workbench/BS_icon19.png"></image>
+                    <text class="item-txt">银行卡号：{{info.bank_num}}</text>
+                </view>
+                <view class="item flex">
+                    <image class="item-icon" src="/images/activity/event_icon03.png"></image>
+                    <text class="item-txt">所属地区：{{info.address}}</text>
+                </view>
             </view>
         </view>
         <view class="con-bd">
@@ -50,7 +50,10 @@
                     <view class="line"></view>
                 </view>
                 <view class="box-con">
-                    {{info.work_experience}}
+                    <image wx:if="{{info.work_img}}" class="work-img" mode="widthFix" src="{{info.work_img}}"></image>
+                    <view>
+                        {{info.work_experience}}
+                    </view>
                 </view>
             </view>
             <view class="bottom-box flex flex-ver flex-jcfe">
@@ -68,7 +71,7 @@
                 <block wx:if="{{info.is_approve==2}}">
                     <view class="control-btn plain">已拒绝</view>
                 </block>
-                
+
             </view>
         </view>
     </view>

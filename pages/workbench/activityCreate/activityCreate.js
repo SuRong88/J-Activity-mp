@@ -102,6 +102,11 @@ VM.addJob = function() {
     if (formcheck.check_null(data.address)) {
         return util.Toast('请选择活动地区')
     }
+    let startDate = Date.parse(data.startDate.replace(/-/g, "/"))
+    let endDate = Date.parse(data.endDate.replace(/-/g, "/"))
+    if (startDate > endDate) {
+        return util.Toast('活动时间有误')
+    }
     app.globalData.activityCreateInfo = data
     wx.navigateTo({
         url: '/pages/workbench/jobAdd/jobAdd?workAddress=' + data.address + data.addressDetail +

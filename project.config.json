@@ -384,6 +384,20 @@
 					"pathName": "pages/me/information/information",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/resource/detail/detail",
+					"pathName": "pages/resource/detail/detail",
+					"query": "id=27&status=1&index=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/workbench/serviceDetail/serviceDetail",
+					"pathName": "pages/workbench/serviceDetail/serviceDetail",
+					"query": "userId=13&index=0",
+					"scene": null
 				}
 			]
 		}

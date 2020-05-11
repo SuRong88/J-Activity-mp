@@ -77,7 +77,7 @@ VM.clearKeyword = function(e) {
 // 获取列表
 VM.getList = function() {
     if (this.data.current >= this.data.total_page) {
-        return false
+        return util.Toast('没有更多数据了')
     }
     // 岗位类型id 数组
     let checkTagArr = []

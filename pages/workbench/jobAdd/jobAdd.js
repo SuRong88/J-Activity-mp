@@ -97,9 +97,9 @@ VM.numberChange = function(e) {
     let index = util.dataset(e, 'index')
     let tar = 'jobList[' + index + '].number'
     this.setData({
-        [tar]: e.detail.value
+        [tar]: parseInt(e.detail.value) + 1
     })
-    console.log(index, e.detail.value);
+    // console.log(index, e.detail.value, parseInt(e.detail.value) + 1);
 }
 // 职位雇佣 0普通 1指定
 VM.jobHireType = function(e) {
@@ -179,7 +179,7 @@ VM.createActivity = function() {
     }, (res) => {
         //res.data返回创建活动的id 
         console.log('创建活动id:' + res.data);
-        wx.navigateTo({
+        wx.redirectTo({
             url: '/pages/workbench/publishSuccess/publishSuccess?id=' + res.data + '&type=2'
         })
     })

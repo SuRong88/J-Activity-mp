@@ -16,7 +16,7 @@
                     <image class="box01-img" src="{{detail.cover_img}}"></image>
                 </view>
                 <view class="box01-r">
-                    <view class="box01-job">{{detail.job_name}}</view>
+                    <view class="box01-job">{{detail.position_name}}</view>
                     <view class="box01-intro">{{detail.name}}</view>
                     <view class="box01-price">{{detail.salary}}</view>
                 </view>

@@ -12,6 +12,10 @@
     margin-bottom: 24rpx;
 }
 
+.intro-box {
+    padding-bottom: 64rpx;
+}
+
 .wechat-avatar {
     width: 56rpx;
     height: 56rpx;
@@ -27,7 +31,7 @@
 }
 
 .tags {
-    padding-bottom: 64rpx;
+    /* padding-bottom: 64rpx; */
 }
 
 .tags .tag {
@@ -39,6 +43,7 @@
     background: rgba(252, 127, 3, 0.1);
     border-radius: 8rpx;
     margin-right: 20rpx;
+    margin-bottom: 20rpx;
     text-align: center;
 }
 
@@ -56,6 +61,7 @@
 
 .info-box .item {
     margin-bottom: 30rpx;
+    line-height: 40rpx;
 }
 
 .info-box .item:last-child {
@@ -68,12 +74,13 @@
     width: 36rpx;
     height: 36rpx;
     margin-right: 20rpx;
+    flex-shrink: 0;
 }
 
 .info-box .item-txt {
     font-size: 28rpx;
     color: rgba(102, 102, 102, 1);
-    line-height: 40rpx;
+    /* line-height: 40rpx; */
     /* white-space: nowrap; */
 }
 
@@ -145,6 +152,10 @@
     line-height: 2;
 }
 
+.bd-intro-box .work-img {
+    width: 100%;
+    margin-bottom: 36rpx;
+}
 
 .bottom-box {
     position: fixed;

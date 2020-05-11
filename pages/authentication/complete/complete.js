@@ -28,8 +28,8 @@ const VM = {
         //认证通过
         pass: false,
         // 表单
-        name: '郑钉玲',
-        phone: '15626129191',
+        name: '苏家荣',
+        phone: '15015050896',
         idCard: '445202199701288511',
         bankCard: '6217003260002101716',
         //合同id
@@ -54,16 +54,14 @@ VM.onLoad = function(query) {
     console.log(query);
     if (query.status && query.status == 'success') {
         let authInfo = app.globalData.authInfo
-        let userInfo = JSON.parse(query.userInfo)
-        console.log(userInfo);
         this.setData({
             showMask: true,
             pass: true,
             disabled: true,
             // 表单
-            name: userInfo.username,
-            phone: userInfo.mobile,
-            idCard: userInfo.cardNo,
+            name: decodeURIComponent(query.username),
+            phone: query.mobile,
+            idCard: query.cardNo,
             bankCard: authInfo.bankCard
         })
     }

@@ -51,7 +51,7 @@
                             <text wx:if="{{status==1}}" class="item-other">
                                 {{personStatusArr[item.is_approve]}}
                             </text>
-                            <text wx:if="{{status==3}}" class="item-price"> ¥{{jobInfo.salary}}</text>
+                            <text wx:if="{{status==3}}" class="item-price">{{jobInfo.salary==0?'面议':'¥'+jobInfo.salary}}</text>
                         </view>
                         <view class="item-tags flex flex-wrap">
                             <block wx:for="{{item.position_list}}" wx:key="subIndex" wx:for-index="subIndex"

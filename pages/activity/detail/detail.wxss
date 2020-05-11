@@ -76,6 +76,7 @@
 
 .brief-item {
     margin-bottom: 30rpx;
+    line-height: 36rpx;
 }
 
 .brief-item:last-child {
@@ -86,6 +87,7 @@
     width: 36rpx;
     height: 36rpx;
     margin-right: 20rpx;
+    flex-shrink: 0;
 }
 
 .item-txt {

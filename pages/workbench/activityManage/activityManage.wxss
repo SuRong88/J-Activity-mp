@@ -2,6 +2,9 @@ page {
     background-color: #F9F9F9 !important;
 }
 
+.content {
+    position: relative;
+}
 
 .nav-menu {
     background-color: #fff;

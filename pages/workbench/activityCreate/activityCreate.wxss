@@ -21,7 +21,7 @@
 
 .address-txt {
     line-height: 1;
-    padding-right: 40rpx;
+    margin-right: 20rpx;
     font-size: 28rpx;
     color: rgba(153, 153, 153, 1);
 }

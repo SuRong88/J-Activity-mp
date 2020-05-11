@@ -1,5 +1,5 @@
 <view class="container">
-    <mp-header isHome="{{isHome}}" showBack title="{{titleArr[titleIndex]}}"></mp-header>
+    <mp-header isHome="{{isHome}}" title="{{titleArr[titleIndex]}}"></mp-header>
     <view class="content">
         <view class="success-box text-c">
             <image class="success-img" src="/images/workbench/BS_img06.png"></image>
@@ -7,19 +7,24 @@
         </view>
         <view class="btn-box">
             <!-- 验收成功 -->
-            <view wx:if="{{titleIndex==0}}" bindtap="base_jump" data-url="/pages/workbench/activityManage/activityManage?status=2" data-type="redirect"
-                class="common-btn normal btn-back">
+            <view wx:if="{{titleIndex==0}}" bindtap="base_jump" data-url="/pages/workbench/activityManage/activityManage?status=2"
+                data-type="redirect" class="common-btn normal btn-back">
                 返回活动列表
             </view>
             <!-- 派单成功 -->
-            <view wx:if="{{titleIndex==1}}" bindtap="base_jump" data-url="/pages/workbench/activityManage/activityManage?status=1" data-type="redirect"
-                class="common-btn normal btn-back">
+            <view wx:if="{{titleIndex==1}}" bindtap="base_jump" data-url="/pages/workbench/activityManage/activityManage?status=1"
+                data-type="redirect" class="common-btn normal btn-back">
                 返回活动列表
             </view>
             <!-- 发布活动成功 -->
             <block wx:if="{{titleIndex==2}}">
-                <view bindtap="base_jump" data-url="/pages/workbench/activityDetail/activityDetail?id={{activityId}}" data-type="redirect"
+                <!-- before原本是查看活动详情 -->
+                <!-- <view bindtap="base_jump" data-url="/pages/workbench/activityDetail/activityDetail?id={{activityId}}" data-type="redirect"
                     class="common-btn normal btn-view">
+                    查看活动
+                </view> -->
+                <!-- after后来变为查看活动列表 -->
+                <view bindtap="base_jump" data-url="/pages/activity/index/index" data-type="redirect" class="common-btn normal btn-view">
                     查看活动
                 </view>
                 <view bindtap="showShareMask" class="common-btn normal btn-share">

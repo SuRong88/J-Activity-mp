@@ -29,7 +29,7 @@
                         <image class="item-icon" src="/images/activity/event_icon02.png"></image>
                         <text class="item-txt">活动时间：{{detail.start_time}}-{{detail.end_time}}</text>
                     </view>
-                    <view class="brief-item flex flex-ver">
+                    <view class="brief-item flex">
                         <image class="item-icon" src="/images/activity/event_icon03.png"></image>
                         <text class="item-txt">活动地区：{{detail.address}}</text>
                     </view>

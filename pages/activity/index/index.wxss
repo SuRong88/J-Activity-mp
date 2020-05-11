@@ -42,7 +42,7 @@
 .close-icon {
     width: 40rpx;
     height: 40rpx;
-    padding:10rpx 24rpx;
+    padding: 10rpx 24rpx;
 }
 
 .search-btn {
@@ -141,8 +141,8 @@
 .sort-icon:first-child {
     border-top: 0rpx solid transparent;
     border-left: 6rpx solid transparent;
-    /* border-bottom: 8rpx solid #999999;*/
-    border-bottom: 8rpx solid rgba(252, 127, 3, 1);
+    border-bottom: 8rpx solid #999999;
+    /* border-bottom: 8rpx solid rgba(252, 127, 3, 1); */
     border-right: 6rpx solid transparent;
     margin-bottom: 6rpx;
 }
@@ -154,11 +154,11 @@
     border-right: 6rpx solid transparent;
 }
 
-.sort-by-date .sort-icon:first-child {
-    border-bottom: 8rpx solid #999999;
+.desc .sort-icon:first-child {
+    border-bottom: 8rpx solid rgba(252, 127, 3, 1);
 }
 
-.sort-by-date .sort-icon:last-child {
+.asc .sort-icon:last-child {
     border-top: 8rpx solid rgba(252, 127, 3, 1);
 }
 

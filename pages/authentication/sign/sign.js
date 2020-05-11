@@ -13,12 +13,11 @@ const VM = {
 VM.init = function(query) {
     // 设置自定义头部
     util.setHeader(this);
-    let userInfo = query.userInfo
+    let userInfo = JSON.parse(query.userInfo)
     console.log(query);
-    console.log(JSON.parse(userInfo).mobile);
     console.log(userInfo);
     this.setData({
-        url: this.data.baseUrl + query.contractId + '&phone=' + JSON.parse(userInfo).mobile + '&userInfo=' + userInfo
+        url: this.data.baseUrl + query.contractId + '&username=' + userInfo.username + '&mobile=' + userInfo.mobile + '&cardNo=' +userInfo.cardNo
     })
 }
 VM.onLoad = function(query) {
