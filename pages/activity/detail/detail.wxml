@@ -59,28 +59,32 @@
                         <view class="info-item">工作地点：{{detail.address}}{{detail.address_detail}}</view>
                         <view class="info-item">工作内容：</view>
                         <view class="info-item job-content {{item.spread?'spread':''}}">
-                            {{item.job_content}}
+                            <text>{{item.job_content}}</text>
                             <image bindtap="flodContent" data-index="{{index}}" class="flod-icon" src="/images/activity/arrow.png"></image>
                         </view>
                     </view>
-                    <!-- 活动已结束不显示报名操作按钮 -->
-                    <view wx:if="{{detail.status==1}}" class="item-bottom item-btn-box flex flex-jcfe">
-                        <!-- 已报名（未通过审核可以取消  通过则不行） -->
-                        <block wx:if="{{item.is_apply==1}}">
-                            <!-- 商家还未审核 -->
-                            <view wx:if="{{item.is_approve==0}}" bindtap="cancelSign" data-index="{{index}}" data-id="{{item.id}}"
-                                class="btn btn-cancel">
-                                取消报名
+                    <!-- 服务商角色才显示“报名”按钮 -->
+                    <block wx:if="{{tabbarType==1}}">
+                        <!-- 活动已结束不显示报名操作按钮 -->
+                        <view wx:if="{{detail.status==1}}" class="item-bottom item-btn-box flex flex-jcfe">
+                            <!-- 已报名（未通过审核可以取消  通过则不行） -->
+                            <block wx:if="{{item.is_apply==1}}">
+                                <!-- 商家还未审核 -->
+                                <view wx:if="{{item.is_approve==0}}" bindtap="cancelSign" data-index="{{index}}"
+                                    data-id="{{item.id}}" class="btn btn-cancel">
+                                    取消报名
+                                </view>
+                                <view class="btn btn-sign-up">
+                                    已报名
+                                </view>
+                            </block>
+                            <!-- 未报名 -->
+                            <view wx:else bindtap="confirmSign" data-index="{{index}}" data-id="{{item.position_id}}"
+                                class="btn btn-sign-up">
+                                立即报名
                             </view>
-                            <view class="btn btn-sign-up">
-                                已报名
-                            </view>
-                        </block>
-                        <!-- 未报名 -->
-                        <view wx:else bindtap="confirmSign" data-index="{{index}}" data-id="{{item.position_id}}" class="btn btn-sign-up">
-                            立即报名
                         </view>
-                    </view>
+                    </block>
                 </view>
             </view>
         </view>

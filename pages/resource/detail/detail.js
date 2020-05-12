@@ -101,4 +101,11 @@ VM.previewImage = function(e) {
         urls: [current]
     })
 }
+VM.onShareAppMessage = function() {
+    return {
+        title: "“J活动”优质活动职位等你来接单！",
+        path: '/pages/resource/detail/detail?id=' + this.data.id,
+        imageUrl: '/images/index/banner01.png'
+    };
+}
 Page(VM)

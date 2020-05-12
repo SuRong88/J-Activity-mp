@@ -72,7 +72,7 @@
                 <view class="item-label">开票金额</view>
                 <input value="{{amount}}" bindinput="changeInput" placeholder="请输入金额" placeholder-class="holder-class"
                     class="price-enter" type="number" />
-                <view class="tip">可开票金额3000元</view>
+                <view class="tip">可开票金额{{invoiceData.able_amount}}元</view>
             </view>
         </view>
         <view bindtap="submitApply" class="common-btn">

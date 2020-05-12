@@ -163,8 +163,8 @@
 
 .sec02 .item-icon {
     position: absolute;
-    left: 0;
-    top: 0;
+    left: -6rpx;
+    top: -6rpx;
     width: 82rpx;
     height: 82rpx;
 }

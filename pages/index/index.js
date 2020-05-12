@@ -5,7 +5,8 @@ const base = require('../../utils/base.js');
 const Req = require('../../utils/request.js');
 const VM = {
     data: {
-        loading: true,
+        isAuthed: true,
+        showWelcome: true,
         marginNum: 32,
         swiperIndex01: 0,
         swiperIndex02: 0,
@@ -26,17 +27,18 @@ VM.init = function() {
     if (app.globalData.showWelcome) {
         setTimeout(() => {
             this.setData({
-                loading: false
+                showWelcome: false
             })
         }, 3000)
     } else {
-       this.setData({
-           loading: false
-       }) 
+        this.setData({
+            showWelcome: false
+        })
     }
     app.globalData.showWelcome = false
     this.setData({
-        tabbarType: app.globalData.roleType
+        tabbarType: app.globalData.roleType,
+        isAuthed: app.globalData.isAuthed
     })
     Req.request('getIndexData', null, {
         method: 'get'
@@ -83,11 +85,25 @@ VM.changeSwiper04 = function(e) {
         swiperIndex04: current
     });
 };
+//确定实名认证
+VM.confirmAuth = function() {
+    wx.navigateTo({
+        url: '/pages/authentication/index/index'
+    })
+}
+//取消实名认证
+VM.cancelAuth = function() {
+    // isAuthed为‘伪实名’，只是为了首次加载提示实名认证，之后不再显示该弹窗
+    app.globalData.isAuthed = true
+    this.setData({
+        isAuthed: true
+    })
+}
 VM.onShareAppMessage = function() {
     return {
-        title: "分享标题",
+        title: "“J活动”优质活动职位等你来接单！",
         path: '/pages/index/index',
-        imageUrl: ''
+        imageUrl: '/images/index/banner01.png'
     };
 }
 Page(VM)

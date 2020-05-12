@@ -344,10 +344,10 @@
 					"scene": null
 				},
 				{
-					"id": 47,
+					"id": 41,
 					"name": "工作台-活动发布-发布成功",
 					"pathName": "pages/workbench/publishSuccess/publishSuccess",
-					"query": "id=33&type=2",
+					"query": "id=33&type=1",
 					"scene": null
 				},
 				{

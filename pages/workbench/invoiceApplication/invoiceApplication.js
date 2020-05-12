@@ -31,14 +31,13 @@ VM.onLoad = function(query) {
     this.init();
     this.getinvoiseSetting();
     this.getinvoiseClassity();
-
     base.onLoad(this)
 }
 VM.changeSel = function(e) {
     let index = e.currentTarget.dataset.index;
     let invoice_type = this.data.invoice_type;
     let invoiceList = this.data.invoiceList;
-    for (var i in invoiceList) {
+    for (let i in invoiceList) {
         invoiceList[i].sel = false
         if (i == index) {
             invoiceList[i].sel = true,
@@ -49,14 +48,12 @@ VM.changeSel = function(e) {
         invoiceList: invoiceList,
         invoice_type: invoice_type
     })
-    console.log(invoice_type)
 }
 // 获取开票设置信息
 VM.getinvoiseSetting = function() {
     Req.request('invoiceSetting', null, {
         method: 'get'
     }, res => {
-        console.log(res)
         this.setData({
             invoiceData: res.data
         })
@@ -67,7 +64,6 @@ VM.getinvoiseClassity = function() {
     Req.request('invoiceClassifity', null, {
         method: 'get'
     }, res => {
-        console.log(res)
         this.setData({
             classifityList: res.data
         })
@@ -81,7 +77,6 @@ VM.bindPickerChange = function(e) {
         classify_id: classifityList[index].id,
         classify_index: index
     })
-    console.log(classifityList[index].name)
 }
 // 输入
 VM.changeInput = function(e) {

@@ -48,6 +48,7 @@ VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
     this.setData({
+        // tabbarType等同于用户角色 1服务商 2商家
         tabbarType: app.globalData.roleType
     })
     this.getList();

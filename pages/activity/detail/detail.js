@@ -18,6 +18,10 @@ const VM = {
 VM.init = function(query) {
     // 设置自定义头部
     util.setHeader(this);
+    // tabbarType等同于用户角色 1服务商 2商家
+    this.setData({
+        tabbarType: app.globalData.roleType
+    })
     let id = query.id
     let type = query.type || ''
     Req.request('getActivityDetail', {
@@ -158,5 +162,12 @@ VM.previewImage = function(e) {
         current: current,
         urls: [current]
     })
+}
+VM.onShareAppMessage = function() {
+    return {
+        title: "“J活动”优质活动职位等你来接单！",
+        path: '/pages/activity/detail/detail?id=' + this.data.id,
+        imageUrl: '/images/index/banner01.png'
+    };
 }
 Page(VM)

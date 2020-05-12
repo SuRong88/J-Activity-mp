@@ -1,7 +1,7 @@
 <view class="container">
     <mp-header cln="'header'" title=""></mp-header>
     <!-- 启动 -->
-    <view wx:if="{{loading}}" class="loading-part">
+    <view wx:if="{{showWelcome}}" class="loading-part">
         <image mode="widthFix" class="loading-part-img01" src="/images/login/Si_bg02.png"></image>
         <image mode="widthFix" class="loading-part-img02" src="/images/login/Si_bg01.png"></image>
     </view>
@@ -84,7 +84,8 @@
                             </view>
                             <view class="item-r flex-1">
                                 <image class="item-img" src="/images/index/img01.jpg"></image>
-                                <view catchtap="base_jump" data-url="/pages/activity/detail/detail?id={{item.id}}&type=sign" class="item-btn">
+                                <view wx:if="{{tabbarType==1}}" catchtap="base_jump" data-url="/pages/activity/detail/detail?id={{item.id}}&type=sign"
+                                    class="item-btn">
                                     报名接单
                                 </view>
                             </view>
@@ -233,8 +234,12 @@
         </view>
         <mp-tabbar tabbarType="{{tabbarType||1}}" tabbarIndex="0"></mp-tabbar>
         <!-- 登录 -->
-        <mp-login wx:if="{{showLogin}}">
-        </mp-login>
+        <mp-login wx:if="{{showLogin}}"></mp-login>
         <!-- 登录 end-->
+        <!-- 实名认证提示 -->
+        <mp-popBox wx:if="{{!isAuthed}}" title="请您完成实名认证" bind:confirm='confirmAuth' bind:cancel='cancelAuth'
+            confirmText="确定">
+        </mp-popBox>
+        <!-- 实名认证提示end -->
     </block>
 </view>

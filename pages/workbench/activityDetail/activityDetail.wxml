@@ -51,7 +51,7 @@
                             工作内容：
                         </view>
                         <view class="con-detail {{subItem.spread?'spread':''}}">
-                            {{subItem.job_content}}
+                            <text>{{subItem.job_content}}</text>
                             <image data-index="{{subIndex}}" bindtap="showJobContent" class="fold-icon" src="/images/workbench/arrow-down.png"></image>
                         </view>
                     </view>

@@ -10,8 +10,9 @@ App({
     globalData: {
         showWelcome: false, //首页欢迎
         showModaled: false, // 防止显示多个showModal
-        isConnected: true,
-        isLogined: false,
+        isConnected: true, //网络是否连接
+        isLogined: false, //当前是否登录状态
+        isAuthed: true, //登录用户是否已实名
         userInfo: null, //微信用户信息
         companyInfo: null, //企业信息
         // myInfo: null, //服务器用户信息
@@ -21,7 +22,7 @@ App({
         searchServiceInfo: null, //搜索服务商信息
         searchActivityInfo: null, //搜索服务商信息
         activityCreateInfo: null, //创建活动信息
-        authInfo: null
+        authInfo: null //实名认证信息
     },
     // 展示本地存储能力
     showLogs: function() {
@@ -154,12 +155,13 @@ App({
     },
     // 获取图形码
     getCaptcha: function(type = 'login') {
+        let currentDate = new Date().getTime()
         if (type == 'login') { //登录
-            return Req.OPTIONS.getCaptcha.url + '?t=' + new Date().getTime()
+            return Req.OPTIONS.getCaptcha.url + '?t=' + currentDate
         } else if (type == 'acceptance') { //验收
-            return Req.OPTIONS.getCaptcha2.url + '?t=' + new Date().getTime()
+            return Req.OPTIONS.getCaptcha2.url + '?t=' + currentDate
         } else { //修改银行卡
-            return Req.OPTIONS.getCaptcha3.url + '?t=' + new Date().getTime()
+            return Req.OPTIONS.getCaptcha3.url + '?t=' + currentDate
         }
     },
     // 获取服务器用户信息(未启用)
@@ -178,8 +180,14 @@ App({
             wx.getUserInfo({
                 success: res => {
                     this.globalData.userInfo = res.userInfo
-                    // 已登录已授权 获取服务器用户信息
-                    // this.getUserInfo()
+                    // 上传用户微信头像
+                    Req.request('saveWxAvatar', {
+                        head_img: res.userInfo.avatarUrl
+                    }, {
+                        method: 'put'
+                    }, res => {
+                        console.log('微信头像上传成功');
+                    })
                 }
             })
         }, () => {
@@ -230,13 +238,17 @@ App({
         Req.request('getIdentity', null, {
             method: 'get'
         }, res => {
+            let isAuthed = res.data.auth == 1 ? true : false
             this.globalData.roleType = res.data.identity
+            this.globalData.isAuthed = isAuthed
+            console.log('用户实名状态' + res.data.auth);
             console.log('用户角色类型' + res.data.identity);
             // 更新当前页面栈的tabbar类型
             let pages = getCurrentPages()
             for (let i = 0; i < pages.length; i++) {
                 pages[i].setData({
-                    tabbarType: res.data.identity
+                    tabbarType: res.data.identity,
+                    isAuthed: isAuthed
                 })
                 // 可删除
                 // pages[i].init()

@@ -188,12 +188,14 @@ VM.confirmSelect = function() {
     let prevPage = pages[pages.length - 2];
     let jobId = data.checkTagList[0].id;
     let jobName = data.checkTagList[0].name;
-    let tar1 = 'jobList[' + data.index + '].jobId';
-    let tar2 = 'jobList[' + data.index + '].jobName';
+    let jobIndex = data.index
+    let tar1 = 'jobList[' + jobIndex + '].jobId';
+    let tar2 = 'jobList[' + jobIndex + '].jobName';
     prevPage.setData({
         [tar1]: jobId,
         [tar2]: jobName
     });
+    prevPage.getJobContent(jobId, jobIndex)
     //返回上一页
     wx.navigateBack({
         delta: 1

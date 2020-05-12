@@ -24,14 +24,6 @@ VM.onLoad = function(query) {
     this.init(query)
     base.onLoad(this)
 }
-VM.onShareAppMessage = function() {
-    return {
-        title: "分享标题",
-        path: '/pages/index/index',
-        imageUrl: ''
-    };
-}
-
 // 上传图片
 VM.chooseImg = function(e) {
     let type = util.dataset(e, 'type')

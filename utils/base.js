@@ -15,7 +15,11 @@ function emptyHandle(e) {
 };
 
 /* -------------公用跳转-------------- */
+var jumpFlag = true
 function jump(e) {
+    if (!jumpFlag) {
+        return false;
+    }
     var pages = getCurrentPages();
     var currentPage = pages[pages.length - 1];
     var oldUrl = currentPage.route;
@@ -37,6 +41,7 @@ function jump(e) {
             showLogin: true
         })
     }
+    jumpFlag = false
     // console.log(oldUrl, newUrl, type);
     // console.log(checkIndex, checkUrl);
     // console.log(allowPages.indexOf(checkUrl));
@@ -47,19 +52,31 @@ function jump(e) {
     }
     if (type == 'reLaunch') {
         newUrl && wx.reLaunch({
-            url: newUrl
+            url: newUrl,
+            success: () => {
+                jumpFlag = true
+            }
         });
     } else if (type == 'switchTab') {
         newUrl && wx.switchTab({
-            url: newUrl
+            url: newUrl,
+            success: () => {
+                jumpFlag = true
+            }
         });
     } else if (type == 'redirect') {
         newUrl && wx.redirectTo({
-            url: newUrl
+            url: newUrl,
+            success: () => {
+                jumpFlag = true
+            }
         });
     } else {
         newUrl && wx.navigateTo({
-            url: newUrl
+            url: newUrl,
+            success: () => {
+                jumpFlag = true
+            }
         });
     }
 }

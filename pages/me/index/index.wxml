@@ -107,7 +107,7 @@
         <image bindtap="previewImage" class="qrcode" data-src="{{userInfo.service_code}}" src="{{userInfo.service_code}}"></image>
     </mp-popBox>
     <!-- 登出 -->
-    <mp-popBox wx:if="{{showLogout}}" cln="''" title="您确定退出登录吗？" bind:confirm='confirmLogout' bind:cancel='cancelLogout'
+    <mp-popBox wx:if="{{showLogout}}" title="您确定退出登录吗？" bind:confirm='confirmLogout' bind:cancel='cancelLogout'
         confirmText="确定">
     </mp-popBox>
     <mp-tabbar tabbarType="{{tabbarType||1}}" tabbarIndex="3"></mp-tabbar>

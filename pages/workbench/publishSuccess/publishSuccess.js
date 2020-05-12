@@ -6,7 +6,7 @@ const Req = require('../../../utils/request.js');
 const VM = {
     data: {
         activityId: '', //创建活动-id
-        titleIndex: 2,
+        titleIndex: 2, //0验收成功 1派单成功 2发布成功
         titleArr: ['验收成功', '派单成功', '发布成功'],
         tipArr: ['验收成功！', '派单成功！', '发布成功！'],
         showShare: false, //分享mask
@@ -113,9 +113,13 @@ VM.savePoster = function() {
 }
 // 分享
 VM.onShareAppMessage = function() {
+    let sharePath = '/pages/index/index'
+    if (this.data.titleIndex == 2) {
+        sharePath = '/pages/activity/detail/detail?id=' + this.data.activityId
+    }
     return {
-        title: "J活动",
-        path: '/pages/activity/detail/detail?id=' + this.data.activityId,
+        title: "“J活动”优质活动职位等你来接单！",
+        path: sharePath,
         imageUrl: '/images/index/banner01.png'
     };
 }

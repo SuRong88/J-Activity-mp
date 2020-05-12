@@ -56,6 +56,7 @@ VM.init = function() {
         status = 2
     }
     this.setData({
+        // tabbarType等同于用户角色 1服务商 2商家
         tabbarType: app.globalData.roleType,
         keyword: searchActivityInfo.keyword,
         checkTagList: searchActivityInfo.checkTagList,

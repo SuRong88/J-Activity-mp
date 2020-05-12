@@ -49,7 +49,7 @@
                                     活动时间：{{item.start_time}}-{{item.end_time}}
                                 </view>
                             </view>
-                            <view class="item-r">
+                            <view wx:if="{{item.cover_img}}" class="item-r">
                                 <image mode="aspectFill" class="item-img" src="{{item.cover_img}}"></image>
                             </view>
                         </view>

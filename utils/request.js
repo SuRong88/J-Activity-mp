@@ -181,6 +181,10 @@ const OPTIONS = {
     saveMyCompleteInfo: {
         url: `${HOST}/user/completeInfo`
     },
+    //保存微信头像
+    saveWxAvatar: {
+        url: `${HOST}/user/saveHeadImg`
+    },
     //我的任务
     getTaskList: {
         url: `${HOST}/activity/myActivity`
@@ -242,6 +246,10 @@ const OPTIONS = {
     // 岗位二级
     getTagList: {
         url: `${HOST}/position/positionList`
+    },
+    // 岗位内容
+    getTagContent: {
+        url: `${HOST}/position/jobContent`
     },
     /* 
      **登录页

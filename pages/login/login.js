@@ -80,12 +80,10 @@ VM.showAgreement = function(e) {
     }, {
         method: 'get'
     }, res => {
-        // let tar = 'agreementList[' + index + '].txt'
         WxParse.wxParse('agreementTxt', 'html', res.data.content, this, 5);
         this.setData({
             show2: true,
-            agreementIndex: index,
-            // [tar]: res.data.content
+            agreementIndex: index
         })
     })
 }
@@ -184,9 +182,9 @@ VM.confirmLogin = function(e) {
         method: 'get'
     }, res => {
         console.log(res);
+        util.Toast('登录成功')
         let data = res.data
         wx.setStorageSync('token', data.token)
-        util.Toast('登录成功')
         app.onLaunch()
         setTimeout(() => {
             wx.reLaunch({

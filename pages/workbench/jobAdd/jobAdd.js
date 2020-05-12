@@ -183,7 +183,24 @@ VM.createActivity = function() {
             url: '/pages/workbench/publishSuccess/publishSuccess?id=' + res.data + '&type=2'
         })
     })
-
-
+}
+// 获取岗位工作内容
+VM.getJobContent = function(id, index) {
+    if (typeof id == 'undefined') {
+        return false;
+    }
+    if (typeof index == 'undefined') {
+        return false;
+    }
+    Req.request('getTagContent', {
+        position_id: id
+    }, {
+        method: 'get'
+    }, (res) => {
+        let tar = 'jobList[' + index + '].content';
+        this.setData({
+            [tar]: res.data.job_content || ''
+        })
+    })
 }
 Page(VM)

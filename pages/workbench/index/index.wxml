@@ -6,7 +6,7 @@
             <!-- 头部橙色部分 -->
             <view class='banner-main width-len '>
                 <view class='main-head flex flex-ver'>
-                    <image class="logo" src="{{compData.logo?compData.logo:'/images/workbench/default.png'}}"></image>
+                    <image bindtap="base_jump" data-url="/pages/workbench/info/info" class="logo" src="{{compData.logo?compData.logo:'/images/workbench/default.png'}}"></image>
                     <view class="right-box">
                         <view class="title line-hide line-2">{{compData.name}}</view>
                         <view class="flex" style="margin-top:12rpx;">
