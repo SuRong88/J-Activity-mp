@@ -102,8 +102,8 @@ VM.formSubmit = function(e) {
     let data = this.data.compInfo;
     let logoId = this.data.logoId
     let coverId = this.data.coverId
-    if (!formcheck.check_phone(data.contact_phone)) {
-        util.Toast('请输入正确的手机')
+    if (!formcheck.check_telphone(data.contact_phone)) {
+        util.Toast('电话号码格式有误')
     } else if (formcheck.check_null(data.profiles)) {
         util.Toast('请输入描述')
     } else if (data.profiles.length > 20) {

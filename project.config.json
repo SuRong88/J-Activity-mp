@@ -372,13 +372,6 @@
 					"scene": null
 				},
 				{
-					"id": 45,
-					"name": "实名认证-完善信息",
-					"pathName": "pages/authentication/complete/complete",
-					"query": "status=success&userInfo={\"mode\":\"DEFAULT\",\"username\":\"苏家荣\",\"mobile\":\"15015050896\",\"cardNo\":\"445202199701288512\"}",
-					"scene": null
-				},
-				{
 					"id": -1,
 					"name": "我的-完善信息",
 					"pathName": "pages/me/information/information",

@@ -41,7 +41,6 @@ function jump(e) {
             showLogin: true
         })
     }
-    jumpFlag = false
     // console.log(oldUrl, newUrl, type);
     // console.log(checkIndex, checkUrl);
     // console.log(allowPages.indexOf(checkUrl));
@@ -50,6 +49,7 @@ function jump(e) {
     if (`/${oldUrl}` == newUrl) {
         return false
     }
+    jumpFlag = false
     if (type == 'reLaunch') {
         newUrl && wx.reLaunch({
             url: newUrl,

@@ -33,8 +33,16 @@ function check_tel(value) {
 
 //检测手机和固话
 function check_telphone(value) {
-    let reg = new RegExp(/^((0\d{2,3}-\d{7,8})|(1\d{10}))$/);
-   return reg.test(value);
+    // let reg = new RegExp(/^((0\d{2,3}-\d{7,8})|(1\d{10}))$/);
+    // return reg.test(value);
+    let isTel = /^([0-9]{3,4}-)?[0-9]{7,8}$/;//***-********
+    let isTel2 = /^([0-9]{3,4}-)?([0-9]{3,4}-)?([0-9]{3,4})$/;//***-***-***
+    let isPhone = /^(1\d{10})$/;//手机号
+    if (isTel.test(value) || isTel2.test(value) || isPhone.test(value)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 //检测邮箱
@@ -103,7 +111,7 @@ function check_money(value) {
 //检测整数
 function check_int(value) {
     let reg = new RegExp(/^[0-9]\d*$/);
-   return reg.test(value);
+    return reg.test(value);
 }
 
 //检测正整数

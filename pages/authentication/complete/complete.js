@@ -28,10 +28,10 @@ const VM = {
         //认证通过
         pass: false,
         // 表单
-        name: '苏家荣',
-        phone: '15015050896',
-        idCard: '445202199701288511',
-        bankCard: '6217003260002101716',
+        name: '',
+        phone: '',
+        idCard: '',
+        bankCard: '',
         //合同id
         contractId: ''
     }

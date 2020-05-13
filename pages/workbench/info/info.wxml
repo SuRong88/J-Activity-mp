@@ -14,12 +14,12 @@
         </view>
         <text class="text" style="margin-top:40rpx;">联系方式</text>
         <view class="tel-tit  width-len">
-            <input placeholder-class="holder-class" placeholder="请输入电话号码" bindinput="changePhone" value="{{compInfo.contact_phone}}"
+            <input placeholder-class="holder-class" placeholder="请输入电话号码" bindinput="changePhone" value="{{compInfo.phone?compInfo.phone:compInfo.contact_phone}}"
                 class='tel-text'></input>
         </view>
         <text class='text' style="margin-top:40rpx;">企业简介</text>
         <textarea placeholder-class="holder-class" class='text-area' bindinput="changeintro" value='{{compInfo.profiles}}'
-            placeholder="请输入" maxlength="20"/>
+            placeholder="请输入" maxlength="20" />
         <image bindtap="chooseImg" data-type="cover" mode="aspectFill" class="upload-icon2" src="{{compInfo.cover_img?compInfo.cover_img:'/images/task/upload.jpg'}}"></image>   
         <view class='submit' bindtap="formSubmit">确定</view>
 </view>

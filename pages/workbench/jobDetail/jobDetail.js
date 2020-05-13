@@ -132,7 +132,9 @@ VM.confirmHandle = function() {
         util.Toast('派单成功')
         this.init(this.data.query)
         this.setData({
-            showMask: false
+            showMask: false,
+            checkedArr: [],
+            checkedLength: 0
         })
     }, (err) => {
         this.setData({
