@@ -4,8 +4,12 @@ page {
 }
 
 .nav-menu-box {
-    margin-bottom: 20rpx;
+    /* margin-bottom: 20rpx; */
+    width: 100%;
     background-color: #fff;
+    position: fixed;
+    z-index: 2;
+    left: 0;
 }
 
 .nav-menu {
@@ -37,6 +41,10 @@ page {
     transform: translateX(-50%);
 }
 
+.task-list {
+    padding-top: 118rpx;
+}
+
 .task-item {
     background-color: #fff;
     margin-bottom: 20rpx;
@@ -53,8 +61,7 @@ page {
 }
 
 
-.item-num {
-}
+.item-num {}
 
 .item-status {}
 

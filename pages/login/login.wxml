@@ -53,7 +53,7 @@
                 <view class="box-main flex flex-ver">
                     <input bindinput="inputCaptcha" class="captcha-enter flex-1" placeholder="请输入右侧验证码"
                         placeholder-class="captcha-enter-placeholder" type="text" maxlength="4" />
-                    <image bindtap="changeCaptcha" class="captcha-img" src="{{captchaUrl}}" mode="aspectFit"></image>
+                    <image bindtap="changeCaptcha" class="captcha-img" src="{{captchaUrl}}" mode="aspectFill"></image>
                 </view>
                 <text class="tip">{{tips[tipIndex]}}</text>
             </view>

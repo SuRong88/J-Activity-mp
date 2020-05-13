@@ -22,7 +22,7 @@
                             </block>
                         </view>
                         <view class="item-info">
-                            姓名：{{item.nickname}}
+                            姓名：{{item.name}}
                         </view>
                         <view class="item-info">
                             身份证号码：{{item.id_card}}

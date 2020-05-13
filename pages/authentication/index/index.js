@@ -19,12 +19,13 @@ VM.onLoad = function(query) {
     Req.request('getAuthStatus', null, {
         method: 'get'
     }, (res) => {
+        // a已实名
         if (res.data.is_auth == 1) {
             this.setData({
                 loading: false,
                 isAuth: 1
             })
-        } else {
+        } else { //b未实名
             this.setData({
                 isAuth: 0
             })

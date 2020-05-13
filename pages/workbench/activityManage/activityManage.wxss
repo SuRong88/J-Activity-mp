@@ -7,8 +7,12 @@ page {
 }
 
 .nav-menu {
+    width: 100%;
     background-color: #fff;
-    margin-bottom: 20rpx;
+    position: fixed;
+    left: 0;
+    z-index: 2;
+    /* margin-bottom: 20rpx; */
 }
 
 .nav-item {
@@ -36,6 +40,11 @@ page {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.activity-list {
+    padding-top: 120rpx;
+    padding-bottom: 50rpx;
 }
 
 .activity-item {

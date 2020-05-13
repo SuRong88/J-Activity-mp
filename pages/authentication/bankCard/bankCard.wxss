@@ -64,6 +64,7 @@
     width: 170rpx;
     height: 72rpx;
     flex-shrink: 0;
+    margin-left: 10rpx;
 }
 
 .captcha-box .tip {

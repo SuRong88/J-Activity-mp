@@ -288,6 +288,13 @@
 					"scene": null
 				},
 				{
+					"id": -1,
+					"name": "工作台-充值",
+					"pathName": "pages/workbench/recharge/recharge",
+					"query": "",
+					"scene": null
+				},
+				{
 					"id": 39,
 					"name": "工作台-充值记录",
 					"pathName": "pages/workbench/record/record",

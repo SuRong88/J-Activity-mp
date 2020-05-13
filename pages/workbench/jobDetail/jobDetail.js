@@ -91,12 +91,12 @@ VM.selectPerson = function(e) {
 VM.confirmSend = function() {
     let checkedArr = []
     let applyList = this.data.jobInfo.apply_list
-    if (applyList.length <= 0) {
-        return util.Toast('未勾选服务商')
-    }
     applyList.forEach(item => {
         item.selected && checkedArr.push(item)
     })
+    if (checkedArr.length <= 0) {
+        return util.Toast('未勾选服务商')
+    }
     this.setData({
         showMask: true,
         checkedArr: checkedArr

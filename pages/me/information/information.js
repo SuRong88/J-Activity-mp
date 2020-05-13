@@ -6,31 +6,39 @@ const Req = require('../../../utils/request.js');
 const VM = {
     data: {
         avatarUrl: '',
-        avatarId: '',
+        logoUrl: '',
+        logoId: '',
         nickname: '',
         exp: '', // 工作经历
         address: '',
         addressDetail: '',
         typeList: [], //所属类型
-        certificatUrl: '', //证书
-        certificatId: ''
+        //证书arr
+        certificatArr: []
+        // certificatUrl: '', //证书
+        // certificatId: ''
     }
 }
 VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
+    let globalData = app.globalData
+    this.setData({
+        // 微信头像
+        avatarUrl: globalData.userInfo ? globalData.userInfo.avatarUrl : '',
+    })
     Req.request('getMyCompleteInfo', null, {
         method: 'get'
     }, res => {
         let data = res.data
         this.setData({
-            avatarUrl: data.logo || '',
+            logoUrl: data.logo || '',
             nickname: data.nickname || '',
             exp: data.work_experience || '',
             address: data.address || '',
             addressDetail: data.address_detail || '',
-            typeList: data.position_list || '',
-            certificatUrl: data.work_img || ''
+            typeList: data.position_list || [],
+            certificatArr: data.work_img || []
         })
     })
 }
@@ -56,57 +64,78 @@ VM.changeExp = function(e) {
     });
 }
 
-//选择图片
-VM.chooseImg = function(e) {
-    // index 0头像 1证书 
-    let index = util.dataset(e, 'index')
+//上传logo
+VM.uploadLogo = function(e) {
     wx.chooseImage({
         count: 1,
         success: res => {
-            if (index == 0) {
-                this.setData({
-                    avatarUrl: res.tempFilePaths[0]
-                });
-                wx.uploadFile({
-                    url: Req.OPTIONS.uploadImage.url,
-                    filePath: res.tempFilePaths[0],
-                    name: 'file',
-                    formData: {},
-                    success: res2 => {
-                        let inf = JSON.parse(res2.data)
-                        let id = inf.data.id
-                        this.setData({
-                            avatarId: id
-                        })
-                    },
-                    fail: err2 => {
-                        util.Toast('上传失败')
-                    }
-                })
-            } else {
-                this.setData({
-                    certificatUrl: res.tempFilePaths[0]
-                });
-                wx.uploadFile({
-                    url: Req.OPTIONS.uploadImage.url,
-                    filePath: res.tempFilePaths[0],
-                    name: 'file',
-                    formData: {},
-                    success: res2 => {
-                        let inf = JSON.parse(res2.data)
-                        let id = inf.data.id
-                        this.setData({
-                            certificatId: id
-                        })
-                    },
-                    fail: err2 => {
-                        util.Toast('上传失败')
-                    }
-                })
-            }
+            this.setData({
+                logoUrl: res.tempFilePaths[0]
+            });
+            wx.uploadFile({
+                url: Req.OPTIONS.uploadImage.url,
+                filePath: res.tempFilePaths[0],
+                name: 'file',
+                formData: {},
+                success: res2 => {
+                    let inf = JSON.parse(res2.data)
+                    let id = inf.data.id
+                    this.setData({
+                        logoId: id
+                    })
+                },
+                fail: err2 => {
+                    util.Toast('上传失败')
+                }
+            })
         }
     });
 };
+// 上传工作照
+VM.uploadWorkImg = function() {
+    let certificatArr = this.data.certificatArr
+    if (certificatArr.length >= 3) {
+        return util.Toast('最多只能选择三张图片')
+    }
+    wx.chooseImage({
+        count: 1,
+        sizeType: ['compressed'],
+        sourceType: ['album'],
+        success: res => {
+            // 单个
+            const tempFilePaths = res.tempFilePaths[0]
+            wx.uploadFile({
+                url: Req.OPTIONS.uploadImage.url,
+                filePath: tempFilePaths,
+                name: 'file',
+                formData: {},
+                success: res2 => {
+                    let inf = JSON.parse(res2.data)
+                    let obj = {
+                        id: inf.data.id,
+                        url: tempFilePaths
+                    }
+                    certificatArr.push(obj)
+                    this.setData({
+                        certificatArr: certificatArr
+                    })
+                },
+                fail: err2 => {
+                    util.Toast('上传失败')
+                }
+            })
+        }
+    })
+}
+// 删除上传工作照图片
+VM.deleteWorkImg = function(e) {
+    let index = util.dataset(e, 'index')
+    let certificatArr = this.data.certificatArr
+    certificatArr.splice(index, 1)
+    this.setData({
+        certificatArr: certificatArr
+    })
+}
 // 选择类型
 VM.selectType = function() {
     app.globalData.oldTagList = this.data.typeList
@@ -129,14 +158,24 @@ VM.submitHandle = function() {
     if (formcheck.check_null(data.address)) {
         return util.Toast('请选择地区')
     }
+    // 所属类型
+    if (data.typeList.length <= 0) {
+        return util.Toast('请选择所属类型')
+    }
     let typeList = []
     for (let i = 0; i < data.typeList.length; i++) {
         typeList.push(data.typeList[i].id)
     }
+    // 工作照
+    let certificatArr = data.certificatArr
+    let certificatIds = []
+    certificatArr.forEach(obj => {
+        obj.id && certificatIds.push(obj.id)
+    })
     Req.request('saveMyCompleteInfo', {
-        logo: data.avatarId,
+        logo: data.logoId,
         nickname: data.nickname,
-        work_img: data.certificatId,
+        work_img: JSON.stringify(certificatIds),
         work_experience: data.exp,
         position_list: JSON.stringify(typeList),
         address: data.address,

@@ -65,7 +65,7 @@
                             </block>
                         </view>
                         <view class="item-info">
-                            姓名： {{item.nickname}}
+                            姓名： {{item.name}}
                         </view>
                         <view class="item-info">
                             手机号码： {{item.phone}}
@@ -173,7 +173,7 @@
                         </view>
                         <view class="item-info item-name">
                             <text class="label">姓名：</text>
-                            <text class="value">{{item.nickname}}</text>
+                            <text class="value">{{item.name}}</text>
                         </view>
                         <view class="item-info item-id">
                             <text class="label">身份证号：</text>

@@ -18,16 +18,51 @@
     height: 80rpx;
     background: rgba(245, 245, 245, 1);
     border-radius: 8rpx;
-    font-size:28rpx;
-    color:rgba(153,153,153,1);
+    font-size: 28rpx;
+    color: rgba(153, 153, 153, 1);
     padding-left: 28rpx;
 }
 
-.holder-class{
-   color:rgba(153,153,153,1); 
+.holder-class {
+    color: rgba(153, 153, 153, 1);
 }
 
-.photo {
+.imgs-box {
+    width: 100%;
+}
+
+.img-item {
+    width: 300rpx;
+    height: 300rpx;
+    position: relative;
+    margin-bottom: 30rpx;
+    border: 2rpx solid rgba(228, 228, 228, 1);
+    overflow: hidden;
+}
+
+.img-item:nth-child(odd) {
+    margin-right: 30rpx;
+}
+
+.img-item:last-child {
+    border: none;
+}
+
+.img-item .photo {
+    width: 300rpx;
+    height: 300rpx;
+}
+
+.img-item .icon-delete {
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    top: 10rpx;
+    right: 10rpx;
+    /* background-color: #fff; */
+}
+
+.upload-icon {
     width: 300rpx;
     height: 300rpx;
 }

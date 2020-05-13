@@ -47,12 +47,21 @@ VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
     let searchServiceInfo = app.globalData.searchServiceInfo
-    this.setData({
-        tabbarType: app.globalData.roleType,
-        keyword: searchServiceInfo.keyword,
-        checkTagList: searchServiceInfo.checkTagList,
-        address: searchServiceInfo.address
-    })
+    if(searchServiceInfo){
+        this.setData({
+            tabbarType: app.globalData.roleType,
+            keyword: searchServiceInfo.keyword,
+            checkTagList: searchServiceInfo.checkTagList,
+            address: searchServiceInfo.address
+        })
+    } else {
+        this.setData({
+            tabbarType: app.globalData.roleType,
+            keyword: '',
+            checkTagList: [],
+            address: ''
+        })
+    }
     this.getList();
 }
 VM.onLoad = function(query) {

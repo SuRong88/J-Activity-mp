@@ -3,22 +3,22 @@
     <view class="content {{roleType==2?'enterprise-role':''}}">
         <view class="con-hd">
             <view class="intro-box flex flex-jcsb">
-               <view class="intro-box-l">
-                   <view class="intro-hd flex flex-ver">
-                       <image class="wechat-avatar" src="{{detail.head_img}}"></image>
-                       <view class="nickname">
-                           {{detail.nickname}}
-                       </view>
-                   </view>
-                   <view class="intro-bd tags flex flex-wrap">
-                       <view wx:for="{{detail.position_list}}" wx:key="index" class="tag">
-                           {{item.name}}
-                       </view>
-                   </view>
-               </view>
-               <view class="intro-box-r">
-                   <image class="info-avatar" src="{{detail.logo}}"></image>
-               </view>
+                <view class="intro-box-l">
+                    <view class="intro-hd flex flex-ver">
+                        <image class="wechat-avatar" src="{{detail.head_img}}"></image>
+                        <view class="nickname">
+                            {{detail.nickname}}
+                        </view>
+                    </view>
+                    <view class="intro-bd tags flex flex-wrap">
+                        <view wx:for="{{detail.position_list}}" wx:key="index" class="tag">
+                            {{item.name}}
+                        </view>
+                    </view>
+                </view>
+                <view class="intro-box-r">
+                    <image wx:if="{{detail.logo}}" class="info-avatar" src="{{detail.logo}}"></image>
+                </view>
             </view>
             <view class="info-box">
                 <view class="item flex flex-ver">
@@ -48,7 +48,9 @@
                     <view class="line"></view>
                 </view>
                 <view class="box-con">
-                    <image wx:if="{{detail.work_img}}" class="work-img" mode="widthFix" src="{{detail.work_img}}"></image>
+                    <view wx:if="{{detail.work_img&&detail.work_img.length>0}}">
+                        <image wx:for="{{detail.work_img}}" wx:key="index" class="work-img" mode="widthFix" src="{{item.url}}"></image>
+                    </view>
                     <view>
                         {{detail.work_experience}}
                     </view>

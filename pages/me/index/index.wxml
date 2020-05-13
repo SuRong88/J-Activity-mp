@@ -4,10 +4,18 @@
         <view class="con-hd">
             <image class="banner-img" src="/images/me/mine_bg01.jpg"></image>
             <view class="user-info-box ">
+                <!-- 
+                服务商的“LOGO/封面”，
+                未完善信息时，显示微信头像，
+                完善信息提交后，显示最新提交的 “LOGO/封面”
+                (昵称同理)
+                 -->
                 <view class="user-box flex flex-ver">
-                    <image class="avatar" src="{{avatarUrl}}"></image>
+                    <image bindtap="base_jump" data-url="/pages/me/information/information" class="avatar" src="{{userInfo.logo?userInfo.logo:avatarUrl}}"></image>
                     <view class="name-status">
-                        <view class="user-name line-hide line-1">{{nickname}}</view>
+                        <view class="user-name line-hide line-1">
+                            {{userInfo.nickname?userInfo.nickname:nickname}}
+                        </view>
                         <view class="user-phone line-hide line-1">{{userInfo.phone}}</view>
                         <view class="user-status" bindtap="base_jump" data-url="/pages/authentication/index/index">
                             <image class="status-icon" src="{{userInfo.is_auth?'/images/me/mine_icon11.png':'/images/me/mine_icon10.png'}}"></image>
@@ -95,7 +103,7 @@
                     <text class="item-txt">退出登录</text>
                     <image class="item-arrow" src="/images/me/mine_icon13.png"></image>
                 </view>
-               <!-- <button open-type="getUserInfo" class="menu-item flex flex-ver">
+                <!-- <button open-type="getUserInfo" class="menu-item flex flex-ver">
                     授权按钮（调试）
                 </button> -->
             </view>

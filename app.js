@@ -182,7 +182,8 @@ App({
                     this.globalData.userInfo = res.userInfo
                     // 上传用户微信头像
                     Req.request('saveWxAvatar', {
-                        head_img: res.userInfo.avatarUrl
+                        head_img: res.userInfo.avatarUrl,
+                        nickname: res.userInfo.nickName
                     }, {
                         method: 'put'
                     }, res => {

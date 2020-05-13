@@ -1,7 +1,7 @@
 <view class="container">
     <mp-header cln="'header'" showBack title="我的任务"></mp-header>
     <view class="content">
-        <scroll-view scroll-x class="nav-menu-box">
+        <scroll-view style="top: {{padHeight}}rpx;" scroll-x class="nav-menu-box">
             <view class="nav-menu flex">
                 <view bindtap="changeStatus" data-type="0" class="nav-item {{type==0?'active':''}}">
                     全部
@@ -35,7 +35,7 @@
                 </view>
                 <view class="item-m info flex">
                     <view class="info-l">
-                        <image class="info-img" src="{{item.cover_img}}"></image>
+                        <image mode="aspectFill" class="info-img" src="{{item.cover_img}}"></image>
                     </view>
                     <view class="info-r flex-1">
                         <view class="info-tit flex flex-ver flex-jcsb">

@@ -7,8 +7,8 @@
                     <text class="label-txt">封面/LOGO</text>
                     <text class="label-tip"></text>
                 </view>
-                <view bindtap="chooseImg" data-index="0" class="item-con item-avatar">
-                    <image class="avatar" src="{{avatarUrl?avatarUrl:'/images/workbench/default.png'}}"></image>
+                <view bindtap="uploadLogo" class="item-con item-avatar">
+                    <image class="avatar" src="{{logoUrl?logoUrl:avatarUrl}}"></image>
                     <view class="edit-avatar">
                         <image class="edit-icon" src="/images/me/BS_icon10.png"></image>
                     </view>
@@ -78,8 +78,15 @@
                     <text class="label-txt">上传资料卡/工作照</text>
                     <text class="label-tip">（非必填）</text>
                 </view>
-                <view bindtap="chooseImg" data-index="1" class="item-con upload-box flex flex-center">
-                    <image class="upload-icon" src="{{certificatUrl?certificatUrl:'/images/task/upload.jpg'}}"></image>
+                <view class="imgs-box flex flex-wrap">
+                    <view wx:for="{{certificatArr}}" wx:key="index" class="img-item">
+                        <image mode="aspectFill" class="photo" src="{{item.url}}"></image>
+                        <image mode="aspectFill" class="icon-delete" src="/images/search/event_icon09.png" bindtap="deleteWorkImg"
+                            data-index="{{index}}"></image>
+                    </view>
+                    <view bindtap="uploadWorkImg" data-index="1" class="img-item item-con upload-box flex flex-center">
+                        <image class="upload-icon" src="/images/task/upload.jpg"></image>
+                    </view>
                 </view>
             </view>
         </view>

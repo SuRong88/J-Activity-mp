@@ -1,8 +1,9 @@
 /* pages/workbench/record/record.wxss */
-
+page{
+    background: #f9f9f9!important;
+}
 .content {
     height: 1448rpx;
-    background: #f9f9f9;
 }
 
 .first-box {
@@ -81,6 +82,10 @@
     color: rgba(255, 255, 255, 1);
     line-height: 66rpx;
     text-align: center;
+}
+.list-box{
+    width: 100%;   
+    padding-bottom: 30rpx;
 }
 
 .each-item.green .stat-box {

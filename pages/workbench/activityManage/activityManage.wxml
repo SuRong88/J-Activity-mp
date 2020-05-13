@@ -1,7 +1,7 @@
 <view class="container">
     <mp-header isHome="{{isHome}}" showBack showBack title="活动管理"></mp-header>
     <view class="content">
-        <view class="nav-menu flex flex-jcsb">
+        <view style="top: {{padHeight}}rpx;" class="nav-menu flex flex-jcsb">
             <!-- 1招募中2招募完成(待验收)3已完成4已关闭 -->
             <view bindtap="switchStatus" data-status="1" class="nav-item flex-1 {{status==1?'active':''}}">
                 招募中

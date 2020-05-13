@@ -40,39 +40,42 @@
             </view>
         </view>
         <!-- 底下 -->
-        <view wx:for="{{list}}" wx:key="index" class="each-item box flex width-len flex-col flex-jcfs {{classArr[item.status]}}"
-            style="margin-top:20rpx;">
-            <view class="box-top flex flex-ver flex-jcfs width-len">
-                <view class="small" style="margin-right:12rpx;">
-                </view>
-                <view class="stat-tit">申请时间：{{item.create_time}}</view>
-                <view class="stat-box">{{statusRange[item.status].name}}</view>
-            </view>
-            <view style='height:2rpx;width:670rpx;background:#F5F5F5;margin-bottom:28rpx;'></view>
-            <view class="box-bottom width-len flex flex-start flex-col flex-jcfs">
-                <view class="flex flex-jcsb  width-len">
-                    <text class="act-tit">{{item.enterprise_name}}</text>
-                    <text class="act-tit" style="color:#FC7F03;margin-right:40rpx">¥{{item.amount}}</text>
-                </view>
-                <view class=" flex flex-ver flex-jcfs width-len" style="margin-top:32rpx;margin-bottom:24rpx;">
-                    <view class="small" style="margin-right:12rpx;">
+        <view class="list-box">
+            <view wx:for="{{list}}" wx:key="index" class="each-item box flex width-len flex-col flex-jcfs {{classArr[item.status]}}"
+                    style="margin-top:20rpx;">
+                    <view class="box-top flex flex-ver flex-jcfs width-len">
+                        <view class="small" style="margin-right:12rpx;">
+                        </view>
+                        <view class="stat-tit">申请时间：{{item.create_time}}</view>
+                        <view class="stat-box">{{statusRange[item.status].name}}</view>
                     </view>
-                    <view class="stat-tit">充值编号：{{item.id}}</view>
-                </view>
-                <view class=" flex flex-ver flex-jcfs width-len" style="margin-bottom:24rpx;">
-                    <view class="small" style="margin-right:12rpx;">
+                    <view style='height:2rpx;width:670rpx;background:#F5F5F5;margin-bottom:28rpx;'></view>
+                    <view class="box-bottom width-len flex flex-start flex-col flex-jcfs">
+                        <view class="flex flex-jcsb  width-len">
+                            <text class="act-tit">{{item.enterprise_name}}</text>
+                            <text class="act-tit" style="color:#FC7F03;margin-right:40rpx">¥{{item.amount}}</text>
+                        </view>
+                        <view class=" flex flex-ver flex-jcfs width-len" style="margin-top:32rpx;margin-bottom:24rpx;">
+                            <view class="small" style="margin-right:12rpx;">
+                            </view>
+                            <view class="stat-tit">充值编号：{{item.id}}</view>
+                        </view>
+                        <view class=" flex flex-ver flex-jcfs width-len" style="margin-bottom:24rpx;">
+                            <view class="small" style="margin-right:12rpx;">
+                            </view>
+                            <view class="stat-tit">到账时间：{{item.update_time}}</view>
+                        </view>
+                        <view class=" flex flex-ver flex-jcfs width-len" style="margin-bottom:24rpx;">
+                            <view class="small" style="margin-right:12rpx;">
+                            </view>
+                            <view class="stat-tit" style="color:#999999">备注：{{item.refuse_reason||''}}</view>
+                        </view>
+                        <view>
+            
+                        </view>
                     </view>
-                    <view class="stat-tit">到账时间：{{item.update_time}}</view>
                 </view>
-                <view class=" flex flex-ver flex-jcfs width-len" style="margin-bottom:24rpx;">
-                    <view class="small" style="margin-right:12rpx;">
-                    </view>
-                    <view class="stat-tit" style="color:#999999">备注：{{item.refuse_reason||''}}</view>
-                </view>
-                <view>
-
-                </view>
-            </view>
+            
         </view>
-    </view>
+        </view>
 </view>

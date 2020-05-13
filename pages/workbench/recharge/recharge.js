@@ -6,8 +6,7 @@ const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 const VM = {
     data: {
-        imgId: '',
-        imgSrc: '',
+        imgArr: [],
         amount: ''
     }
 }
@@ -26,17 +25,18 @@ VM.changeamount = function(e) {
     })
 }
 //监听图片上传
-VM.changeImg = function() {
-    let that = this;
+VM.uploadImg = function() {
+    let imgArr = this.data.imgArr
+    if (imgArr.length >= 3) {
+        return util.Toast('最多只能选择三张图片')
+    }
     wx.chooseImage({
         count: 1,
         sizeType: ['compressed'],
         sourceType: ['album'],
-        success(res) {
+        success: res => {
+            // 单个
             const tempFilePaths = res.tempFilePaths[0]
-            that.setData({
-                imgSrc: tempFilePaths,
-            })
             wx.uploadFile({
                 url: Req.OPTIONS.uploadImage.url,
                 filePath: tempFilePaths,
@@ -44,9 +44,13 @@ VM.changeImg = function() {
                 formData: {},
                 success: res2 => {
                     let inf = JSON.parse(res2.data)
-                    let id = inf.data.id
-                    that.setData({
-                        imgId: id
+                    let obj = {
+                        imgSrc: tempFilePaths,
+                        imgId: inf.data.id
+                    }
+                    imgArr.push(obj)
+                    this.setData({
+                        imgArr: imgArr
                     })
                 },
                 fail: err2 => {
@@ -55,23 +59,36 @@ VM.changeImg = function() {
             })
         }
     })
-
 }
 
+// 删除上传图片
+VM.deleteImg = function(e) {
+    let index = util.dataset(e, 'index')
+    let imgArr = this.data.imgArr
+    imgArr.splice(index, 1)
+    this.setData({
+        imgArr: imgArr
+    })
+}
 VM.sumbit = function() {
     let data = this.data
     if (formcheck.check_null(data.amount)) {
         return util.Toast('未填写充值金额')
     }
-    if (formcheck.check_null(data.imgId)) {
+    if (data.imgArr.length <= 0) {
         return util.Toast('未上传转账凭证')
     }
     if (data.amount <= 0) {
         return util.Toast('充值金额输入有误')
     }
+    let imgArr = data.imgArr
+    let imgIds = []
+    imgArr.forEach(obj => {
+        obj.imgId && imgIds.push(obj.imgId)
+    })
     Req.request('recharge', {
         amount: data.amount.trim(),
-        evidence_img: data.imgId
+        evidence_img: JSON.stringify(imgIds)
     }, {
         method: 'post'
     }, res => {

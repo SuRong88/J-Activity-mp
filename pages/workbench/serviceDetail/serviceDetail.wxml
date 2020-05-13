@@ -17,7 +17,7 @@
                     </view>
                 </view>
                 <view class="intro-box-r">
-                    <image class="info-avatar" src="{{info.logo}}"></image>
+                    <image wx:if="{{info.logo}}" class="info-avatar" src="{{info.logo}}"></image>
                 </view>
             </view>
             <view class="info-box">
@@ -50,7 +50,9 @@
                     <view class="line"></view>
                 </view>
                 <view class="box-con">
-                    <image wx:if="{{info.work_img}}" class="work-img" mode="widthFix" src="{{info.work_img}}"></image>
+                    <view wx:if="{{detail.work_img&&detail.work_img.length>0}}">
+                        <image wx:for="{{detail.work_img}}" wx:key="index" class="work-img" mode="widthFix" src="{{item.url}}"></image>
+                    </view>
                     <view>
                         {{info.work_experience}}
                     </view>

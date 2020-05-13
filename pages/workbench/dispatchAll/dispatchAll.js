@@ -113,6 +113,7 @@ VM.dispatchAll = function() {
                 applyIds.push(subItem.apply_id)
             }
         })
+        console.log(applyIds);
         if (applyIds.length > 0) {
             let obj = {
                 apply_ids: applyIds,
