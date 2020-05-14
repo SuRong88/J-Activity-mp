@@ -24,7 +24,8 @@ function Toast(msg = '提示', duration = 1500) {
     wx.showToast({
         title: msg,
         icon: 'none',
-        duration: duration
+        duration: duration,
+        // mask: true
     })
 }
 

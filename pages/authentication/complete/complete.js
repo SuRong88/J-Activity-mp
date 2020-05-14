@@ -6,13 +6,13 @@ const Req = require('../../../utils/request.js');
 var WxParse = require('../../../wxParse/wxParse');
 const VM = {
     data: {
+        // 检查签署状态
+        checkSign: true,
         //输入框
         disabled: false,
         showMask: false,
         // 展示协议
         showAgreement: false,
-        // 同意协议
-        isAgree: false,
         // 展示协议下标
         agreementIndex: 0,
         agreementList: [{
@@ -39,14 +39,28 @@ const VM = {
 VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
-    // open
-    // Req.request('getAuthStatus', null, {
-    //     method: 'get'
-    // }, (res) => {
-    //     this.setData({
-    //         isAuth: res.data.is_auth
-    //     })
-    // })
+    // 判断合同是否已签署
+    Req.request('getContractStatus', null, {
+        method: 'get'
+    }, (res) => {
+        console.log(res);
+        let inf = res.data
+        if (inf.is_sign == 1) { // 已签署
+            this.setData({
+                checkSign: false,
+                pass: true,
+                disabled: true,
+                // 表单
+                name: inf.name,
+                phone: inf.phone,
+                idCard: inf.id_card,
+            })
+        } else { //未签署
+            this.setData({
+                checkSign: false
+            })
+        }
+    })
 }
 VM.onLoad = function(query) {
     this.init()
@@ -125,7 +139,7 @@ VM.authHandle = function() {
     if (!formcheck.check_bankCard(data.bankCard)) {
         return util.Toast('银行卡号格式有误')
     }
-    // open
+    // 获取合同id
     Req.request('getContract', {
         name: data.name,
         phone: data.phone,
@@ -148,9 +162,7 @@ VM.authHandle = function() {
         })
     })
 }
-VM.test = function() {
-    console.log('test');
-}
+// 实名认证弹窗-确定
 VM.confirmHandle = function() {
     // 通过
     if (this.data.pass) {
@@ -161,6 +173,7 @@ VM.confirmHandle = function() {
         })
     }
 }
+// 实名认证弹窗-取消
 VM.cancelHandle = function() {
     // 通过
     if (this.data.pass) {
@@ -174,6 +187,30 @@ VM.cancelHandle = function() {
 // 提交实名认证信息
 VM.submitAuthInfo = function() {
     let data = this.data
+    if (formcheck.check_null(data.name)) {
+        return util.Toast('请填写姓名')
+    }
+    if (formcheck.check_null(data.phone)) {
+        return util.Toast('请填写手机号')
+    }
+    if (formcheck.check_null(data.idCard)) {
+        return util.Toast('请填写身份证号')
+    }
+    if (formcheck.check_null(data.bankCard)) {
+        return util.Toast('请填写银行卡号')
+    }
+    if (!formcheck.check_cn_name(data.name)) {
+        return util.Toast('姓名格式有误')
+    }
+    if (!formcheck.check_phone(data.phone)) {
+        return util.Toast('手机号格式有误')
+    }
+    if (!formcheck.check_idcard(data.idCard)) {
+        return util.Toast('身份证号格式有误')
+    }
+    if (!formcheck.check_bankCard(data.bankCard)) {
+        return util.Toast('银行卡号格式有误')
+    }
     Req.request('submitAuthInfo', {
         name: data.name,
         phone: data.phone,
@@ -210,12 +247,10 @@ VM.showAgreement = function(e) {
     }, {
         method: 'get'
     }, res => {
-        // let tar = 'agreementList[' + index + '].txt'
         WxParse.wxParse('agreementTxt', 'html', res.data.content, this, 5);
         this.setData({
             showAgreement: true,
-            agreementIndex: index,
-            // [tar]: res.data.content
+            agreementIndex: index
         })
     })
 }

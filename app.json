@@ -8,6 +8,7 @@
         "pages/authentication/protocol/protocol",
         "pages/authentication/auth/auth",
         "pages/authentication/sign/sign",
+        "pages/authentication/viewProtocol/viewProtocol",
         "pages/task/index/index",
         "pages/task/detail/detail",
         "pages/task/upload/upload",
@@ -77,7 +78,6 @@
         "downloadFile": 10000
     },
     "window": {
-        "backgroundTextStyle": "light",
         "navigationBarTitleText": "J活动",
         "navigationBarTextStyle": "white",
         "navigationStyle": "custom"

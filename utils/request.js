@@ -236,6 +236,14 @@ const OPTIONS = {
     getContract: {
         url: `${HOST}/qys/create`
     },
+    // 查看合同（获取合同链接）
+    viewContract: {
+        url: `${HOST}/qys/pageUrl`
+    },
+    // 查看合同签署状态
+    getContractStatus: {
+        url: `${HOST}/user/isSign`
+    },
     /*
      **岗位标签
      */
