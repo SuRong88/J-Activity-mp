@@ -29,10 +29,12 @@ page {
     width: 130rpx;
     height: 130rpx;
     border-radius: 50%;
+    flex-shrink: 0;
 }
 
 .name-status {
     padding-left: 36rpx;
+    width: 55vw;
 }
 
 .user-name {

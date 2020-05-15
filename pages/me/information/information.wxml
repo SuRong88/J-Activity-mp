@@ -21,7 +21,7 @@
                 </view>
                 <view class="item-con">
                     <input value="{{nickname}}" bindinput="changeNickname" placeholder="请输入Title/昵称/艺名" class="item-info-enter"
-                        placeholder-class="enter-placeholder" type="text" />
+                        placeholder-class="enter-placeholder" type="text" maxlength="10"/>
                 </view>
             </view>
             <view class="info-item">
