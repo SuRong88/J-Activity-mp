@@ -17,7 +17,7 @@
                     </view>
                 </view>
                 <view class="intro-box-r">
-                    <image wx:if="{{detail.logo}}" class="info-avatar" src="{{detail.logo}}"></image>
+                    <image mode="aspectFill" wx:if="{{detail.logo}}" class="info-avatar" src="{{detail.logo}}"></image>
                 </view>
             </view>
             <view class="info-box">
