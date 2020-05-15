@@ -40,7 +40,7 @@
                     </view>
                 </view>
                 <view class="detail-con">
-                    <image mode="widthFix" src="{{detail.cover_img}}" class="detail-img"></image>
+                    <image wx:if="{{detail.cover_img}}" mode="widthFix" src="{{detail.cover_img}}" class="detail-img"></image>
                     <view class="delete-desc text-j">
                         {{detail.desc}}
                     </view>
@@ -64,7 +64,8 @@
                         </view>
                     </view>
                     <!-- 服务商角色才显示“报名”按钮 -->
-                    <block wx:if="{{tabbarType==1}}">
+                    <!-- wx:if="{{tabbarType==1}}" -->
+                    <block>
                         <!-- 活动已结束不显示报名操作按钮 -->
                         <view wx:if="{{detail.status==1}}" class="item-bottom item-btn-box flex flex-jcfe">
                             <!-- 已报名（未通过审核可以取消  通过则不行） -->

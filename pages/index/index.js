@@ -87,6 +87,11 @@ VM.changeSwiper04 = function(e) {
 };
 //确定实名认证
 VM.confirmAuth = function() {
+    // isAuthed为‘伪实名’，只是为了首次加载提示实名认证，之后不再显示该弹窗
+    app.globalData.isAuthed = true
+    this.setData({
+        isAuthed: true
+    })
     wx.navigateTo({
         url: '/pages/authentication/index/index'
     })

@@ -18,7 +18,7 @@
                     </view>
                 </view>
                 <view class="r-part">
-                    <image class="part-img" src="{{enterprise.logo}}"></image>
+                    <image mode="aspectFill" class="part-img" src="{{enterprise.logo}}"></image>
                 </view>
             </view>
         </view>
@@ -58,7 +58,7 @@
             </view>
         </view>
     </view>
-     <!-- 联系客服 -->
+    <!-- 联系客服 -->
     <mp-popBox wx:if="{{showQrcode}}" cln="'qrcode-popBox'" title="点击保存二维码" showContent bind:confirm='closeQrcode'
         bind:cancel='closeQrcode' showCancel='{{false}}' confirmText="确定">
         <image bindtap="previewImage" class="qrcode" data-src="{{enterprise.service_code}}" src="{{enterprise.service_code}}"></image>

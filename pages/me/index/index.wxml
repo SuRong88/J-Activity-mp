@@ -11,7 +11,8 @@
                 (昵称同理)
                  -->
                 <view class="user-box flex flex-ver">
-                    <image bindtap="base_jump" data-url="/pages/me/information/information" class="avatar" src="{{userInfo.logo?userInfo.logo:avatarUrl}}"></image>
+                    <image mode="aspectFill" bindtap="base_jump" data-url="/pages/me/information/information" class="avatar"
+                        src="{{userInfo.logo?userInfo.logo:avatarUrl}}"></image>
                     <view class="name-status">
                         <view class="user-name line-hide line-1">
                             {{userInfo.nickname?userInfo.nickname:nickname}}

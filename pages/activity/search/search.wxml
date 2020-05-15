@@ -149,7 +149,8 @@
                 <!-- 服务商角色才显示“报名”按钮 -->
                 <view wx:if="{{item.status==1}}" class="item-r flex-1">
                     <image mode="aspectFill" class="item-img" src="{{item.cover_img}}"></image>
-                    <view wx:if="{{tabbarType==1}}" catchtap="base_jump" data-url="/pages/activity/detail/detail?id={{item.id}}&type=sign" class="item-btn">
+                    <!-- wx:if="{{tabbarType==1}}" -->
+                    <view catchtap="base_jump" data-url="/pages/activity/detail/detail?id={{item.id}}&type=sign" class="item-btn">
                         报名接单
                     </view>
                 </view>

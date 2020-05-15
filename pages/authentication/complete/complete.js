@@ -36,40 +36,51 @@ const VM = {
         contractId: ''
     }
 }
-VM.init = function() {
+VM.init = function(query) {
     // 设置自定义头部
     util.setHeader(this);
-    // 判断合同是否已签署
-    Req.request('getContractStatus', null, {
-        method: 'get'
-    }, (res) => {
-        console.log(res);
-        let inf = res.data
-        if (inf.is_sign == 1) { // 已签署
-            this.setData({
-                checkSign: false,
-                pass: true,
-                disabled: true,
-                // 表单
-                name: inf.name,
-                phone: inf.phone,
-                idCard: inf.id_card,
-            })
-        } else { //未签署
-            this.setData({
-                checkSign: false
-            })
-        }
-    })
+    // status是由“签署协议”页面进来才有的,此时需要删除页面栈的上一页
+    if (query.status) {
+        // 删除页面栈的上一页
+        // let pages = getCurrentPages()
+        // pages = []
+        // console.log(pages);
+        // pages.splice(pages.length - 2, 1)
+        // console.log(pages);
+    } else {
+        // 判断合同是否已签署
+        Req.request('getContractStatus', null, {
+            method: 'get'
+        }, (res) => {
+            console.log(res);
+            let inf = res.data
+            if (inf.is_sign == 1) { // 已签署
+                this.setData({
+                    checkSign: false,
+                    pass: true,
+                    disabled: true,
+                    // 表单
+                    name: inf.name,
+                    phone: inf.auth_phone,
+                    idCard: inf.id_card,
+                })
+            } else { //未签署
+                this.setData({
+                    checkSign: false
+                })
+            }
+        })
+    }
 }
 VM.onLoad = function(query) {
-    this.init()
+    this.init(query)
     base.onLoad(this)
     console.log(query);
     if (query.status && query.status == 'success') {
         let authInfo = app.globalData.authInfo
         this.setData({
             showMask: true,
+            checkSign: false,
             pass: true,
             disabled: true,
             // 表单
@@ -84,6 +95,7 @@ VM.onLoad = function(query) {
         this.setData({
             showMask: true,
             pass: false,
+            checkSign: false,
             // 表单
             name: authInfo.name,
             phone: authInfo.phone,
@@ -146,6 +158,9 @@ VM.authHandle = function() {
     }, {
         method: 'post'
     }, (res) => {
+        if (!res.data.contract_id) {
+            return util.Toast('生成合同失败')
+        }
         this.setData({
             contractId: res.data.contract_id
         })
@@ -156,7 +171,7 @@ VM.authHandle = function() {
             bankCard: data.bankCard,
         }
         app.globalData.authInfo = autoInfo
-        wx.navigateTo({
+        wx.redirectTo({
             url: "/pages/authentication/auth/auth?contractId=" + data.contractId + "&phone=" +
                 data.phone
         })
@@ -213,7 +228,7 @@ VM.submitAuthInfo = function() {
     }
     Req.request('submitAuthInfo', {
         name: data.name,
-        phone: data.phone,
+        auth_phone: data.phone,
         id_card: data.idCard,
         bank_num: data.bankCard
     }, {

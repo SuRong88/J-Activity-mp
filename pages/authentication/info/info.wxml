@@ -15,7 +15,7 @@
                     手机号
                 </view>
                 <view class="item-value">
-                    {{info.phone}}
+                    {{info.auth_phone}}
                 </view>
             </view>
             <view class="info-item flex flex-ver flex-jcsb">

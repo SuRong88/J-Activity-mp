@@ -52,6 +52,11 @@
             <view wx:else bindtap="submitAuthInfo" class="common-btn">
                 提交信息
             </view>
+            <!-- test -->
+            <!-- <view bindtap="base_jump" data-url="/pages/authentication/complete/complete?status=1" class="common-btn">
+                测试按钮
+            </view> -->
+            <!-- test end-->
         </view>
         <mp-popBox wx:if="{{showMask}}" cln="''" title="{{pass?'实名认证通过':'实名认证不通过，请重新认证'}}" bind:confirm='confirmHandle'
             bind:cancel='cancelHandle' showCancel="{{false}}" confirmText="{{pass?'提交信息':'确定'}}">

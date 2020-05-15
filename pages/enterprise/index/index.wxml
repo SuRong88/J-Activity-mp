@@ -5,14 +5,14 @@
             <view bindtap="base_jump" data-url="/pages/enterprise/detail/detail?id={{item.id}}" class="enterprise-item"
                 wx:for="{{list}}" wx:key="index">
                 <view class="item-top">
-                    <image class="item-img" src="{{item.cover_img}}"></image>
+                    <image mode="aspectFill" class="item-img" src="{{item.cover_img}}"></image>
                     <view class="item-brief">
                         已入驻：{{item.settle_time}}个月
                     </view>
                 </view>
                 <view class="item-bottom">
                     <view class="item-tit-box flex flex-ver">
-                        <image class="item-avatar" src="{{item.logo}}"></image>
+                        <image mode="aspectFill" class="item-avatar" src="{{item.logo}}"></image>
                         <view class="item-tit line-hide line-1">
                             {{item.name}}
                         </view>

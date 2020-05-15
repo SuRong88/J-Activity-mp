@@ -20,7 +20,7 @@ VM.init = function(query) {
         let inf = res.data
         if (inf.is_sign == 1) { // 已签署
             this.setData({
-                url: this.data.baseUrl + inf.contract_id + '&mobile=' + inf.phone
+                url: this.data.baseUrl + inf.contract_id + '&mobile=' + inf.auth_phone
             })
         } else { //未签署
             wx.navigateBack({

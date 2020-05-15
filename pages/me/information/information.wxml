@@ -8,7 +8,7 @@
                     <text class="label-tip"></text>
                 </view>
                 <view bindtap="uploadLogo" class="item-con item-avatar">
-                    <image class="avatar" src="{{logoUrl?logoUrl:avatarUrl}}"></image>
+                    <image mode="aspectFill" class="avatar" src="{{logoUrl?logoUrl:avatarUrl}}"></image>
                     <view class="edit-avatar">
                         <image class="edit-icon" src="/images/me/BS_icon10.png"></image>
                     </view>
@@ -44,7 +44,7 @@
                         <text class="label-txt">选择地区</text>
                         <text class="label-tip">（必填）</text>
                     </view>
-                    <view class="address line-hide line-1">{{address}}</view>
+                    <view class="address ell">{{address}}</view>
                     <image class="item-arrow-icon" src="/images/me/mine_icon13.png"></image>
                 </view>
                 <view class="item-con"></view>

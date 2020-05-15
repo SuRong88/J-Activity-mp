@@ -13,10 +13,10 @@ const VM = {
 VM.init = function(query) {
     // 设置自定义头部
     util.setHeader(this);
-    console.log(query.contractId);
-    // let userInfo = JSON.parse(query.userInfo)
+    let token = wx.getStorageSync('token')
+    console.log(query.contractId, token);
     this.setData({
-        url: this.data.baseUrl + query.contractId + '&phone=' + query.phone
+        url: this.data.baseUrl + query.contractId + '&phone=' + query.phone + '&token=' + token
     })
 }
 VM.onLoad = function(query) {
