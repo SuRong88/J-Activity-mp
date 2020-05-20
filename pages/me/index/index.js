@@ -24,7 +24,6 @@ VM.init = function() {
         avatarUrl: globalData.userInfo ? globalData.userInfo.avatarUrl : '',
         nickname: globalData.userInfo.nickName ? globalData.userInfo.nickName : ''
     })
-    // 要在app.js里面请求获取用户信息 
     Req.request('getMyInfo', null, {
         method: 'get'
     }, res => {
@@ -36,10 +35,6 @@ VM.init = function() {
 VM.onLoad = function(query) {
     base.onLoad(this)
     this.init()
-}
-VM.onShow = function() {
-    // “完善信息”修改信息之后 更新页面数据
-    // this.init()
 }
 // 弹窗
 VM.showMask = function(e) {
@@ -88,7 +83,9 @@ VM.cancelLogout = function() {
     })
 }
 // 预览联系客服二维码
-// 提示 ：经测试，当预览的是本地的图片时，图片不能加载，只有来自于网上或者是通过手机相册选择、拍照获取的图片才可以成功显示，并且只能扫描小程序码
+// 提示 ：经测试，当预览的是本地的图片时，图片不能加载，
+// 只有来自于网上或者是通过手机相册选择、
+// 拍照获取的图片才可以成功显示，并且只能扫描小程序码
 VM.previewImage = function(e) {
     let current = e.target.dataset.src;
     wx.previewImage({
