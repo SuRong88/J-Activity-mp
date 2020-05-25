@@ -22,12 +22,11 @@ const VM = {
         //搜索信息-关键字
         keyword: '',
         // 搜索信息-职位类型
-        tagSubAll: false, //二级类型全选
-        tagIndex: 0,
-        tagSubIndex: 0,
+        tagAll: false, //一级全选
+        tagSubAll: false, //二级全选
+        tagIndex: -1,
         tagList: [],
         tagSubList: [],
-        tagSubList2: [], //不加"全部"的二级类型arr
         // 搜索信息-已选类型
         checkTagList: [],
         // 搜索信息-省市区
@@ -47,6 +46,17 @@ VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
     let searchActivityInfo = app.globalData.searchActivityInfo
+    let checkTagList = searchActivityInfo.checkTagList || []
+    //类型
+    let tagAll = false
+    let tagSubAll = false
+    if (checkTagList.length > 0 && checkTagList[0].isAll) {
+        tagAll = true
+    }
+    if (checkTagList.length > 0 && checkTagList[0].isSubAll) {
+        tagSubAll = true
+    }
+    // 状态
     let status = searchActivityInfo.status
     if (status == 99) {
         status = 0
@@ -59,6 +69,8 @@ VM.init = function() {
         // tabbarType等同于用户角色 1服务商 2商家
         tabbarType: app.globalData.roleType,
         keyword: searchActivityInfo.keyword,
+        tagAll: tagAll,
+        tagSubAll: tagSubAll,
         checkTagList: searchActivityInfo.checkTagList,
         address: searchActivityInfo.address,
         statusIndex: status
@@ -107,6 +119,7 @@ VM.getList = function(type) {
     }
     Req.request('getActivityList', {
         position_id: checkTagArr,
+        position_type: this.data.tagAll || this.data.tagSubAll ? 1 : 0,
         status: status,
         address: this.data.address,
         keyword: this.data.keyword,
@@ -174,30 +187,47 @@ VM.filterHandle = function(e) {
 VM.deleteTagItem = function(e) {
     let index = util.dataset(e, 'index')
     let tar;
-    // return console.log(index);
-    for (let i = 0; i < this.data.tagSubList.length; i++) {
-        if (this.data.tagSubList[i].id == this.data.checkTagList[index].id) {
+    let data = this.data
+    let tagSubList = data.tagSubList
+    let checkTagList = data.checkTagList
+    // delete一级全部
+    if (data.tagAll) {
+        console.log('删除一级全部');
+        return this.setData({
+            tagAll: false,
+            tagIndex: -1,
+            tagSubList: [],
+            checkTagList: []
+        })
+    }
+    // delete二级全部
+    if (data.tagSubAll) {
+        let tar = 'tagSubList[0].selected'
+        console.log('删除二级全部');
+        return this.setData({
+            [tar]: false,
+            tagSubAll: false,
+            checkTagList: []
+        })
+    }
+
+    for (let i = 0; i < tagSubList.length; i++) {
+        if (tagSubList[i].id == checkTagList[index].id) {
             tar = 'tagSubList[' + i + '].selected'
             break;
         }
     }
-    this.data.checkTagList.splice(index, 1)
+    checkTagList.splice(index, 1)
     if (tar) {
         this.setData({
             [tar]: false,
-            checkTagList: this.data.checkTagList
+            checkTagList: checkTagList
         })
     } else {
         this.setData({
-            checkTagList: this.data.checkTagList
+            checkTagList: checkTagList
         })
     }
-}
-// 删除筛选条件-岗位-所有
-VM.deleteTagAll = function(e) {
-    this.setData({
-        checkTagList: []
-    })
 }
 // 删除筛选条件-地址
 VM.deleteAddressFilter = function() {
@@ -283,21 +313,26 @@ VM.hideFilter = function() {
 VM.tagFilter = function(e) {
     let index = util.dataset(e, 'index')
     if (this.data.tagIndex == index) {
-        return false
+        return
     }
     // wait
     if (index == 0) {
         return this.setData({
+            tagAll: true,
+            tagSubAll: false,
             tagIndex: index,
-            tagSubIndex: 0,
             tagSubList: [],
-            checkTagList: []
+            checkTagList: [{
+                id: 0,
+                name: '全部',
+                isAll: true
+            }]
         })
     }
     this.setData({
         tagIndex: index,
         tagSubList: [],
-        checkTagList: [],
+        // checkTagList: [],
     })
     // 获取二级
     Req.request('getTagList', {
@@ -305,13 +340,29 @@ VM.tagFilter = function(e) {
     }, {
         method: 'get'
     }, res => {
-        console.log(res);
-        let list = JSON.parse(JSON.stringify(res.data))
+        let list = res.data
         let checkTagList = this.data.checkTagList
+        let tagList = this.data.tagList
+        let tagIndex = this.data.tagIndex
         list.unshift({
-            id: '',
+            id: tagList[tagIndex].id,
             name: '全部'
         })
+        // 选择一级全部
+        if (this.data.tagAll) {
+            return this.setData({
+                tagSubList: list
+            })
+        }
+        // 选择二级全部
+        if (this.data.tagSubAll) {
+            if (checkTagList[0].id == tagList[tagIndex].id) {
+                list[0].selected = true
+            }
+            return this.setData({
+                tagSubList: list
+            })
+        }
         for (let i = 0; i < list.length; i++) {
             list[i].selected = false
             for (let j = 0, l = checkTagList.length; j < l; j++) {
@@ -322,7 +373,6 @@ VM.tagFilter = function(e) {
         }
         this.setData({
             tagSubList: list,
-            tagSubList2: res.data
         })
     })
 }
@@ -330,23 +380,50 @@ VM.tagFilter = function(e) {
 VM.tagSubFilter = function(e) {
     let index = util.dataset(e, 'index')
     if (index == 0) {
+        let data = this.data
+        let tagSubList = data.tagSubList
+        // 已选择二级全部
+        if (tagSubList[0].selected) {
+            tagSubList[0].selected = false
+            return this.setData({
+                tagSubAll: false,
+                tagSubList: tagSubList,
+                checkTagList: []
+            })
+        }
+        // 未选择二级全部
+        tagSubList.forEach(item => {
+            item.selected = false
+        })
+        let id = data.tagList[data.tagIndex].id
+        let name = data.tagList[data.tagIndex].name
+        let checkTagList = [{
+            id: id,
+            name: `${name}-全部`,
+            isSubAll: true
+        }]
+        let tar = 'tagSubList[0].selected'
         return this.setData({
+            tagAll: false,
             tagSubAll: true,
-            tagSubIndex: 0,
-            ['tagSubList[0].selected']: true,
-            checkTagList: this.data.tagSubList2
+            tagSubList: tagSubList,
+            checkTagList: checkTagList,
+            [tar]: true
         })
     }
-    // 原选-全部
+    // 原选-一级全部
+    if (this.data.tagAll) {
+        this.setData({
+            tagAll: false,
+            checkTagList: []
+        })
+    }
+    // 原选-二级全部
     if (this.data.tagSubAll) {
         this.setData({
             tagSubAll: false,
             checkTagList: [],
             ['tagSubList[0].selected']: false
-        })
-    } else {
-        this.setData({
-            tagSubAll: false
         })
     }
     // 原本已选择
@@ -482,14 +559,16 @@ VM.cancelSelect = function() {
     let type = this.data.filterType
     if (type == 0) {
         // 清空选中
-        this.data.tagSubList.forEach(item => {
+        let tagSubList = this.data.tagSubList
+        tagSubList.forEach(item => {
             item.selected = false
         })
         this.setData({
-            tagIndex: 0,
-            tagSubIndex: 0,
+            // tagIndex: -1,
+            tagAll: false,
+            tagSubAll: false,
             checkTagList: [],
-            tagSubList: this.data.tagSubList
+            tagSubList: tagSubList
         })
     } else if (type == 1) { //地址
         this.setData({
@@ -557,6 +636,7 @@ VM.confirmSearch = function() {
     }
     Req.request('getActivityList', {
         position_id: checkTagArr,
+        position_type: this.data.tagAll || this.data.tagSubAll ? 1 : 0,
         status: status,
         address: this.data.address,
         keyword: this.data.keyword,

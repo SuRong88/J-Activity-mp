@@ -24,12 +24,11 @@ const VM = {
         //搜索信息-关键字
         keyword: '',
         // 搜索信息-职位类型
-        tagSubAll: false, //二级类型全选
-        tagIndex: 0,
-        tagSubIndex: 0,
+        tagAll: false, //一级全选
+        tagSubAll: false, //二级全选
+        tagIndex: -1,
         tagList: [],
         tagSubList: [],
-        tagSubList2: [], //不加"全部"的二级类型arr
         // 搜索信息-已选类型
         checkTagList: [],
         // 搜索信息-省市区
@@ -78,6 +77,7 @@ VM.getList = function() {
     Req.request('getServiceList', {
         is_recommend: 0,
         position_id: '',
+        position_type: 1,
         address: '',
         keyword: '',
         page: this.data.current + 1,
@@ -145,30 +145,47 @@ VM.filterHandle = function(e) {
 VM.deleteTagItem = function(e) {
     let index = util.dataset(e, 'index')
     let tar;
-    // return console.log(index);
-    for (let i = 0; i < this.data.tagSubList.length; i++) {
-        if (this.data.tagSubList[i].id == this.data.checkTagList[index].id) {
+    let data = this.data
+    let tagSubList = data.tagSubList
+    let checkTagList = data.checkTagList
+    // delete一级全部
+    if (data.tagAll) {
+        console.log('删除一级全部');
+        return this.setData({
+            tagAll: false,
+            tagIndex: -1,
+            tagSubList: [],
+            checkTagList: []
+        })
+    }
+    // delete二级全部
+    if (data.tagSubAll) {
+        let tar = 'tagSubList[0].selected'
+        console.log('删除二级全部');
+        return this.setData({
+            [tar]: false,
+            tagSubAll: false,
+            checkTagList: []
+        })
+    }
+
+    for (let i = 0; i < tagSubList.length; i++) {
+        if (tagSubList[i].id == checkTagList[index].id) {
             tar = 'tagSubList[' + i + '].selected'
             break;
         }
     }
-    this.data.checkTagList.splice(index, 1)
+    checkTagList.splice(index, 1)
     if (tar) {
         this.setData({
             [tar]: false,
-            checkTagList: this.data.checkTagList
+            checkTagList: checkTagList
         })
     } else {
         this.setData({
-            checkTagList: this.data.checkTagList
+            checkTagList: checkTagList
         })
     }
-}
-// 删除筛选条件-岗位-所有
-VM.deleteTagAll = function(e) {
-    this.setData({
-        checkTagList: []
-    })
 }
 // 删除筛选条件-地址
 VM.deleteAddressFilter = function() {
@@ -230,21 +247,26 @@ VM.hideFilter = function() {
 VM.tagFilter = function(e) {
     let index = util.dataset(e, 'index')
     if (this.data.tagIndex == index) {
-        return false
+        return
     }
     // wait
     if (index == 0) {
         return this.setData({
+            tagAll: true,
+            tagSubAll: false,
             tagIndex: index,
-            tagSubIndex: 0,
             tagSubList: [],
-            checkTagList: []
+            checkTagList: [{
+                id: 0,
+                name: '全部',
+                isAll: true
+            }]
         })
     }
     this.setData({
         tagIndex: index,
         tagSubList: [],
-        checkTagList: [],
+        // checkTagList: [],
     })
     // 获取二级
     Req.request('getTagList', {
@@ -252,13 +274,29 @@ VM.tagFilter = function(e) {
     }, {
         method: 'get'
     }, res => {
-        console.log(res);
-        let list = JSON.parse(JSON.stringify(res.data))
+        let list = res.data
         let checkTagList = this.data.checkTagList
+        let tagList = this.data.tagList
+        let tagIndex = this.data.tagIndex
         list.unshift({
-            id: '',
+            id: tagList[tagIndex].id,
             name: '全部'
         })
+        // 选择一级全部
+        if (this.data.tagAll) {
+            return this.setData({
+                tagSubList: list
+            })
+        }
+        // 选择二级全部
+        if (this.data.tagSubAll) {
+            if (checkTagList[0].id == tagList[tagIndex].id) {
+                list[0].selected = true
+            }
+            return this.setData({
+                tagSubList: list
+            })
+        }
         for (let i = 0; i < list.length; i++) {
             list[i].selected = false
             for (let j = 0, l = checkTagList.length; j < l; j++) {
@@ -269,7 +307,6 @@ VM.tagFilter = function(e) {
         }
         this.setData({
             tagSubList: list,
-            tagSubList2: res.data
         })
     })
 }
@@ -277,23 +314,50 @@ VM.tagFilter = function(e) {
 VM.tagSubFilter = function(e) {
     let index = util.dataset(e, 'index')
     if (index == 0) {
+        let data = this.data
+        let tagSubList = data.tagSubList
+        // 已选择二级全部
+        if(tagSubList[0].selected){
+            tagSubList[0].selected = false
+            return this.setData({
+                tagSubAll:false,
+                tagSubList:tagSubList,
+                checkTagList:[]
+            })
+        }
+        // 未选择二级全部
+        tagSubList.forEach(item => {
+            item.selected = false
+        })
+        let id = data.tagList[data.tagIndex].id
+        let name = data.tagList[data.tagIndex].name
+        let checkTagList = [{
+            id: id,
+            name: `${name}-全部`,
+            isSubAll: true
+        }]
+        let tar = 'tagSubList[0].selected'
         return this.setData({
+            tagAll: false,
             tagSubAll: true,
-            tagSubIndex: 0,
-            ['tagSubList[0].selected']: true,
-            checkTagList: this.data.tagSubList2
+            tagSubList: tagSubList,
+            checkTagList: checkTagList,
+            [tar]: true
         })
     }
-    // 原选-全部
+    // 原选-一级全部
+    if (this.data.tagAll) {
+        this.setData({
+            tagAll: false,
+            checkTagList: []
+        })
+    }
+    // 原选-二级全部
     if (this.data.tagSubAll) {
         this.setData({
             tagSubAll: false,
             checkTagList: [],
             ['tagSubList[0].selected']: false
-        })
-    } else {
-        this.setData({
-            tagSubAll: false
         })
     }
     // 原本已选择
@@ -404,7 +468,7 @@ VM.areaFilter = function(e) {
     let data = this.data
     if (index == 0) {
         return this.setData({
-            address: this.data.provinceList[this.data.provinceIndex].name + data.cityList[data.cityIndex]
+            address: data.provinceList[data.provinceIndex].name + data.cityList[data.cityIndex]
                 .name,
             areaIndex: 0
         })
@@ -422,14 +486,16 @@ VM.cancelSelect = function() {
     // 类型
     if (this.data.filterType == 0) {
         // 清空选中
-        this.data.tagSubList.forEach(item => {
+        let tagSubList = this.data.tagSubList
+        tagSubList.forEach(item => {
             item.selected = false
         })
         this.setData({
-            tagIndex: 0,
-            tagSubIndex: 0,
+            // tagIndex: -1,
+            tagAll: false,
+            tagSubAll: false,
             checkTagList: [],
-            tagSubList: this.data.tagSubList
+            tagSubList: tagSubList
         })
     } else { //地址
         this.setData({
@@ -526,48 +592,6 @@ VM.confirmSearch = function() {
     wx.navigateTo({
         url: '/pages/resource/search/search'
     })
-    // // 清空列表数据
-    // this.setData({
-    //     current: 0,
-    //     rownum: 10,
-    //     total: 0,
-    //     total_page: 1,
-    //     list: [],
-    //     isEmpty: false
-    // })
-    // // 岗位类型id 数组
-    // let checkTagArr = []
-    // for (let i = 0; i < this.data.checkTagList.length; i++) {
-    //     checkTagArr.push(this.data.checkTagList[i].id)
-    // }
-    // if (checkTagArr.length <= 0) {
-    //     checkTagArr = ''
-    // } else {
-    //     checkTagArr = JSON.stringify(checkTagArr)
-    // }
-    // Req.request('getServiceList', {
-    //     is_recommend: 0,
-    //     position_id: checkTagArr,
-    //     address: this.data.address,
-    //     keyword: this.data.keyword,
-    //     page: this.data.current + 1,
-    //     identity: app.globalData.roleType,
-    //     rownum: this.data.rownum
-    // }, {
-    //     method: 'get'
-    // }, (res) => {
-    //     let data = res.data
-    //     let pagination = res.data.pagination
-    //     let list = this.data.list
-    //     this.setData({
-    //         list: list.concat(data.list),
-    //         current: pagination.current * 1,
-    //         rownum: pagination.rownum * 1,
-    //         total: pagination.total * 1,
-    //         total_page: pagination.total_page * 1,
-    //         isEmpty: pagination.total * 1 <= 0 ? true : false
-    //     })
-    // })
 }
 VM.onReachBottom = function() {
     this.getList()

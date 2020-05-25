@@ -22,7 +22,7 @@
                             <view class="service-item-r flex-1">
                                 <view class="service-item-name-price flex flex-ver flex-jcsb">
                                     <text class="service-item-name">{{subItem.nickname}}</text>
-                                    <text class="service-item-price">¥{{subItem.salary}}</text>
+                                    <text class="service-item-price">{{item.salary==0?'面议':'¥'+item.salary}}</text>
                                 </view>
                                 <view class="service-item-info">
                                     身份证号：{{subItem.id_card}}

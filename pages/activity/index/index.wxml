@@ -92,13 +92,7 @@
         <!-- 已选择的筛选条件 -->
         <view wx:if="{{checkTagList.length>0||address!=''||statusIndex>0}}" class="filter-select-box flex flex-wrap">
             <!-- 1类型 -->
-            <!-- 1.1类型-全部 -->
-            <view wx:if="{{tagSubAll}}" class="filter-select-item">
-                {{tagList[tagIndex].name}}-全部
-                <image bindtap="deleteTagAll" data-index="index" class="delete-icon" src="/images/search/event_icon09.png"></image>
-            </view>
-            <!-- 1.2类型 某一些 -->
-            <view wx:if="{{!tagSubAll}}" wx:for="{{checkTagList}}" wx:key="index" class="filter-select-item">
+            <view wx:for="{{checkTagList}}" wx:key="index" class="filter-select-item">
                 {{item.name}}
                 <image bindtap="deleteTagItem" data-index="{{index}}" class="delete-icon" src="/images/search/event_icon09.png"></image>
             </view>

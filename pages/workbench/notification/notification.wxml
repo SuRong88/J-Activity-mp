@@ -6,7 +6,7 @@
             <view class='notify-box width-len flex flex-col'>
                 <view class="flex flex-sb width-len">
                     <view class='tit'>{{item.message.title}}</view>
-                    <view class="redDot"></view>
+                    <view hidden class="redDot"></view>
                 </view>
                 <view class='detail text-j'>
                     {{item.message.body}}
