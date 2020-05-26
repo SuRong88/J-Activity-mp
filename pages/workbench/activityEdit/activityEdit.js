@@ -71,6 +71,11 @@ VM.submitEdit = function() {
     if (formcheck.check_null(data.desc)) {
         return util.Toast('请输入活动描述')
     }
+    let startDate = Date.parse(data.startDate.replace(/-/g, "/"))
+    let endDate = Date.parse(data.endDate.replace(/-/g, "/"))
+    if (startDate > endDate) {
+        return util.Toast('活动时间有误')
+    }
     Req.request('editActivity', {
         activity_id: data.id,
         name: data.name,

@@ -5,8 +5,8 @@ const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 const VM = {
     data: {
-        coverId: '',
-        coverImg: '',
+        coverId: '1107',
+        coverImg: '/images/default/default.jpg',
         name: '',
         desc: '',
         address: '', //地区
