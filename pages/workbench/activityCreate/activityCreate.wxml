@@ -36,7 +36,7 @@
             <view class="info-item">
                 <view class="item-label">
                     <text class="label">活动图片</text>
-                    <text class="label-desc">（必填）</text>
+                    <text class="label-desc">（非必填）</text>
                 </view>
                 <view class="item-content">
                     <image bindtap="chooseImg" mode="aspectFill" class="upload-img" src="{{coverImg?coverImg:'/images/task/upload.jpg'}}"></image> 
