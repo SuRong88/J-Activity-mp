@@ -14,7 +14,7 @@
                     <text>手机号</text>
                 </view>
                 <view class="phone-enter-box flex flex-ver flex-jcsb">
-                    <input maxlength="11" bindinput="changeInput" data-key="phone" placeholder="请输入手机号"
+                    <input value="{{phone}}" disabled maxlength="11" bindinput="changeInput" data-key="phone" placeholder="请输入手机号"
                         placeholder-class="holder-class" class="item-enter flex-1" type="number" />
                     <view bindtap="sendCode" class="send-code {{phone_code_class}}">{{phone_code_text}}</view>
                 </view>

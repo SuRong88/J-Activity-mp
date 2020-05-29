@@ -149,7 +149,7 @@
 .sec02 .activity-list {}
 
 .sec02 .activity-item {
-    height: 390rpx;
+    min-height: 390rpx;
     box-shadow: 0px 0px 24px 0px rgba(238, 237, 237, 1);
     border-radius: 6rpx;
     position: relative;
@@ -173,7 +173,9 @@
     width: 410rpx;
 }
 
-.sec02 .item-l-top {}
+.sec02 .item-l-top {
+    margin-bottom: 14rpx;
+}
 
 .sec02 .item-l-top .item-tit {
     font-size: 30rpx;

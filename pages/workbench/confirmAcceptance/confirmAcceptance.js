@@ -28,7 +28,11 @@ const VM = {
 VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
-
+    
+    this.setData({
+        phone: wx.getStorageSync('phone')
+    })
+    
     let pages = getCurrentPages()
     let prevPage = pages[pages.length - 2]
     let prevData = prevPage.data

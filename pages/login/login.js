@@ -184,6 +184,7 @@ VM.confirmLogin = function(e) {
         console.log(res);
         util.Toast('登录成功')
         let data = res.data
+        wx.setStorageSync('phone', this.data.phone)
         wx.setStorageSync('token', data.token)
         app.onLaunch()
         setTimeout(() => {

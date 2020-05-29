@@ -26,7 +26,7 @@
                 </view>
                 <view class="item-m" bindtap="base_jump" data-url="/pages/workbench/activityDetail/activityDetail?id={{item.id}}">
                     <view class="item-tit line-hide line-1">{{item.name}}</view>
-                    <view class="item-desc line-hide line-2">{{item.desc}}</view>
+                    <view class="item-desc line-hide line-2">活动描述：{{item.desc}}</view>
                     <view class="item-date">活动时间：{{item.start_time}}-{{item.end_time}}</view>
                     <view class="item-address line-hide line-1">活动地点：{{item.address}}{{item.addressDetail}}</view>
                 </view>

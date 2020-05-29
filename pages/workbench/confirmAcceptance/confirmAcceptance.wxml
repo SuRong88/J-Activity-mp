@@ -17,7 +17,7 @@
         <view class="phone-box">
             <view class="enter-item flex flex-ver">
                 <image class="item-icon" src="/images/login/icon18.png"></image>
-                <input bindinput="inputPhone" placeholder="请输入手机号码" placeholder-class="enter-placeholder" class="item-enter flex-1"
+                <input value="{{phone}}" disabled bindinput="inputPhone" placeholder="请输入手机号码" placeholder-class="enter-placeholder" class="item-enter flex-1"
                     type="text" />
             </view>
             <view class="enter-item  flex flex-ver">

@@ -587,7 +587,6 @@ VM.confirmSearch = function() {
         checkTagList: this.data.checkTagList,
         address: this.data.address
     }
-    console.log(searchServiceInfo);
     app.globalData.searchServiceInfo = searchServiceInfo
     wx.navigateTo({
         url: '/pages/resource/search/search'

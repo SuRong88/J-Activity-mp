@@ -27,6 +27,9 @@ const VM = {
 VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
+    this.setData({
+        phone: wx.getStorageSync('phone')
+    })
 }
 VM.onLoad = function(query) {
     this.init()

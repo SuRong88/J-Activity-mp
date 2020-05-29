@@ -40,9 +40,10 @@
                     </view>
                 </view>
                 <view class="detail-con">
+                    <view class="delete-tit">活动描述：</view>
                     <image wx:if="{{detail.cover_img}}" mode="widthFix" src="{{detail.cover_img}}" class="detail-img"></image>
                     <view class="delete-desc text-j">
-                        {{detail.desc}}
+                       {{detail.desc}}
                     </view>
                 </view>
             </view>

@@ -65,9 +65,9 @@
                         <view class="hd-price">¥{{detail.final_amount}}</view>
                     </view>
                     <view class="finish-bd">
-                        <view class="box04-info-item">验收材料：</view>
-                        <image class="img" src="{{detail.service_img}}"></image>
-                        <view class="box04-info-item">验收说明：{{detail.remark}}</view>
+                        <view class="box04-info-item">验收材料：{{detail.service_img?'':'无'}}</view>
+                        <image wx:if="{{detail.service_img}}" class="img" src="{{detail.service_img}}"></image>
+                        <view class="box04-info-item">验收说明：{{detail.remark?detail.remark:'无'}}</view>
                     </view>
                 </view>
             </view>

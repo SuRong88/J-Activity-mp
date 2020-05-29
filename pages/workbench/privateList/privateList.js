@@ -95,4 +95,16 @@ VM.cancelRemove = function() {
         removeId: '',
     })
 }
+// 添加服务商
+VM.addPrivate = function(){
+    let searchServiceInfo = {
+        keyword: '',
+        checkTagList: [],
+        address: ''
+    }
+    app.globalData.searchServiceInfo = searchServiceInfo
+    wx.navigateTo({
+        url: '/pages/resource/search/search'
+    })
+}
 Page(VM)

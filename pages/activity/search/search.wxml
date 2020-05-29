@@ -117,26 +117,31 @@
                         <view class="item-tit line-hide line-2">
                             {{item.name}}
                         </view>
-                        <view class="item-txt line-hide line-1">
-                            <block wx:for="{{item.position_list}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="index"
-                                class="tag-item">
+                        <view style="margin-bottom: 10rpx;" class="item-txt line-hide line-1">
+                            招募职位：
+                            <block wx:for="{{item.position_list}}" wx:for-item="subItem" wx:for-index="subIndex"
+                                wx:key="index" class="tag-item">
                                 {{subItem.name}}
                                 {{subIndex<item.position_list.length-1?'、':''}}
                             </block>
                         </view>
+                        <view class="item-txt line-hide line-2">
+                            活动描述 ：
+                            {{item.desc?item.desc:'无'}}
+                        </view>
                     </view>
                     <view class="item-l-bottom info-list">
-                        <view class="info-item">
-                            <text>活动地区：</text>
-                            <text>{{item.address}}</text>
+                        <view class="info-item line-hide line-2">
+                            <text style="white-space: nowrap;">活动地区：</text>
+                            <text >{{item.address}}</text>
                         </view>
                         <view class="info-item">
                             <text>活动时间：</text>
-                            <text>{{item.start_time}}-{{item.end_time}}</text>
+                            <text> {{item.start_time}}- {{item.end_time}}</text>
                         </view>
                         <view class="info-item">
                             <text>所需人数：</text>
-                            <text>{{item.apply_num}}/{{item.people_num}}</text>
+                            <text> {{item.apply_num}}/ {{item.people_num}}</text>
                         </view>
                     </view>
                 </view>

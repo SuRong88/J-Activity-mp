@@ -114,9 +114,10 @@ VM.savePoster = function() {
 // 分享
 VM.onShareAppMessage = function() {
     let sharePath = '/pages/index/index'
-    if (this.data.titleIndex == 2) {
-        sharePath = '/pages/activity/detail/detail?id=' + this.data.activityId
-    }
+    // 原本创建活动成功之后 分享链接为“活动详情页面” 现在统一为“首页”
+    // if (this.data.titleIndex == 2) {
+    //     sharePath = '/pages/activity/detail/detail?id=' + this.data.activityId
+    // }
     return {
         title: "“J活动”优质活动职位等你来接单！",
         path: sharePath,

@@ -13,7 +13,7 @@
                     {{info.name}}
                 </view>
                 <view class="info-desc ">
-                    {{info.desc}}
+                    活动描述：{{info.desc}}
                 </view>
                 <view class="info-date">发布时间：{{info.create_time}}</view>
             </view>

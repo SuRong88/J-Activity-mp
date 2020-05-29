@@ -29,13 +29,17 @@ const VM = {
 VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
+
+    let phone = wx.getStorageSync('phone')
+
     let pages = getCurrentPages()
     let prevPage = pages[pages.length - 2]
     let list = prevPage.data.list
     let imgId = prevPage.data.imgId
     this.setData({
         imgId: imgId,
-        list: list
+        list: list,
+        phone: phone
     })
 }
 VM.onLoad = function(query) {

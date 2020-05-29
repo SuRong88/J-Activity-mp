@@ -107,6 +107,12 @@
     margin-bottom: 38rpx;
 }
 
+.delete-tit{
+    font-size: 28rpx;
+    color: rgba(102, 102, 102, 1);
+    margin-bottom: 20rpx;
+}
+
 .delete-desc {
     font-size: 28rpx;
     color: rgba(102, 102, 102, 1);
