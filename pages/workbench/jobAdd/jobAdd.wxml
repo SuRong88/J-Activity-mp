@@ -74,8 +74,7 @@
                         </view>
                         <view class="item-content">
                             <input value="{{item.salary}}" type="number" bindinput="changeInput" data-key="price"
-                                data-index="{{index}}" class="item-enter" placeholder="请输入预算金额" placeholder-class="holder-class"
-                                type="text" />
+                                data-index="{{index}}" class="item-enter" placeholder="请输入预算金额" placeholder-class="holder-class"/>
                         </view>
                     </view>
                     <view class="info-item">

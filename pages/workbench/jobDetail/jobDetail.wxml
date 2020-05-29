@@ -97,7 +97,9 @@
                     <block wx:if="{{status==2}}">
                         <!-- 1待工作(已通过或未审核)2待验收(已完成)3已完结(已验收)4未选中5已取消 -->
                         <!-- a待验收-未通过 -->
-                        <block wx:if="{{item.apply_status==2}}">
+
+                        <!-- 服务商“待工作”或“待验收” 只要企业通过验收 对应本次就已完结-->
+                        <block wx:if="{{item.apply_status==1||item.apply_status==2}}">
                             <view bindtap="base_jump" data-url="/pages/workbench/serviceDetail/serviceDetail?userId={{item.id}}&index={{index}}"
                                 class="item-btn plain">
                                 服务商详情

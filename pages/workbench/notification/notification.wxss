@@ -5,7 +5,7 @@ page {
 
 .content {
     box-sizing: border-box;
-    padding: 0 30rpx;
+    padding: 0 30rpx 60rpx; 
 }
 
 .text {

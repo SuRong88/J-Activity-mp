@@ -41,9 +41,6 @@ function jump(e) {
             showLogin: true
         })
     }
-    // console.log(oldUrl, newUrl, type);
-    // console.log(checkIndex, checkUrl);
-    // console.log(allowPages.indexOf(checkUrl));
     // 1.未登录可跳转页面 end
     // 2.跳转
     if (`/${oldUrl}` == newUrl) {

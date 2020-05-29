@@ -8,14 +8,13 @@ App({
         this.userLogin()
     },
     globalData: {
-        showWelcome: false, //首页欢迎
+        showWelcome: true, //首页欢迎
         showModaled: false, // 防止显示多个showModal
         isConnected: true, //网络是否连接
         isLogined: false, //当前是否登录状态
         isAuthed: true, //登录用户是否已实名
         userInfo: null, //微信用户信息
         companyInfo: null, //企业信息
-        // myInfo: null, //服务器用户信息
         roleType: 1, //用户角色 1-服务商、2-商家
         oldTagList: [], //完善信息的类型数组
         newTagList: [],
@@ -61,11 +60,6 @@ App({
     },
     // 判断有没有授权用户信息
     checkAuthorize: function(cb_success, cb_fail) {
-        // 保留
-        // if (!wx.getStorageSync('token')) {
-        //     console.log('token缺失')
-        //     return cb_fail()
-        // }
         wx.getSetting({
             success: res => {
                 // 检查授权
@@ -164,15 +158,6 @@ App({
             return Req.OPTIONS.getCaptcha3.url + '?t=' + currentDate
         }
     },
-    // 获取服务器用户信息(未启用)
-    getUserInfo: function() {
-        Req.request('getMyInfo', null, {
-            method: 'get'
-        }, res => {
-            this.globalData.myInfo = res.data
-            console.log(this.globalData.myInfo);
-        })
-    },
     // 获取微信用户信息
     getWexinInfo: function() {
         // 获取微信用户信息
@@ -226,9 +211,6 @@ App({
                         })
                     } else if (res.cancel) {
                         util.Toast('取消授权')
-                        // wx.navigateTo({
-                        //     url: '/pages/index/index'
-                        // })
                     }
                 }
             })
@@ -251,9 +233,6 @@ App({
                     tabbarType: res.data.identity,
                     isAuthed: isAuthed
                 })
-                // 可删除
-                // pages[i].init()
-                // 可删除end
             }
         })
     }

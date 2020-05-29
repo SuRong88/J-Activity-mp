@@ -86,7 +86,6 @@ Component({
     lifetimes: {
         created: function() {},
         attached: function() {
-            // 不箭头函数 this指向该组件实例?
             base.onLoad(this);
         },
         moved: function() {},

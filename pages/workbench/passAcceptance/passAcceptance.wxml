@@ -2,7 +2,7 @@
     <mp-header isHome="{{isHome}}" showBack title="{{titleArr[type-1]}}"></mp-header>
     <view class="content">
         <view class="data-menu">
-            <view class="data-item">
+            <view wx:if="{{info.service_img}}" class="data-item">
                 <view class="item-label">
                     验收材料
                 </view>

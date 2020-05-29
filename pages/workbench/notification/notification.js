@@ -8,7 +8,7 @@ const VM = {
     data: {
         // pagination
         current: 0,
-        rownum: 4,
+        rownum: 8,
         total: 0,
         total_page: 1,
         list: [],
